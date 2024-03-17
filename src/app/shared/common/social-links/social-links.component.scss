@@ -1,0 +1,48 @@
+// Social Links
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    gap: 0.5em;
+
+    li {
+      margin: 0;
+      a {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        i {
+          font-size: 32px;
+
+          &.dark {
+            // styles for dark mode
+            color: #aaa;
+            &:hover {
+              color: #ccc;
+            }
+          }
+
+          &.light {
+            // styles for light mode
+            color: #777;
+            &:hover {
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+  }
+}
