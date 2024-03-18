@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './core/toolbar/toolbar.component';
+import { MainNavModule } from './core/main-nav/main-nav.module';
 
 @NgModule({
   declarations: [ToolbarComponent],
-  imports: [CommonModule],
-  exports: [ToolbarComponent], // add this line if you want to use it in other modules
+  exports: [ToolbarComponent],
+  imports: [CommonModule, MainNavModule],
 })
 export class AppModule {}
