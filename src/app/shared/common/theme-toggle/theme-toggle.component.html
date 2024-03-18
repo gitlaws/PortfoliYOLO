@@ -1,1 +1,43 @@
-<p>theme-toggle works!</p>
+<main class="parent">
+  <article class="child">
+    <!-- <h1><span class="highlight">Theme</span></h1> -->
+    <!-- theme-toggle.button -->
+    <div
+      class="btn"
+      (click)="toggleTheme()"
+      [class.darkmode]="isDarkMode"
+      [class.dark]="isDarkMode"
+      [class.light]="!isDarkMode"
+    >
+      <!-- Rotate Icon 'translateX()' -->
+      <div
+        class="btn__indicator"
+        [ngStyle]="{ transform: isDarkMode ? 'translateX(1.24em)' : 'none' }"
+      >
+        <button
+          title="Toggle Dark Mode"
+          class="btn__icon-container"
+          [attr.aria-label]="
+            isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'
+          "
+          [class.darkmode-bg]="isDarkMode"
+        >
+          <i
+            [class]="
+              isDarkMode ? 'fas fa-moon btn__icon' : 'fas fa-sun btn__icon'
+            "
+            [class.spin]="isAnimated"
+          ></i>
+        </button>
+        <!-- Logo Toggle Button -->
+        <button
+          class="logo-toggle-button hidden"
+          (click)="toggleLogo()"
+          title="Insert Loggle"
+        >
+          _$
+        </button>
+      </div>
+    </div>
+  </article>
+</main>
