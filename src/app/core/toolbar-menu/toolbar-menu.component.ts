@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-menu',
-  standalone: true,
-  imports: [],
   templateUrl: './toolbar-menu.component.html',
   styleUrl: './toolbar-menu.component.scss',
 })
