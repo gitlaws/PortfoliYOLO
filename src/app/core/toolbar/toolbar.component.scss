@@ -1,6 +1,6 @@
-@import "src/styles/_colors";
-@import "src/styles/_mixins";
-@import "src/styles/_variables";
+@import "./styles/colors";
+@import "./styles/variables";
+@import "./styles/mixins";
 
 .nav-container {
   display: flex;
