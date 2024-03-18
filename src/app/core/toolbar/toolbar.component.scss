@@ -2,7 +2,7 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-.header-container {
+.toolbar-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -11,18 +11,18 @@
   @include box-shadow;
 }
 
-.nav-menu {
+.toolbar-menu {
   display: none;
 }
 
-.navigation-menu {
+.toolbar-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
 
-.navigation-links {
+.toolbar-social-links {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,25 +46,25 @@
 }
 
 @media (max-width: $mobile) {
-  .header-container {
+  .toolbar-container {
     // flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
 
-  .theme-toggle {
+  .toolbar-theme-button {
     display: none;
   }
 
-  .social-links {
+  .toolbar-social-links {
     display: none;
   }
 
-  .navigation-menu {
+  .toolbar-items {
     display: block;
   }
 
-  .navigation-links {
+  .toolbar-social-links {
     display: none;
   }
 }
