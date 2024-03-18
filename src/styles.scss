@@ -1,13 +1,12 @@
-@import "src/styles/_colors.scss";
-@import "src/styles/_mixins.scss";
-@import "src/styles/_variables.scss";
-
+@import "./styles/_variables.scss";
+@import "./styles/_mixins.scss";
+@import "./styles/_colors.scss";
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,900&display=swap");
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 * {
   scroll-behavior: smooth;
