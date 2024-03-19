@@ -1,0 +1,17 @@
+.toolbar-links {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.toolbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.toolbar-links a:hover {
+  color: #007bff;
+}
