@@ -2,7 +2,7 @@ $primary-color: #333;
 $hover-color: #007bff;
 $background-color: #f8f8f8;
 
-.toolbar-links {
+.main-links {
   display: flex;
   justify-content: space-around;
   padding: 1rem;
@@ -11,13 +11,13 @@ $background-color: #f8f8f8;
   gap: 1rem;
 }
 
-.toolbar-links a {
+.main-links a {
   color: $primary-color;
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
-.toolbar-links a:hover {
+.main-links a:hover {
   color: $hover-color;
 }
