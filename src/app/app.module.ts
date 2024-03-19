@@ -5,7 +5,6 @@ import { SocialLinksModule } from './shared/common/social-links/social-links.mod
 import { ThemeToggleModule } from './shared/common/theme-toggle/theme-toggle.module';
 import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 import { LinksModule } from './shared/common/links/links.module';
-import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 
 @NgModule({
   declarations: [ToolbarComponent],
