@@ -116,3 +116,14 @@ $menu-toggle-transition: all 0.3s ease;
     transform: translateX(-5%); // No need to translate
   }
 }
+
+.link-item {
+  list-style: none;
+  // margin: 10px 0;
+  a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+  }
+}
