@@ -1,8 +1,12 @@
 $menu-toggle-color: #ffffff;
 $menu-toggle-hover-color: #cccccc;
 $menu-toggle-transition: all 0.3s ease;
+$menu-bg-color: #333333;
+$menu-hover-bg-color: #555555;
+$menu-link-color: #ffffff;
+$menu-link-hover-color: #000000;
 
-.menu-toggle {
+.header__menu-toggle {
   position: relative;
   color: $menu-toggle-color;
   font-size: 1.2em;
@@ -11,12 +15,12 @@ $menu-toggle-transition: all 0.3s ease;
 
   &:hover {
     color: $menu-toggle-hover-color;
-    .container-with-bg {
+    .menu-toggle__bg-container {
       opacity: 1;
     }
   }
 
-  .container-with-bg {
+  .menu-toggle__bg-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,7 +38,7 @@ $menu-toggle-transition: all 0.3s ease;
     }
   }
 
-  .ellipsis {
+  .menu-toggle__ellipsis {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -51,17 +55,15 @@ $menu-toggle-transition: all 0.3s ease;
   }
 }
 
-.menu {
+.header__menu {
   position: absolute;
   top: auto; // Positions .menu right below .menu-toggle
   right: 0%;
-
+  list-style-type: none;
   transform: translateX(-50%);
   width: 200px;
-  background: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  // padding: 20px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
 
@@ -76,54 +78,61 @@ $menu-toggle-transition: all 0.3s ease;
     align-items: center;
     list-style: none;
     padding: 10px 0;
-    color: #ffffff; // White color for the text
-    background-color: #333333; // Dark background for the menu item
-    text-shadow: 0px 0px 3px #000000; // Text shadow for better readability
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     &:hover {
-      background-color: #555555; // Slightly lighter background on hover
-      color: #ffffff; // Keep text white on hover for high contrast
-      text-shadow: 0px 0px 5px #000000;
-      box-shadow: inset 0 0 10px #000000; // Darker inset shadow on hover
-      transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(270deg, #f5f5f5, #c0c0c0, #cccccc, #ffffff);
+      background-size: 800% 800%;
+      animation: gradient 5s ease infinite;
     }
 
     a {
+      color: #000000;
       text-decoration: none;
-      color: inherit; // Inherit color from parent li
-      font-weight: bold;
-      transition: color 0.3s ease; // Add a transition for the color
+      font-family: "Michroma", sans-serif;
+      font-weight: 400;
+      font-style: normal;
 
       &:hover {
-        color: #000000; // Black color for better contrast with white
-
-        text-shadow: 0px 0px 5px #000000;
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.1
-        ); // Add a subtle background color on hover
-        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-          background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        text-shadow: 0px 0px 3px #000000;
+        cursor: pointer;
       }
     }
   }
 
+  // .menu__item-link {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   list-style: none;
+  //   padding: 10px 0;
+
+  //   &:hover {
+  //     // color: $menu-link-color;
+  //     // background-color: $menu-bg-color;
+  //     text-shadow: 0px 0px 3px #000000;
+  //   }
+
+  //   a {
+
+  //   }
+  // }
+
   @media (max-width: 320px) {
     transform: translateX(-5%); // No need to translate
-  }
-}
-
-.link-item {
-  list-style: none;
-  // margin: 10px 0;
-  a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
   }
 }

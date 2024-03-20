@@ -1,6 +1,6 @@
-<button class="menu-toggle" aria-label="Menu" (click)="toggleMenu()">
-  <div class="container-with-bg"></div>
-  <div class="ellipsis">
+<button class="header__menu-toggle" aria-label="Menu" (click)="toggleMenu()">
+  <div class="menu-toggle__bg-container"></div>
+  <div class="menu-toggle__ellipsis">
     <span></span>
     <span></span>
     <span></span>
@@ -8,10 +8,10 @@
 </button>
 
 <!-- Menu -->
-<ul *ngIf="isMenuOpen" class="menu">
+<ul *ngIf="isMenuOpen" class="header__menu">
   <!-- Links -->
-  <li class="link-item"><a routerLink="/projects">Projects</a></li>
-  <li class="link-item"><a routerLink="/profile">Profile</a></li>
+  <li class="menu__item-link"><a routerLink="/projects">Projects</a></li>
+  <li class="menu__item-link"><a routerLink="/profile">Profile</a></li>
 
   <!-- Theme toggle -->
   <li>
