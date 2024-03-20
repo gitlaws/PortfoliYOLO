@@ -12,7 +12,7 @@
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 
   // border-bottom: 4px solid #000;
-    // @include box-shadow;
+  // @include box-shadow;
 }
 
 .toolbar-menu {
@@ -24,6 +24,25 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+}
+
+.toolbar-link {
+  text-decoration: none;
+  color: #000;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #ff6347; // Tomato color on hover
+    color: #fff;
+  }
+
+  &.active {
+    border-bottom: 3px solid #ff6347; // Tomato color for active link
+  }
 }
 
 .toolbar-social-links {
