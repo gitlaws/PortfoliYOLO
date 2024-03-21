@@ -36,6 +36,8 @@ $mobile: 768px;
   }
 
   p {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
     color: $secondary-color;
     line-height: 1.5; // Increase line height for better readability
     margin-bottom: 15px; // Add spacing
