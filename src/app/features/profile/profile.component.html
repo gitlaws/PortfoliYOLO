@@ -57,6 +57,22 @@
     </p>
   </main>
   <aside class="profile-aside right">
-    <app-profile-tabnav></app-profile-tabnav>
+    <!-- <app-profile-tabnav></app-profile-tabnav> -->
+    <app-tabnav>
+      <app-tab title="Tab 1" [numLayers]="2">
+        <div *ngIf="tab.isLayerActive(0)">
+          <!-- Content for Tab 1, Layer 1 -->
+          <p>Description about skills</p>
+        </div>
+        <div *ngIf="tab.isLayerActive(1)" layer>
+          <!-- Content for Tab 1, Layer 2 -->
+          <p>Description about experience</p>
+        </div>
+      </app-tab>
+      <app-tab title="Tab 2">
+        <!-- Content for Tab 2 -->
+        <p>Description about Tab 2</p>
+      </app-tab>
+    </app-tabnav>
   </aside>
 </div>

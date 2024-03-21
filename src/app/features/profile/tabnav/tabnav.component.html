@@ -1,0 +1,25 @@
+<div class="tab-navigation">
+  <ul class="tabs">
+    <li
+      *ngFor="let tab of tabs; let i = index"
+      [class.active]="selectedTab === i"
+      (click)="selectTab(i)"
+    >
+      {{ tab.title }}
+    </li>
+  </ul>
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="footer">
+    <button (click)="navigate('previous')" [disabled]="selectedTab === 0">
+      Previous
+    </button>
+    <button
+      (click)="navigate('next')"
+      [disabled]="selectedTab === tabs.length - 1"
+    >
+      Next
+    </button>
+  </div>
+</div>
