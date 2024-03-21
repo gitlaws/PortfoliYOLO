@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './profile-tabnav.component.html',
-  styleUrl: './profile-tabnav.component.scss'
+  styleUrl: './profile-tabnav.component.scss',
 })
-export class ProfileTabnavComponent {
-
-}
+export class ProfileTabnavComponent {}
