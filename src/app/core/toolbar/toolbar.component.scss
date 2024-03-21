@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-around;
   height: 100px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2); // !TODO: Add @Include shadow mixin
 }
 
 .header__menu {
@@ -29,15 +29,16 @@
   font-weight: 400;
   font-style: normal;
   padding: 10px 15px;
-  transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    background-color: #ff6347; // Tomato color on hover
-    color: #fff;
-  }
-
-  &.active {
-    border-bottom: 3px solid #ff6347; // Tomato color for active link
+    text-shadow: 0px 0px 3px #000000;
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 10px;
+    transition: background-color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      text-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      border-radius 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 }
 
