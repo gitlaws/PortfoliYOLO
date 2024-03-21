@@ -1,62 +1,74 @@
-/* CSS */
-/* CSS */
-
-.profile-aside.left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 20px;
   padding: 20px;
-  background-color: #f0f0f0;
-}
-
-.profile-aside.left img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: contain;
-}
-
-.profile-main {
-  text-align: center;
   color: #333;
-  padding: 20px;
-}
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
 
-.profile-main h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 
-.profile-main h2 {
-  font-size: 1.5em;
-  color: #777;
-  margin-bottom: 1em;
-}
+  .profile-aside {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s ease-in-out;
 
-.profile-main p {
-  font-size: 1em;
-  line-height: 1.6em;
-}
+    // &:hover {
+    //   transform: scale(1.05);
+    // }
 
-/* CSS */
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
 
-.profile-aside.right {
-  padding: 20px;
-  background-color: #f0f0f0;
-}
+    h3 {
+      margin-top: 20px;
+      color: #007bff;
+    }
 
-.profile-aside.right h3 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-}
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
 
-.profile-aside.right ul {
-  list-style-type: none;
-  padding: 0;
-}
+      li {
+        margin-bottom: 10px;
+        transition: all 0.3s ease-in-out;
 
-.profile-aside.right ul li {
-  font-size: 1em;
-  line-height: 1.6em;
-  margin-bottom: 0.5em;
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  }
+
+  .profile-main {
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    h1 {
+      color: #007bff;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #6c757d;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  }
 }
