@@ -1,1 +1,32 @@
-<p>profile-tabnav works!</p>
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="tab-nav">
+      <div
+        class="tab"
+        [class.active]="activeTab === 'tab1'"
+        (click)="activeTab = 'tab1'"
+      >
+        Tab 1
+      </div>
+      <div
+        class="tab"
+        [class.active]="activeTab === 'tab2'"
+        (click)="activeTab = 'tab2'"
+      >
+        Tab 2
+      </div>
+      <div
+        class="tab"
+        [class.active]="activeTab === 'tab3'"
+        (click)="activeTab = 'tab3'"
+      >
+        Tab 3
+      </div>
+    </div>
+    <div class="tab-content">
+      <div *ngIf="activeTab === 'tab1'">Tab 1 content</div>
+      <div *ngIf="activeTab === 'tab2'">Tab 2 content</div>
+      <div *ngIf="activeTab === 'tab3'">Tab 3 content</div>
+    </div>
+  </div>
+</div>
