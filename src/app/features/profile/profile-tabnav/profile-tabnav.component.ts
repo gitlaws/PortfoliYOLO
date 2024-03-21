@@ -9,4 +9,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileTabnavComponent {
   activeTab: any;
+  activeSlide = 1;
+
+  selectSlide(slideNumber: number) {
+    this.activeSlide = slideNumber;
+    // Add your logic here to change the slide content
+  }
 }

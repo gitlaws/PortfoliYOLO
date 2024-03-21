@@ -82,7 +82,7 @@ $mobile: 768px;
     font-weight: bold;
     font-family: "Space Mono", monospace;
     font-weight: 400;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     transition: color 0.3s ease-in-out;
 
     &:hover {
@@ -93,7 +93,7 @@ $mobile: 768px;
 
   p {
     color: $secondary-color;
-    line-height: 1.5; // Increase line height for better readability
+    // line-height: 1.5; // Increase line height for better readability
     // margin-bottom: 15px; // Add spacing
 
     &:last-child {
