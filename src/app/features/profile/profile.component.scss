@@ -1,45 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* CSS */
+/* CSS */
 
-.profile-container {
+.profile-aside.left {
   display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
 
-  .profile-aside.left,
-  .profile-main {
-    width: 37.5%; // 75% divided by 2
-    padding: 1em;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+.profile-aside.left img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: contain;
+}
 
-  .profile-aside.right {
-    width: 25%;
-    padding: 1em;
-    overflow-y: auto;
-  }
+.profile-main {
+  text-align: center;
+  color: #333;
+  padding: 20px;
+}
 
-  @media (max-width: 768px) {
-    // typical breakpoint for tablets
-    .profile-aside.left,
-    .profile-main {
-      width: 75%; // combine left and main columns
-    }
+.profile-main h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
 
-    .profile-aside.right {
-      width: 25%; // keep right column separate
-    }
-  }
+.profile-main h2 {
+  font-size: 1.5em;
+  color: #777;
+  margin-bottom: 1em;
+}
 
-  @media (max-width: 600px) {
-    .profile-aside.left,
-    .profile-main,
-    .profile-aside.right {
-      width: 100%;
-    }
-  }
+.profile-main p {
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+/* CSS */
+
+.profile-aside.right {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.profile-aside.right h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.profile-aside.right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-aside.right ul li {
+  font-size: 1em;
+  line-height: 1.6em;
+  margin-bottom: 0.5em;
 }
