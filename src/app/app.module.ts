@@ -4,6 +4,7 @@ import { SocialLinksModule } from './shared/common/social-links/social-links.mod
 import { ThemeToggleModule } from './shared/common/theme-toggle/theme-toggle.module';
 import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 import { ToolbarModule } from './core/toolbar/toolbar.module';
+import { ProfileModule } from './features/profile/profile.module';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { ToolbarModule } from './core/toolbar/toolbar.module';
     ThemeToggleModule,
     ToolbarMenuModule,
     ToolbarModule,
+    ProfileModule,
   ],
 })
 export class AppModule {}
