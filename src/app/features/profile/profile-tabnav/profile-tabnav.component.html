@@ -25,124 +25,193 @@
     </div>
     <div class="tab-content">
       <div *ngIf="activeTab === 'tab1'">
-        Tab 1 content
-        <aside class="profile-aside right">
-          <!-- Content for right aside -->
-          <h3>Skills</h3>
-          <ul>
-            <li>
-              Skill 1 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Nostrum nisi, accusantium recusandae consequuntur accusamus
-              tempora alias, omnis debitis amet, corrupti quasi optio dolorum?
-              Illum quia sequi asperiores officiis corrupti. Iure?
-            </li>
-            <li>
-              Skill 2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda recusandae libero voluptates cum. Doloribus hic commodi
-              accusantium, ea reiciendis adipisci, ipsum blanditiis voluptatum
-              unde ducimus cupiditate doloremque quae maiores eius.
-            </li>
-            <li>
-              Skill 3 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptas dicta totam dolore tenetur illum quisquam culpa aliquid
-              eos tempora nemo est qui rem, natus quaerat! Dolores libero
-              possimus quia molestiae.
-            </li>
-            <!-- Add more skills here -->
-          </ul>
-          <h3>Experience</h3>
-          <ul>
-            <li>
-              Experience 1 Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
-              nisi minima architecto assumenda itaque, odit inventore
-              exercitationem illo eligendi voluptas perferendis sed quidem!
-            </li>
-            <!-- More experiences -->
-            <li>
-              Experience 2 Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Ipsum, ipsam ducimus consequuntur quas, et corrupti nulla
-              eveniet tempora nam minus, ad sequi aspernatur sit rem dolor.
-              Asperiores necessitatibus voluptates at.
-            </li>
-            <li>
-              Experience 3 Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
-              nisi minima architecto assumenda itaque, odit inventore
-              exercitationem illo eligendi voluptas perferendis sed quidem!
-            </li>
-            <li>
-              Experience 4 Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Rerum minima impedit maiores, accusamus eius a non fugiat
-              sapiente laboriosam, molestiae veniam. Eos dignissimos earum
-              reprehenderit, repellendus excepturi consequatur ipsum tempora!
-            </li>
-          </ul>
-        </aside>
+        <div *ngIf="currentPage === 1">
+          <aside class="profile-aside right">
+            <!-- Content for right aside -->
+            <h3>Skills</h3>
+            <ul>
+              <li>
+                Skill 1 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Nostrum nisi, accusantium recusandae consequuntur
+                accusamus tempora alias, omnis debitis amet, corrupti quasi
+                optio dolorum? Illum quia sequi asperiores officiis corrupti.
+                Iure?
+              </li>
+              <li>
+                Skill 2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Assumenda recusandae libero voluptates cum. Doloribus hic
+                commodi accusantium, ea reiciendis adipisci, ipsum blanditiis
+                voluptatum unde ducimus cupiditate doloremque quae maiores eius.
+              </li>
+              <li>
+                Skill 3 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Voluptas dicta totam dolore tenetur illum quisquam culpa
+                aliquid eos tempora nemo est qui rem, natus quaerat! Dolores
+                libero possimus quia molestiae.
+              </li>
+              <!-- Add more skills here -->
+            </ul>
+            <h3>Experience</h3>
+            <ul>
+              <li>
+                Experience 1 Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Facilis illo quisquam, incidunt sint saepe laboriosam?
+                Ipsum nisi minima architecto assumenda itaque, odit inventore
+                exercitationem illo eligendi voluptas perferendis sed quidem!
+              </li>
+              <!-- More experiences -->
+              <li>
+                Experience 2 Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Ipsum, ipsam ducimus consequuntur quas, et corrupti nulla
+                eveniet tempora nam minus, ad sequi aspernatur sit rem dolor.
+                Asperiores necessitatibus voluptates at.
+              </li>
+              <li>
+                Experience 3 Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Facilis illo quisquam, incidunt sint saepe laboriosam?
+                Ipsum nisi minima architecto assumenda itaque, odit inventore
+                exercitationem illo eligendi voluptas perferendis sed quidem!
+              </li>
+              <li>
+                Experience 4 Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Rerum minima impedit maiores, accusamus eius a non fugiat
+                sapiente laboriosam, molestiae veniam. Eos dignissimos earum
+                reprehenderit, repellendus excepturi consequatur ipsum tempora!
+              </li>
+            </ul>
+          </aside>
+        </div>
+        <div *ngIf="currentPage === 2">
+          <aside class="profile-aside right">
+            <!-- Content for right aside -->
+            <h3>Work Habits</h3>
+            <ul>
+              <li>
+                Skill 1 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Nostrum nisi, accusantium recusandae consequuntur
+                accusamus tempora alias, omnis debitis amet, corrupti quasi
+                optio dolorum? Illum quia sequi asperiores officiis corrupti.
+                Iure?
+              </li>
+              <li>
+                Skill 2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Assumenda recusandae libero voluptates cum. Doloribus hic
+                commodi accusantium, ea reiciendis adipisci, ipsum blanditiis
+                voluptatum unde ducimus cupiditate doloremque quae maiores eius.
+              </li>
+              <li>
+                Skill 3 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Voluptas dicta totam dolore tenetur illum quisquam culpa
+                aliquid eos tempora nemo est qui rem, natus quaerat! Dolores
+                libero possimus quia molestiae.
+              </li>
+              <!-- Add more skills here -->
+            </ul>
+            <h3>Goals</h3>
+            <ul>
+              <li>
+                Experience 1 Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Facilis illo quisquam, incidunt sint saepe laboriosam?
+                Ipsum nisi minima architecto assumenda itaque, odit inventore
+                exercitationem illo eligendi voluptas perferendis sed quidem!
+              </li>
+              <!-- More experiences -->
+              <li>
+                Experience 2 Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Ipsum, ipsam ducimus consequuntur quas, et corrupti nulla
+                eveniet tempora nam minus, ad sequi aspernatur sit rem dolor.
+                Asperiores necessitatibus voluptates at.
+              </li>
+              <li>
+                Experience 3 Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Facilis illo quisquam, incidunt sint saepe laboriosam?
+                Ipsum nisi minima architecto assumenda itaque, odit inventore
+                exercitationem illo eligendi voluptas perferendis sed quidem!
+              </li>
+              <li>
+                Experience 4 Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Rerum minima impedit maiores, accusamus eius a non fugiat
+                sapiente laboriosam, molestiae veniam. Eos dignissimos earum
+                reprehenderit, repellendus excepturi consequatur ipsum tempora!
+              </li>
+            </ul>
+          </aside>
+        </div>
+        <div *ngIf="currentPage === 3">Page 3 content</div>
       </div>
+
       <div *ngIf="activeTab === 'tab2'">
-        Tab 2 content
-        <aside class="profile-aside right">
-          <!-- Content for right aside -->
-          <h3>Work Habits</h3>
-          <ul>
-            <li>
-              Skill 1 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Nostrum nisi, accusantium recusandae consequuntur accusamus
-              tempora alias, omnis debitis amet, corrupti quasi optio dolorum?
-              Illum quia sequi asperiores officiis corrupti. Iure?
-            </li>
-            <li>
-              Skill 2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda recusandae libero voluptates cum. Doloribus hic commodi
-              accusantium, ea reiciendis adipisci, ipsum blanditiis voluptatum
-              unde ducimus cupiditate doloremque quae maiores eius.
-            </li>
-            <li>
-              Skill 3 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptas dicta totam dolore tenetur illum quisquam culpa aliquid
-              eos tempora nemo est qui rem, natus quaerat! Dolores libero
-              possimus quia molestiae.
-            </li>
-            <!-- Add more skills here -->
-          </ul>
-          <h3>Goals</h3>
-          <ul>
-            <li>
-              Experience 1 Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
-              nisi minima architecto assumenda itaque, odit inventore
-              exercitationem illo eligendi voluptas perferendis sed quidem!
-            </li>
-            <!-- More experiences -->
-            <li>
-              Experience 2 Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Ipsum, ipsam ducimus consequuntur quas, et corrupti nulla
-              eveniet tempora nam minus, ad sequi aspernatur sit rem dolor.
-              Asperiores necessitatibus voluptates at.
-            </li>
-            <li>
-              Experience 3 Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
-              nisi minima architecto assumenda itaque, odit inventore
-              exercitationem illo eligendi voluptas perferendis sed quidem!
-            </li>
-            <li>
-              Experience 4 Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Rerum minima impedit maiores, accusamus eius a non fugiat
-              sapiente laboriosam, molestiae veniam. Eos dignissimos earum
-              reprehenderit, repellendus excepturi consequatur ipsum tempora!
-            </li>
-          </ul>
-        </aside>
+        <div *ngIf="currentPage === 1">
+          <div class="profile-card-container">
+            <img
+              class="profile-card-image"
+              src="assets/programkylepng.png"
+              alt="Your Name"
+            />
+            <!-- Profile Table -->
+            <div class="profile-card-info">
+              <h3>Software Engineer</h3>
+              <p>Passionate about web development and machine learning.</p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <td>Stanislaw Marcin Wasilewski</td>
+                </tr>
+                <tr>
+                  <th>Location</th>
+                  <td>Remote</td>
+                </tr>
+                <tr>
+                  <th>Contact</th>
+                  <td>Email: your-email</td>
+                </tr>
+                <tr>
+                  <th>Phone</th>
+                  <td>+1 123-456-7890</td>
+                </tr>
+                <tr>
+                  <th>Website</th>
+                  <td><a href="your-website-link">My Website</a></td>
+                </tr>
+              </table>
+              <p>Open to work</p>
+              <div>
+                <a href="your-linkedin-profile">LinkedIn</a> |
+                <a href="your-github-profile">GitHub</a> |
+                <a href="your-twitter-profile">Twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="currentPage === 2">
+          <main class="profile-main">
+            <!-- Main content -->
+            <header>
+              <h1>Profile:</h1>
+              <h2>Software Engineer</h2>
+            </header>
+            <section>
+              <p>
+                I am a Software Engineer with a passion for web development and
+                machine learning. I have experience in various programming
+                languages and frameworks, and I enjoy solving complex problems
+                and learning new technologies. I have worked on several
+                projects, including building web applications and developing
+                machine learning models. I am always open to new opportunities
+                and challenges.
+              </p>
+            </section>
+          </main>
+        </div>
+        <div *ngIf="currentPage === 3">Page 3 content</div>
       </div>
-      <div *ngIf="activeTab === 'tab3'">Tab 3 content</div>
     </div>
     <div class="footer">
-      <p>Next/Previous buttons:</p>
+      <p>Back / Next</p>
       <div class="pagination">
-        <button class="pagination-button">❮</button>
-        <button class="pagination-button">❯</button>
+        <button (click)="currentPage = 1">1</button>
+        <button (click)="currentPage = 2">2</button>
+        <button (click)="currentPage = 3">3</button>
       </div>
     </div>
   </div>

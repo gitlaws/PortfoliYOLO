@@ -10,9 +10,13 @@ import { CommonModule } from '@angular/common';
 export class ProfileTabnavComponent {
   activeTab: any;
   activeSlide = 1;
+  currentPage: any;
+
+  constructor() {}
 
   ngOnInit() {
     this.activeTab = 'tab1';
+    this.currentPage = 1; // Initialize currentPage to 1
   }
 
   selectSlide(slideNumber: number) {
