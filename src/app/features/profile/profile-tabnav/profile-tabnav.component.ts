@@ -11,6 +11,10 @@ export class ProfileTabnavComponent {
   activeTab: any;
   activeSlide = 1;
 
+  ngOnInit() {
+    this.activeTab = 'tab1';
+  }
+
   selectSlide(slideNumber: number) {
     this.activeSlide = slideNumber;
     // Add your logic here to change the slide content
