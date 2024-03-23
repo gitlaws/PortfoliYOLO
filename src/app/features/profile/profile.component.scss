@@ -15,6 +15,7 @@ $mobile: 768px;
   gap: 20px;
   background: linear-gradient(to right, #f9f9f9, #e6e6e6);
   transition: all 0.3s ease-in-out;
+  padding-block: min(5vw, 50px);
 
   h1,
   h2,

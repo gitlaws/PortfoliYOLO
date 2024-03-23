@@ -15,13 +15,13 @@
       >
         Tab 2
       </div>
-      <div
+      <!-- <div
         class="tab"
         [class.active]="activeTab === 'tab3'"
         (click)="activeTab = 'tab3'"
       >
         Tab 3
-      </div>
+      </div> -->
     </div>
     <div class="tab-content">
       <div *ngIf="activeTab === 'tab1'">
@@ -80,7 +80,62 @@
           </ul>
         </aside>
       </div>
-      <div *ngIf="activeTab === 'tab2'">Tab 2 content</div>
+      <div *ngIf="activeTab === 'tab2'">
+        Tab 2 content
+        <aside class="profile-aside right">
+          <!-- Content for right aside -->
+          <h3>Work Habits</h3>
+          <ul>
+            <li>
+              Skill 1 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Nostrum nisi, accusantium recusandae consequuntur accusamus
+              tempora alias, omnis debitis amet, corrupti quasi optio dolorum?
+              Illum quia sequi asperiores officiis corrupti. Iure?
+            </li>
+            <li>
+              Skill 2 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Assumenda recusandae libero voluptates cum. Doloribus hic commodi
+              accusantium, ea reiciendis adipisci, ipsum blanditiis voluptatum
+              unde ducimus cupiditate doloremque quae maiores eius.
+            </li>
+            <li>
+              Skill 3 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptas dicta totam dolore tenetur illum quisquam culpa aliquid
+              eos tempora nemo est qui rem, natus quaerat! Dolores libero
+              possimus quia molestiae.
+            </li>
+            <!-- Add more skills here -->
+          </ul>
+          <h3>Goals</h3>
+          <ul>
+            <li>
+              Experience 1 Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
+              nisi minima architecto assumenda itaque, odit inventore
+              exercitationem illo eligendi voluptas perferendis sed quidem!
+            </li>
+            <!-- More experiences -->
+            <li>
+              Experience 2 Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Ipsum, ipsam ducimus consequuntur quas, et corrupti nulla
+              eveniet tempora nam minus, ad sequi aspernatur sit rem dolor.
+              Asperiores necessitatibus voluptates at.
+            </li>
+            <li>
+              Experience 3 Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Facilis illo quisquam, incidunt sint saepe laboriosam? Ipsum
+              nisi minima architecto assumenda itaque, odit inventore
+              exercitationem illo eligendi voluptas perferendis sed quidem!
+            </li>
+            <li>
+              Experience 4 Lorem ipsum dolor sit amet consectetur, adipisicing
+              elit. Rerum minima impedit maiores, accusamus eius a non fugiat
+              sapiente laboriosam, molestiae veniam. Eos dignissimos earum
+              reprehenderit, repellendus excepturi consequatur ipsum tempora!
+            </li>
+          </ul>
+        </aside>
+      </div>
       <div *ngIf="activeTab === 'tab3'">Tab 3 content</div>
     </div>
     <div class="footer">
