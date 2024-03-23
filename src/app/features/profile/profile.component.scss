@@ -10,13 +10,13 @@ $mobile: 768px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
-    "left main"
-    "right right";
+  "right right"
+  "left main";
   gap: 20px;
   background: linear-gradient(to right, #f9f9f9, #e6e6e6);
   transition: all 0.3s ease-in-out;
-  padding-block: min(5vw, 50px);
-  padding: 0px 250px;
+  // padding-block: min(5vw, 50px);
+  padding: 0 18vw;
 
   h1,
   h2,
@@ -170,6 +170,7 @@ $mobile: 768px;
 // Responsive design
 @media (max-width: $tablet) {
   .profile-container {
+    padding: 0 2vw;
     grid-template-columns: 1fr;
     grid-template-areas:
       "left"
