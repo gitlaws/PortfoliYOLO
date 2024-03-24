@@ -1,21 +1,23 @@
-.hud-container {
+.hud-container,
+.hud-border,
+.hud-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, #f8f9fa, #dee2e6);
-  //   height: 100vh;
-  //   width: 100%;
-}
-
-.hud-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+  width: 100%;
+  height: auto;
+  //   background: black;
+  background: radial-gradient(circle at center, #f8f9fa, #e9ecef, #dee2e6);
 }
 
 .hud-image {
-  //   background: radial-gradient(circle at center, #d1dde4, #a1b8c6);
-  width: 100%;
-  height: auto;
+  position: relative;
+
+  img {
+    width: 50%;
+  }
+}
+
+.hud-tabs {
+  position: absolute;
 }
