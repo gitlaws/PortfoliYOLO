@@ -1,24 +1,24 @@
-// Define your colors
-$tablet: 1023px;
-$mobile: 768px;
+// // Define your colors
+// $tablet: 1023px;
+// $mobile: 768px;
 
-.profile-hud-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
-}
+// .profile-hud-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
+// }
 
-.profile-hud {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
+// .profile-hud {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+// }
 
-// Responsive design
-@media (max-width: $tablet) {
-}
+// // Responsive design
+// @media (max-width: $tablet) {
+// }
 
-@media (max-width: $mobile) {
-}
+// @media (max-width: $mobile) {
+// }
