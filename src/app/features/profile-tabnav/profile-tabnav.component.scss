@@ -1,16 +1,34 @@
-.grid-container {
-  width: 63%;
-  // height: 10%;
+.hud-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
-  // padding: 20px;
+  height: 100%; // Take up full viewport height
+  background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
+}
+
+.grid-container {
+  min-width: 70%; 
+  max-height: 150%;
+  display: flex;
+  flex-direction: column; // Stack the tabs vertically
+  justify-content: center;
+  align-items: center;
+  background-color: goldenrod;
+  padding: 20px 0px;
+
+  // Tablet view
+  @media (min-width: 768px) {
+    width: 70%; // Reduce width for tablet and up
+  }
+
+  // Desktop view
+  @media (min-width: 1024px) {
+    width: 63%; // Reduce width further for desktop and up
+  }
 }
 
 .grid-item {
-  // width: 100%; /* Set to 100% of .grid-container */
-  // height: 10%; /* Set to 100% of .grid-container */
+  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
