@@ -1,0 +1,41 @@
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="tab-nav">
+      <div
+        class="tab"
+        [class.active]="activeTab === 'tab1'"
+        (click)="activeTab = 'tab1'"
+      >
+        Tab 1
+      </div>
+      <div
+        class="tab"
+        [class.active]="activeTab === 'tab2'"
+        (click)="activeTab = 'tab2'"
+      >
+        Tab 2
+      </div>
+    </div>
+    <div class="tab-content">
+      <div *ngIf="activeTab === 'tab1'">
+        <div *ngIf="currentPage === 1">Page 1 Content</div>
+        <div *ngIf="currentPage === 2">Page 2 Content</div>
+        <div *ngIf="currentPage === 3">Page 3 content</div>
+      </div>
+
+      <div *ngIf="activeTab === 'tab2'">
+        <div *ngIf="currentPage === 1">Page 1 Content</div>
+        <div *ngIf="currentPage === 2">Page 2 Content</div>
+        <div *ngIf="currentPage === 3">Page 3 content</div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Back / Next</p>
+      <div class="pagination">
+        <button (click)="currentPage = 1">1</button>
+        <button (click)="currentPage = 2">2</button>
+        <button (click)="currentPage = 3">3</button>
+      </div>
+    </div>
+  </div>
+</div>
