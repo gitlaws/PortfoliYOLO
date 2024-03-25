@@ -6,6 +6,13 @@
   background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
 }
 
+// .hud-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+// }
+
 .grid-container {
   display: flex;
   flex-direction: column;
@@ -58,7 +65,7 @@
 
 .tab-content {
   padding: 20px;
-  height: 500px;
+  height: 100px;
 }
 
 .footer {
