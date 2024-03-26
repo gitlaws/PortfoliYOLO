@@ -96,6 +96,8 @@
 
   .tab-nav-pagination {
     display: flex;
+    align-items: center;
+    justify-content: center;
     // gap: 1rem;
 
     button {
@@ -117,13 +119,31 @@
     }
 
     span {
-      display: inline-block;
-      border: 1px solid #000; /* Change to desired border color */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc; /* Lighter border color */
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); /* Box shadow for 3D effect */
       padding: 10px 20px; /* Adjust padding as needed */
-      text-align: center;
       margin: 0 10px;
-      height: 50px; /* Adjust as needed */
-      line-height: 30px; /* Adjust as needed */
+      height: 70px; /* Adjust as needed */
+    }
+
+    .indicator-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .indicator {
+      width: 20px;
+      height: 10px;
+      background-color: #ccc;
+    }
+
+    .indicator.active {
+      background-color: #007bff;
     }
   }
 }
