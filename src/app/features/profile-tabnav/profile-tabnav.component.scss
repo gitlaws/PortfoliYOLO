@@ -1,10 +1,40 @@
-.hud-container {
+.tab-nav-container {
   background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
-  height: 100vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
 }
 
-.grid-container {
+.tab-nav-content {
+  // Your existing styles here
+
+  @media (max-width: 768px) {
+    // Adjust styles for smaller screens here
+  }
+}
+
+.tabnav-item {
+  // Your existing styles here
+
+  @media (max-width: 768px) {
+    // Adjust styles for smaller screens here
+  }
+}
+
+.tab-nav-content {
   width: 100%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 
   @media (min-width: 768px) {
     width: 90%;
@@ -15,128 +45,83 @@
   }
 }
 
-.grid-item {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.tab-nav-item {
+  // padding: 0 1rem;
 }
 
-.tab-nav {
+.tab-nav-menu {
   display: flex;
   gap: 1rem;
   background-color: #f8f8f8;
-}
 
-.tab {
-  flex-grow: 1;
-  padding: 15px;
-  text-align: center;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-color: #f8f8f8;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.tab:hover {
-  background-color: #e8e8e8;
-}
-
-.tab.active {
-  border-color: #007bff;
-  background-color: #fff;
-}
-
-.tab-content {
-  padding: 20px;
-  height: 100px;
-}
-
-.footer {
-  margin-top: auto;
-  width: 100%;
-  background-color: #f8f8f8;
-  padding: 10px 0;
-  box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 20px;
-
-  button {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    color: #495057;
+  .tab-nav-button {
+    flex-grow: 1;
+    padding: 15px;
+    text-align: center;
     cursor: pointer;
-    font-size: 1rem;
-    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-color: #f8f8f8;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 
     &:hover {
-      background-color: #dee2e6;
+      background-color: #e8e8e8;
     }
 
-    &:focus {
-      outline: none;
+    &.active {
+      // border-color: #007bff;
+      border-bottom: 2px solid #007bff; // Adjust as needed
+      background-color: #fff;
     }
   }
 }
 
-.profile-card-container {
-  display: grid;
-  place-items: center;
-  background: #f9f9f9;
-  padding: 30px;
-  overflow: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.profile-card-image {
-  margin-bottom: 30px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.profile-card-info {
+.tab-content-area {
   padding: 20px;
 }
 
-.profile-card-info h3 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #333;
-}
+.tab-nav-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 10px 0;
+  box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 
-.profile-card-info p {
-  font-size: 18px;
-  color: #666;
-}
+  p {
+    margin: 0;
+    padding: 0 1rem;
+  }
 
-.profile-card-info table {
-  width: 100%;
-  margin: 30px 0;
-}
+  .tab-nav-pagination {
+    display: flex;
+    gap: 1rem;
 
-.profile-card-info table th,
-.profile-card-info table td {
-  padding: 10px;
-  text-align: left;
-}
+    button {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      color: #495057;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 10px 20px;
 
-.profile-card-info a {
-  text-decoration: none;
-  margin: 0 15px;
+      &:hover {
+        background-color: #dee2e6;
+      }
 
-  &:hover {
-    color: #007bff;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    span {
+      display: inline-block;
+      border: 1px solid #000; /* Change to desired border color */
+      padding: 5px 10px; /* Adjust padding as needed */
+      text-align: center;
+      line-height: 1; /* Adjust as needed based on font-size and padding */
+      margin: 0 10px;
+    }
   }
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 @Component({
   selector: 'app-profile-tabnav',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './profile-tabnav.component.html',
   styleUrl: './profile-tabnav.component.scss',
+  imports: [CommonModule, ProfileCardComponent],
 })
 export class ProfileTabnavComponent {
   activeTab: any;
