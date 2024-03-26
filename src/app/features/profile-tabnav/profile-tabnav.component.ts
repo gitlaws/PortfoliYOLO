@@ -11,6 +11,10 @@ export class ProfileTabnavComponent {
   activeTab: any;
   activeSlide = 1;
   currentPage: any;
+  tabs: any;
+  pages1: any;
+  pages2: any;
+  pages: any;
 
   constructor() {}
 

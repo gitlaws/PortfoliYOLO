@@ -1,101 +1,38 @@
-<div class="hud-container">
-  <div class="grid-container">
-    <div class="grid-item">
-      <div class="tab-nav">
-        <div
-          class="tab"
-          [class.active]="activeTab === 'tab1'"
-          (click)="activeTab = 'tab1'"
+<div class="main-container">
+  <div class="content-container">
+    <div class="content-item">
+      <nav class="navigation-bar">
+        <button
+          class="navigation-tab"
+          *ngFor="let tab of tabs"
+          [class.active]="activeTab === tab.id"
+          (click)="activeTab = tab.id"
         >
-          Tab 1
-        </div>
-        <div
-          class="tab"
-          [class.active]="activeTab === 'tab2'"
-          (click)="activeTab = 'tab2'"
-        >
-          Tab 2
-        </div>
-      </div>
-      <div class="tab-content">
-        <div *ngIf="activeTab === 'tab1'">
-          <div *ngIf="currentPage === 1">Page 1 Content</div>
-          <div *ngIf="currentPage === 2">Page 2 Content</div>
-          <div *ngIf="currentPage === 3">Page 3 content</div>
-        </div>
-
-        <div *ngIf="activeTab === 'tab2'">
-          <div *ngIf="currentPage === 1">
-            <div class="profile-card-container">
-              <img
-                class="profile-card-image"
-                src="assets/programkylepng.png"
-                alt="Your Name"
-              />
-              <!-- Profile Table -->
-              <div class="profile-card-info">
-                <h3>Software Engineer</h3>
-                <p>Passionate about web development and machine learning.</p>
-                <table>
-                  <tr>
-                    <th>Name</th>
-                    <td>Stanislaw Marcin Wasilewski</td>
-                  </tr>
-                  <tr>
-                    <th>Location</th>
-                    <td>Remote</td>
-                  </tr>
-                  <tr>
-                    <th>Contact</th>
-                    <td>Email: your-email</td>
-                  </tr>
-                  <tr>
-                    <th>Phone</th>
-                    <td>+1 123-456-7890</td>
-                  </tr>
-                  <tr>
-                    <th>Website</th>
-                    <td><a href="your-website-link">My Website</a></td>
-                  </tr>
-                </table>
-                <p>Open to work</p>
-                <div>
-                  <a href="your-linkedin-profile">LinkedIn</a> |
-                  <a href="your-github-profile">GitHub</a> |
-                  <a href="your-twitter-profile">Twitter</a>
-                </div>
+          {{ tab.name }}
+        </button>
+      </nav>
+      <div class="tab-content-area">
+        <ng-container [ngSwitch]="activeTab">
+          <div *ngSwitchCase="'tab1'">
+            <div *ngFor="let page of pages1">
+              <div *ngIf="currentPage === page.id">{{ page.content }}</div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'tab2'">
+            <div *ngFor="let page of pages2">
+              <div *ngIf="currentPage === page.id">
+                <!-- Add your content here -->
               </div>
             </div>
           </div>
-          <div *ngIf="currentPage === 2">
-            <main class="profile-main">
-              <!-- Main content -->
-              <header>
-                <h1>Profile:</h1>
-                <h2>Software Engineer</h2>
-              </header>
-              <section>
-                <p>
-                  I am a Software Engineer with a passion for web development
-                  and machine learning. I have experience in various programming
-                  languages and frameworks, and I enjoy solving complex problems
-                  and learning new technologies. I have worked on several
-                  projects, including building web applications and developing
-                  machine learning models. I am always open to new opportunities
-                  and challenges.
-                </p>
-              </section>
-            </main>
-          </div>
-          <div *ngIf="currentPage === 3">Page 3 content</div>
-        </div>
+        </ng-container>
       </div>
-      <div class="footer">
+      <div class="footer-navigation">
         <p>Back / Next</p>
-        <div class="pagination">
-          <button (click)="currentPage = 1">1</button>
-          <button (click)="currentPage = 2">2</button>
-          <button (click)="currentPage = 3">3</button>
+        <div class="page-navigation">
+          <button *ngFor="let page of pages" (click)="currentPage = page.id">
+            {{ page.id }}
+          </button>
         </div>
       </div>
     </div>
