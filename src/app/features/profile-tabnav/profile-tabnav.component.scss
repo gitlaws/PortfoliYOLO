@@ -5,7 +5,7 @@ $header-color: #dee2e6; // First color stop
 $gradient-start: #dee2e6; // First color stop
 $gradient-end: #f8f9fa; // Third color stop
 
-.tab-nav-container {
+.hub-container {
   background: linear-gradient(to bottom, $gradient-start, $gradient-end);
   height: auto;
   display: flex;
@@ -21,8 +21,8 @@ $gradient-end: #f8f9fa; // Third color stop
   }
 }
 
-.tab-nav-item,
-.tab-nav-content {
+.hub-item,
+.hub-content {
   background: linear-gradient(to right, $gradient-start, $gradient-end);
   border-radius: 10px;
   padding: 20px;
@@ -30,15 +30,10 @@ $gradient-end: #f8f9fa; // Third color stop
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 
-  display: flex; // Add this
+  display: flex;
   flex-direction: column;
-  justify-content: center; // Add this
-  align-items: center; // Add this
-
-  // &:hover {
-  //   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  //   transform: translateY(-5px);
-  // }
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
     padding: 10px;
@@ -46,7 +41,7 @@ $gradient-end: #f8f9fa; // Third color stop
   }
 }
 
-.tab-nav-content {
+.hub-content {
   width: 100%;
   max-width: 1200px;
   background-color: #fff;
@@ -61,7 +56,7 @@ $gradient-end: #f8f9fa; // Third color stop
   }
 }
 
-.tab-nav-menu {
+.hub-header {
   width: 100%;
   background-color: $bg-color;
   color: $text-color;
@@ -72,7 +67,6 @@ $gradient-end: #f8f9fa; // Third color stop
   gap: 1rem;
 
   @media (max-width: 768px) {
-    // flex-direction: column;
     width: 100%;
     padding: 10px;
   }
@@ -80,7 +74,6 @@ $gradient-end: #f8f9fa; // Third color stop
 
 .tab-nav-button {
   width: 100%;
-  // background-color: $accent-color;
   color: $bg-color;
   border-bottom: 3px solid transparent;
   padding: 10px 20px;
@@ -88,10 +81,10 @@ $gradient-end: #f8f9fa; // Third color stop
   transition: background-color 0.3s ease;
 
   &.active {
-    border-bottom-color: $accent-color; // Change the border color when active
-    background-color: darken($accent-color, 10%); // Darken the background color
-    color: $text-color; // Change the text color if needed
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Add a subtle shadow for depth
+    border-bottom-color: $accent-color;
+    background-color: darken($accent-color, 10%);
+    color: $text-color;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   &:not(.active):hover {
@@ -104,7 +97,7 @@ $gradient-end: #f8f9fa; // Third color stop
   }
 }
 
-.tab-content-area {
+.hub-content-area {
   background-color: $bg-color;
   color: $text-color;
   padding: 20px;
@@ -129,7 +122,7 @@ $gradient-end: #f8f9fa; // Third color stop
   }
 }
 
-.tab-nav-footer {
+.hub-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,8 +178,7 @@ $gradient-end: #f8f9fa; // Third color stop
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center; // Change this to center the .indicator elements
-      // background-color: $bg-color;
+      justify-content: center;
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
@@ -194,9 +186,9 @@ $gradient-end: #f8f9fa; // Third color stop
     }
 
     .indicator {
-      width: 12px; // Increase this to make the .indicator elements wider
-      height: 8px; // Increase this to make the .indicator elements taller
-      // ...rest of the styles
+      width: 12px;
+      height: 8px;
+
       &.active {
         background-color: #ffa500;
         box-shadow: 0 0 5px $accent-color, 0 0 10px $accent-color,
