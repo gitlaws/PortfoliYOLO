@@ -69,6 +69,29 @@
   }
 }
 
+@media (max-width: $tablet) {
+  .header {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nav__theme-toggle {
+    display: none;
+  }
+
+  .nav__social-links {
+    display: none;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+  }
+}
+
 @media (max-width: $mobile) {
   .header {
     justify-content: space-around;
