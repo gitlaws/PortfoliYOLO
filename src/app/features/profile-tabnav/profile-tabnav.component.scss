@@ -1,10 +1,19 @@
+$bg-color: #dee2e6; // First color stop
+$text-color: #333333;
+$accent-color: #f8f9fa; // Third color stop
+$header-color: #dee2e6; // First color stop
+$gradient-start: #dee2e6; // First color stop
+$gradient-end: #f8f9fa; // Third color stop
+
 .tab-nav-container {
-  background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
+  background: linear-gradient(to bottom, $gradient-start, $gradient-end);
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -12,19 +21,28 @@
   }
 }
 
+.tab-nav-item,
 .tab-nav-content {
-  // Your existing styles here
+  background: linear-gradient(to right, $gradient-start, $gradient-end);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  display: flex; // Add this
+  flex-direction: column;
+  justify-content: center; // Add this
+  align-items: center; // Add this
+
+  // &:hover {
+  //   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  //   transform: translateY(-5px);
+  // }
 
   @media (max-width: 768px) {
-    // Adjust styles for smaller screens here
-  }
-}
-
-.tabnav-item {
-  // Your existing styles here
-
-  @media (max-width: 768px) {
-    // Adjust styles for smaller screens here
+    padding: 10px;
+    margin: 5px;
   }
 }
 
@@ -32,8 +50,6 @@
   width: 100%;
   max-width: 1200px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -45,38 +61,72 @@
   }
 }
 
-.tab-nav-item {
-  // padding: 0 1rem;
+.tab-nav-menu {
+  width: 100%;
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    // flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
 }
 
-.tab-nav-menu {
-  display: flex;
-  gap: 1rem;
-  background-color: #f8f8f8;
+.tab-nav-button {
+  width: 100%;
+  // background-color: $accent-color;
+  color: $bg-color;
+  border-bottom: 3px solid transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-  .tab-nav-button {
-    flex-grow: 1;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-color: #f8f8f8;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  &.active {
+    border-bottom-color: $accent-color; // Change the border color when active
+    background-color: darken($accent-color, 10%); // Darken the background color
+    color: $text-color; // Change the text color if needed
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Add a subtle shadow for depth
+  }
 
-    &:hover {
-      background-color: #e8e8e8;
-    }
+  &:not(.active):hover {
+    background-color: darken($accent-color, 10%);
+  }
 
-    &.active {
-      // border-color: #007bff;
-      border-bottom: 2px solid #007bff; // Adjust as needed
-      background-color: #fff;
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 5px 10px;
   }
 }
 
 .tab-content-area {
+  background-color: $bg-color;
+  color: $text-color;
   padding: 20px;
+  max-width: 900px;
+  height: 500px;
+  overflow-y: auto;
+  margin: 20px 0;
+
+  h1,
+  h2,
+  h3 {
+    color: $header-color;
+  }
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    height: auto;
+  }
 }
 
 .tab-nav-footer {
@@ -84,10 +134,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: $gradient-end;
   padding: 10px 0;
-  box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 
   p {
     margin: 0;
@@ -98,7 +150,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // gap: 1rem;
 
     button {
       background-color: #f8f9fa;
@@ -123,27 +174,35 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 1px solid #ccc; /* Lighter border color */
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); /* Box shadow for 3D effect */
-      padding: 10px 20px; /* Adjust padding as needed */
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      padding: 10px 20px;
       margin: 0 10px;
-      height: 70px; /* Adjust as needed */
+      height: 70px;
     }
 
     .indicator-container {
       display: flex;
-      justify-content: center;
-      gap: 5px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; // Change this to center the .indicator elements
+      // background-color: $bg-color;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
+        0 0 30px $accent-color, 0 0 40px $accent-color;
     }
 
     .indicator {
-      width: 20px;
-      height: 10px;
-      background-color: #ccc;
-    }
-
-    .indicator.active {
-      background-color: #007bff;
+      width: 12px; // Increase this to make the .indicator elements wider
+      height: 8px; // Increase this to make the .indicator elements taller
+      // ...rest of the styles
+      &.active {
+        background-color: #ffa500;
+        box-shadow: 0 0 5px $accent-color, 0 0 10px $accent-color,
+          0 0 15px $accent-color, 0 0 20px $accent-color;
+        transform: scale(1.5);
+      }
     }
   }
 }

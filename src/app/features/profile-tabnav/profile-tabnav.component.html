@@ -1,7 +1,7 @@
-<div class="tab-nav-container">
-  <div class="tab-nav-content">
-    <div class="tab-nav-item">
-      <nav class="tab-nav-menu">
+<div class="hub-container">
+  <div class="hub-content">
+    <div class="hub-item">
+      <nav class="hub-header">
         <button
           class="tab-nav-button"
           *ngFor="let tab of ['tab1', 'tab2']"
@@ -11,7 +11,7 @@
           {{ tab | titlecase }}
         </button>
       </nav>
-      <div class="tab-content-area">
+      <div class="hub-content-area">
         <ng-container *ngIf="activeTab === 'tab1'">
           <div *ngFor="let page of [1, 2, 3]">
             <div *ngIf="currentPage === page">
@@ -56,7 +56,7 @@
           </ng-container>
         </ng-container>
       </div>
-      <div class="tab-nav-footer">
+      <div class="hub-footer">
         <div class="tab-nav-pagination">
           <button (click)="currentPage = currentPage > 1 ? currentPage - 1 : 1">
             <i class="fas fa-chevron-left"></i>
