@@ -5,6 +5,7 @@ import { ThemeToggleModule } from './shared/common/theme-toggle/theme-toggle.mod
 import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
+import { ProjectsModule } from './features/projects/projects.module'; // Add this line
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { ProfileModule } from './features/profile/profile.module';
     ToolbarMenuModule,
     ToolbarModule,
     ProfileModule,
+    ProjectsModule, // And this line
   ],
 })
 export class AppModule {}
