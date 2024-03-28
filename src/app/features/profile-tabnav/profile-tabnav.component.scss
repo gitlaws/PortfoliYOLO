@@ -1,12 +1,14 @@
-$bg-color: #dee2e6; // First color stop
-$text-color: #333333;
-$accent-color: #f8f9fa; // Third color stop
-$header-color: #dee2e6; // First color stop
-$gradient-start: #dee2e6; // First color stop
-$gradient-end: #f8f9fa; // Third color stop
+@import "../../../styles/variables";
+
+$bg-color: #f5f7fa; // A very light gray for the background
+$text-color: #333; // A dark gray for text to ensure good readability
+$accent-color: #8ac6d1; // A light, desaturated blue for accent elements
+$header-color: #5a809e; // A darker, more saturated blue for headers or important text
+$gradient-start: #b8c6db; // A medium-light gray for the start of gradients
+$gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
 
 .hub-item {
-  // background: linear-gradient(to right, $gradient-start, $gradient-end);
+  background: linear-gradient(to bottom, $gradient-start, $gradient-end);
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
@@ -18,7 +20,7 @@ $gradient-end: #f8f9fa; // Third color stop
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     padding: 10px;
     margin: 5px;
   }
@@ -51,9 +53,8 @@ $gradient-end: #f8f9fa; // Third color stop
   border-bottom: 6px solid transparent;
 
   &.active {
-    // border: none;
     border-bottom-color: #ffa500;
-    background-color: darken($accent-color, 10%);
+    // background-color: darken($accent-color, 10%);
     color: $text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
@@ -62,9 +63,8 @@ $gradient-end: #f8f9fa; // Third color stop
     background-color: darken($accent-color, 10%);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $mobile) {
     width: 100%;
-    // padding: 5px 10px;
   }
 }
 
@@ -150,13 +150,15 @@ $gradient-end: #f8f9fa; // Third color stop
       justify-content: center;
       border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
-        0 0 30px $accent-color, 0 0 40px $accent-color;
+      // box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
+      // 0 0 30px $accent-color, 0 0 40px $accent-color;
     }
-
+    .indicator:not(.active) {
+      background-color: #ccc; // Change this to whatever color you want for inactive containers
+    }
     .indicator {
-      width: 12px;
-      height: 8px;
+      width: 16px;
+      height: 3px;
 
       &.active {
         background-color: #ffa500;
