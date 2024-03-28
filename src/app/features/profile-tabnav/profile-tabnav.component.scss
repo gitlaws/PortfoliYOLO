@@ -4,12 +4,17 @@ $bg-color: #f5f7fa; // A very light gray for the background
 $text-color: #333; // A dark gray for text to ensure good readability
 $accent-color: #a6bbbf; // A light, desaturated blue for accent elements
 $header-color: #5a809e; // A darker, more saturated blue for headers or important text
-$gradient-start: #b8c6db; // A medium-light gray for the start of gradients
-$gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
-$indicator-shadow: rgba(0, 0, 0, 0.2); // A light gray shadow color
+$gradient-start: #2f3133; // A slightly lighter gray for the start of the gradient
+$gradient-end: #4f5153;
+$indicator-shadow: rgba(0, 0, 0, 0.2);
 
 .hub-item {
-  background: linear-gradient(to bottom, $gradient-start, $gradient-end);
+  background: linear-gradient(
+    135deg,
+    $gradient-start,
+    $gradient-end,
+    darken($gradient-end, 5%)
+  );
   border-radius: 10px;
   padding: 20px;
   margin: 1em 15% 2em;
@@ -66,7 +71,7 @@ $indicator-shadow: rgba(0, 0, 0, 0.2); // A light gray shadow color
   }
 
   &:not(.active):hover {
-    background-color: darken($accent-color, 10%);
+    background-color: darken(#f5f5f5, 5%);
   }
 
   @media (max-width: $mobile) {
