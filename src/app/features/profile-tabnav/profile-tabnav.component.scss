@@ -2,16 +2,17 @@
 
 $bg-color: #f5f7fa; // A very light gray for the background
 $text-color: #333; // A dark gray for text to ensure good readability
-$accent-color: #8ac6d1; // A light, desaturated blue for accent elements
+$accent-color: #a6bbbf; // A light, desaturated blue for accent elements
 $header-color: #5a809e; // A darker, more saturated blue for headers or important text
 $gradient-start: #b8c6db; // A medium-light gray for the start of gradients
 $gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
+$indicator-shadow: rgba(0, 0, 0, 0.2); // A light gray shadow color
 
 .hub-item {
   background: linear-gradient(to bottom, $gradient-start, $gradient-end);
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
+  margin: 1em 15% 2em;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 
@@ -20,9 +21,14 @@ $gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
   justify-content: center;
   align-items: center;
 
+  @media (max-width: $tablet) {
+    padding: 10px;
+    margin: 5%;
+  }
+
   @media (max-width: $mobile) {
     padding: 10px;
-    margin: 5px;
+    margin: 2%;
   }
 }
 
@@ -136,18 +142,25 @@ $gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       border: 1px solid #ccc;
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       padding: 10px 20px;
       margin: 0 10px;
       height: 70px;
+
+      h3 {
+        margin-top: 20px;
+        font-family: monospace;
+      }
     }
 
     .indicator-container {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
+      gap: 3px;
       border-radius: 10px;
       padding: 10px;
       // box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
@@ -157,14 +170,13 @@ $gradient-end: #f5f7fa; // The same color as $bg-color for the end of gradients
       background-color: #ccc; // Change this to whatever color you want for inactive containers
     }
     .indicator {
-      width: 16px;
-      height: 3px;
+      width: 20px;
+      height: 5px;
 
       &.active {
         background-color: #ffa500;
-        box-shadow: 0 0 5px $accent-color, 0 0 10px $accent-color,
-          0 0 15px $accent-color, 0 0 20px $accent-color;
-        transform: scale(1.5);
+        box-shadow: 0 2px 4px rgba($indicator-shadow, 0.2);
+        transform: scale(1.1);
       }
     }
   }

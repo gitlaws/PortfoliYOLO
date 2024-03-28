@@ -59,8 +59,14 @@
       <button (click)="currentPage = currentPage > 1 ? currentPage - 1 : 1">
         <i class="fas fa-chevron-left"></i>
       </button>
+
+      <div class="wrapper"></div>
+
       <span>
-        {{ currentPage }}
+        <h3>
+          {{ currentPage }}
+        </h3>
+
         <div class="indicator-container">
           <div [class.active]="currentPage === 1" class="indicator"></div>
           <div [class.active]="currentPage === 2" class="indicator"></div>
