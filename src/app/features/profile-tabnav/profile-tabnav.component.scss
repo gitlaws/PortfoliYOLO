@@ -1,10 +1,10 @@
 @import "../../../styles/variables";
 
-$bg-color: #f5f7fa; // A very light gray for the background
-$text-color: #333; // A dark gray for text to ensure good readability
-$accent-color: #a6bbbf; // A light, desaturated blue for accent elements
-$header-color: #5a809e; // A darker, more saturated blue for headers or important text
-$gradient-start: #2f3133; // A slightly lighter gray for the start of the gradient
+$bg-color: #f5f7fa;
+$text-color: #333;
+$accent-color: #a6bbbf;
+$header-color: #5a809e;
+$gradient-start: #2f3133;
 $gradient-end: #4f5153;
 $indicator-shadow: rgba(0, 0, 0, 0.2);
 
@@ -17,7 +17,7 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
   );
   border-radius: 10px;
   padding: 20px;
-  margin: 1em 15% 2em;
+  margin: 1em 25% 2em;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 
@@ -41,7 +41,6 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
   width: 100%;
   background-color: $bg-color;
   color: $text-color;
-  // padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,7 +48,6 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     width: 100%;
-    // padding: 10px;
   }
 }
 
@@ -65,7 +63,6 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
 
   &.active {
     border-bottom-color: #ffa500;
-    // background-color: darken($accent-color, 10%);
     color: $text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
@@ -80,19 +77,19 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
 }
 
 .hub-content-area {
-  background-color: #f9f9f9;
+  scroll-behavior: smooth;
   color: $text-color;
+  background-color: #af6868;
+  margin: 10px 0;
   padding: 20px;
   width: 100%;
-  max-height: 500px;
   height: 500px;
-  overflow-y: auto;
-  margin: 10px 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: 500px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  scroll-behavior: smooth;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  overflow-y: auto;
 
   h1,
   h2,
@@ -174,11 +171,9 @@ $indicator-shadow: rgba(0, 0, 0, 0.2);
       gap: 3px;
       border-radius: 10px;
       padding: 10px;
-      // box-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color,
-      // 0 0 30px $accent-color, 0 0 40px $accent-color;
     }
     .indicator:not(.active) {
-      background-color: #ccc; // Change this to whatever color you want for inactive containers
+      background-color: #ccc;
     }
     .indicator {
       width: 20px;
