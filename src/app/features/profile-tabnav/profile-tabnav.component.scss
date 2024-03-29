@@ -14,10 +14,19 @@ $text-color: #333333;
 $gradient-start: #ffffff;
 $gradient-end: #f0f0f0;
 $indicator-shadow: rgba(0, 0, 0, 0.1);
+$indicator-active: #ffa500;
 
 .hub-wrapper {
   background-color: $hub-wrapper;
-  padding: 24px;
+  padding: 0 127px;
+
+  @media (max-width: $tablet) {
+    padding: 24px; // reduced padding
+  }
+
+  @media (max-width: $mobile) {
+    padding: 24px; // reduced padding
+  }
 }
 
 .hub-container {
@@ -107,54 +116,66 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
 .hub-footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: $footer-color;
-  padding: 20px; // increased padding
+  padding: 20px;
   box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   transition: all 0.3s ease;
 
-  p {
-    margin: 0;
-    padding: 0 1rem;
-  }
-
   .pagination-control {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; // 3 columns: button, span, button
+    grid-template-areas: "left span right"; // Names the grid areas
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
 
-    button {
-      background-color: #f8f9fa;
-      border: 1px solid #dee2e6;
-      color: #495057;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 10px 20px;
-      height: 40px;
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr; // 1 column in tablet view
+      grid-template-rows: auto auto auto; // 3 rows: span, button, button
+      grid-template-areas:
+        "span"
+        "left"
+        "right"; // Places the span above the buttons
+    }
 
-      &:hover {
-        background-color: #dee2e6;
-      }
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr 1fr; // Two columns of equal width
+      grid-template-rows: auto auto; // Two rows
+      grid-template-areas:
+        "span span"
+        "left right";
+    }
 
-      &:focus {
-        outline: none;
-      }
+    .hub-span {
+      grid-area: span;
+    }
+
+    .hub-button-left {
+      grid-area: left;
+    }
+
+    .hub-button-right {
+      grid-area: right;
     }
 
     span {
       display: flex;
+      align-items: center;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      height: 100%;
       border: 1px solid #e0e0e0;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
       padding: 20px 30px;
       margin: 0 10px;
+      border-radius: 10px;
       height: auto;
+      transition: box-shadow 0.3s ease;
 
       h3 {
         font-family: "Roboto", sans-serif;
@@ -165,24 +186,42 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
       @media (max-width: $tablet) {
         padding: 15px 20px;
         h3 {
-          font-size: 1rem; // increased font-size
+          font-size: 1rem;
         }
       }
 
       @media (max-width: $mobile) {
         padding: 10px 15px;
         h3 {
-          font-size: 1rem; // increased font-size
+          font-size: 1rem;
         }
       }
     }
 
+    button {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      color: #495057;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 10px 20px;
+      width: auto;
+      height: auto;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #dee2e6;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
     .indicators {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      justify-content: center; // changed from space-around to center
-      gap: 10px; // increased gap
+      justify-content: center;
+      gap: 10px;
       border-radius: 10px;
       padding: 10px;
     }
@@ -190,17 +229,18 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
     .indicator {
       width: 20px;
       height: 5px;
-      background-color: #ccc; // default background color
+      background-color: #ccc;
+      transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #aaa; // added hover effect
+        background-color: #aaa;
       }
 
       &.active {
-        background-color: #ffa500;
+        background-color: $indicator-active;
         box-shadow: 0 2px 4px rgba($indicator-shadow, 0.2);
         transform: scale(1.1);
-        transition: transform 0.3s ease; // added transition
+        transition: transform 0.3s ease;
       }
     }
 
@@ -208,4 +248,11 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
       background-color: #ccc;
     }
   }
+
+  // .controls-container {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   // width: 100%;
+  //   // flex-direction: column;
+  // }
 }
