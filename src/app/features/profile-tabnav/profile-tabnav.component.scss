@@ -61,9 +61,11 @@ $indicator-active: #ffa500;
   cursor: pointer;
   height: 50px;
   width: 100%;
+  font-family: "orbitron", sans-serif;
+  font-size: large;
   border: none;
   border-bottom: 6px solid transparent;
-  transition: background-color 0.3s ease, border-bottom-color 0.3s ease; // added transition for border-bottom-color
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
 
   &.active {
     border-bottom-color: #b3b3b3;
@@ -88,28 +90,43 @@ $indicator-active: #ffa500;
   scroll-behavior: smooth;
   color: $hub-content-text;
   background-color: $hub-content-bg;
-  margin: 1em 0;
-  padding: 2em;
+  // margin: 1em 0;
+  padding: 24px;
   width: 100%;
   height: auto;
-  max-height: 500px;
+  // max-height: 500px;
   border: 1px solid $hub-content-border;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   overflow-y: auto;
-  font-family: "Courier New", monospace;
 
   h1,
   h2,
   h3 {
+    font-family: "Exo 2", monospace;
     color: $hub-content-title;
     font-weight: bold;
+    margin-bottom: 10px;
   }
 
-  @media (max-width: 768px) {
-    padding: 1em;
-    max-height: none;
+  p {
+    font-family: "exo 2", monospace;
+    color: $hub-content-title;
+    margin-bottom: 10px;
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    // gap: 1em;
+  }
+
+  .hub-content-area {
+    // display: flex;
+    // flex-direction: column;
+    // gap: 1em;
+    // margin-bottom: 1em;
   }
 }
 
@@ -124,7 +141,12 @@ $indicator-active: #ffa500;
   margin-top: 1rem;
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  // border-radius: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  // border-radius: 10px;
   transition: all 0.3s ease;
 
   .pagination-control {
@@ -135,40 +157,10 @@ $indicator-active: #ffa500;
     gap: 10px;
     margin-top: 1rem;
 
-    @media (max-width: $tablet) {
-      grid-template-columns: 1fr; // 1 column in tablet view
-      grid-template-rows: auto auto auto; // 3 rows: span, button, button
-      grid-template-areas:
-        "span"
-        "left"
-        "right"; // Places the span above the buttons
-    }
-
-    @media (max-width: $mobile) {
-      grid-template-columns: 1fr 1fr; // Two columns of equal width
-      grid-template-rows: auto auto; // Two rows
-      grid-template-areas:
-        "span span"
-        "left right";
-    }
-
-    .hub-span {
-      grid-area: span;
-    }
-
-    .hub-button-left {
-      grid-area: left;
-    }
-
-    .hub-button-right {
-      grid-area: right;
-    }
-
     span {
-      display: flex;
+      display: grid;
       align-items: center;
-      flex-direction: column;
-      justify-content: center;
+      justify-items: center;
       border: 1px solid #e0e0e0;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
       padding: 20px 30px;
@@ -178,7 +170,7 @@ $indicator-active: #ffa500;
       transition: box-shadow 0.3s ease;
 
       h3 {
-        font-family: "Roboto", sans-serif;
+        font-family: "space-mono", sans-serif;
         font-size: 1rem;
         margin-top: 5px;
       }
