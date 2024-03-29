@@ -52,6 +52,10 @@ $gradient-end: #859398;
   }
 }
 
+.content-wrapper {
+  min-width: 1278px; /* Adjust this value as needed */
+}
+
 .hub-header {
   width: 100%;
   background-color: $bg-color;
@@ -179,7 +183,7 @@ $gradient-end: #859398;
       height: 70px;
 
       h3 {
-        margin-top: 20px;
+        margin-top: 24px;
         font-family: monospace;
       }
     }
