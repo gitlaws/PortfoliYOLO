@@ -57,10 +57,10 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease; // added transition for border-bottom-color
 
   &.active {
-    border-bottom-color: orange; // use a variable for better maintainability
+    border-bottom-color: #b3b3b3;
     color: $text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease; // added transition for box-shadow
+    transition: box-shadow 0.3s ease;
   }
 
   &:not(.active):hover {
@@ -96,12 +96,6 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
   h3 {
     color: $hub-content-title;
     font-weight: bold;
-  }
-
-  code {
-    background-color: #52534f;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
   }
 
   @media (max-width: 768px) {
