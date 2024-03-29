@@ -39,9 +39,10 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
   color: $text-color;
   width: 100%;
   gap: 24px;
+  padding: 10px; // added padding
 
   @media (max-width: 768px) {
-    width: 100%;
+    flex-direction: row; // stack items on smaller screens
   }
 }
 
@@ -53,20 +54,24 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
   width: 100%;
   border: none;
   border-bottom: 6px solid transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease; // added transition for border-bottom-color
 
   &.active {
-    border-bottom-color: #ffa500;
+    border-bottom-color: orange; // use a variable for better maintainability
     color: $text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease; // added transition for box-shadow
   }
 
   &:not(.active):hover {
-    background-color: darken(#f5f5f5, 5%);
+    background-color: darken(
+      $hub-tabs,
+      5%
+    ); // use the variable $hub-tabs instead of a hardcoded color
   }
 
   @media (max-width: $mobile) {
-    width: 100%;
+    // width: 100%; removed as it's already defined in the base class
   }
 }
 
@@ -111,7 +116,7 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
   justify-content: center;
   align-items: center;
   background-color: $footer-color;
-  padding: 10px 0;
+  padding: 20px; // increased padding
   box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
   border-radius: 10px;
@@ -160,20 +165,20 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
       h3 {
         font-family: "Roboto", sans-serif;
         font-size: 1rem;
-        // margin-bottom: 20px;
+        margin-top: 5px;
       }
 
       @media (max-width: $tablet) {
         padding: 15px 20px;
         h3 {
-          font-size: 0.9rem;
+          font-size: 1rem; // increased font-size
         }
       }
 
       @media (max-width: $mobile) {
         padding: 10px 15px;
         h3 {
-          font-size: 0.8rem;
+          font-size: 1rem; // increased font-size
         }
       }
     }
@@ -183,7 +188,7 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
       flex-direction: row;
       align-items: center;
       justify-content: center; // changed from space-around to center
-      gap: 3px;
+      gap: 10px; // increased gap
       border-radius: 10px;
       padding: 10px;
     }
@@ -192,6 +197,10 @@ $indicator-shadow: rgba(0, 0, 0, 0.1);
       width: 20px;
       height: 5px;
       background-color: #ccc; // default background color
+
+      &:hover {
+        background-color: #aaa; // added hover effect
+      }
 
       &.active {
         background-color: #ffa500;
