@@ -61,8 +61,8 @@ $indicator-active: #ffa500;
   cursor: pointer;
   height: 50px;
   width: 100%;
-  font-family: "orbitron", sans-serif;
-  font-size: large;
+  font-family: "exo 2", sans-serif;
+  font-size: medium;
   border: none;
   border-bottom: 6px solid transparent;
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
@@ -170,8 +170,8 @@ $indicator-active: #ffa500;
       transition: box-shadow 0.3s ease;
 
       h3 {
-        font-family: "space-mono", sans-serif;
-        font-size: 1rem;
+        font-family: "exo 2", sans-serif;
+        font-size: medium;
         margin-top: 5px;
       }
 
