@@ -27,12 +27,27 @@
 
 .nav__item-link {
   text-decoration: none;
-  color: #000;
-  font-family: "Baumans", sans-serif;
-  font-weight: 400;
+  background: linear-gradient(45deg, #1f1f1f, #0ff);
+  // background: linear-gradient(45deg, #000, #0f0);
+  // background: linear-gradient(45deg, #2b0032, #ff00a6);
+  // background: linear-gradient(45deg, #000033, #00ffff);
+  // background: linear-gradient(45deg, #000, #f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // // or
+  // color: linear-gradient(45deg, #0fff95, #7b00e0);
+  // // or
+  // color: linear-gradient(45deg, #ff00c8, #00c6ff);
+  // // or
+  // color: linear-gradient(45deg, #ffff00, #bc13fe);
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
   font-style: normal;
   font-size: 18px;
   padding: 10px 15px;
+  // text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
 
   &:hover {
     text-shadow: 0px 0px 3px #000000;
