@@ -18,14 +18,17 @@ $indicator-active: #ffa500;
 
 .hub-wrapper {
   background-color: $hub-wrapper;
-  // padding: 0 127px;
+
+  @media (max-width: $desktop) {
+    padding: 0 127px;
+  }
 
   @media (max-width: $tablet) {
-    padding: 24px; // reduced padding
+    // padding: 24px; // reduced padding
   }
 
   @media (max-width: $mobile) {
-    padding: 24px; // reduced padding
+    // padding: 24px; // reduced padding
   }
 }
 
