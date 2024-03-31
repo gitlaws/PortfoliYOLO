@@ -216,12 +216,16 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
     align-items: center;
     gap: 10px;
     margin-top: 1rem;
+    // background: $span;
 
     span {
       display: grid;
       align-items: center;
       justify-items: center;
       background: $span;
+      background: transparent;
+      // background-image: url("https://i.gifer.com/14SE.gif");
+      // background-size: 100% 100%;
       border: 1px solid #e0e0e0;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
       padding: 20px 30px;
