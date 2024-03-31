@@ -19,13 +19,14 @@ $indicator-active: #ffa500;
 .hub-wrapper {
   background-color: $hub-wrapper;
 
-  @media (min-width: $tablet) {
-    padding: 0 400px;
+  @media (min-width: 1411px) {
+    padding: 0 16vw;
   }
 
-  // @media (min-width: $tablet) {
-  //   padding: calc(10px + 2vw);
-  // }
+  @media (min-width: $tablet) {
+    // padding: calc(0px + 12vw);
+    padding: 0 16vw;
+  }
 
   @media (max-width: $mobile) {
     // padding: 24px; // reduced padding
