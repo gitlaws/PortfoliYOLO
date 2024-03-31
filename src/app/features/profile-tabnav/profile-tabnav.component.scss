@@ -89,49 +89,50 @@ $indicator-active: #ffa500;
 }
 
 .hub-content {
-  scroll-behavior: smooth;
-  color: $hub-content-text;
-  background-color: $hub-content-bg;
-  // margin: 1em 0;
-  padding: 24px;
-  width: 100%;
-  height: auto;
-  // max-height: 500px;
-  border: 1px solid $hub-content-border;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  overflow-y: auto;
-
-  h1,
-  h2,
-  h3 {
-    font-family: "Russo One", monospace;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: bold;
-    color: $hub-content-title;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-family: "Roboto", monospace;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    color: $hub-content-title;
-    margin-bottom: 10px;
-  }
-
-  .page-content {
-    display: flex;
-    flex-direction: column;
-    // gap: 1em;
-  }
-
+  
+  
   .hub-content-area {
-    // margin: 50px;
-    // background-color: black;
+    background-image: url("https://i.gifer.com/7HYR.gif");
+    background-size: contain;
+    scroll-behavior: smooth;
+    color: $hub-content-text;
+    // background-color: $hub-content-bg;
+    // margin: 1em 0;
+    padding: 24px;
+    width: 100%;
+    height: auto;
+    // max-height: 500px;
+    border: 1px solid $hub-content-border;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow-y: auto;
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Russo One", monospace;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: bold;
+      color: $hub-content-title;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: "Roboto", monospace;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      color: $hub-content-title;
+      margin-bottom: 10px;
+    }
+
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      // gap: 1em;
+    }
   }
 }
 
