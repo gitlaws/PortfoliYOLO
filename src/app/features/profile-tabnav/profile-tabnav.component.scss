@@ -19,12 +19,12 @@ $indicator-active: #ffa500;
 .hub-wrapper {
   background-color: $hub-wrapper;
 
-  @media (max-width: $desktop) {
+  @media (min-width: $desktop) {
     padding: 0 127px;
   }
 
   @media (max-width: $tablet) {
-    // padding: 24px; // reduced padding
+    // padding: 24px;
   }
 
   @media (max-width: $mobile) {
@@ -94,6 +94,7 @@ $indicator-active: #ffa500;
 
 .hub-content {
   width: 100%;
+  padding: 24px;
 }
 
 .hub-content-area {
