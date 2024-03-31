@@ -95,7 +95,8 @@ $indicator-active: #ffa500;
 
 .hub-content-area {
   background-image: url("https://i.gifer.com/7HYR.gif");
-  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
   scroll-behavior: smooth;
   color: $hub-content-text;
   // background-color: $hub-content-bg;
