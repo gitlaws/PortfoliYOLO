@@ -18,7 +18,7 @@ $indicator-active: #ffa500;
 
 .hub-wrapper {
   background-color: $hub-wrapper;
-  padding: 0 127px;
+  // padding: 0 127px;
 
   @media (max-width: $tablet) {
     padding: 24px; // reduced padding
