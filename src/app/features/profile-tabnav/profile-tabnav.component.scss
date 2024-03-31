@@ -20,12 +20,12 @@ $indicator-active: #ffa500;
   background-color: $hub-wrapper;
 
   @media (min-width: $tablet) {
-    padding: 0 127px;
+    padding: 0 400px;
   }
 
-  @media (max-width: $tablet) {
-    // padding: 24px;
-  }
+  // @media (min-width: $tablet) {
+  //   padding: calc(10px + 2vw);
+  // }
 
   @media (max-width: $mobile) {
     // padding: 24px; // reduced padding
