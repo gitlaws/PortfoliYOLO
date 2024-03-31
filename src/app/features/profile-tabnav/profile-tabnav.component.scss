@@ -15,6 +15,7 @@ $gradient-start: #ffffff;
 $gradient-end: #f0f0f0;
 $indicator-shadow: rgba(0, 0, 0, 0.1);
 $indicator-active: #ffa500;
+$span: radial-gradient(circle, #d3d3d3, #c0c0c0);
 
 .hub-wrapper {
   background-color: $hub-wrapper;
@@ -60,7 +61,7 @@ $indicator-active: #ffa500;
 }
 
 .hub-tabs {
-  background: radial-gradient(circle, $hub-tabs, #2c3539);
+  background: $hub-tabs;
   color: $text-color;
   cursor: pointer;
   height: 50px;
@@ -220,6 +221,7 @@ $indicator-active: #ffa500;
       display: grid;
       align-items: center;
       justify-items: center;
+      background: $span;
       border: 1px solid #e0e0e0;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
       padding: 20px 30px;
