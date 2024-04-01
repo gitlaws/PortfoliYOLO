@@ -1,1 +1,21 @@
-<p>cybergur works!</p>
+<button class="header__menu-toggle" aria-label="Menu" (click)="toggleMenu()">
+  <!-- <div class="menu-toggle__bg-container"></div>
+  <div class="menu-toggle__ellipsis">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div> -->
+</button>
+
+<!-- Menu -->
+<ul *ngIf="isMenuOpen" class="header__menu">
+  <div class="scifiUI">
+    <h1>Ś</h1>
+    <ul>
+      <li>Projects</li>
+      <li>Profile</li>
+      <li>Theme Button</li>
+      <li>Social Links</li>
+    </ul>
+  </div>
+</ul>

@@ -1,0 +1,23 @@
+$menu-toggle-color: #ffffff;
+$menu-toggle-hover-color: #cccccc;
+$menu-toggle-transition: all 0.3s ease;
+$menu-bg-color: #333333;
+$menu-hover-bg-color: #555555;
+$menu-link-color: #ffffff;
+$menu-link-hover-color: #000000;
+
+.header__menu-toggle {
+  position: relative;
+  color: $menu-toggle-color;
+  font-size: 1.2em;
+  padding: 10px;
+  transition: $menu-toggle-transition;
+
+  &:hover {
+    color: $menu-toggle-hover-color;
+    .menu-toggle__bg-container {
+      opacity: 1;
+    }
+  }
+}
+
