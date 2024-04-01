@@ -4,15 +4,17 @@ import { ThemeToggleModule } from '../../shared/common/theme-toggle/theme-toggle
 import { SocialLinksModule } from '../../shared/common/social-links/social-links.module';
 import { ToolbarMenuModule } from '../toolbar-menu/toolbar-menu.module';
 import { ToolbarComponent } from './toolbar.component';
+import { CybergurComponent } from '../cybergur/cybergur.component';
 
 @NgModule({
   declarations: [ToolbarComponent],
+  exports: [ToolbarComponent],
   imports: [
     CommonModule,
     ThemeToggleModule,
     SocialLinksModule,
     ToolbarMenuModule,
+    CybergurComponent,
   ],
-  exports: [ToolbarComponent],
 })
 export class ToolbarModule {}
