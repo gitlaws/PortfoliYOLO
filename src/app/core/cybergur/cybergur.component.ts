@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './cybergur.component.html',
-  styleUrl: './cybergur.component.scss'
+  styleUrl: './cybergur.component.scss',
 })
-export class CybergurComponent {
-
-}
+export class CybergurComponent {}
+[];
