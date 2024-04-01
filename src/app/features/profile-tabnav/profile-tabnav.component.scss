@@ -56,7 +56,7 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
   padding: 0px 24px;
 
   @media (max-width: $mobile) {
-    padding: 0px 4px;
+    padding: 0px 24px;
   }
 }
 
@@ -99,7 +99,7 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
   padding: 10px 24px;
 
   @media (max-width: $mobile) {
-    padding: 10px 4px;
+    padding: 10px 24px;
   }
 }
 
@@ -176,37 +176,20 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
   }
 }
 
-// .hub-footer {
-//   display: grid;
-//   grid-template-columns: auto 1fr auto;
-//   align-items: center;
-// }
-
-// // .nav-button {
-// //   margin: 10px;
-// // }
-
-// // .content-section {
-// //   margin: 10px;
-// // }
-
 .hub-footer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: $footer-color;
-  padding: 20px;
   box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 1rem;
+  // margin-top: 10px;
   width: 100%;
   height: auto;
-  // border-radius: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  // border-radius: 10px;
   transition: all 0.3s ease;
 
   .pagination-control {
@@ -215,7 +198,7 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
     grid-template-areas: "left span right"; // Names the grid areas
     align-items: center;
     gap: 10px;
-    margin-top: 1rem;
+    // margin-top: 1rem;
     // background: $span;
 
     span {
@@ -228,7 +211,7 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
       // background-size: 100% 100%;
       border: 1px solid #e0e0e0;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-      padding: 20px 30px;
+      // padding: 20px 30px;
       margin: 0 10px;
       border-radius: 10px;
       height: auto;
@@ -307,18 +290,4 @@ $span: radial-gradient(circle, #d3d3d3, #c0c0c0);
       background-color: #ccc;
     }
   }
-
-  // .controls-container {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   // width: 100%;
-  //   // flex-direction: column;
-  // }
 }
-
-// @media (max-width: 600px) {
-//   .hub-footer {
-//     grid-template-columns: 1fr;
-//     grid-template-rows: auto auto auto;
-//   }
-// }
