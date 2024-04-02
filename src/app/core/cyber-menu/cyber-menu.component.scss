@@ -45,7 +45,7 @@ $fontSize: 18px;
 
 .scifiUI {
   width: 300px;
-  margin: 100px auto;
+  //   margin: 100px auto;
 
   &:hover {
     h1 {
@@ -65,6 +65,12 @@ $fontSize: 18px;
           left: 0;
         }
       }
+    }
+  }
+
+  &.open {
+    ul li {
+      visibility: visible;
     }
   }
 
@@ -116,15 +122,12 @@ $fontSize: 18px;
       text-align: center;
       font-size: 1.6em;
       cursor: pointer;
+      visibility: hidden;
 
       @for $i from 1 through 7 {
         &:nth-child(#{$i}) {
           top: 50px * ($i - 1);
-          @if $i % 2 == 0 {
-            left: 500%;
-          } @else {
-            left: -500%;
-          }
+          left: 0;
         }
       }
 

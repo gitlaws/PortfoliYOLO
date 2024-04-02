@@ -1,8 +1,17 @@
-<div class="scifiUI" (mouseover)="onHover()">
+<button
+  class="scifiUI"
+  [class.open]="menuOpen"
+  (click)="toggleMenu()"
+  (mouseleave)="closeMenu()"
+>
   <h1>Ś</h1>
   <ul>
-    <li *ngFor="let item of menuItems" (click)="selectMenuItem(item)" [class.glow]="isHovering">
+    <li
+      *ngFor="let item of menuItems"
+      (click)="selectMenuItem(item); $event.stopPropagation()"
+      [class.glow]="menuOpen"
+    >
       {{ item }}
     </li>
   </ul>
-</div>
+</button>

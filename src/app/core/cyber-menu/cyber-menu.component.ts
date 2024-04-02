@@ -6,12 +6,17 @@ import { Component } from '@angular/core';
   styleUrl: './cyber-menu.component.scss',
 })
 export class CyberMenuComponent {
-  isHovering: boolean = false;
-  menuItems: string[] = ['Projects', 'Profile', 'Theme Button', 'Social Links'];
+  menuOpen = false;
 
-  onHover() {
-    this.isHovering = true;
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
+  menuItems: string[] = ['Projects', 'Profile', 'Theme Button', 'Social Links'];
 
   selectMenuItem(item: string) {
     console.log('Selected Menu Item:', item);
