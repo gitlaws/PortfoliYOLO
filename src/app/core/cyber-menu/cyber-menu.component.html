@@ -1,13 +1,7 @@
-<!-- scifi-ui.component.html -->
-<div class="scifiUI">
+<div class="scifiUI" (mouseover)="onHover()">
   <h1>Ś</h1>
   <ul>
-    <li
-      *ngFor="let item of menuItems"
-      (mouseover)="onHover(true)"
-      (mouseout)="onHover(false)"
-      (click)="selectMenuItem(item)"
-    >
+    <li *ngFor="let item of menuItems" (click)="selectMenuItem(item)" [class.glow]="isHovering">
       {{ item }}
     </li>
   </ul>

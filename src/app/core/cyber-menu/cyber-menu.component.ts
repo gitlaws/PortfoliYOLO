@@ -6,15 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './cyber-menu.component.scss',
 })
 export class CyberMenuComponent {
-  isHovering = false;
-  menuItems = ['Home', 'About', 'Services', 'Contact'];
+  isHovering: boolean = false;
+  menuItems: string[] = ['Projects', 'Profile', 'Theme Button', 'Social Links'];
 
-  onHover(hovering: boolean) {
-    this.isHovering = hovering;
+  onHover() {
+    this.isHovering = true;
   }
 
   selectMenuItem(item: string) {
-    console.log(`Selected menu item: ${item}`);
-    // Add additional logic here as needed
+    console.log('Selected Menu Item:', item);
+    // Add your logic for handling the selected menu item here
   }
 }
