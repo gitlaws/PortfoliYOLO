@@ -1,0 +1,28 @@
+// scifi-ui.component.scss
+$primary-color: #00ff00;
+$secondary-color: #0d0d0d;
+
+.scifiUI {
+  font-family: "Orbitron", sans-serif;
+  background-color: $secondary-color;
+  color: $primary-color;
+  transition: all 0.5s;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+li:hover {
+  color: lighten($primary-color, 20%);
+}

@@ -6,6 +6,7 @@ import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { ProjectsModule } from './features/projects/projects.module'; // Add this line
+import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import { ProjectsModule } from './features/projects/projects.module'; // Add thi
     ToolbarMenuModule,
     ToolbarModule,
     ProfileModule,
-    ProjectsModule, // And this line
+    ProjectsModule,
+    CyberMenuModule,
   ],
 })
 export class AppModule {}

@@ -4,8 +4,8 @@ import { ThemeToggleModule } from '../../shared/common/theme-toggle/theme-toggle
 import { SocialLinksModule } from '../../shared/common/social-links/social-links.module';
 import { ToolbarMenuModule } from '../toolbar-menu/toolbar-menu.module';
 import { ToolbarComponent } from './toolbar.component';
-import { CybergurComponent } from '../cybergur/cybergur.component';
-import { CyberMenuComponent } from '../cyber-menu/cyber-menu.component';
+
+import { CyberMenuModule } from '../cyber-menu/cyber-menu.module';
 
 @NgModule({
   declarations: [ToolbarComponent],
@@ -15,8 +15,7 @@ import { CyberMenuComponent } from '../cyber-menu/cyber-menu.component';
     ThemeToggleModule,
     SocialLinksModule,
     ToolbarMenuModule,
-    CybergurComponent,
-    CyberMenuComponent,
+    CyberMenuModule,
   ],
 })
 export class ToolbarModule {}

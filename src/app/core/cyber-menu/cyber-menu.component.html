@@ -1,1 +1,14 @@
-<p>cyber-menu works!</p>
+<!-- scifi-ui.component.html -->
+<div class="scifiUI">
+  <h1>Ś</h1>
+  <ul>
+    <li
+      *ngFor="let item of menuItems"
+      (mouseover)="onHover(true)"
+      (mouseout)="onHover(false)"
+      (click)="selectMenuItem(item)"
+    >
+      {{ item }}
+    </li>
+  </ul>
+</div>
