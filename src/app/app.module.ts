@@ -5,9 +5,8 @@ import { ThemeToggleModule } from './shared/common/theme-toggle/theme-toggle.mod
 import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
-import { ProjectsModule } from './features/projects/projects.module'; // Add this line
+import { ProjectsModule } from './features/projects/projects.module';
 import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -21,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfileModule,
     ProjectsModule,
     CyberMenuModule,
-    BrowserAnimationsModule,
   ],
 })
 export class AppModule {}
