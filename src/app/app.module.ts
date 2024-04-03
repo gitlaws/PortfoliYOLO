@@ -7,6 +7,7 @@ import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { ProjectsModule } from './features/projects/projects.module'; // Add this line
 import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
     ProfileModule,
     ProjectsModule,
     CyberMenuModule,
+    BrowserAnimationsModule,
   ],
 })
 export class AppModule {}
