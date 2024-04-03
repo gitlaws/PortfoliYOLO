@@ -1,17 +1,15 @@
-<button
-  class="scifiUI"
-  [class.open]="menuOpen"
-  (click)="toggleMenu()"
-  (mouseleave)="closeMenu()"
->
-  <h1>Ś</h1>
-  <ul>
-    <li
-      *ngFor="let item of menuItems"
-      (click)="selectMenuItem(item); $event.stopPropagation()"
-      [class.glow]="menuOpen"
-    >
-      {{ item }}
-    </li>
-  </ul>
-</button>
+<!-- cyber-menu.component.html -->
+<div class="scifiUI" (mouseleave)="closeMenu()">
+  <h1 (click)="toggleMenu()">Ś</h1>
+  <div class="menu-wrapper">
+    <ul>
+      <li
+        *ngFor="let item of menuItems"
+        (click)="selectMenuItem(item); $event.stopPropagation()"
+        [class.glow]="menuOpen"
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</div>
