@@ -16,7 +16,6 @@ $fontSize: 18px;
   font-family: "Rajdhani", sans-serif;
   font-size: 18px;
   letter-spacing: 0.1em;
-  // overflow: hidden;
 }
 
 .glow {
@@ -29,6 +28,11 @@ $fontSize: 18px;
 .scifiUI {
   width: 300px;
   margin: 100px auto;
+  overflow: hidden;
+
+  &.overflow-visible {
+    overflow: visible;
+  }
 
   &:hover {
     h1 {
