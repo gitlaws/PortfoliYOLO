@@ -6,7 +6,9 @@ import { ToolbarMenuModule } from '../toolbar-menu/toolbar-menu.module';
 import { ToolbarComponent } from './toolbar.component';
 
 import { CyberMenuModule } from '../cyber-menu/cyber-menu.module';
+import { CybergurModule } from '../cybergur/cybergur.module';
 
+CybergurModule;
 @NgModule({
   declarations: [ToolbarComponent],
   exports: [ToolbarComponent],
@@ -16,6 +18,7 @@ import { CyberMenuModule } from '../cyber-menu/cyber-menu.module';
     SocialLinksModule,
     ToolbarMenuModule,
     CyberMenuModule,
+    CybergurModule,
   ],
 })
 export class ToolbarModule {}

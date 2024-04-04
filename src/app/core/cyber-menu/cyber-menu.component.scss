@@ -42,7 +42,7 @@ $fontSize: 18px;
         border-top-color: rgba($colorBlack, 0.7);
       }
     }
-    ul li {
+    ul li.clicked {
       transform: skew(0);
       @extend .glow;
       width: 300px;

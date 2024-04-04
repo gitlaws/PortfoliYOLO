@@ -7,6 +7,8 @@ import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { ProjectsModule } from './features/projects/projects.module';
 import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
+import { CybergurComponent } from './core/cybergur/cybergur.component';
+import { CybergurModule } from './core/cybergur/cybergur.module';
 
 @NgModule({
   declarations: [],
