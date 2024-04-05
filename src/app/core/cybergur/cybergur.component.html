@@ -1,5 +1,9 @@
 <button class="dropdown-toggle" aria-label="Menu" (click)="toggleMenu()">
-  Button
+  <svg width="40" height="30" viewBox="0 0 40 30">
+    <line x1="0" y1="5" x2="40" y2="5" />
+    <line x1="0" y1="15" x2="40" y2="15" />
+    <line x1="0" y1="25" x2="40" y2="25" />
+  </svg>
 </button>
 
 <ul *ngIf="isMenuOpen" class="dropdown-menu">
