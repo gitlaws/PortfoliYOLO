@@ -1,26 +1,51 @@
-$dropdown-toggle-color: #ffffff;
-$dropdown-toggle-hover-color: #cccccc;
-$dropdown-toggle-transition: all 0.3s ease;
-$dropdown-bg-color: #333333;
-$dropdown-hover-bg-color: #555555;
-$dropdown-link-color: #ffffff;
-$dropdown-link-hover-color: #000000;
+$toggle-color: #1b1b1b;
+$toggle-hover-color: #08f7fe;
+$toggle-transition: all 0.3s ease;
+$bg-color: #0f0f0f;
+$hover-bg-color: #1a1a1a;
+$neon-color: #21f1f1;
+$neon-shadow: 0 0 5px $neon-color, 0 0 10px $neon-color, 0 0 15px $neon-color,
+  0 0 20px $neon-color;
+$white: rgba(255, 255, 255, 1);
+$purple: #ff00ff;
+$dark: rgba(60, 60, 60, 1);
+$yellow: #ffff00;
+$black: rgba(33, 33, 33, 1);
+
+.glow {
+  box-shadow: 0 0 25px $yellow, 0 1px 5px $black;
+  border-color: $yellow;
+  background: $yellow;
+  color: rgba($black, 0.7);
+}
 
 .dropdown-toggle {
   position: relative;
-  color: $dropdown-toggle-color;
+  background: $toggle-color;
   font-size: 1.2em;
   padding: 10px;
-  transition: $dropdown-toggle-transition;
+  transition: $toggle-transition;
 
   &:hover {
-    color: $dropdown-toggle-hover-color;
+    background: $toggle-hover-color;
+    animation: neonGlow 1s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px $neon-color, 0 0 20px $neon-color,
+      0 0 30px $neon-color, 0 0 40px $neon-color;
+  }
+  to {
+    text-shadow: 0 0 20px $neon-color, 0 0 30px $neon-color,
+      0 0 40px $neon-color, 0 0 50px $neon-color, 0 0 75px $neon-color;
   }
 }
 
 .dropdown-menu {
   position: absolute;
-  top: auto;
+  top: 100px;
   right: 0%;
   list-style-type: none;
   transform: translateX(-50%);
