@@ -35,12 +35,99 @@ $dropdown-link-hover-color: #000000;
     opacity: 1;
   }
 
-  @keyframes fadeIn {
-    from {
+  @keyframes flipIn {
+    0% {
+      opacity: 0;
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+      animation-timing-function: ease-in;
+    }
+    40% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+      animation-timing-function: ease-in;
+    }
+    60% {
+      opacity: 1;
+      transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    }
+    80% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+    100% {
+      transform: perspective(400px);
+    }
+  }
+
+  @keyframes slideFadeInRight {
+    0% {
+      transform: translateX(100%);
       opacity: 0;
     }
-    to {
+    100% {
+      transform: translateX(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rotateIn {
+    0% {
+      transform: rotate(-200deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 
@@ -54,12 +141,19 @@ $dropdown-link-hover-color: #000000;
     // border-bottom: 1px solid #cccccc;
     background-color: #ffffff;
     transition: background-color 0.3s ease;
-    animation: fadeIn 0.5s ease-out;
+    // animation: flipIn 0.6s ease forwards;
+    // animation: slideFadeInRight 0.5s ease-out forwards;
+    // animation: zoomIn 0.5s ease-out forwards;
+    // animation: fadeInUp 0.5s ease-out forwards;
+
+    animation: fadeInDown 0.5s ease-out forwards;
+    // animation: rotateIn 0.5s ease-out forwards;
+    // animation: bounceIn 0.6s ease-out forwards;
 
     &:hover {
       background: linear-gradient(270deg, #f5f5f5, #c0c0c0, #cccccc, #ffffff);
       background-size: 800% 800%;
-    //   animation: gradient 5s ease infinite;
+      //   animation: gradient 5s ease infinite;
     }
 
     a {
