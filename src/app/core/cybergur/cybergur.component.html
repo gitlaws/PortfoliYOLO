@@ -1,0 +1,12 @@
+<button
+  class="dropdown-toggle"
+  aria-label="Menu"
+  (click)="toggleMenu()"
+></button>
+
+<ul *ngIf="isMenuOpen" class="dropdown-menu">
+  <li class="dropdown-item"><a routerLink="/projects">Projects</a></li>
+  <li class="dropdown-item"><a routerLink="/profile">Profile</a></li>
+  <li class="dropdown-item"><app-theme-toggle></app-theme-toggle></li>
+  <li class="dropdown-item"><app-social-links></app-social-links></li>
+</ul>

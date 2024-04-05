@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class CybergurComponent {
   isMenuOpen = false;
+  menuItems = [
+    { name: 'Projects', url: '/home' },
+    { name: 'Profile', url: '/about' },
+  ];
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
