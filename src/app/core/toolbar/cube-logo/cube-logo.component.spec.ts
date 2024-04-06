@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CubeComponent } from './cube.component';
+import { CubeLogoComponent } from './cube-logo.component';
 
-describe('CubeComponent', () => {
-  let component: CubeComponent;
-  let fixture: ComponentFixture<CubeComponent>;
+describe('CubeLogoComponent', () => {
+  let component: CubeLogoComponent;
+  let fixture: ComponentFixture<CubeLogoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CubeComponent]
+      imports: [CubeLogoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CubeComponent);
+    fixture = TestBed.createComponent(CubeLogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
