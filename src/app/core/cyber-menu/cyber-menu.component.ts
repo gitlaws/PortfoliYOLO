@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-cyber-menu',
   templateUrl: './cyber-menu.component.html',
-  styleUrls: ['./cyber-menu.component.css'],
+  styleUrls: ['./cyber-menu.component.scss'],
 })
 export class CyberMenuComponent implements OnInit {
   isMenuOpen = false;

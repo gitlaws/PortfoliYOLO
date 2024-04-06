@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-cube',
   templateUrl: './cube.component.html',
-  styleUrls: ['./cube.component.css'],
+  styleUrls: ['./cube.component.scss'],
 })
 export class CubeComponent implements OnInit {
   cubeSides = ['front', 'back', 'right', 'left', 'top', 'bottom'];
