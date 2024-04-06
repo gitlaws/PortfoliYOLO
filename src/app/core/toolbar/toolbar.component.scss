@@ -47,37 +47,26 @@
   );
   // background: linear-gradient(90deg, transparent, #f00, transparent);
   -webkit-background-clip: text;
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
-  transition: font-size 0.3s ease;
 
   // &:hover {
   //   text-shadow: 0px 0px 3px #000000;
   //   cursor: pointer;
-  //   background-color: lightgray;
-  //   border-radius: 10px;
-  //   transition: background-color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-  //     color 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-  //     text-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-  //     border-radius 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   // }
 
   &:hover {
     cursor: pointer;
   }
 
-  //This is needed to clip the background to the text only
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -200px;
-  }
-  100% {
-    background-position: calc(200px + 100%);
+  @keyframes shine {
+    0% {
+      background-position: -200px;
+    }
+    100% {
+      background-position: calc(200px + 100%);
+    }
   }
 }
 
