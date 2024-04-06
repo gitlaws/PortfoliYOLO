@@ -34,9 +34,9 @@
   padding: 10px 15px;
   text-decoration: none;
   font-family: "Orbitron", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
-  font-size: 1.2em;
+  font-size: 1.8em;
 
   background: linear-gradient(90deg, transparent, #1f1f1f, #0ff, transparent);
   // background: linear-gradient(90deg, transparent, #f00, transparent);
@@ -59,8 +59,8 @@
 
   &:hover {
     cursor: pointer;
-    font-weight: 600;
-    font-size: 1.4em; // increased font size on hover
+    font-weight: 800;
+    font-size: 2em; // increased font size on hover
     animation: shine 4s linear infinite;
   }
 

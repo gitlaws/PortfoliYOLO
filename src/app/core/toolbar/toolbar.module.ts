@@ -7,6 +7,7 @@ import { ToolbarComponent } from './toolbar.component';
 
 import { CyberMenuModule } from '../cyber-menu/cyber-menu.module';
 import { CybergurModule } from '../cybergur/cybergur.module';
+import { CubeComponent } from './cube/cube.component';
 
 CybergurModule;
 @NgModule({
@@ -19,6 +20,7 @@ CybergurModule;
     ToolbarMenuModule,
     CyberMenuModule,
     CybergurModule,
+    CubeComponent,
   ],
 })
 export class ToolbarModule {}

@@ -1,0 +1,14 @@
+<div class="scene">
+  <div
+    class="cube"
+    [style.animation]="'spin 5s infinite linear, bounce 2s infinite'"
+  >
+    <div
+      *ngFor="let side of cubeSides"
+      class="cube__face cube__face--{{ side }}"
+      [ngStyle]="
+        images[side] ? { 'background-image': 'url(' + images[side] + ')' } : {}
+      "
+    ></div>
+  </div>
+</div>
