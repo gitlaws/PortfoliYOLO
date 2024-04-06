@@ -2,10 +2,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CyberMenuComponent } from './cyber-menu.component';
+import { ThemeToggleModule } from '../../shared/common/theme-toggle/theme-toggle.module';
+import { SocialLinksModule } from '../../shared/common/social-links/social-links.module';
 
 @NgModule({
   declarations: [CyberMenuComponent],
-  imports: [CommonModule],
-  exports: [CyberMenuComponent], // Import the module before exporting it
+  exports: [CyberMenuComponent],
+  imports: [CommonModule, ThemeToggleModule, SocialLinksModule],
 })
 export class CyberMenuModule {}

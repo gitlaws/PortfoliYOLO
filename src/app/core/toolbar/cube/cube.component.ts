@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-cube',
   templateUrl: './cube.component.html',
-  styleUrl: './cube.component.scss',
+  styleUrls: ['./cube.component.css'],
 })
-export class CubeComponent {
+export class CubeComponent implements OnInit {
   cubeSides = ['front', 'back', 'right', 'left', 'top', 'bottom'];
   images: { [key: string]: string } = {}; // Add index signature to the images object
 

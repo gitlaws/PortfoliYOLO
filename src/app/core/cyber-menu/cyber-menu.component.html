@@ -1,22 +1,14 @@
-<!-- cyber-menu.component.html -->
-<div
-  class="scifiUI"
-  (click)="menuOpen = true"
-  [class.overflow-visible]="menuOpen"
->
-  <h1 (click)="toggleMenu()">Ś</h1>
-  <div class="menu-wrapper">
-    <ul>
-      <li
-        *ngFor="let item of menuItems"
-        (click)="
-          selectMenuItem(item); setClickedItem(item); $event.stopPropagation()
-        "
-        [class.glow]="menuOpen"
-        [class.clicked]="item === clickedItem"
-      >
-        {{ item }}
-      </li>
-    </ul>
-  </div>
-</div>
+<button class="dropdown-toggle" aria-label="Menu" (click)="toggleMenu()">
+  <svg width="40" height="30" viewBox="0 0 40 30">
+    <line x1="0" y1="5" x2="40" y2="5" />
+    <line x1="0" y1="15" x2="40" y2="15" />
+    <line x1="0" y1="25" x2="40" y2="25" />
+  </svg>
+</button>
+
+<ul *ngIf="isMenuOpen" class="dropdown-menu">
+  <li class="dropdown-item"><a routerLink="/projects">Projects</a></li>
+  <li class="dropdown-item"><a routerLink="/profile">Profile</a></li>
+  <li class="dropdown-item"><app-theme-toggle></app-theme-toggle></li>
+  <li class="dropdown-item"><app-social-links></app-social-links></li>
+</ul>

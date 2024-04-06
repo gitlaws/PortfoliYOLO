@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CubeComponent } from './cube.component'; // Import CubeComponent
 
 @NgModule({
-  declarations: [
-    CubeComponent, // Declare CubeComponent
-  ],
+  declarations: [CubeComponent],
   imports: [CommonModule],
   exports: [
     CubeComponent, // Export CubeComponent
