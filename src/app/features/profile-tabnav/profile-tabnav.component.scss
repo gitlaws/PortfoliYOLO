@@ -3,6 +3,7 @@
 $hub-wrapper: #f5f5f5;
 $hub-container: #3a3737;
 $hub-tabs: #c0c0c0;
+$hub-tabs-active-border-bottom: #b3b3b3;
 $hub-gap: #e8e8e8;
 $hub-content-bg: #ffffff;
 $hub-content-border: #cccccc;
@@ -104,7 +105,7 @@ $color3: #0abdc6;
   clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 99%);
 
   &.active {
-    border-bottom-color: #b3b3b3;
+    border-bottom-color: $hub-tabs-active-border-bottom;
     color: $text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
