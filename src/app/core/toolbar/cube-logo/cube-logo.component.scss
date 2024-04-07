@@ -29,7 +29,9 @@
 .front {
   transform: rotateY(0deg) translateZ(25px);
   // background: #ff0077;
-  background: url("/assets/logo78px.png"), #301934;
+  background: url("/assets/logo78px.png"),
+    url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjd6eGV3emozeWRyaW80MnB4bmd6aGoydWpkeHFwem5rcnZmNnRneSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlLP5fowu9vAbUk/giphy.gif"),
+    #301934;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
