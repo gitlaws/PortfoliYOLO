@@ -28,15 +28,23 @@
 
 .front {
   transform: rotateY(0deg) translateZ(25px);
-  background: #ff0077;
+  // background: #ff0077;
+  background: url("/assets/logo78px.png"),#4B0082;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .back {
   transform: rotateX(180deg) translateZ(25px);
-  background: #ff00ae;
+  // background: #ff00ae;
+  background: url("https://i.gifer.com/37Fx.gif"), #39FF14;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .right {
   transform: rotateY(90deg) translateZ(25px);
-  background: url("https://i.gifer.com/DDt.gif") #8a00ff;
+  background: url("https://i.gifer.com/DDt.gif") #000000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -44,7 +52,7 @@
 .left {
   transform: rotateY(-90deg) translateZ(25px);
   // background: #4600ff;
-  background: url("https://i.gifer.com/ZNec.gif"),#4600ff;
+  background: url("https://i.gifer.com/ZNec.gif"), #00008B;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -60,7 +68,7 @@
 .bottom {
   transform: rotateX(-90deg) translateZ(25px);
   // background: #00aeff;
-  background: url("https://i.gifer.com/Z23N.gif"),#000000;
+  background: url("https://i.gifer.com/Z23N.gif"), #000000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
