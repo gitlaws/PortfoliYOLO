@@ -58,19 +58,27 @@ $color3: #757575;
   animation: pulse 23s ease-in-out infinite;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 24px;
+  // padding-top: 240px;
 
   @media (min-width: 1411px) {
-    padding: 0 16vw;
+    // padding: 10rem 20rem;
+    //  padding: 24px 200px;
   }
 
   @media (min-width: $tablet) {
     // padding: calc(0px + 12vw);
-    padding: 0 16vw;
+    // padding: 0 16vw;
+    padding: 24px 0;
+  }
+
+  @media (min-width: $mobile) {
+    // padding: 24px; // reduced padding
+    padding: 24px 0;
   }
 
   @media (max-width: $mobile) {
     // padding: 24px; // reduced padding
+    padding: 24px 0;
   }
 }
 
