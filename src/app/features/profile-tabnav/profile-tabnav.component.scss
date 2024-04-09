@@ -291,7 +291,7 @@ $color3: #ffffff;
       font-size: 1rem;
       // padding: 10px 20px;
       width: auto;
-      height: 75%;
+      height: 74px;
       transition: background-color 0.3s ease;
 
       &:hover {
@@ -337,8 +337,8 @@ $color3: #ffffff;
     .pagination-control {
       grid-template-areas:
         "center"
-        "left"
-        "right";
+        "right"
+        "left";
       grid-template-columns: 1fr;
     }
 
