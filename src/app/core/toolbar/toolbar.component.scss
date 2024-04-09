@@ -8,10 +8,10 @@
   align-items: center;
   justify-content: space-around;
   height: 100px;
-  background: linear-gradient(to bottom, #dee2e6, #e9ecef, #f8f9fa);
+  background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
   // background: transparent;
   padding: 20px;
-  border-radius: 10px;
+  // border-radius: 10px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2); // !TODO: Add @Include shadow mixin
 }
 
