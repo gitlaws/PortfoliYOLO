@@ -36,9 +36,9 @@
 
           &.light {
             // styles for light mode
-            color: #777;
+            color: #c0c0c0; // Light gray, similar to the metallic color of the Cybertruck
             &:hover {
-              color: #666;
+              color: #e0e0e0; // Medium gray, used for secondary information and icons in the Cybertruck's display
             }
           }
         }
