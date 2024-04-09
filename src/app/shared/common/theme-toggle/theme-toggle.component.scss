@@ -78,14 +78,14 @@ $border-radius: 50%;
   &.dark {
     // styles for dark mode
     &:hover {
-      border-color: #00bfff; // Deep Sky Blue for dark mode hover
+      border-color: #007bff; // Blue, used for interactive elements and accents in the Cybertruck's display
     }
   }
 
   &.light {
     // styles for light mode
     &:hover {
-      border-color: #4682b4; // Medium Sea Green for light mode hover
+      border-color: #c0c0c0; // Light gray, similar to the metallic color of the Cybertruck
     }
   }
 
