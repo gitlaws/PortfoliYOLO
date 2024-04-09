@@ -65,27 +65,25 @@ $border-radius: 50%;
   }
 
   .darkmode-bg {
-    background-color: #333;
-    color: white;
+    background-color: #1a1a1a;
+    color: #c0c0c0;
   }
 
   &:active {
-    transform: scale(
-      0.95
-    ); // slightly reduce the size of the button when clicked
+    transform: scale(0.95);
   }
 
   &.dark {
     // styles for dark mode
     &:hover {
-      border-color: #007bff; // Blue, used for interactive elements and accents in the Cybertruck's display
+      border-color: #ffd700;
     }
   }
 
   &.light {
     // styles for light mode
     &:hover {
-      border-color: #c0c0c0; // Light gray, similar to the metallic color of the Cybertruck
+      border-color: #7fff00;
     }
   }
 
@@ -94,7 +92,7 @@ $border-radius: 50%;
   // }
 
   .btn.darkmode {
-    background-color: #333;
+    background-color: #1a1a1a;
   }
 }
 
