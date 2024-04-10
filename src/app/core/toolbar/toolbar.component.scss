@@ -38,17 +38,27 @@
   font-weight: 600;
   font-style: normal;
   font-size: 1.8em;
-  animation: shine 24s linear infinite;
+  animation: shine 4s ease-in-out infinite;
   background: linear-gradient(
     90deg,
     transparent,
     #1a1a1a,
-    // Dark gray, similar to the Cybertruck's exterior
     #c0c0c0,
-    // Light gray, used for primary information and highlights in the Cybertruck's display
     transparent
   );
   // background: linear-gradient(90deg, transparent, #f00, transparent);
+  // background: linear-gradient(
+  //   90deg,
+  //   transparent,
+  //   #ff0000,
+  //   #ff7f00,
+  //   #ffff00,
+  //   #00ff00,
+  //   #0000ff,
+  //   #4b0082,
+  //   #8b00ff,
+  //   transparent
+  // );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,10 +75,10 @@
 
   @keyframes shine {
     0% {
-      background-position: -200px;
+      background-position: -100%;
     }
     100% {
-      background-position: calc(200px + 100%);
+      background-position: 200%;
     }
   }
 }
