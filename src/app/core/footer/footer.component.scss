@@ -1,0 +1,33 @@
+.logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 20px;
+}
+
+footer {
+  background: linear-gradient(270deg, #1a1a1a, #5c5c5c, #c0c0c0);
+  background-size: 200% 200%;
+  animation: Gradient 24s ease infinite;
+  padding: 20px 0;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
