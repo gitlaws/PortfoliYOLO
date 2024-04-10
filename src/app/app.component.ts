@@ -5,7 +5,6 @@ import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav.component';
 import { ProjectsModule } from './features/projects/projects.module';
-import { FooterComponent } from './core/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,6 @@ import { FooterComponent } from './core/footer/footer.component';
     ProfileModule,
     ProfileTabnavComponent,
     ProjectsModule,
-    FooterComponent,
   ],
 })
 export class AppComponent {

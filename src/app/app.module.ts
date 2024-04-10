@@ -18,6 +18,7 @@ import { CybergurModule } from './core/cybergur/cybergur.module';
     SocialLinksModule,
     ThemeToggleModule,
     ToolbarMenuModule,
+    ToolbarModule,
     ProfileModule,
     ProjectsModule,
     CyberMenuModule,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cube-logo',
-  template: ` <!-- Add your template code here --> `,
+  templateUrl: './cube-logo.component.html',
+  styleUrls: ['./cube-logo.component.scss'],
 })
 export class CubeLogoComponent {}
