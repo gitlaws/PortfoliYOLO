@@ -8,6 +8,7 @@
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
+  animation: pulse 5s infinite;
 }
 
 .copyright {
@@ -18,10 +19,10 @@
 }
 
 footer {
-  background: linear-gradient(270deg, #1a1a1a, #5c5c5c, #c0c0c0);
+  background: linear-gradient(to top, #1a1a1a, #5c5c5c, #c0c0c0);
   background-size: 200% 200%;
   animation: Gradient 24s ease infinite;
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 @keyframes Gradient {
@@ -33,5 +34,17 @@ footer {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
