@@ -117,7 +117,12 @@ $color3: #757575;
 }
 
 .hub-tabs {
-  background: $hub-tabs;
+  // background: $hub-tabs;
+  background: linear-gradient(
+    to top,
+    rgba(192, 192, 192, 0.5),
+    rgba(117, 117, 117, 0.5)
+  );
   // background-color: #757575;
   color: $hubtabs-text-color;
   cursor: pointer;
@@ -134,7 +139,7 @@ $color3: #757575;
 
   &.active {
     border-bottom-color: $hub-tabs-active-border-bottom;
-    color: $text-color;
+    color: $hubtabs-text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
   }
@@ -260,7 +265,12 @@ $color3: #757575;
 
     .prev-button {
       grid-area: left;
-      background: linear-gradient(to left, #c0c0c0, #757575);
+      // background: linear-gradient(to left, #c0c0c0, #757575);
+      background: linear-gradient(
+        to left,
+        rgba(192, 192, 192, 0.5),
+        rgba(117, 117, 117, 0.5)
+      );
     }
 
     .center-info {
@@ -270,23 +280,25 @@ $color3: #757575;
     .next-button {
       grid-area: right;
 
-      background: linear-gradient(to right, #c0c0c0, #757575);
+      // background: linear-gradient(to right, #c0c0c0, #757575);
+      background: linear-gradient(
+        to right,
+        rgba(192, 192, 192, 0.5),
+        rgba(117, 117, 117, 0.5)
+      );
     }
 
     span {
       display: grid;
       align-items: center;
       justify-items: center;
-      background: $pagination-center-info;
+      // background: $pagination-center-info;
+      background: transparent;
       border: 1px solid #c0c0c0; // Light gray, similar to the metallic color of the Cybertruck
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2); // Slightly darker shadow for a more "3D" effect
       border-radius: 10px;
       height: auto;
       transition: box-shadow 0.3s ease, transform 0.3s ease; // Added transform to the transition
-
-      &:hover {
-        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3); // Darker and larger shadow on hover
-      }
 
       h3 {
         color: #ffffff; // Light gray, similar to the metallic color of the Cybertruck
@@ -326,7 +338,6 @@ $color3: #757575;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 
       &:hover {
-        background-color: #3e8e41; // Change as needed
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
           0 17px 60px 0 rgba(0, 0, 0, 0.19);
       }
