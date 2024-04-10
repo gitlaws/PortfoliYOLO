@@ -1,14 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cube-logo',
-  templateUrl: './cube-logo.component.html',
-  styleUrls: ['./cube-logo.component.css'],
+  template: ` <!-- Add your template code here --> `,
 })
-export class CubeLogoComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {
-    // Initialization logic goes here
-  }
-}
+export class CubeLogoComponent {}
