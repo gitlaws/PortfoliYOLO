@@ -5,9 +5,8 @@
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 20px;
+  //   margin: 0 auto;
+  //   display: block;
   animation: pulse 5s infinite;
 }
 
@@ -15,14 +14,18 @@
   text-align: center;
   font-size: 12px;
   color: #666;
-  margin-top: 20px;
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(to top, #1a1a1a, #5c5c5c, #c0c0c0);
   background-size: 200% 200%;
   animation: Gradient 24s ease infinite;
-  padding: 50px 0;
+  //   padding: 20px 0;
+  height: 200px;
 }
 
 @keyframes Gradient {
