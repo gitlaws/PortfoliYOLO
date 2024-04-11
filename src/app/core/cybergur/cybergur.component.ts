@@ -10,14 +10,11 @@ export class CybergurComponent {
   menuAnimation = '';
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-    this.menuAnimation = this.isMenuOpen ? 'fadeInDown' : 'fadeInUp';
-  }
-
-  @HostListener('animationend', ['$event'])
-  onAnimationEnd(event: AnimationEvent) {
-    if (event.animationName === 'fadeInUp') {
-      this.isMenuOpen = false;
+    if (this.isMenuOpen) {
+      this.menuAnimation = 'fadeInUp';
+    } else {
+      this.isMenuOpen = true;
+      this.menuAnimation = 'fadeInDown';
     }
   }
 }

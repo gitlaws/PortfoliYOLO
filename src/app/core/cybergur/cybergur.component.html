@@ -6,7 +6,7 @@
   </svg>
 </button>
 
-<ul *ngIf="isMenuOpen" [@fadeInUp] class="dropdown-menu">
+<ul *ngIf="isMenuOpen" [ngClass]="menuAnimation" class="dropdown-menu">
   <li class="dropdown-item"><a routerLink="/projects">Projects</a></li>
   <li class="dropdown-item"><a routerLink="/profile">Profile</a></li>
   <li class="dropdown-item"><app-theme-toggle></app-theme-toggle></li>
