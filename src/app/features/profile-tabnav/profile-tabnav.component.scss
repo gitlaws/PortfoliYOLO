@@ -12,9 +12,9 @@
 // $footer-color: #1b5e20;
 // $hub-wrapper: #c8e6c9;
 
-$header-color: #f9fbe7;
-$footer-color: #827717;
-$hub-wrapper: #233b2a;
+$header-color: #fafafa;
+$footer-color: #212121;
+$hub-wrapper: #eeeeee;
 
 $hub-container: #3a3737;
 $hub-tabs: #757575;
@@ -71,7 +71,6 @@ $color3: #757575;
   // animation: Gradient 25s ease infinite;
   // background-repeat: no-repeat;
   // animation: pulse 23s ease-in-out infinite;
-  // margin: 0px 50px;
 
   @media (min-width: 1411px) {
     margin: 0px calc((100vw - 1411px) / 2);
@@ -93,7 +92,6 @@ $color3: #757575;
 }
 
 .hub-container {
-  // padding: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,7 +101,6 @@ $color3: #757575;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: all 0.3s ease;
-  // padding: 0px 250px;
 }
 
 .hub-header {
