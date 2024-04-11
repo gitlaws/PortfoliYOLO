@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-cybergur',
@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
 })
 export class CybergurComponent {
   isMenuOpen = false;
-  menuItems = [
-    { name: 'Projects', url: '/home' },
-    { name: 'Profile', url: '/about' },
-  ];
+  menuAnimation = '';
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    this.menuAnimation = this.isMenuOpen ? 'fadeInDown' : 'fadeInUp';
+  }
+
+  @HostListener('animationend', ['$event'])
+  onAnimationEnd(event: AnimationEvent) {
+    if (event.animationName === 'fadeInUp') {
+      this.isMenuOpen = false;
+    }
   }
 }
