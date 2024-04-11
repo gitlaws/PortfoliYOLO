@@ -1,8 +1,21 @@
 @import "../../../styles/variables";
 
-$header-color: #0fff95;
-$footer-color: #390099;
-$hub-wrapper: #ff6ad5;
+// $header-color: #E0F7FA;
+// $footer-color: #006064;
+// $hub-wrapper: #B2EBF2;
+
+// $header-color: #e0f2f1;
+// $footer-color: #004d40;
+// $hub-wrapper: #b2dfdb;
+
+// $header-color: #e8f5e9;
+// $footer-color: #1b5e20;
+// $hub-wrapper: #c8e6c9;
+
+$header-color: #f9fbe7;
+$footer-color: #827717;
+$hub-wrapper: #233b2a;
+
 $hub-container: #3a3737;
 $hub-tabs: #757575;
 $hubtabs-text-color: #ffffff;
@@ -50,7 +63,7 @@ $color3: #757575;
 }
 
 .hub-wrapper {
-  background-color: $hub-wrapper;
+  // background-color: $hub-wrapper;
   // background: linear-gradient(90deg, $color1, $color2, $color3);
   // background: radial-gradient(circle at center, $color1, $color2);
   // background-size: 200% 200%;
@@ -58,11 +71,10 @@ $color3: #757575;
   // animation: Gradient 25s ease infinite;
   // background-repeat: no-repeat;
   // animation: pulse 23s ease-in-out infinite;
-  // padding-top: 240px;
+  // margin: 0px 50px;
 
   @media (min-width: 1411px) {
-    // padding: 10rem 20rem;
-    //  padding: 24px 200px;
+    margin: 0px calc((100vw - 1411px) / 2);
   }
 
   @media (min-width: $tablet) {
@@ -93,6 +105,7 @@ $color3: #757575;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: all 0.3s ease;
+  // padding: 0px 250px;
 }
 
 .hub-header {
