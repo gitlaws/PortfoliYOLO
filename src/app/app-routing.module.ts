@@ -6,11 +6,10 @@ import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav
 const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'profile-tabnav', component: ProfileTabnavComponent },
-  // more routes here as needed
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // Removed ProjectsModule and ProfileTabnavModule
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
