@@ -5,7 +5,6 @@ import { SocialLinksModule } from '../../shared/common/social-links/social-links
 import { ToolbarMenuModule } from '../toolbar-menu/toolbar-menu.module';
 import { ToolbarComponent } from './toolbar.component';
 import { CyberMenuModule } from '../cyber-menu/cyber-menu.module';
-import { CybergurModule } from '../cybergur/cybergur.module';
 import { CubeLogoComponent } from './cube-logo/cube-logo.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { CubeLogoComponent } from './cube-logo/cube-logo.component';
     SocialLinksModule,
     ToolbarMenuModule,
     CyberMenuModule,
-    CybergurModule,
   ],
 })
 export class ToolbarModule {}
