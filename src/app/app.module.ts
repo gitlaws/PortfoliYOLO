@@ -5,12 +5,14 @@ import { ToolbarModule } from './core/toolbar/toolbar.module';
 import { ProfileTabnavModule } from './features/profile-tabnav/profile-tabnav.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './core/footer/footer.module';
+import { ProjectsModule } from './features/projects/projects.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ProjectsModule,
     ProfileTabnavModule,
     ToolbarModule,
     FooterModule,
