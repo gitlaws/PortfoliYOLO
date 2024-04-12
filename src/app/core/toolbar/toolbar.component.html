@@ -1,14 +1,21 @@
 <header class="header">
   <!-- Logo -->
-  <a href="/" class="header__logo">
+  <a href="/" routerLink="/" class="header__logo">
     <!-- <img id="logo-image" src="assets/logo78px.png" alt="Site logo" /> -->
     <app-cube-logo></app-cube-logo>
   </a>
   <!-- Items -->
   <nav class="header__nav">
     <!-- Links -->
-    <a routerLink="/projects" class="nav__item-link">Projects</a>
-    <a routerLink="/profile-tabnav" class="nav__item-link">Profile</a>
+    <a routerLink="/projects" routerLinkActive="active" class="nav__item-link"
+      >Projects</a
+    >
+    <a
+      routerLink="/profile-tabnav"
+      routerLinkActive="active"
+      class="nav__item-link"
+      >Profile</a
+    >
     <!-- Theme Toggle -->
     <app-theme-toggle class="nav__theme-toggle"></app-theme-toggle>
     <!-- Social Links -->
