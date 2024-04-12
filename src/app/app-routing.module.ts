@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { ProjectsComponent } from './projects/projects.component';
-import { ProfileTabnavComponent } from './profile-tabnav/profile-tabnav.component';
+import { ProjectsComponent } from './features/projects/projects.component';
+import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
@@ -11,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], // Removed ProjectsModule and ProfileTabnavModule
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

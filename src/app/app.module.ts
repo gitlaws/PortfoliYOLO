@@ -1,29 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SocialLinksModule } from './shared/common/social-links/social-links.module';
-import { ThemeToggleModule } from './shared/common/theme-toggle/theme-toggle.module';
-import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
-import { ToolbarModule } from './core/toolbar/toolbar.module';
-import { ProfileModule } from './features/profile/profile.module';
-import { ProjectsModule } from './features/projects/projects.module';
-import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
-import { CybergurComponent } from './core/cybergur/cybergur.component';
-import { CybergurModule } from './core/cybergur/cybergur.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { ToolbarModule } from './core/toolbar/toolbar.module';
+import { ProfileTabnavModule } from './features/profile-tabnav/profile-tabnav.module';
+import { AppComponent } from './app.component';
+import { FooterModule } from './core/footer/footer.module';
 
 @NgModule({
-  declarations: [],
-  exports: [],
+  declarations: [AppComponent],
   imports: [
-    CommonModule,
+    BrowserModule,
     AppRoutingModule,
-    SocialLinksModule,
-    ThemeToggleModule,
-    ToolbarMenuModule,
+    ProfileTabnavModule,
     ToolbarModule,
-    ProfileModule,
-    ProjectsModule,
-    CyberMenuModule,
+    FooterModule,
   ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
