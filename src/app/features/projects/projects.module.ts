@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { routes } from '../../app.routes';
-import { ProjectsComponent } from '../../features/projects/projects.component'; // Fix: Corrected the file path
+import { ProjectsComponent } from './projects.component';
 
-const projectRoutes: Routes = [{ path: '', component: ProjectsComponent }];
+const routes: Routes = [{ path: '', component: ProjectsComponent }];
 
 @NgModule({
-  declarations: [ProjectsComponent],
-  imports: [CommonModule, RouterModule.forChild(projectRoutes)],
-  exports: [ProjectsComponent],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class ProjectsModule {}

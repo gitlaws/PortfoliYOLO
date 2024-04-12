@@ -9,12 +9,14 @@ import { ProjectsModule } from './features/projects/projects.module';
 import { CyberMenuModule } from './core/cyber-menu/cyber-menu.module';
 import { CybergurComponent } from './core/cybergur/cybergur.component';
 import { CybergurModule } from './core/cybergur/cybergur.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [],
   exports: [],
   imports: [
     CommonModule,
+    AppRoutingModule,
     SocialLinksModule,
     ThemeToggleModule,
     ToolbarMenuModule,
