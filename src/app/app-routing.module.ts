@@ -1,12 +1,13 @@
-// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './features/profile/profile.component';
-import { ProjectsComponent } from './features/projects/projects.component';
+
+import { ProjectsComponent } from './projects/projects.component';
+import { ProfileTabnavComponent } from './profile-tabnav/profile-tabnav.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
-  { path: 'profile-tavnav', component: ProfileComponent },
+  { path: 'profile-tabnav', component: ProfileTabnavComponent },
+  // more routes here as needed
 ];
 
 @NgModule({
