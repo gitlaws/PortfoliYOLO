@@ -16,7 +16,7 @@
           <div *ngFor="let page of [1, 2, 3]">
             <div *ngIf="currentPage === page">
               <div class="page-content">
-                <h2>Welcome to Tab 1, Page {{ page }}</h2>
+                <h2>Tab 1, Page {{ page }}</h2>
                 <p>
                   This is Page {{ page }} under Tab 1. You can add any content
                   you want here, such as text, images, forms, etc.
@@ -29,7 +29,7 @@
         <ng-container *ngIf="activeTab === 'tab2'">
           <ng-container *ngIf="currentPage === 1">
             <div class="page-content">
-              <h2>Welcome to Page 1</h2>
+              <h2>Page 1</h2>
               <p>
                 This is Page 1. You can add any content you want here, such as
                 text, images, forms, etc.
@@ -38,7 +38,7 @@
           </ng-container>
           <ng-container *ngIf="currentPage === 2">
             <div class="page-content">
-              <h2>Welcome to Page 2</h2>
+              <h2>Page 2</h2>
               <p>
                 This is Page 2. You can add any content you want here, such as
                 text, images, forms, etc.
@@ -47,7 +47,7 @@
           </ng-container>
           <ng-container *ngIf="currentPage === 3">
             <div class="page-content">
-              <h2>Welcome to Page 3</h2>
+              <h2>Page 3</h2>
               <p>
                 This is Page 3. You can add any content you want here, such as
                 text, images, forms, etc.
@@ -79,7 +79,7 @@
           <i class="fas fa-chevron-left"></i>
         </button>
         <span class="center-info">
-          <h3>Skills</h3>
+          <h3>Item</h3>
           <h3>
             {{ currentPage }}
           </h3>
