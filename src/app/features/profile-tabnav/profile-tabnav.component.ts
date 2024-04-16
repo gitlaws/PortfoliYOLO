@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProfileCardComponent } from './profile-card/profile-card.component';
+// import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @Component({
   selector: 'app-profile-tabnav',
