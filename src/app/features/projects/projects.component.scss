@@ -17,9 +17,9 @@
 }
 
 .gallery-item figure img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .gallery-item figure figcaption {
