@@ -6,11 +6,8 @@ import { ProjectsComponent } from './projects.component';
 const routes: Routes = [{ path: '', component: ProjectsComponent }];
 
 @NgModule({
-  declarations: [ProjectsComponent], // Declare ProjectsComponent here
-  imports: [
-    CommonModule, // Include CommonModule in the imports array
-    RouterModule.forChild(routes),
-  ],
+  declarations: [ProjectsComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class ProjectsModule {}
