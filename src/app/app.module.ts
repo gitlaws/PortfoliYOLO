@@ -6,12 +6,14 @@ import { ProfileTabnavModule } from './features/profile-tabnav/profile-tabnav.mo
 import { AppComponent } from './app.component';
 import { FooterModule } from './core/footer/footer.module';
 import { ProjectsModule } from './features/projects/projects.module';
+import { HomeModule } from './core/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     ProjectsModule,
     ProfileTabnavModule,
     ToolbarModule,
