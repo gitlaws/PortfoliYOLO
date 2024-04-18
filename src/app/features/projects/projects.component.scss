@@ -1,93 +1,40 @@
-.gallery-wrapper section {
+@import "../../../styles/variables";
+
+.project-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: black;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
-.gallery {
-  display: grid;
-  grid-template-areas:
-    "a b"
-    "c d"
-    "e f";
-  grid-gap: 24px;
-  justify-content: center;
-  align-items: center;
+.project-figure {
+  width: 500px;
+  height: 282px;
+  min-width: 1px;
+  min-height: 1px;
 }
 
-.gallery-item.area-a {
-  grid-area: a;
-}
-.gallery-item.area-b {
-  grid-area: b;
-}
-.gallery-item.area-c {
-  grid-area: c;
-}
-// Add more .gallery-item.area-* rules as needed
-
-.gallery-item figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.gallery-item figure img {
-  width: 150px;
-  height: 150px;
+.project-image {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.gallery-item figure figcaption {
-  color: white;
-}
+.project-description {
+  width: 100%;
+  padding: 20px;
+  word-wrap: break-word;
 
-@media (max-width: 1024px) {
-  .gallery {
-    grid-template-areas:
-      "a"
-      "b"
-      "c"
-      "d"
-      "e"
-      "f";
+  @media (max-width: 768px) {
+    font-size: 0.9em;
   }
-  .gallery-item figure img {
-    width: 100%;
-    height: auto;
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
   }
 }
 
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-areas:
-      "a"
-      "b"
-      "c"
-      "d"
-      "e"
-      "f";
-  }
-  .gallery-item figure img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery {
-    grid-template-areas:
-      "a"
-      "b"
-      "c"
-      "d"
-      "e"
-      "f";
-  }
-  .gallery-item figure img {
-    width: 100%;
-    height: auto;
-  }
+@media (min-width: $mobile) {
 }
