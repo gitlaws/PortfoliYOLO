@@ -17,24 +17,16 @@
   align-items: center;
 }
 
-.gallery-item:nth-child(1) {
+.gallery-item.area-a {
   grid-area: a;
 }
-.gallery-item:nth-child(2) {
+.gallery-item.area-b {
   grid-area: b;
 }
-.gallery-item:nth-child(3) {
+.gallery-item.area-c {
   grid-area: c;
 }
-.gallery-item:nth-child(4) {
-  grid-area: d;
-}
-.gallery-item:nth-child(5) {
-  grid-area: e;
-}
-.gallery-item:nth-child(6) {
-  grid-area: f;
-}
+// Add more .gallery-item.area-* rules as needed
 
 .gallery-item figure {
   display: flex;
