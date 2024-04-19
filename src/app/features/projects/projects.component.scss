@@ -6,15 +6,13 @@
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  // background-color: black;
+  background-color: #6c7073;
 }
 
 .project-figure {
-  // margin: 20px;
-  // background-color: black;
+  background-color: #2b2d2f;
   padding: 20px;
   width: 500px;
-  // height: 282px;
   min-width: 1px;
   min-height: 1px;
 }
@@ -27,8 +25,9 @@
 }
 
 .project-description {
-  width: 100%;
+  color: #f4f4f6;
   padding: 20px;
+  width: 100%;
   word-wrap: break-word;
 
   @media (max-width: 768px) {
