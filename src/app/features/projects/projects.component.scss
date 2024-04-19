@@ -1,12 +1,19 @@
 @import "../../../styles/variables";
 
 .project-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  text-align: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-wrap: wrap;
   background-color: #6c7073;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "f1 f2"
+    "f3 f4"
+    "f5 f6";
 }
 
 .project-figure {
@@ -39,5 +46,40 @@
   }
 }
 
-@media (min-width: $mobile) {
+.project-figure-1 {
+  grid-area: f1;
+}
+
+.project-figure-2 {
+  grid-area: f2;
+}
+
+.project-figure-3 {
+  grid-area: f3;
+}
+
+.project-figure-4 {
+  grid-area: f4;
+}
+
+.project-figure-5 {
+  grid-area: f5;
+}
+
+.project-figure-6 {
+  grid-area: f6;
+}
+
+@media (max-width: $mobile) {
+  .project-container {
+    grid-template-columns: repeat(1, 1fr);
+    // grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+      "f1"
+      "f2"
+      "f3"
+      "f4"
+      "f5"
+      "f6";
+  }
 }
