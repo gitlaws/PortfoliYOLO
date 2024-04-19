@@ -17,18 +17,6 @@
   gap: 20px;
 }
 
-.project-description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: $mobile) {
-  .project-figure {
-    grid-template-columns: 1fr;
-  }
-}
-
 .project-image {
   border-radius: 8px;
   width: 100%;
@@ -37,8 +25,24 @@
 }
 
 .project-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: #f4f4f6;
   padding: 20px;
   width: 100%;
   word-wrap: normal;
+
+  h2 {
+    margin-bottom: 20px;
+    // font-size: 1.5rem;
+    // font-weight: 700;
+  }
+}
+
+@media (max-width: $mobile) {
+  .project-figure {
+    grid-template-columns: 1fr;
+  }
 }
