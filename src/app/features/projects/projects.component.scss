@@ -26,7 +26,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem; // Add a gap between the image and the caption
+      gap: 1rem;
     }
 
     h2 {
@@ -47,7 +47,7 @@
     p {
       padding: 1rem;
       line-height: 1.5;
-      color: #555; // Use a softer color for the text
+      color: #555;
       text-align: center;
     }
   }
