@@ -10,3 +10,27 @@ $btn-icon-container: #4a4a4a;
 $btn-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
 $btn-border-radius: 50%;
 
+/* Toolbar Menu Styles */
+$menu-toggle-color: #ffffff;
+$menu-toggle-hover-color: #cccccc;
+$menu-toggle-transition: all 0.3s ease;
+$menu-bg-color: #333333;
+$menu-hover-bg-color: #555555;
+$menu-link-color: #ffffff;
+$menu-link-hover-color: #000000;
+
+/* Cyber Menu Styles */
+$primary-bg-color: #301934;
+$hover-color: #ff2079;
+$transition-effect: all 0.3s ease;
+$secondary-bg-color: #0f0f0f;
+$hover-bg-color: #1a1a1a;
+$highlight-color: #ff00ff;
+$highlight-shadow: 0 0 5px $highlight-color, 0 0 10px $highlight-color,
+  0 0 15px $highlight-color, 0 0 20px $highlight-color;
+$white-color: rgba(255, 255, 255, 1);
+$accent-color: #ff00ff;
+$dark-color: rgba(60, 60, 60, 1);
+$warning-color: #ffff00;
+$black-color: rgba(33, 33, 33, 1);
+
