@@ -14,24 +14,6 @@
   }
 }
 
-/* Toolbar, Footer, Mixins */
-@mixin pulse {
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-}
-
 /* Cube Logo Mixins */
 @keyframes rotate {
   from {
@@ -83,6 +65,41 @@
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+}
+
+/* Profile TabNav */
+@mixin gradient-animation($duration, $timing-function, $iteration) {
+  @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  animation: Gradient $duration $timing-function $iteration;
+}
+
+/* Toolbar, Footer, Mixins */
+@mixin pulse {
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }
