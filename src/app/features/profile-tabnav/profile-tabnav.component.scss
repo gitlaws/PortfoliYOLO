@@ -12,13 +12,13 @@
 // $footer-color: #1b5e20;
 // $hub-wrapper: #c8e6c9;
 
-$header-color: #fafafa;
-$footer-color: #212121;
+$hub-header-color: #fafafa;
+$hub-footer-color: #212121;
 $hub-wrapper: #eeeeee;
 
 $hub-container: #3a3737;
 $hub-tabs: #757575;
-$hubtabs-text-color: #ffffff;
+$hub-tabs-text-color: #ffffff;
 $hub-tabs-active-border-bottom: #c0c0c0;
 $hub-gap: #e8e8e8;
 $hub-content-bg: #ffffff;
@@ -26,17 +26,15 @@ $hub-content-border: #cccccc;
 $hub-content-title: #ffffff;
 $hub-content-text: #ffffff;
 $hub-header-text-color: #333333;
-$gradient-start: #ffffff;
-$gradient-end: #f0f0f0;
-$indicator-shadow: rgba(0, 0, 0, 0.1);
-$indicator-active: #ffa500;
+$hub-indicator-shadow: rgba(0, 0, 0, 0.1);
+$hub-indicator-active: #ffa500;
 $pagination-control-bg: #f5f5f5;
 $pagination-button: #757575;
 $pagination-button-text: #495057;
 $pagination-center-info: #c0c0c0;
-$color1: #ffffff;
-$color2: #000000;
-$color3: #757575;
+$hub-content-color1: #ffffff;
+$hub-content-color2: #000000;
+$hub-content-color3: #757575;
 
 @keyframes Gradient {
   0% {
@@ -108,7 +106,7 @@ $color3: #757575;
   justify-content: space-between;
   align-items: center;
   // background: transparent;
-  background-color: $header-color;
+  background-color: $hub-header-color;
   color: $hub-header-text-color;
   width: 100%;
   gap: 24px;
@@ -132,7 +130,7 @@ $color3: #757575;
     rgba(117, 117, 117, 0.5)
   );
   // background-color: #757575;
-  color: $hubtabs-text-color;
+  color: $hub-tabs-text-color;
   cursor: pointer;
   height: 50px;
   width: 100%;
@@ -147,7 +145,7 @@ $color3: #757575;
 
   &.active {
     border-bottom-color: $hub-tabs-active-border-bottom;
-    color: $hubtabs-text-color;
+    color: $hub-tabs-text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
   }
@@ -167,7 +165,11 @@ $color3: #757575;
 .hub-content {
   width: 100%;
   padding: 10px 24px;
-  background: radial-gradient(circle at center, $color1, $color2);
+  background: radial-gradient(
+    circle at center,
+    $hub-content-color1,
+    $hub-content-color2
+  );
   background-size: 200% 200%;
   background-position: center;
 
@@ -254,7 +256,7 @@ $color3: #757575;
   justify-content: space-around;
   align-items: center;
   // background: transparent;
-  background-color: $footer-color;
+  background-color: $hub-footer-color;
   // margin-top: 10px;
   width: 100%;
   height: auto;
@@ -378,8 +380,8 @@ $color3: #757575;
       }
 
       &.active {
-        background-color: $indicator-active;
-        box-shadow: 0 2px 4px rgba($indicator-shadow, 0.2);
+        background-color: $hub-indicator-active;
+        box-shadow: 0 2px 4px rgba($hub-indicator-shadow, 0.2);
         transform: scale(1.1);
         transition: transform 0.3s ease;
       }
