@@ -2,42 +2,6 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// $header-color: #E0F7FA;
-// $footer-color: #006064;
-// $hub-wrapper: #B2EBF2;
-
-// $header-color: #e0f2f1;
-// $footer-color: #004d40;
-// $hub-wrapper: #b2dfdb;
-
-// $header-color: #e8f5e9;
-// $footer-color: #1b5e20;
-// $hub-wrapper: #c8e6c9;
-
-$hub-header-color: #fafafa;
-$hub-footer-color: #212121;
-$hub-wrapper: #eeeeee;
-
-$hub-container: #3a3737;
-$hub-tabs: #757575;
-$hub-tabs-text-color: #ffffff;
-$hub-tabs-active-border-bottom: #c0c0c0;
-$hub-gap: #e8e8e8;
-$hub-content-bg: #ffffff;
-$hub-content-border: #cccccc;
-$hub-content-title: #ffffff;
-$hub-content-text: #ffffff;
-$hub-header-text-color: #333333;
-$hub-indicator-shadow: rgba(0, 0, 0, 0.1);
-$hub-indicator-active: #ffa500;
-$pagination-control-bg: #f5f5f5;
-$pagination-button: #757575;
-$pagination-button-text: #495057;
-$pagination-center-info: #c0c0c0;
-$hub-content-color1: #ffffff;
-$hub-content-color2: #000000;
-$hub-content-color3: #757575;
-
 @keyframes Gradient {
   0% {
     background-position: 0% 50%;
