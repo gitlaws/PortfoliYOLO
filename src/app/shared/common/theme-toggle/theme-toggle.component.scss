@@ -2,10 +2,6 @@
 @import "../../../../styles/_mixins.scss";
 @import "../../../../styles/_variables.scss";
 
-//alt temps
-$box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-$border-radius: 50%;
-
 .parent,
 .child {
   display: flex;
@@ -30,15 +26,15 @@ $border-radius: 50%;
   border: 1px solid $btn-border;
   border-radius: 10em;
   background-color: rgba(101, 117, 133, 0.16);
-  box-shadow: $box-shadow;
+  box-shadow: $btn-box-shadow;
   transition: border-color 0.3s ease;
 
   .btn__indicator {
     width: 1.4em;
     height: 1.4em;
     position: absolute;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
+    border-radius: $btn-border-radius;
+    box-shadow: $btn-box-shadow;
     transition: transform 0.3s ease;
   }
 
@@ -49,7 +45,7 @@ $border-radius: 50%;
     width: 100%;
     height: 100%;
     border: 1px solid $btn-border;
-    border-radius: $border-radius;
+    border-radius: $btn-border-radius;
     background-color: #b0e2ff;
   }
 
