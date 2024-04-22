@@ -80,11 +80,11 @@
   font-style: bold;
   font-size: 14px;
   border: none;
-  border-bottom: 6px solid transparent;
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
   // clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 99%);
-
+  
   &.active {
+    border-bottom: 6px solid transparent;
     border-bottom-color: $hub-tabs-active-border-bottom;
     color: $hub-tabs-text-color;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
