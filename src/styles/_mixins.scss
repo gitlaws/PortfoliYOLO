@@ -1,21 +1,6 @@
 @import "./_colors.scss";
 
-@mixin box-shadow {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-@mixin hover {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-  -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-}
-
+/* Theme Toggle Mixins */
 @mixin spin-animation {
   animation: spin 0.5s ease-in-out 5;
 
@@ -29,7 +14,7 @@
   }
 }
 
-/* Toolbar, Footer, Pulse */
+/* Toolbar, Footer, Mixins */
 @mixin pulse {
   @keyframes pulse {
     0% {
@@ -47,12 +32,57 @@
   }
 }
 
-/* Cube Logo Rotation */
+/* Cube Logo Mixins */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Cyber Menu Mixins */
+@mixin glow-animation($duration, $iteration) {
+  @keyframes glow {
+    0% {
+      stroke: #ff2079;
+    }
+    50% {
+      stroke: #ff4080;
+    }
+    100% {
+      stroke: #ff2079;
+    }
+  }
+
+  animation: glow $duration $iteration;
+}
+
+@mixin fadeInDown-animation($duration, $timing-function, $fill-mode) {
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  animation: fadeInDown $duration $timing-function $fill-mode;
+}
+
+@mixin fadeInUp-animation {
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
