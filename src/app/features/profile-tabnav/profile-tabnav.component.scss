@@ -2,18 +2,6 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .hub-wrapper {
   // background-color: $hub-wrapper;
   // background: linear-gradient(90deg, $color1, $color2, $color3);
