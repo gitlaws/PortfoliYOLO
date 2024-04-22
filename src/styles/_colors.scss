@@ -1,16 +1,8 @@
-/* Global Theme Mode Styles */
+/* Global Theme Mode Colors */
 $body-light-mode-color: #fff;
 $body-dark-mode-color: #333;
 
-/* Theme Button Styles */
-$btn-icon: #f6b162;
-$btn-border: #2a2a2a;
-$btn-hover: #f1c40f;
-$btn-icon-container: #4a4a4a;
-$btn-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-$btn-border-radius: 50%;
-
-/* Toolbar Menu Styles */
+/* Toolbar Menu Colors */
 $menu-toggle-color: #ffffff;
 $menu-toggle-hover-color: #cccccc;
 $menu-toggle-transition: all 0.3s ease;
@@ -19,7 +11,15 @@ $menu-hover-bg-color: #555555;
 $menu-link-color: #ffffff;
 $menu-link-hover-color: #000000;
 
-/* Cyber Menu Styles */
+/* Theme Button Colors */
+$btn-icon: #f6b162;
+$btn-border: #2a2a2a;
+$btn-hover: #f1c40f;
+$btn-icon-container: #4a4a4a;
+$btn-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+$btn-border-radius: 50%;
+
+/* Cyber Menu Colors */
 $primary-bg-color: #301934;
 $hover-color: #ff2079;
 $transition-effect: all 0.3s ease;
@@ -34,7 +34,7 @@ $dark-color: rgba(60, 60, 60, 1);
 $warning-color: #ffff00;
 $black-color: rgba(33, 33, 33, 1);
 
-/* Profile TabNav Styles */
+/* Profile TabNav Colors */
 
 // $hub-header-color: #E0F7FA;
 // $hub-footer-color: #006064;
