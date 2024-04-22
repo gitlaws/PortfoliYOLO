@@ -11,8 +11,7 @@
   background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
   // background: transparent;
   padding: 20px;
-  // border-radius: 10px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2); // !TODO: Add @Include shadow mixin
+  @include header-box-shadow(0, 4px, 6px, 0, hsla(0, 0%, 0%, 0.2));
 }
 
 .header__menu {
@@ -33,7 +32,7 @@
   font-weight: 600;
   font-style: normal;
   font-size: 1.8em;
-  animation: shine 54s ease-in-out infinite;
+  @include shine-animation(54s, ease-in-out, infinite);
   background: linear-gradient(
     90deg,
     transparent,
@@ -49,16 +48,6 @@
 
   &:hover {
     cursor: pointer;
-  }
-
-  @keyframes shine {
-    0%,
-    100% {
-      background-position: -200px;
-    }
-    50% {
-      background-position: calc(200px + 100%);
-    }
   }
 }
 
