@@ -86,8 +86,8 @@
   animation: Gradient $duration $timing-function $iteration;
 }
 
-/* Toolbar, Footer, Mixins */
-@mixin pulse {
+/* Footer, Mixins */
+@mixin pulse-animation($duration, $iteration) {
   @keyframes pulse {
     0% {
       transform: scale(1);
@@ -102,4 +102,22 @@
       opacity: 1;
     }
   }
+
+  animation: pulse $duration $iteration;
+}
+
+@mixin gradient-animation($duration, $timing-function, $iteration) {
+  @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  animation: Gradient $duration $timing-function $iteration;
 }

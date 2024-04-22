@@ -11,7 +11,7 @@
   height: 100px;
   //   margin: 0 auto;
   //   display: block;
-  animation: pulse 25s infinite;
+  @include pulse-animation(25s, infinite);
 }
 
 .copyright {
@@ -27,31 +27,7 @@ footer {
   align-items: center;
   background: linear-gradient(to top, #1a1a1a, #5c5c5c, #c0c0c0);
   background-size: 200% 200%;
-  animation: Gradient 24s ease infinite;
+  @include gradient-animation(24s, ease, infinite);
   //   padding: 20px 0;
   height: 200px;
-}
-
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
