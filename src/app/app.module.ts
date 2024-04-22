@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './core/footer/footer.module';
 import { ProjectsModule } from './features/projects/projects.module';
 import { HomeModule } from './core/home/home.module';
+import { ToolbarMenuModule } from './core/toolbar-menu/toolbar-menu.module';
 
 @NgModule({
   declarations: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,8 +21,7 @@ import { HomeModule } from './core/home/home.module';
     ProfileTabnavModule,
     ToolbarModule,
     FooterModule,
+    ToolbarMenuModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
