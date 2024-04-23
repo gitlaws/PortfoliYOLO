@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileTabnavComponent } from './profile-tabnav.component';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [
-  { path: 'profile-tabnav', component: ProfileTabnavComponent },
-];
+import { ProfileTabnavRoutingModule } from './profile-tabnav-routing.module';
 
 @NgModule({
   declarations: [ProfileTabnavComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: [RouterModule, ProfileTabnavComponent],
+  imports: [CommonModule, ProfileTabnavRoutingModule],
 })
 export class ProfileTabnavModule {}
