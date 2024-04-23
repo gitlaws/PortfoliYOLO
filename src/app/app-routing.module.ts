@@ -7,6 +7,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./core/home/home.module').then((m) => m.HomeModule),
+    data: { title: 'Home' },
   },
   {
     path: 'projects',
@@ -14,6 +15,7 @@ const routes: Routes = [
       import('./features/projects/projects.module').then(
         (m) => m.ProjectsModule
       ),
+    data: { title: 'Projects' },
   },
   {
     path: 'profile-tabnav',
@@ -21,6 +23,7 @@ const routes: Routes = [
       import('./features/profile-tabnav/profile-tabnav.module').then(
         (m) => m.ProfileTabnavModule
       ),
+    data: { title: 'Profile Tabnav' },
   },
 ];
 

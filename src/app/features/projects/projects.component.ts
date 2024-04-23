@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent {}
+export class ProjectsComponent implements OnInit {
+  title: string = '';
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.title = this.route.snapshot.data['title'];
+  }
+}

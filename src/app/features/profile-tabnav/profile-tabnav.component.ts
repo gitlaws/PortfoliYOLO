@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @Component({
@@ -14,12 +15,14 @@ export class ProfileTabnavComponent {
   pages1: any;
   pages2: any;
   pages: any;
+  title: string = '';
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.activeTab = 'tab1';
     this.currentPage = 1; // Initialize currentPage to 1
+    this.title = this.route.snapshot.data['title'];
   }
 
   selectSlide(slideNumber: number) {
