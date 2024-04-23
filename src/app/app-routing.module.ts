@@ -5,6 +5,7 @@ import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav
 import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'profile-tabnav', component: ProfileTabnavComponent },
