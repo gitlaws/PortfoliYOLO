@@ -12,5 +12,6 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.route.snapshot.data['title'];
+    console.log('Navigated to Projects component');
   }
 }

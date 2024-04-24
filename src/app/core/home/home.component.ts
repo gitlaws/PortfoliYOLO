@@ -11,5 +11,6 @@ export class HomeComponent {
 
   constructor(private route: ActivatedRoute) {
     this.title = this.route.snapshot.data['title'];
+    console.log('Navigated to Home component');
   }
 }
