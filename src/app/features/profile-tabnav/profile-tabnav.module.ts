@@ -6,5 +6,6 @@ import { ProfileTabnavRoutingModule } from './profile-tabnav-routing.module';
 @NgModule({
   declarations: [ProfileTabnavComponent],
   imports: [CommonModule, ProfileTabnavRoutingModule],
+  exports: [ProfileTabnavComponent],
 })
 export class ProfileTabnavModule {}
