@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './mock.component.html',
-  styleUrl: './mock.component.scss'
+  styleUrl: './mock.component.scss',
 })
-export class MockComponent {
-
-}
+export class MockComponent {}
