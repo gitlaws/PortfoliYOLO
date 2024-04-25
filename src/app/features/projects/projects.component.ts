@@ -8,10 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
   title: string = '';
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    console.log('Navigated to Projects component');
+  }
 
   ngOnInit() {
     this.title = this.route.snapshot.data['title'];
-    console.log('Navigated to Projects component');
   }
 }

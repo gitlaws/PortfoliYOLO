@@ -17,13 +17,14 @@ export class ProfileTabnavComponent {
   pages: any;
   title: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    console.log('Navigated to ProfileTabnav component');
+  }
 
   ngOnInit() {
     this.activeTab = 'tab1';
     this.currentPage = 1; // Initialize currentPage to 1
     this.title = this.route.snapshot.data['title'];
-    console.log('Navigated to ProfileTabnav component');
   }
 
   selectSlide(slideNumber: number) {
