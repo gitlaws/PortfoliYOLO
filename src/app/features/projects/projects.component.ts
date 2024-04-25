@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
+  standalone: true,
+  imports: [],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })

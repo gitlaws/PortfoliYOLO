@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './core/footer/footer.module';
 import { ProjectsModule } from './features/projects/projects.module';
 import { ProfileTabnavModule } from './features/profile-tabnav/profile-tabnav.module';
+import { ToolbarComponent } from './core/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { ProfileTabnavModule } from './features/profile-tabnav/profile-tabnav.mo
     FooterModule,
     ProjectsModule,
     ProfileTabnavModule,
+    ToolbarComponent,
   ],
 })
 export class AppModule {}

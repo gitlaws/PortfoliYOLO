@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-tabnav',
+  standalone: true,
+  imports: [],
   templateUrl: './profile-tabnav.component.html',
   styleUrls: ['./profile-tabnav.component.scss'],
 })
