@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SharedModule } from '../../shared/shared.module';
 // import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @Component({
   selector: 'app-profile-tabnav',
   standalone: true,
-  imports: [],
   templateUrl: './profile-tabnav.component.html',
   styleUrls: ['./profile-tabnav.component.scss'],
+  imports: [SharedModule],
 })
 export class ProfileTabnavComponent {
   activeTab: any;
