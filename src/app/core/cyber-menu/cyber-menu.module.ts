@@ -7,7 +7,7 @@ import { SocialLinksModule } from '../../shared/common/social-links/social-links
 
 @NgModule({
   declarations: [CyberMenuComponent],
-  exports: [CyberMenuComponent],
   imports: [CommonModule, ThemeToggleModule, SocialLinksModule],
+  exports: [CyberMenuComponent],
 })
 export class CyberMenuModule {}
