@@ -6,7 +6,7 @@ import { ThemeToggleModule } from '../../shared/common/theme-toggle/theme-toggle
 import { SocialLinksModule } from '../../shared/common/social-links/social-links.module';
 
 @NgModule({
-  declarations: [CyberMenuComponent],
+  declarations: [],
   imports: [CommonModule, ThemeToggleModule, SocialLinksModule],
   exports: [CyberMenuComponent],
 })

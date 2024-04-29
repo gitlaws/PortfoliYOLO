@@ -4,7 +4,7 @@ import { ProjectsComponent } from './projects.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
 
 @NgModule({
-  declarations: [ProjectsComponent],
+  declarations: [],
   imports: [CommonModule, ProjectsRoutingModule],
   exports: [ProjectsComponent],
 })

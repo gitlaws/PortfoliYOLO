@@ -4,7 +4,7 @@ import { ProfileTabnavRoutingModule } from './profile-tabnav-routing.module';
 import { ProfileTabnavComponent } from './profile-tabnav.component';
 
 @NgModule({
-  declarations: [ProfileTabnavComponent],
+  declarations: [],
   imports: [CommonModule, ProfileTabnavRoutingModule],
   exports: [ProfileTabnavComponent],
 })
