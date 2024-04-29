@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar.component';
-import { CubeLogoModule } from '../cube-logo/cube-logo.module';
 
 @NgModule({
   declarations: [ToolbarComponent],
-  imports: [CommonModule, CubeLogoModule],
+  imports: [CommonModule],
   exports: [ToolbarComponent],
 })
 export class ToolbarModule {}
