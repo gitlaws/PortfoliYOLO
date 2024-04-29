@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
-// import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @Component({
   selector: 'app-profile-tabnav',
