@@ -4,7 +4,7 @@ import { ToolbarComponent } from './toolbar.component';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
+  imports: [CommonModule, ToolbarComponent],
   exports: [ToolbarComponent],
 })
 export class ToolbarModule {}

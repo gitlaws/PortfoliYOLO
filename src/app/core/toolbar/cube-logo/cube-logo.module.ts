@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CubeLogoComponent } from './cube-logo.component';
 
 @NgModule({
-  declarations: [CubeLogoComponent],
-  imports: [CommonModule],
+  declarations: [],
+  imports: [CommonModule, CubeLogoComponent],
   exports: [CubeLogoComponent],
 })
 export class CubeLogoModule {}
