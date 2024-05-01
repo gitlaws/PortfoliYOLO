@@ -4,6 +4,7 @@ import { Theme } from '../../../shared/models/theme.enum';
 
 @Component({
   selector: 'app-theme-toggle',
+  standalone: true,
   templateUrl: './theme-toggle.component.html',
   styleUrl: './theme-toggle.component.scss',
 })
