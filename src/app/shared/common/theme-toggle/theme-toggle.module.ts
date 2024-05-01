@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ThemeToggleComponent } from './theme-toggle.component';
 
 @NgModule({
-  declarations: [ThemeToggleComponent],
-  imports: [CommonModule],
+  declarations: [],
+  imports: [CommonModule, ThemeToggleComponent],
   exports: [ThemeToggleComponent],
 })
 export class ThemeToggleModule {}
