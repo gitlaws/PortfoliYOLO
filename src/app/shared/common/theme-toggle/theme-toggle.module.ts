@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemeToggleComponent } from './theme-toggle.component';
+import { SharedModule } from '../../shared.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, ThemeToggleComponent],
-  exports: [ThemeToggleComponent],
+  imports: [CommonModule, SharedModule],
+  exports: [SharedModule],
 })
 export class ThemeToggleModule {}
