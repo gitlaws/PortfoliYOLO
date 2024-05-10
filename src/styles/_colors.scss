@@ -1,0 +1,61 @@
+/* Global Theme Mode Colors */
+$body-light-mode-color: #fff;
+$body-dark-mode-color: #333;
+
+/* Toolbar Menu Colors */
+$menu-toggle-color: #ffffff;
+$menu-toggle-hover-color: #cccccc;
+$menu-toggle-transition: all 0.3s ease;
+$menu-bg-color: #333333;
+$menu-hover-bg-color: #555555;
+$menu-link-color: #ffffff;
+$menu-link-hover-color: #000000;
+
+/* Theme Button Colors */
+$btn-icon: #f6b162;
+$btn-border: #2a2a2a;
+$btn-hover: #f1c40f;
+$btn-icon-container: #4a4a4a;
+$btn-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+$btn-border-radius: 50%;
+
+/* Cyber Menu Colors */
+$primary-bg-color: #301934;
+$hover-color: #ff2079;
+$transition-effect: all 0.3s ease;
+$secondary-bg-color: #0f0f0f;
+$hover-bg-color: #1a1a1a;
+$highlight-color: #ff00ff;
+$highlight-shadow: 0 0 5px $highlight-color, 0 0 10px $highlight-color,
+  0 0 15px $highlight-color, 0 0 20px $highlight-color;
+$white-color: rgba(255, 255, 255, 1);
+$accent-color: #ff00ff;
+$dark-color: rgba(60, 60, 60, 1);
+$warning-color: #ffff00;
+$black-color: rgba(33, 33, 33, 1);
+
+/* Profile TabNav Colors */
+
+$hub-header-color: #fafafa;
+$hub-footer-color: #212121;
+$hub-wrapper: #eeeeee;
+
+$hub-container: #3a3737;
+$hub-tabs: #757575;
+$hub-tabs-text-color: #ffffff;
+$hub-tabs-active-border-bottom: #ff6347;
+$hub-gap: #e8e8e8;
+$hub-content-bg: #ffffff;
+$hub-content-border: #cccccc;
+$hub-content-title: #ffffff;
+$hub-content-text: #ffffff;
+$hub-header-text-color: #333333;
+$hub-indicator-shadow: rgba(0, 0, 0, 0.1);
+$hub-indicator-active: #ffa500;
+$pagination-control-bg: #f5f5f5;
+$pagination-button: #757575;
+$pagination-button-text: #495057;
+$pagination-center-info: #c0c0c0;
+$hub-content-color1: #ffffff;
+$hub-content-color2: #000000;
+$hub-content-color3: #757575;
