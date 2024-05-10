@@ -1,0 +1,130 @@
+@import "../../../styles/_colors.scss";
+@import "../../../styles/_mixins.scss";
+@import "../../../styles/_variables.scss";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
+  // background: transparent;
+  padding: 20px;
+  @include header-box-shadow(0, 4px, 6px, 0, hsla(0, 0%, 0%, 0.2));
+}
+
+.header__menu {
+  display: none;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav__item-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.8em;
+  @include shine-animation(54s, ease-in-out, infinite);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #1a1a1a,
+    #c0c0c0,
+    transparent
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav__social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  a {
+    color: #333;
+    text-decoration: none;
+    font-size: 36px;
+    margin-right: 20px;
+
+    &:hover {
+      color: #007bff;
+      transform: scale(1.1);
+    }
+
+    &.active {
+      color: #007bff;
+      border-bottom: 2px solid #007bff;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .header {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nav__theme-toggle {
+    display: none;
+  }
+
+  .nav__social-links {
+    display: none;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+  }
+}
+
+@media (max-width: $mobile) {
+  .header {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nav__theme-toggle {
+    display: none;
+  }
+
+  .nav__social-links {
+    display: none;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+  }
+}
+
+@media (max-width: 120px) {
+  .header {
+    height: auto;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 1rem;
+  }
+}
