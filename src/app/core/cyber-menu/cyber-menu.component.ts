@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cyber-menu',
+  standalone: true,
   templateUrl: './cyber-menu.component.html',
   styleUrls: ['./cyber-menu.component.scss'],
 })
