@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-profile-tabnav',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './profile-tabnav.component.html',
   styleUrls: ['./profile-tabnav.component.scss'],
 })

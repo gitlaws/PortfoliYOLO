@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cyber-menu',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './cyber-menu.component.html',
   styleUrls: ['./cyber-menu.component.scss'],
 })
