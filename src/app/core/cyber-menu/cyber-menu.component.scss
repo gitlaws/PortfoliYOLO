@@ -10,7 +10,7 @@
 
 .dropdown-toggle {
   position: relative;
-  background: $primary-bg-color;
+  background: $cybermenu-bg-color;
   color: $white-color;
   font-size: 1.2em;
   padding: 10px;
@@ -34,6 +34,7 @@
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
+  z-index: 1000;
 
   &.open {
     transform: translateX(-50%);
@@ -46,7 +47,7 @@
     align-items: center;
     list-style: none;
     padding: 10px 0;
-    background-color: #ffffff;
+    // background-color: #ffffff;
     transition: background-color 0.3s ease;
     @include fadeInDown-animation(0.5s, ease-out, forwards);
 
