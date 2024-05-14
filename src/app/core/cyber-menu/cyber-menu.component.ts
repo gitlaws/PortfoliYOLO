@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
 import { SocialLinksComponent } from '../../shared/common/social-links/social-links.component';
@@ -8,7 +9,12 @@ import { SocialLinksComponent } from '../../shared/common/social-links/social-li
   standalone: true,
   templateUrl: './cyber-menu.component.html',
   styleUrls: ['./cyber-menu.component.scss'],
-  imports: [CommonModule, ThemeToggleComponent, SocialLinksComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ThemeToggleComponent,
+    SocialLinksComponent,
+  ],
 })
 export class CyberMenuComponent implements OnInit {
   isMenuOpen = false;
