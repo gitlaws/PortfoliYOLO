@@ -4,6 +4,7 @@
 
 .hero {
   background-image: url("https://source.unsplash.com/random");
+  background-clip: calc(100vh - 100px - 100px);
   background-size: cover;
   text-align: center;
   padding: 50px 0;
