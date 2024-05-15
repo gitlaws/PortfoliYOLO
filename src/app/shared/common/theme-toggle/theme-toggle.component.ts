@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ThemeService } from '../../../shared/services/theme/theme.service';
 import { Theme } from '../../../shared/models/theme.enum';
 import { CommonModule } from '@angular/common';
+import { StorageService } from '../../services/theme/storage.service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -14,7 +15,10 @@ export class ThemeToggleComponent {
   isDarkMode!: boolean;
   isAnimated: boolean = false;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
     this.themeService.currentTheme.subscribe((theme) => {
@@ -28,12 +32,11 @@ export class ThemeToggleComponent {
     setTimeout(() => {
       this.isAnimated = false;
     }, 500); // Remove the class after the duration of the animation
-  }
 
-  toggleLogo() {
-    const logo = document.getElementById('logo') as HTMLImageElement;
-    logo.src = logo.src.includes('logo78px')
-      ? 'assets/logo78px.png'
-      : 'assets/logo78px.png';
+    // Save the current theme to the storage
+    this.storageService.setItem(
+      'theme',
+      this.isDarkMode ? Theme.Dark : Theme.Light
+    );
   }
 }
