@@ -20,4 +20,12 @@ import { RouterLink } from '@angular/router';
     SocialLinksComponent,
   ],
 })
-export class ToolbarComponent {}
+export class ToolbarComponent {
+  // theme: Theme;
+  // constructor(private themeService: ThemeService) { }
+  // ngOnInit() {
+  //   this.themeService.currentTheme.subscribe(theme => {
+  //     this.theme = theme;
+  //   });
+  // }
+}
