@@ -33,4 +33,9 @@ export class ProfileTabnavComponent {
     this.activeSlide = slideNumber;
     // Add your logic here to change the slide content
   }
+
+  setActiveTab(tab: any) {
+    this.activeTab = tab;
+    this.currentPage = 1;
+  }
 }

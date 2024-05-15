@@ -6,6 +6,7 @@
         *ngFor="let tab of ['tab1', 'tab2']"
         [class.active]="activeTab === tab"
         (click)="activeTab = tab"
+        (click)="setActiveTab(tab)"
       >
         {{ tab | titlecase }}
       </button>

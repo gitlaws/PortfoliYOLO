@@ -20,6 +20,10 @@ export class ThemeService {
     return this.themeSubject.asObservable();
   }
 
+  // get theme$(): Observable<Theme> {
+  //   return this.themeSubject.asObservable();
+  // }
+
   toggleTheme(): void {
     const newTheme =
       this.themeSubject.value === Theme.Light ? Theme.Dark : Theme.Light;
