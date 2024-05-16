@@ -21,6 +21,7 @@ import { RouterLink } from '@angular/router';
     ThemeToggleComponent,
     SocialLinksComponent,
   ],
+  providers: [ThemeService], //todo!
 })
 export class ToolbarComponent implements OnInit {
   theme!: Theme;

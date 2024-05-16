@@ -129,16 +129,14 @@
   }
 }
 
-header {
-  .light {
-    /* light theme styles */
-    background-color: $light-background-color;
-    color: $light-text-color;
-  }
+.light {
+  /* light theme styles */
+  background-color: $light-background-color;
+  color: $light-text-color;
+}
 
-  .dark {
-    /* dark theme styles */
-    background-color: $dark-background-color;
-    color: $dark-text-color;
-  }
+.dark {
+  /* dark theme styles */
+  background-color: $dark-background-color;
+  color: $dark-text-color;
 }
