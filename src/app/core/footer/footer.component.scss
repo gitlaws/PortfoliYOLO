@@ -30,4 +30,23 @@ footer {
   @include gradient-animation(24s, ease, infinite);
   //   padding: 20px 0;
   height: 200px;
+
+  &.light {
+    /* light theme styles */
+    // background-color: $lm-toolbar-background-color;
+    background: linear-gradient(
+      to top,
+      lighten(#1a1a1a, 40%),
+      lighten(#5c5c5c, 40%),
+      lighten(#c0c0c0, 40%)
+    );
+    // color: $global-light-text-color;
+  }
+
+  &.dark {
+    /* dark theme styles */
+    // background-color: $dm-toolbar-background-color;
+    // color: $global-dark-text-color;
+    background: linear-gradient(to top, #1a1a1a, #5c5c5c, #c0c0c0);
+  }
 }
