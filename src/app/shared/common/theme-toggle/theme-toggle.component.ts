@@ -26,20 +26,6 @@ export class ThemeToggleComponent {
     });
   }
 
-  // toggleTheme(): void {
-  //   this.themeService.toggleTheme();
-  //   this.isAnimated = true;
-  //   setTimeout(() => {
-  //     this.isAnimated = false;
-  //   }, 500); // Remove the class after the duration of the animation
-
-  //   // Save the current theme to the storage
-  //   this.storageService.setItem(
-  //     'theme',
-  //     this.isDarkMode ? Theme.Dark : Theme.Light
-  //   );
-  // }
-
   toggleTheme(): void {
     // Save the current theme to the storage
     this.storageService.setItem(
@@ -54,3 +40,17 @@ export class ThemeToggleComponent {
     }, 500); // Remove the class after the duration of the animation
   }
 }
+
+// toggleTheme(): void {
+//   this.themeService.toggleTheme();
+//   this.isAnimated = true;
+//   setTimeout(() => {
+//     this.isAnimated = false;
+//   }, 500); // Remove the class after the duration of the animation
+
+//   // Save the current theme to the storage
+//   this.storageService.setItem(
+//     'theme',
+//     this.isDarkMode ? Theme.Dark : Theme.Light
+//   );
+// }

@@ -8,10 +8,23 @@
   align-items: center;
   justify-content: space-around;
   height: 100px;
-  background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
+  // background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
   // background: transparent;
   padding: 20px;
+  transition: background-color 0.3s ease;
   @include header-box-shadow(0, 4px, 6px, 0, hsla(0, 0%, 0%, 0.2));
+
+  &.light {
+    /* light theme styles */
+    background-color: $light-background-color;
+    color: $light-text-color;
+  }
+
+  &.dark {
+    /* dark theme styles */
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+  }
 }
 
 .header__menu {
@@ -127,16 +140,4 @@
     overflow: hidden;
     gap: 1rem;
   }
-}
-
-.light {
-  /* light theme styles */
-  background-color: $light-background-color;
-  color: $light-text-color;
-}
-
-.dark {
-  /* dark theme styles */
-  background-color: $dark-background-color;
-  color: $dark-text-color;
 }

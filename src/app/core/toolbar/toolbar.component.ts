@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../shared/models/theme.enum';
 import { ThemeService } from '../../shared/services/theme/theme.service';
+import { StorageService } from '../../shared/services/theme/storage.service';
 import { CubeLogoComponent } from './cube-logo/cube-logo.component';
 import { CyberMenuComponent } from '../cyber-menu/cyber-menu.component';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
@@ -21,16 +22,16 @@ import { RouterLink } from '@angular/router';
     ThemeToggleComponent,
     SocialLinksComponent,
   ],
-  providers: [ThemeService], //todo!
+  // providers: [ThemeService], //todo!
 })
 export class ToolbarComponent implements OnInit {
-  theme!: Theme;
+  theme!: 'light' | 'dark';
 
   constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.themeService.currentTheme.subscribe((theme) => {
-      this.theme = theme;
+      this.theme = theme === Theme.Light ? 'light' : 'dark';
     });
   }
 }

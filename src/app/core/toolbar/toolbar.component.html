@@ -1,4 +1,7 @@
-<header [ngClass]="theme" class="header">
+<header
+  class="header"
+  [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
+>
   <!-- Logo -->
   <a routerLink="/Home" class="header__logo" title="Home">
     <app-cube-logo></app-cube-logo>
