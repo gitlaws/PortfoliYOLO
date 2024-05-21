@@ -13,7 +13,8 @@
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
-  height: 100vh;
+  // height: 100vh;
+  height: 150px;
 }
 
 .hero-headline {
@@ -32,4 +33,51 @@
   background-color: #007bff;
   color: white;
   text-decoration: none;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+
+  .service-item {
+    flex: 1;
+    margin: 0 1em;
+    background-color: #f0f0f0;
+    padding: 1em;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      background-size: contain;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      color: #666;
+      font-size: 1em;
+    }
+  }
+}
+
+.about-us {
+  margin: 2em 0;
+
+  h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.2em;
+  }
 }
