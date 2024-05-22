@@ -27,9 +27,10 @@ footer {
   align-items: center;
   background: linear-gradient(to top, #1a1a1a, #5c5c5c, #c0c0c0);
   background-size: 200% 200%;
+  height: 200px;
+  transition: background-color 0.3s ease;
   @include gradient-animation(24s, ease, infinite);
   //   padding: 20px 0;
-  height: 200px;
 
   &.light {
     /* light theme styles */
