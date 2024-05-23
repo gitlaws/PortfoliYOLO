@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
 import { SocialLinksComponent } from '../../shared/common/social-links/social-links.component';
+import { ThemeService } from '../../shared/services/theme/theme.service';
+import { Theme } from '../../shared/models/theme.enum';
 
 @Component({
   selector: 'app-cyber-menu',
@@ -17,6 +19,7 @@ import { SocialLinksComponent } from '../../shared/common/social-links/social-li
   ],
 })
 export class CyberMenuComponent implements OnInit {
+  theme!: 'light' | 'dark';
   isMenuOpen = false;
   menuItems = [
     { name: 'Projects', url: '/home' },
@@ -31,11 +34,18 @@ export class CyberMenuComponent implements OnInit {
   //   event.stopPropagation();
   //   this.isMenuOpen = !this.isMenuOpen;
   // }
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {
     // Add a click event listener to the document
     document.addEventListener('click', this.documentClickHandler.bind(this));
+    // themeservice
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.theme = theme === Theme.Light ? 'light' : 'dark';
+    });
   }
 
   ngOnDestroy(): void {
