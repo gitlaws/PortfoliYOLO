@@ -21,22 +21,11 @@
   @include header-box-shadow(0, 4px, 6px, 0, hsla(0, 0%, 0%, 0.2));
 
   &.light {
-    /* light theme styles */
-    // background-color: $lm-toolbar-background-color;
-    background: linear-gradient(
-      to bottom,
-      lighten(#1a1a1a, 40%),
-      lighten(#5c5c5c, 40%),
-      lighten(#c0c0c0, 40%)
-    );
-    // color: $global-light-text-color;
+    background-color: $lm-toolbar-background-color;
   }
 
   &.dark {
-    /* dark theme styles */
-    // background-color: $dm-toolbar-background-color;
-    // color: $global-dark-text-color;
-    background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
+    background-color: $dm-toolbar-background-color;
   }
 }
 
