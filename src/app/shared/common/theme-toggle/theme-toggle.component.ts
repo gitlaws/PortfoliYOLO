@@ -25,6 +25,9 @@ export class ThemeToggleComponent {
     this.themeService.currentTheme.subscribe((theme) => {
       this.isDarkMode = theme === Theme.Dark;
     });
+    this.tooltipText = this.isDarkMode
+      ? 'Toggle Light Mode'
+      : 'Toggle Dark Mode';
   }
 
   toggleTheme(): void {
