@@ -82,6 +82,19 @@
     }
   }
 
+  p {
+    font-size: 1.2em;
+    line-height: 1.6;
+
+    &.light {
+      color: #666666; // Darker gray for light theme
+    }
+
+    &.dark {
+      color: #cccccc; // Lighter gray for dark theme
+    }
+  }
+
   &:nth-of-type(1) {
     header h2 {
       // color: #ff2079; // Color for the first h2
