@@ -31,6 +31,18 @@
 /* Skills Section */
 
 .skills-container {
+  .skill-section {
+    &.light {
+      background-color: #f2f2f2; // Light mode color
+    }
+
+    &.dark {
+      background-color: #1a1a1a; // Dark mode color
+    }
+  }
+}
+
+.skills-container {
   display: grid;
   gap: 20px;
   padding: 50px 0;
