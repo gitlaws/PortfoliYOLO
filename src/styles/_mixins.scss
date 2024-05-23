@@ -48,13 +48,13 @@
 @mixin glow-animation($duration, $iteration) {
   @keyframes glow {
     0% {
-      stroke: #ff2079;
+      stroke: #b3b3b3;
     }
     50% {
-      stroke: #ff4080;
+      stroke: #808080;
     }
     100% {
-      stroke: #ff2079;
+      stroke: #b3b3b3;
     }
   }
 
