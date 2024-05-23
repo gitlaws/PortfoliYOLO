@@ -9,6 +9,7 @@ import { StorageService } from './storage.service';
 export class ThemeService {
   private themeKey = 'theme';
   private themeSubject: BehaviorSubject<Theme>;
+  isDark: any;
 
   constructor(private storageService: StorageService) {
     const storedTheme =

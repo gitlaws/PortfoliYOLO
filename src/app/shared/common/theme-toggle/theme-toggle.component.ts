@@ -14,6 +14,7 @@ import { StorageService } from '../../services/theme/storage.service';
 export class ThemeToggleComponent {
   isDarkMode!: boolean;
   isAnimated: boolean = false;
+  tooltipText = '';
 
   constructor(
     private themeService: ThemeService,
@@ -23,6 +24,9 @@ export class ThemeToggleComponent {
   ngOnInit(): void {
     this.themeService.currentTheme.subscribe((theme) => {
       this.isDarkMode = theme === Theme.Dark;
+      // this.tooltipText = this.isDarkMode
+      //   ? 'Toggle Light Mode'
+      //   : 'Toggle Dark Mode';
     });
   }
 
@@ -37,7 +41,12 @@ export class ThemeToggleComponent {
     this.isAnimated = true;
     setTimeout(() => {
       this.isAnimated = false;
-    }, 500); // Remove the class after the duration of the animation
+    }, 500);
+
+    // Update tooltipText based on the new theme mode
+    this.tooltipText = this.isDarkMode
+      ? 'Toggle Light Mode'
+      : 'Toggle Dark Mode';
   }
 }
 

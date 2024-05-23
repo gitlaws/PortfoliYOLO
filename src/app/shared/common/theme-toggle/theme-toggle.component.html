@@ -15,7 +15,7 @@
         [ngStyle]="{ transform: isDarkMode ? 'translateX(1.24em)' : 'none' }"
       >
         <button
-          title="Toggle Dark Mode"
+          [title]="tooltipText"
           class="btn__icon-container"
           [attr.aria-label]="
             isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'
