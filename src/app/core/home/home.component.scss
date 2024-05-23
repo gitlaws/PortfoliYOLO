@@ -103,18 +103,8 @@
 
   &:nth-of-type(1) {
     header h2 {
-      // color: #ff2079; // Color for the first h2
       &.dark {
-        background: linear-gradient(
-          to right,
-          #ffffff 0%,
-          #808080 50%,
-          #000000 100%
-        );
-
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $h2-type1-color;
       }
     }
   }
@@ -122,37 +112,15 @@
   &:nth-of-type(2) {
     header h2 {
       &.dark {
-        // background: linear-gradient(to right, #f3f3f3 0%, #8c8c8c 50%, #1a1a1a 100%);
-        background: linear-gradient(
-          to right,
-          #e0e0e0 0%,
-          #696969 50%,
-          #262626 100%
-        );
-        // background: linear-gradient(to right, #d4d4d4 0%, #6b6b6b 50%, #0d0d0d 100%);
-        // background: linear-gradient(to right, #c8c8c8 0%, #787878 50%, #1f1f1f 100%);
-
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $h2-type2-color;
       }
     }
   }
 
   &:nth-of-type(3) {
     header h2 {
-      // color: #ff00c8; // Color for the third h2
       &.dark {
-        background: linear-gradient(
-          to right,
-          #f3f3f3 0%,
-          #8c8c8c 50%,
-          #1a1a1a 100%
-        );
-
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $h2-type3-color;
       }
     }
   }
