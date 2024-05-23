@@ -28,6 +28,7 @@
   font-size: 1.2em;
   margin-bottom: 40px;
 }
+/* Skills Section */
 
 .skills-container {
   display: grid;
@@ -57,4 +58,37 @@
   font-size: 1.2em;
   line-height: 1.6;
   color: #666;
+}
+
+/* Infinite Scroll Section */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.infinite-scroll-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  animation: scroll 15s linear infinite;
+  margin-top: 20px;
+}
+
+.icon-container i {
+  font-size: 2em;
+  color: #e74c3c;
 }
