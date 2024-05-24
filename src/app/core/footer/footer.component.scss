@@ -27,6 +27,7 @@ footer {
   align-items: center;
   background-size: 200% 200%;
   height: 200px;
+  width: 100vw;
   transition: background-color 0.3s ease;
   @include gradient-animation(24s, ease, infinite);
   //   padding: 20px 0;

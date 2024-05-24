@@ -3,18 +3,27 @@
 @import "../../../styles/_variables.scss";
 
 .intro-section {
-  background-image: url("https://source.unsplash.com/random");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: white;
+  position: relative;
   text-align: center;
   padding: 150px 0;
   margin-top: 100px;
-  height: 500px;
+  height: 75vh;
+  width: 100vw;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .intro-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
   // height: 100vh;
@@ -39,6 +48,7 @@
 .intro-description {
   font-size: 1.2em;
   margin-bottom: 40px;
+  color: white;
 }
 
 /* Skills Section */
@@ -47,6 +57,7 @@
   display: grid;
   gap: 20px;
   padding: 50px 0;
+  width: 100vw;
   // color: #000; // Default text color
   transition: background-color 0.3s ease;
 
