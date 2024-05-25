@@ -32,6 +32,7 @@
 
   article {
     margin-top: 10px;
+
     &.light {
       color: #333;
     }
@@ -53,6 +54,16 @@
   &.dark {
     background-color: #2f2f2f; // Dark Gray
   }
+
+  // @media (min-width: 768px) {
+  //   // tablet view
+  //   max-width: 70%;
+  // }
+
+  // @media (min-width: 1024px) {
+  //   // desktop view
+  //   max-width: 50%;
+  // }
 }
 
 .projects-wrapper {
