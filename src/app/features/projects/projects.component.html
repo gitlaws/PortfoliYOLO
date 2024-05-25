@@ -1,8 +1,8 @@
-<main class="projects-intro">
-  <header>
+<main class="projects-intro" [ngClass]="theme">
+  <header [ngClass]="theme">
     <h1>Projects</h1>
   </header>
-  <article>
+  <article [ngClass]="theme">
     <p>
       Introducing high-quality, responsive, and interactive application
       solutions, highlighting expertise in Angular, Frontend, and Backend
@@ -12,192 +12,198 @@
   </article>
 </main>
 
-<div class="projects-container">
-  <div class="grid">
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?1"
-          alt="Descriptive text about image 1"
-        />
-        <figcaption>
-          <h2>Item 1</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
-    </div>
+<div class="vertical-spacing" [ngClass]="theme"></div>
 
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?2"
-          alt="Descriptive text about image 2"
-        />
-        <figcaption>
-          <h2>Item 2</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
-    </div>
+<div class="projects-wrapper" [ngClass]="theme">
+  <div class="projects-container">
+    <div class="grid">
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?1"
+            alt="Descriptive text about image 1"
+          />
+          <figcaption>
+            <h2>Item 1</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
 
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?3"
-          alt="Descriptive text about image 3"
-        />
-        <figcaption>
-          <h2>Item 3</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
-    </div>
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?2"
+            alt="Descriptive text about image 2"
+          />
+          <figcaption>
+            <h2>Item 2</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
 
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?4"
-          alt="Descriptive text about image 4"
-        />
-        <figcaption>
-          <h2>Item 4</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
-    </div>
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?3"
+            alt="Descriptive text about image 3"
+          />
+          <figcaption>
+            <h2>Item 3</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
 
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?5"
-          alt="Descriptive text about image 5"
-        />
-        <figcaption>
-          <h2>Item 5</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
-    </div>
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?4"
+            alt="Descriptive text about image 4"
+          />
+          <figcaption>
+            <h2>Item 4</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
 
-    <div class="card">
-      <figure>
-        <img
-          src="https://source.unsplash.com/random?6"
-          alt="Descriptive text about image 6"
-        />
-        <figcaption>
-          <h2>Item 6</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
-        </figcaption>
-        <div class="card-icons">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://youtube.com/yourchannel"
-            target="_blank"
-            rel="noopener"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-      </figure>
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?5"
+            alt="Descriptive text about image 5"
+          />
+          <figcaption>
+            <h2>Item 5</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
+
+      <div class="card">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random?6"
+            alt="Descriptive text about image 6"
+          />
+          <figcaption>
+            <h2>Item 6</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+          </figcaption>
+          <div class="card-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </figure>
+      </div>
     </div>
   </div>
 </div>
+
+<div class="vertical-spacing" [ngClass]="theme"></div>
