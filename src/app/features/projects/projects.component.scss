@@ -17,6 +17,7 @@
 
   header {
     margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
     &.light {
       color: #333;
     }
@@ -32,7 +33,7 @@
 
   article {
     margin-top: 10px;
-
+    transition: color 0.3s ease-in-out;
     &.light {
       color: #333;
     }
