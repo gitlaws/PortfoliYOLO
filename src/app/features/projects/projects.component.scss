@@ -14,7 +14,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   text-align: center;
   font-size: 1.2em;
-
+  transition: background-color 0.3s ease-in-out;
   header {
     margin-bottom: 20px;
     transition: color 0.3s ease-in-out;
@@ -61,6 +61,7 @@
 }
 
 .projects-wrapper {
+  transition: background-color 0.3s ease-in-out;
   &.light {
     background-color: #f5f5f5; // Light Gray
   }
@@ -72,7 +73,7 @@
 
 .vertical-spacing {
   padding: 2rem 0;
-
+  transition: background-color 0.3s ease-in-out;
   &.light {
     background-color: #f5f5f5; // Light Gray
   }
