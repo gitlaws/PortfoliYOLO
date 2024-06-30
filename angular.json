@@ -20,6 +20,8 @@
             "outputPath": "dist/portfoliyolo",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "{{YOUR_ENVIRONMENT_VARIABLE_HERE}}",
+            "aot": true,
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
