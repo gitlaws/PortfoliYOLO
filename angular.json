@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/portfoliyolo",
+            "outputPath": "dist/portfoli-yolo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
