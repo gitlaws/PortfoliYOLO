@@ -3,7 +3,8 @@
 @import "../../../styles/_variables.scss";
 
 .logo {
-  background: url("/assets/logo78px.png"), url("https://i.gifer.com/5ABD.gif");
+  background-image: url("/assets/logo78px.png"),
+    url("https://i.gifer.com/5ABD.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
