@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseHref: '/PortfoliYOLO/',
+  baseHref: 'https://gitlaws.github.io/PortfoliYOLO/',
 };
