@@ -20,7 +20,7 @@
             "outputPath": "dist/PortfoliYOLO",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "{{YOUR_ENVIRONMENT_VARIABLE_HERE}}",
+            "baseHref": "https://gitlaws.github.io/PortfoliYOLO/",
             "aot": true,
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
