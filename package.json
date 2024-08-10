@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href \"https://gitlaws.github.io/portfoliyolo/\" && npx angular-cli-ghpages --dir=dist/portfoliyolo/browser"
+    "deploy": "ng build --configuration production --base-href \"https://gitlaws.github.io/PortfoliYOLO/\" && npx angular-cli-ghpages --dir=dist/PortfoliYOLO/browser"
   },
   "private": true,
   "dependencies": {
