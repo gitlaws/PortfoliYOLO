@@ -1,5 +1,5 @@
 $primary-color: #4caf50;
-$secondary-color: #e0e0e0;
+$secondary-color: #2c2c2c;
 $square-size: 20px;
 $spacing: 2px;
 $square-color: #4caf50;
@@ -11,6 +11,7 @@ $square-color: #4caf50;
   gap: $spacing;
   justify-content: center;
   background-color: $secondary-color;
+  color: white;
   width: 100%;
 
   .days-column {
