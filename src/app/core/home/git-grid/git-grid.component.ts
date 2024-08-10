@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './git-grid.component.html',
-  styleUrl: './git-grid.component.scss',
+  styleUrls: ['./git-grid.component.scss'],
 })
 export class GitGridComponent {
   contributions: { level: number }[] = [];
@@ -17,7 +17,7 @@ export class GitGridComponent {
 
   generateContributions(): void {
     for (let i = 1; i <= 365; i++) {
-      const level = Math.floor(Math.random() * 3);
+      const level = Math.floor(Math.random() * 4); // Levels from 0 to 3
       this.contributions.push({ level });
     }
   }
