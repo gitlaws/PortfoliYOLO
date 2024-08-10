@@ -5,8 +5,19 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './git-gridz.component.html',
-  styleUrl: './git-gridz.component.scss'
+  styleUrls: ['./git-gridz.component.scss'],
 })
 export class GitGridzComponent {
+  contributions: { level: number }[] = [];
 
+  constructor() {
+    this.generateContributions();
+  }
+
+  generateContributions(): void {
+    for (let i = 1; i < 365; i++) {
+      const level = Math.floor(Math.random() * 4); // Adjusted to match the levels in the CSS
+      this.contributions.push({ level });
+    }
+  }
 }
