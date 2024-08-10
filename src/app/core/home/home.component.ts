@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
 import { GitGridComponent } from './git-grid/git-grid.component';
+import { GitGridzComponent } from './git-gridz/git-gridz.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, GitGridComponent],
+  imports: [CommonModule, GitGridComponent, GitGridzComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
