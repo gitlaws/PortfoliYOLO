@@ -27,4 +27,4 @@ jobs:
         run: ng build --configuration production --base-href "https://gitlaws.github.io/portfoliyolo/"
         
       - name: Deploy
-        run: npx angular-cli-ghpages --dir=dist/angular-net-connect/browser
+        run: npx angular-cli-ghpages --dir=dist/PortfoliYOLO/browser
