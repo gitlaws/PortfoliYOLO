@@ -16,8 +16,9 @@ export class GitGridComponent {
   }
 
   generateContributions(): void {
-    this.contributions = Array.from({ length: 365 }, () => ({
-      level: Math.floor(Math.random() * 4), // Random level between 0 and 3
-    }));
+    for (let i = 1; i <= 365; i++) {
+      const level = Math.floor(Math.random() * 4); // Levels from 0 to 3
+      this.contributions.push({ level });
+    }
   }
 }
