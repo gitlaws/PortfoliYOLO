@@ -1,5 +1,5 @@
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-graph',
@@ -9,12 +9,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements OnInit {
-  squares: { level: number }[] = [];
+  @Input() data: number[][] = [];
+
+  months: string[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  contributionData: number[][] = [];
 
   ngOnInit(): void {
-    // Generate squares data
-    for (let i = 1; i < 365; i++) {
-      this.squares.push({ level: Math.floor(Math.random() * 3) });
+    this.generateContributionData();
+  }
+
+  generateContributionData(): void {
+    if (this.data.length) {
+      this.contributionData = this.data;
+    } else {
+      for (let i = 0; i < 53; i++) {
+        const week = [];
+        for (let j = 0; j < 7; j++) {
+          week.push(Math.floor(Math.random() * 5)); // Random contribution level between 0 and 4
+        }
+        this.contributionData.push(week);
+      }
     }
+  }
+
+  getSquareClass(level: number): string {
+    return `level-${level}`;
   }
 }

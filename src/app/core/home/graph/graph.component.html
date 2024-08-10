@@ -1,13 +1,13 @@
 <div class="graph">
-  <ul class="months">
-    <li>Jan</li>
-    <li>Feb</li>
-    <li>Dec</li>
-  </ul>
-  <ul class="days">
-    <li>Sun</li>
-    <li>Mon</li>
-    <li>Sat</li>
-  </ul>
-  <ul class="squares"></ul>
+  <div class="months">
+    <div *ngFor="let month of months">{{ month }}</div>
+  </div>
+  <div class="days">
+    <div *ngFor="let day of days">{{ day }}</div>
+  </div>
+  <div class="squares">
+    <div *ngFor="let week of contributionData">
+      <div *ngFor="let day of week" [ngClass]="getSquareClass(day)"></div>
+    </div>
+  </div>
 </div>
