@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { GitSquareComponent } from '../git-square/git-square.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-git-grid',
   standalone: true,
-  imports: [GitSquareComponent],
+  imports: [CommonModule, GitSquareComponent],
   templateUrl: './git-grid.component.html',
   styleUrl: './git-grid.component.scss',
 })
@@ -15,6 +16,6 @@ export class GitGridComponent {
   squareSize: any;
 
   get rows() {
-    // Calculate rows based on contributions length and grid size
+    return Math.ceil(this.contributions.length / this.gridSize);
   }
 }
