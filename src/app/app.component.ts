@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './core/toolbar/toolbar.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { ProjectsComponent } from './features/projects/projects.component';
-import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav.component';
+import { ProfileComponent } from './features/profile/profile.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ import { ProfileTabnavComponent } from './features/profile-tabnav/profile-tabnav
     ToolbarComponent,
     FooterComponent,
     ProjectsComponent,
-    ProfileTabnavComponent,
+    ProfileComponent,
   ],
 })
 export class AppComponent {
