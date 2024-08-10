@@ -1,1 +1,13 @@
-<p>git-grid works!</p>
+<div class="git-contribution-graph">
+  <div class="days-column">
+    <div class="day">Mon</div>
+    <div class="day">Wed</div>
+    <div class="day">Fri</div>
+  </div>
+  <div class="months-row">
+    <div class="month">Jan</div>
+    <div class="month">Feb</div>
+    <div class="month">Mar</div>
+  </div>
+  <div class="git-square" *ngFor="let contribution of contributions"></div>
+</div>

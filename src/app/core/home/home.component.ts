@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
+import { GitGridComponent } from './git-grid/git-grid.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GitGridComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
