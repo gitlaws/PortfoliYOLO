@@ -1,0 +1,9 @@
+<div class="git-grid">
+  <app-git-square
+    *ngFor="let contribution of contributions; let i = index"
+    [level]="contribution"
+    [colorMap]="colorMap"
+    [style.width.px]="squareSize"
+    [style.height.px]="squareSize"
+  ></app-git-square>
+</div>
