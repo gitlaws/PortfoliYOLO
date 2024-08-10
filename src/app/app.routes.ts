@@ -21,10 +21,10 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'profile-tabnav',
+    path: 'profile',
     loadComponent: () =>
-      import('./features/profile-tabnav/profile-tabnav.component').then(
-        (m) => m.ProfileTabnavComponent
+      import('./features/profile/profile.component').then(
+        (m) => m.ProfileComponent
       ),
   },
   // other routes...
