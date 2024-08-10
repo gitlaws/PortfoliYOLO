@@ -1,0 +1,91 @@
+@import "../../../styles/_colors.scss";
+@import "../../../styles/_mixins.scss";
+@import "../../../styles/_variables.scss";
+
+/* Skills Section */
+
+.skills-container {
+  display: grid;
+  gap: 20px;
+  padding: 50px 0;
+  margin: 0;
+  width: 100%;
+  // color: #000; // Default text color
+  transition: background-color 0.3s ease;
+  overflow-x: hidden;
+
+  &.light {
+    background-color: #f0f0f0; // Light gray for light theme
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+
+  &.dark {
+    background-color: #2d2d2d; // Dark gray for dark theme
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.skill-section {
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.light {
+    background-color: #ffffff; // White for light theme
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  &.dark {
+    background-color: #333333; // Darker gray for dark theme
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.skill-section {
+  header {
+    h2 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+  }
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.6;
+
+    &.light {
+      color: #666666; // Darker gray for light theme
+    }
+
+    &.dark {
+      color: #cccccc; // Lighter gray for dark theme
+    }
+  }
+
+  &:nth-of-type(1) {
+    header h2 {
+      &.dark {
+        color: $h2-type1-color;
+      }
+    }
+  }
+
+  &:nth-of-type(2) {
+    header h2 {
+      &.dark {
+        color: $h2-type2-color;
+      }
+    }
+  }
+
+  &:nth-of-type(3) {
+    header h2 {
+      &.dark {
+        color: $h2-type3-color;
+      }
+    }
+  }
+}
