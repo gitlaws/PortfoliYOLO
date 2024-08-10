@@ -1,0 +1,19 @@
+$primary-color: #4caf50;
+$secondary-color: #e0e0e0;
+$square-size: 20px;
+$spacing: 2px;
+$square-color: #4caf50;
+$square-color-darker: #388e71;
+
+.git-square {
+  width: $square-size;
+  height: $square-size;
+  border: 1px solid $secondary-color;
+  border-radius: 2px;
+  background-color: var($square-color);
+
+  &:hover {
+    background-color: darken($square-color, 10%);
+    border-color: darken($secondary-color, 10%);
+  }
+}

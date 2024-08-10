@@ -12,21 +12,4 @@ $spacing: 2px;
   .git-grid-row {
     display: flex;
   }
-
-  app-git-square {
-    width: $square-size;
-    height: $square-size;
-    margin: $spacing;
-    border: 1px solid $secondary-color;
-
-    &:hover {
-      background-color: $primary-color;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .git-grid {
-    $square-size: 30px; // Increase square size on larger screens
-  }
 }
