@@ -6,11 +6,12 @@ $square-color: #4caf50;
 
 .git-contribution-graph {
   display: grid;
-  grid-template-columns: auto repeat(52, $square-size);
-  grid-template-rows: auto repeat(7, $square-size);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
   gap: $spacing;
   justify-content: center;
   background-color: $secondary-color;
+  width: 100%;
 
   .days-column {
     display: flex;
@@ -37,7 +38,7 @@ $square-color: #4caf50;
 
   .squares {
     display: grid;
-    grid-template-columns: repeat(52, $square-size);
+    grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
     grid-template-rows: repeat(7, $square-size);
     gap: $spacing;
     grid-row: 2 / span 7;
@@ -69,40 +70,33 @@ $square-color: #4caf50;
   }
 
   @media (max-width: 1200px) {
-    grid-template-columns: auto repeat(26, $square-size);
     .months-row {
       grid-column: 2 / span 26;
     }
     .squares {
-      grid-template-columns: repeat(26, $square-size);
-      grid-column: 2 / span 26;
+      grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
     }
   }
 
   @media (max-width: 992px) {
-    grid-template-columns: auto repeat(13, $square-size);
     .months-row {
       grid-column: 2 / span 13;
     }
     .squares {
-      grid-template-columns: repeat(13, $square-size);
-      grid-column: 2 / span 13;
+      grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
     }
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: auto repeat(7, $square-size);
     .months-row {
       grid-column: 2 / span 7;
     }
     .squares {
-      grid-template-columns: repeat(7, $square-size);
-      grid-column: 2 / span 7;
+      grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
     }
   }
 
   @media (max-width: 576px) {
-    grid-template-columns: repeat(4, $square-size);
     .days-column {
       display: none;
     }
@@ -110,7 +104,7 @@ $square-color: #4caf50;
       display: none;
     }
     .squares {
-      grid-template-columns: repeat(4, $square-size);
+      grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
       grid-column: 1 / span 4;
     }
   }
