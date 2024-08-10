@@ -1,5 +1,5 @@
 $primary-color: #4caf50;
-$secondary-color: #2c2c2c;
+$secondary-color: #2c2c2c; // Dark-themed color
 $square-size: 20px;
 $spacing: 2px;
 $square-color: #4caf50;
@@ -7,11 +7,10 @@ $square-color: #4caf50;
 .git-contribution-graph {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   gap: $spacing;
   justify-content: center;
   background-color: $secondary-color;
-  color: white;
   width: 100%;
 
   .days-column {
@@ -26,17 +25,6 @@ $square-color: #4caf50;
     }
   }
 
-  .months-row {
-    display: flex;
-    justify-content: space-between;
-    grid-row: 1;
-    grid-column: 2 / span 52;
-    .month {
-      text-align: center;
-      padding-bottom: $spacing;
-    }
-  }
-
   .squares {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
@@ -44,6 +32,17 @@ $square-color: #4caf50;
     gap: $spacing;
     grid-row: 2 / span 7;
     grid-column: 2 / span 52;
+  }
+
+  .months-row {
+    display: flex;
+    justify-content: space-between;
+    grid-row: 3;
+    grid-column: 2 / span 52;
+    .month {
+      text-align: center;
+      padding-top: $spacing;
+    }
   }
 
   .git-square {
@@ -71,29 +70,29 @@ $square-color: #4caf50;
   }
 
   @media (max-width: 1200px) {
-    .months-row {
-      grid-column: 2 / span 26;
-    }
     .squares {
       grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
+    }
+    .months-row {
+      grid-column: 2 / span 26;
     }
   }
 
   @media (max-width: 992px) {
-    .months-row {
-      grid-column: 2 / span 13;
-    }
     .squares {
       grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
+    }
+    .months-row {
+      grid-column: 2 / span 13;
     }
   }
 
   @media (max-width: 768px) {
-    .months-row {
-      grid-column: 2 / span 7;
-    }
     .squares {
       grid-template-columns: repeat(auto-fill, minmax($square-size, 1fr));
+    }
+    .months-row {
+      grid-column: 2 / span 7;
     }
   }
 

@@ -1,10 +1,18 @@
 <div class="git-contribution-graph">
-  <div class="days-column">
+  <!-- <div class="days-column">
     <div class="day">Mon</div>
     <div class="day">Wed</div>
     <div class="day">Fri</div>
+  </div> -->
+  <div class="squares">
+    <!-- Generate squares dynamically -->
+    <div
+      *ngFor="let contribution of contributions"
+      class="git-square"
+      [attr.data-level]="contribution.level"
+    ></div>
   </div>
-  <div class="months-row">
+  <!-- <div class="months-row">
     <div class="month">Jan</div>
     <div class="month">Feb</div>
     <div class="month">Mar</div>
@@ -17,12 +25,5 @@
     <div class="month">Oct</div>
     <div class="month">Nov</div>
     <div class="month">Dec</div>
-  </div>
-  <div class="squares">
-    <div
-      *ngFor="let contribution of contributions"
-      class="git-square"
-      [attr.data-level]="contribution.level"
-    ></div>
-  </div>
+  </div> -->
 </div>
