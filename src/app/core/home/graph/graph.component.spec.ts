@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GitGridzComponent } from './git-gridz.component';
+import { GraphComponent } from './graph.component';
 
-describe('GitGridzComponent', () => {
-  let component: GitGridzComponent;
-  let fixture: ComponentFixture<GitGridzComponent>;
+describe('GraphComponent', () => {
+  let component: GraphComponent;
+  let fixture: ComponentFixture<GraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GitGridzComponent]
+      imports: [GraphComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(GitGridzComponent);
+    fixture = TestBed.createComponent(GraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
