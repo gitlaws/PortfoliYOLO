@@ -22,11 +22,21 @@
   justify-content: space-between;
 }
 
+.month {
+  font-weight: bold;
+}
+
 .days {
   grid-area: days;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.day {
+  background-color: #f0f0f0;
+  padding: 2px 5px;
+  border-radius: 3px;
 }
 
 .squares {
