@@ -20,4 +20,8 @@ export class FooterComponent {
       this.theme = theme === Theme.Light ? 'light' : 'dark';
     });
   }
+  openLink(event: MouseEvent, url: string): void {
+    event.preventDefault();
+    window.open(url, '_blank');
+  }
 }

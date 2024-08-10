@@ -2,42 +2,62 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-.logo {
-  // background-image: url("/assets/logo78px.png"),
-  //   url("https://i.gifer.com/5ABD.gif");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
-  //   margin: 0 auto;
-  //   display: block;
-  @include pulse-animation(25s, infinite);
-}
-
-.copyright {
+.footer {
+  background: linear-gradient(
+    to bottom,
+    #d3d3d3 0%,
+    #c0c0c0 25%,
+    #a9a9a9 75%,
+    #808080 100%
+  );
+  padding: 20px;
   text-align: center;
-  font-size: 12px;
-  color: #666;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow */
 }
 
-footer {
+.footer-content {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-size: 200% 200%;
-  height: 200px;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  @include gradient-animation(24s, ease, infinite);
-  //   padding: 20px 0;
+  gap: 20px;
+}
 
-  &.light {
-    background-color: $lm-toolbar-background-color;
+.footer-icon {
+  color: white;
+  font-size: 28px; /* Increased base font size */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #dfe3ee;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    gap: 20px; /* Adjusted gap for better spacing */
   }
 
-  &.dark {
-    background-color: $dm-toolbar-background-color;
+  .footer-icon {
+    font-size: 28px; /* Increased font size for tablets */
   }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    gap: 15px; /* Adjusted gap for better spacing */
+  }
+
+  .footer-icon {
+    font-size: 28px; /* Increased font size for mobile */
+  }
+}
+
+&.light {
+  background-color: $lm-toolbar-background-color;
+}
+
+&.dark {
+  background-color: $dm-toolbar-background-color;
 }
