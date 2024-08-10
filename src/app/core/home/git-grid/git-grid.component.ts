@@ -9,7 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './git-grid.component.scss',
 })
 export class GitGridComponent {
-  contributions: any[] = [
-    // Your contribution data here
-  ];
+  contributions: { level: number }[] = [];
+
+  constructor() {
+    this.generateContributions();
+  }
+
+  generateContributions(): void {
+    for (let i = 1; i <= 365; i++) {
+      const level = Math.floor(Math.random() * 3);
+      this.contributions.push({ level });
+    }
+  }
 }

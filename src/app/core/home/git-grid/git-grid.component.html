@@ -8,6 +8,20 @@
     <div class="month">Jan</div>
     <div class="month">Feb</div>
     <div class="month">Mar</div>
+    <div class="month">April</div>
+    <div class="month">May</div>
+    <div class="month">Jun</div>
+    <div class="month">Jul</div>
+    <div class="month">Aug</div>
+    <div class="month">Sep</div>
+    <div class="month">Oct</div>
+    <div class="month">Nov</div>
   </div>
-  <div class="git-square" *ngFor="let contribution of contributions"></div>
+  <div class="squares">
+    <div
+      *ngFor="let contribution of contributions"
+      class="git-square"
+      [attr.data-level]="contribution.level"
+    ></div>
+  </div>
 </div>

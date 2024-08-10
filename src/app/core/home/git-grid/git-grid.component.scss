@@ -35,12 +35,31 @@ $square-color: #4caf50;
     }
   }
 
+  .squares {
+    display: grid;
+    grid-template-columns: repeat(52, $square-size);
+    grid-template-rows: repeat(7, $square-size);
+    gap: $spacing;
+  }
+
   .git-square {
     width: $square-size;
     height: $square-size;
     border: 1px solid $secondary-color;
     border-radius: 2px;
     background-color: var($square-color);
+    &[data-level="0"] {
+      background-color: #ebedf0;
+    }
+    &[data-level="1"] {
+      background-color: #c6e48b;
+    }
+    &[data-level="2"] {
+      background-color: #7bc96f;
+    }
+    &[data-level="3"] {
+      background-color: #239a3b;
+    }
     &:hover {
       background-color: darken($square-color, 10%);
       border-color: darken($secondary-color, 10%);
