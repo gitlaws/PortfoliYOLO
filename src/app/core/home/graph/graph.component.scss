@@ -1,8 +1,12 @@
-:root {
-  --square-size: 12px;
-  --square-gap: 3px;
-  --week-width: calc(var(--square-size) + var(--square-gap));
-}
+$color-level-0: #ebedf0;
+$color-level-1: #c6e48b;
+$color-level-2: #7bc96f;
+$color-level-3: #239a3b;
+$color-level-4: #196127;
+
+$square-size: 12px;
+$square-gap: 3px;
+$week-width: calc(#{$square-size} + #{$square-gap});
 
 .graph {
   display: grid;
@@ -42,28 +46,40 @@
 .squares {
   grid-area: squares;
   display: grid;
-  grid-template-columns: repeat(53, var(--week-width));
-  grid-gap: var(--square-gap);
+  grid-template-columns: repeat(53, $week-width);
+  grid-gap: $square-gap;
 }
 
 .squares div {
-  width: var(--square-size);
-  height: var(--square-size);
-  background-color: #ebedf0;
+  width: $square-size;
+  height: $square-size;
+  background-color: $color-level-0;
 }
 
 .squares div.level-1 {
-  background-color: #c6e48b;
+  background-color: $color-level-1;
 }
 
 .squares div.level-2 {
-  background-color: #7bc96f;
+  background-color: $color-level-2;
 }
 
 .squares div.level-3 {
-  background-color: #239a3b;
+  background-color: $color-level-3;
 }
 
 .squares div.level-4 {
-  background-color: #196127;
+  background-color: $color-level-4;
+}
+
+.squares div.level-5 {
+  background-color: lighten($color-level-1, 20%);
+}
+
+.squares div.level-6 {
+  background-color: lighten($color-level-2, 20%);
+}
+
+.squares div.level-7 {
+  background-color: lighten($color-level-3, 20%);
 }

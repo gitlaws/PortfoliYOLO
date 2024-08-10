@@ -46,7 +46,8 @@ export class GraphComponent implements OnInit {
     }
   }
 
-  getSquareClass(level: number): string {
+  getSquareClass(day: number): string {
+    const level = day % 7; // Map day to a level between 0 and 6
     return `level-${level}`;
   }
 }
