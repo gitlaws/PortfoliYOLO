@@ -16,6 +16,14 @@
   bottom: 0;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow */
+
+  &.light {
+    background-color: $lm-toolbar-background-color;
+  }
+
+  &.dark {
+    background-color: $dm-toolbar-background-color;
+  }
 }
 
 .footer-content {
@@ -52,12 +60,4 @@
   .footer-icon {
     font-size: 28px; /* Increased font size for mobile */
   }
-}
-
-&.light {
-  background-color: $lm-toolbar-background-color;
-}
-
-&.dark {
-  background-color: $dm-toolbar-background-color;
 }
