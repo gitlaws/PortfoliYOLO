@@ -5,12 +5,8 @@
     <div class="day">Fri</div>
   </div> -->
   <div class="squares">
-    <!-- Generate squares dynamically -->
-    <div
-      *ngFor="let contribution of contributions"
-      class="git-square"
-      [attr.data-level]="contribution.level"
-    ></div>
+    <!-- Generate a fixed number of squares -->
+    <div *ngFor="let square of squares" class="git-square" [attr.data-level]="square.level"></div>
   </div>
   <!-- <div class="months-row">
     <div class="month">Jan</div>
