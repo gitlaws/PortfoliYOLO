@@ -148,10 +148,9 @@ $wrapper-bg-color: #181818;
     }
 
     .link-tree {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
       background-color: lighten($bio-bg-container, 5%);
       padding: 20px;
       border-radius: 10px;
@@ -160,19 +159,43 @@ $wrapper-bg-color: #181818;
       .link-item {
         display: flex;
         align-items: center;
-        margin: 10px 0;
-        padding: 10px;
+        justify-content: flex-start;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
         color: $secondary-color;
-        transition: color 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          color: lighten($secondary-color, 10%);
+        }
 
         .icon {
           margin-right: 10px;
-          font-size: 18px;
+          font-size: 24px;
+          flex-shrink: 0;
         }
 
-        &:hover {
-          color: lighten($secondary-color, 10%);
+        .link-text {
+          flex-grow: 1;
+          text-decoration: none;
+          color: inherit;
         }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .link-tree {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .link-item {
+        padding: 15px;
       }
     }
   }
