@@ -10,8 +10,16 @@
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: $intro-section-bg-color;
-  background-image: $intro-section-bg-image;
+
+  &.light {
+    background-color: $light-intro-section-bg-color;
+    background-image: $light-intro-section-bg-image;
+  }
+
+  &.dark {
+    background-color: $intro-section-bg-color;
+    background-image: $intro-section-bg-image;
+  }
 }
 
 .intro-content {
