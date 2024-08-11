@@ -4,13 +4,14 @@
 
 $primary-color: #ff5722; // Example primary color
 $secondary-color: #2196f3; // Example secondary color
-$divider-color: #e0e0e0; // Example divider color
+$divider-color: #404040; // Example divider color
 $gradient: linear-gradient(45deg, #ff5722, #ff9800); // Gradient for button
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #181818;
 }
 
 .bio-container {
@@ -20,7 +21,7 @@ $gradient: linear-gradient(45deg, #ff5722, #ff9800); // Gradient for button
   margin-bottom: 100px;
   padding: 20px;
   max-width: 1240px;
-  background-color: #f5f5f5;
+  background-color: #202020;
 
   @media (min-width: 768px) {
     flex-direction: row;
