@@ -3,11 +3,11 @@
 @import "../../../styles/_variables.scss";
 
 $primary-color: #ff5722;
-$secondary-color: #2196f3; // Example secondary color
-$divider-color: #404040; // Example divider color
-$gradient: linear-gradient(45deg, #ff5722, #ff9800); // Gradient for button
-$bio-bg-container: #202020; // Background color for bio container
-$wrapper-bg-color: #181818; // Background color for wrapper
+$secondary-color: #2196f3;
+$divider-color: #404040;
+$gradient: linear-gradient(45deg, #ff5722, #ff9800);
+$bio-bg-container: #202020;
+$wrapper-bg-color: #181818;
 
 .wrapper {
   display: flex;
@@ -43,41 +43,41 @@ $wrapper-bg-color: #181818; // Background color for wrapper
     .bio-content {
       flex-grow: 1;
       color: $primary-color;
-      line-height: 1.6; // Increase line height for better readability
+      line-height: 1.6;
 
       h1,
       h2,
       h3 {
         margin-bottom: 10px;
-        font-weight: bold; // Bolder weight for headings
-        letter-spacing: 0.5px; // Increase letter spacing for headings
+        font-weight: bold;
+        letter-spacing: 0.5px;
       }
 
       h1 {
-        font-size: 2em; // Larger font size for h1
+        font-size: 2em;
       }
 
       h2 {
-        font-size: 1.75em; // Larger font size for h2
-        margin-top: 20px; // Add top margin for visual separation
+        font-size: 1.75em;
+        margin-top: 20px;
       }
 
       h3 {
-        font-size: 1.5em; // Larger font size for h3
-        margin-top: 20px; // Add top margin for visual separation
+        font-size: 1.5em;
+        margin-top: 20px;
       }
 
       p {
-        margin-bottom: 20px; // Add margin-bottom to paragraphs
+        margin-bottom: 20px;
       }
 
       ul {
-        list-style-type: none; // Remove default list style
+        list-style-type: none;
         margin-left: 20px;
-        padding-left: 10px; // Adjust padding for optimal indentation
+        padding-left: 10px;
 
         li::before {
-          content: "•"; // Custom bullet point
+          content: "•";
           color: $primary-color;
           font-weight: bold;
           display: inline-block;
@@ -89,7 +89,7 @@ $wrapper-bg-color: #181818; // Background color for wrapper
       a {
         color: $secondary-color;
         text-decoration: none;
-        font-weight: bold; // Bold for emphasis
+        font-weight: bold;
 
         &:hover {
           text-decoration: underline;
@@ -97,7 +97,7 @@ $wrapper-bg-color: #181818; // Background color for wrapper
       }
 
       em {
-        font-style: italic; // Italics for emphasis
+        font-style: italic;
       }
     }
 
@@ -110,12 +110,12 @@ $wrapper-bg-color: #181818; // Background color for wrapper
       cursor: pointer;
       text-align: center;
       font-size: 1.2em;
-      border-radius: 10px; // Rounded corners for a softer look
+      border-radius: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
         transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow on hover
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
     }
   }
@@ -124,7 +124,7 @@ $wrapper-bg-color: #181818; // Background color for wrapper
     width: 1px;
     background-color: $divider-color;
     margin: 0 20px;
-    order: 2; // Ensure divider is in the middle
+    order: 2;
 
     @media (max-width: 767px) {
       display: none;
@@ -136,7 +136,7 @@ $wrapper-bg-color: #181818; // Background color for wrapper
     flex-direction: column;
     align-items: center;
     text-align: center;
-    order: 3; // Ensure right-column is at the bottom
+    order: 3;
 
     .profile-image {
       width: 150px;
@@ -151,20 +151,27 @@ $wrapper-bg-color: #181818; // Background color for wrapper
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      background-color: lighten($bio-bg-container, 5%);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
       .link-item {
         display: flex;
         align-items: center;
         margin: 10px 0;
+        padding: 10px;
         color: $secondary-color;
         transition: color 0.3s ease;
 
         .icon {
           margin-right: 10px;
+          font-size: 18px;
         }
 
         &:hover {
-          color: darken($secondary-color, 10%);
+          color: lighten($secondary-color, 10%);
         }
       }
     }
