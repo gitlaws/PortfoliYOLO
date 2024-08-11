@@ -16,7 +16,7 @@
   // background: transparent;
   // background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
   padding: 20px;
-  transition: background-color 0.3s ease;
+  @include theme-mode-transition;
   @include header-box-shadow(0, 4px, 6px, 0, hsla(0, 0%, 0%, 0.2));
 
   &.light {

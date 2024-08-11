@@ -1,5 +1,11 @@
 @import "./_colors.scss";
 
+/* Theme Mode Transition */
+
+@mixin theme-mode-transition {
+  transition: background-color 0.3s ease;
+}
+
 /* Header Box-shadow */
 @mixin header-box-shadow($h-offset, $v-offset, $blur, $spread, $color) {
   box-shadow: $h-offset $v-offset $blur $spread $color;
