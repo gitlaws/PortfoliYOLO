@@ -2,6 +2,14 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
+// Color Variables
+$color-primary: #3498db;
+$color-secondary: #2ecc71;
+$color-dark-gray: #2c3e50;
+$color-medium-gray: #95a5a6;
+$color-light-gray: #ecf0f1;
+$color-white: #ffffff;
+
 // Font Variations
 $heading-font: "Roboto", sans-serif;
 $body-font: "Open Sans", sans-serif;
@@ -26,10 +34,10 @@ $body-font: "Open Sans", sans-serif;
     font-family: $heading-font;
 
     &.light {
-      color: #333;
+      color: $color-dark-gray;
     }
     &.dark {
-      color: white;
+      color: $color-white;
     }
   }
 
@@ -44,16 +52,16 @@ $body-font: "Open Sans", sans-serif;
     transition: color 0.3s ease-in-out;
 
     &.light {
-      color: #333;
+      color: $color-dark-gray;
     }
 
     &.dark {
-      color: white;
+      color: $color-white;
     }
   }
 
   p {
-    line-height: 1.5; // Improved readability
+    line-height: 1.6; // Improved readability
     margin: 0;
     width: 100%;
     max-width: 60ch;
@@ -62,11 +70,11 @@ $body-font: "Open Sans", sans-serif;
   }
 
   &.light {
-    background-color: #f5f5f5; // Light Gray
+    background-color: $color-light-gray; // Light Gray
   }
 
   &.dark {
-    background-color: #2f2f2f; // Dark Gray
+    background-color: $color-dark-gray; // Dark Gray
   }
 }
 
@@ -74,11 +82,11 @@ $body-font: "Open Sans", sans-serif;
   transition: background-color 0.3s ease-in-out;
 
   &.light {
-    background-color: #f5f5f5; // Light Gray
+    background-color: $color-light-gray; // Light Gray
   }
 
   &.dark {
-    background-color: #2f2f2f; // Dark Gray
+    background-color: $color-dark-gray; // Dark Gray
   }
 }
 
@@ -87,11 +95,11 @@ $body-font: "Open Sans", sans-serif;
   transition: background-color 0.3s ease-in-out;
 
   &.light {
-    background-color: #f5f5f5; // Light Gray
+    background-color: $color-light-gray; // Light Gray
   }
 
   &.dark {
-    background-color: #2f2f2f; // Dark Gray
+    background-color: $color-dark-gray; // Dark Gray
   }
 }
 
@@ -108,7 +116,7 @@ $body-font: "Open Sans", sans-serif;
 
   .card {
     padding: 1rem;
-    background-color: #fff;
+    background-color: $color-white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -117,6 +125,11 @@ $body-font: "Open Sans", sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
 
     figure {
       width: 100%;
@@ -135,7 +148,7 @@ $body-font: "Open Sans", sans-serif;
 
     h2 {
       font-size: 1.5rem;
-      color: #333;
+      color: $color-dark-gray;
       text-align: center;
       font-family: $heading-font;
       font-weight: bold;
@@ -150,8 +163,8 @@ $body-font: "Open Sans", sans-serif;
 
     p {
       padding: 1rem;
-      line-height: 1.5;
-      color: #555;
+      line-height: 1.6;
+      color: $color-medium-gray;
       text-align: center;
       font-family: $body-font;
     }
@@ -171,13 +184,17 @@ $body-font: "Open Sans", sans-serif;
       text-decoration: none;
       padding: 0.5rem;
       border-radius: 50%;
-      background-color: #1a5276;
+      background-color: $color-primary;
       transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
     }
 
     i {
       font-size: 1.5rem;
-      color: white;
+      color: $color-white;
       transition: color 0.3s ease-in-out;
     }
   }
