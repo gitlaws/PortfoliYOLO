@@ -26,6 +26,11 @@ export class CyberMenuComponent implements OnInit {
     { name: 'Profile', url: '/about' },
   ];
 
+  openLink(event: MouseEvent, url: string): void {
+    event.preventDefault(); // Prevent default anchor behavior
+    window.open(url, '_blank', 'noopener'); // Open link in a new tab
+  }
+
   // toggleMenu() {
   //   this.isMenuOpen = !this.isMenuOpen;
   // }

@@ -2,10 +2,10 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// Social Links Styles
-$social-links-bg-color: #f0f0f0; // Background color for social links section
+$social-links-bg-color-light: #f0f0f0; // Light theme background color
+$social-links-bg-color-dark: #333; // Dark theme background color
 $social-links-border-color: #ccc; // Border color for social links section
-$social-link-color: #0072ff; // Default color for social links
+// $social-link-color: #0072ff; // Default color for social links
 $social-link-hover-color: #0056b3; // Hover color for social links
 $social-link-hover-shadow: rgba(
   0,
@@ -87,25 +87,40 @@ $social-link-hover-shadow: rgba(
     }
   }
 
+  // social
   .dropdown-item-social-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 10px 0;
+    gap: 5px; // Adjust the gap value as needed
     @include fadeInDown-animation(0.5s, ease-out, forwards);
-    // background-color: $social-links-bg-color;
-    // border-top: 1px solid $social-links-border-color;
-    // border-bottom: 1px solid $social-links-border-color;
+
+    i {
+      margin: 0 5px; // Adjust the margin value as needed
+
+      &.light {
+        color: red;
+
+        &:hover {
+          color: $social-link-hover-color;
+          text-shadow: 0px 0px 5px $social-link-hover-shadow;
+        }
+      }
+
+      &.dark {
+        color: black;
+
+        &:hover {
+          color: $social-link-hover-color;
+          text-shadow: 0px 0px 5px $social-link-hover-shadow;
+        }
+      }
+    }
 
     a {
-      color: $social-link-color;
-      font-size: 1.2em;
+      font-size: 1.75em;
       transition: color 0.3s ease;
-
-      &:hover {
-        color: $social-link-hover-color;
-        text-shadow: 0px 0px 5px $social-link-hover-shadow;
-      }
     }
   }
 
