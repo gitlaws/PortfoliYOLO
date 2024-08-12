@@ -1,44 +1,51 @@
-<nav class="social-links" [ngClass]="theme">
+<nav>
   <ul>
-    <li>
-      <a href="your-linkedin-url" aria-label="LinkedIn">
-        <i
-          class="fab fa-linkedin"
-          aria-hidden="true"
-          [class.dark]="isDarkMode"
-          [class.light]="!isDarkMode"
-        ></i>
+    <li class="dropdown-item-social-links">
+      <a
+        href="https://www.linkedin.com"
+        target="_blank"
+        rel="noopener"
+        class="footer-icon"
+        aria-label="LinkedIn"
+        (click)="
+          openLink(
+            $event,
+            'https://www.linkedin.com/in/stanislaw-wasilewski-1bba55273/'
+          )
+        "
+      >
+        <i class="fab fa-linkedin"></i>
       </a>
-    </li>
-    <li>
-      <a href="your-github-url" aria-label="GitHub">
-        <i
-          class="fab fa-github"
-          aria-hidden="true"
-          [class.dark]="isDarkMode"
-          [class.light]="!isDarkMode"
-        ></i>
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener"
+        class="footer-icon"
+        aria-label="GitHub"
+        (click)="openLink($event, 'https://github.com/gitlaws')"
+      >
+        <i class="fab fa-github"></i>
       </a>
-    </li>
-    <li>
-      <a href="your-youtube-url" aria-label="YouTube">
-        <i
-          class="fab fa-youtube"
-          aria-hidden="true"
-          [class.dark]="isDarkMode"
-          [class.light]="!isDarkMode"
-        ></i>
-      </a>
-    </li>
 
-    <li>
-      <a href="your-discord-url" aria-label="Discord">
-        <i
-          class="fab fa-discord"
-          aria-hidden="true"
-          [class.dark]="isDarkMode"
-          [class.light]="!isDarkMode"
-        ></i>
+      <a
+        href="https://www.youtube.com"
+        target="_blank"
+        rel="noopener"
+        class="footer-icon"
+        aria-label="YouTube"
+        (click)="openLink($event, 'https://www.youtube.com/@sm.w/streams')"
+      >
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a
+        href="https://discord.com"
+        target="_blank"
+        rel="noopener"
+        class="footer-icon"
+        aria-label="Discord"
+        (click)="openLink($event, 'https://discord.com')"
+      >
+        <i class="fab fa-discord"></i>
       </a>
     </li>
   </ul>
