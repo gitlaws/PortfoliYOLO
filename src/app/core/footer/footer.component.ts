@@ -12,6 +12,7 @@ import { ThemeService } from '../../shared/services/theme/theme.service';
 })
 export class FooterComponent {
   theme!: 'light' | 'dark';
+  isDarkMode: boolean = false;
 
   constructor(private themeService: ThemeService) {}
 

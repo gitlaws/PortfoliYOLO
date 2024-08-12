@@ -11,7 +11,7 @@
       aria-label="GitHub"
       (click)="openLink($event, 'https://github.com/gitlaws')"
     >
-      <i class="fab fa-github"></i>
+      <i class="fab fa-github" [ngClass]="theme"></i>
     </a>
     <a
       href="https://www.linkedin.com"
@@ -26,7 +26,7 @@
         )
       "
     >
-      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-linkedin" [ngClass]="theme"></i>
     </a>
     <a
       href="https://www.youtube.com"
@@ -36,7 +36,7 @@
       aria-label="YouTube"
       (click)="openLink($event, 'https://www.youtube.com/@sm.w/streams')"
     >
-      <i class="fab fa-youtube"></i>
+      <i class="fab fa-youtube" [ngClass]="theme"></i>
     </a>
     <a
       href="https://discord.com"
@@ -46,7 +46,7 @@
       aria-label="Discord"
       (click)="openLink($event, 'https://discord.com')"
     >
-      <i class="fab fa-discord"></i>
+      <i class="fab fa-discord" [ngClass]="theme"></i>
     </a>
   </div>
 </footer>

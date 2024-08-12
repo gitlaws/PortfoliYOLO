@@ -27,12 +27,24 @@
 }
 
 .footer-icon {
-  color: white;
   font-size: 28px; /* Increased base font size */
   transition: color 0.3s;
 
-  &:hover {
-    color: #dfe3ee;
+  i {
+    @include theme-mode-transition;
+    &.dark {
+      color: #e0e0e0; // Base color: Light Gray
+      &:hover {
+        color: #b0b0b0; // Hover color: Lighter Gray
+      }
+    }
+
+    &.light {
+      color: #f5f5f5; // Base color: Off-White
+      &:hover {
+        color: #333333; // Hover color: Dark Gray
+      }
+    }
   }
 }
 
