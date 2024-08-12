@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SocialLinksComponent {
   openLink(event: MouseEvent, url: string): void {
-    event.preventDefault(); // Prevent default anchor behavior
-    window.open(url, '_blank', 'noopener'); // Open link in a new tab
+    event.preventDefault();
+    window.open(url, '_blank', 'noopener');
   }
 }

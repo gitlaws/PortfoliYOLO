@@ -28,8 +28,8 @@ export class ToolbarComponent implements OnInit {
   theme!: 'light' | 'dark';
 
   openLink(event: MouseEvent, url: string): void {
-    event.preventDefault(); // Prevent default anchor behavior
-    window.open(url, '_blank', 'noopener'); // Open link in a new tab
+    event.preventDefault();
+    window.open(url, '_blank', 'noopener');
   }
 
   constructor(private themeService: ThemeService) {}
