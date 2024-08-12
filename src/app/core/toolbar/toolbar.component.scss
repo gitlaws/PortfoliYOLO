@@ -2,6 +2,12 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
+$social-links-bg-color-light: #f0f0f0;
+$social-links-bg-color-dark: #333;
+$social-links-border-color: #ccc;
+$social-link-hover-color: #0056b3;
+$social-link-hover-shadow: rgba(0, 0, 0, 0.5);
+
 .header {
   display: flex;
   flex-direction: row;
@@ -74,6 +80,38 @@
 }
 
 .nav__social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  gap: 5px;
+
+  i {
+    margin: 0 5px;
+
+    &.light {
+      color: $social-links-bg-color-light;
+
+      &:hover {
+        color: $social-link-hover-color;
+        text-shadow: 0px 0px 5px $social-link-hover-shadow;
+      }
+    }
+
+    &.dark {
+      color: $social-links-bg-color-dark;
+
+      &:hover {
+        color: $social-link-hover-color;
+        text-shadow: 0px 0px 5px $social-link-hover-shadow;
+      }
+    }
+  }
+
+  a {
+    font-size: 1.75em;
+    transition: color 0.3s ease;
+  }
 }
 
 @media (max-width: $tablet) {

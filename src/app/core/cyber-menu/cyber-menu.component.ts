@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
-import { SocialLinksComponent } from '../../shared/common/social-links/social-links.component';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
 
@@ -11,12 +10,7 @@ import { Theme } from '../../shared/models/theme.enum';
   standalone: true,
   templateUrl: './cyber-menu.component.html',
   styleUrls: ['./cyber-menu.component.scss'],
-  imports: [
-    CommonModule,
-    RouterLink,
-    ThemeToggleComponent,
-    SocialLinksComponent,
-  ],
+  imports: [CommonModule, RouterLink, ThemeToggleComponent],
 })
 export class CyberMenuComponent implements OnInit {
   theme!: 'light' | 'dark';
