@@ -54,25 +54,17 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   font-style: normal;
   font-size: 1.5em;
 
-  // @include shine-animation(54s, ease-in-out, infinite);
-  // background: linear-gradient(
-  //   90deg,
-  //   transparent,
-  //   #1a1a1a,
-  //   #c0c0c0,
-  //   transparent
-  // );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;
+  // -webkit-background-clip: text;
+  // background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // transition: all 0.3s ease;
 
   &.light {
-    background-color: black;
+    color: black;
   }
 
   &.dark {
-    background-color: white;
+    color: white;
   }
 
   &:hover {
@@ -82,14 +74,14 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .social-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 1rem;
   i {
     // margin: 0 5px; // Adjust the margin value as needed
 
     &.light {
-      color: $social-links-bg-color-light;
+      color: $social-links-bg-color-dark;
 
       &:hover {
         color: $social-link-hover-color;
@@ -98,7 +90,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     }
 
     &.dark {
-      color: $social-links-bg-color-dark;
+      color: $social-links-bg-color-light;
 
       &:hover {
         color: $social-link-hover-color;
