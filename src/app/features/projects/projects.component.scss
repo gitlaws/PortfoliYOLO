@@ -16,7 +16,7 @@ $body-font: "Open Sans", sans-serif;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2em; // Base font size
   transition: background-color 0.3s ease-in-out;
   font-family: $body-font;
 
@@ -34,7 +34,7 @@ $body-font: "Open Sans", sans-serif;
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.5em; // Larger than base font size
     margin: 0;
     font-weight: bold;
   }
@@ -53,11 +53,12 @@ $body-font: "Open Sans", sans-serif;
   }
 
   p {
-    line-height: 1.5;
+    line-height: 1.5; // Improved readability
     margin: 0;
     width: 100%;
     max-width: 60ch;
     min-width: calc(100vw - 1200px);
+    font-size: 1.2em; // Consistent with base font size
   }
 
   &.light {
