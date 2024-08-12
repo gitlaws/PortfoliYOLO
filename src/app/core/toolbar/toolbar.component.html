@@ -24,54 +24,7 @@
     <!-- Theme Toggle -->
     <app-theme-toggle class="nav__theme-toggle"></app-theme-toggle>
     <!-- Social Links -->
-    <div class="social-links">
-      <a
-        href="https://www.linkedin.com"
-        target="_blank"
-        rel="noopener"
-        class="footer-icon"
-        aria-label="LinkedIn"
-        (click)="
-          openLink(
-            $event,
-            'https://www.linkedin.com/in/stanislaw-wasilewski-1bba55273/'
-          )
-        "
-      >
-        <i class="fab fa-linkedin" [ngClass]="theme"></i>
-      </a>
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener"
-        class="footer-icon"
-        aria-label="GitHub"
-        (click)="openLink($event, 'https://github.com/gitlaws')"
-      >
-        <i class="fab fa-github" [ngClass]="theme"></i>
-      </a>
-
-      <a
-        href="https://www.youtube.com"
-        target="_blank"
-        rel="noopener"
-        class="footer-icon"
-        aria-label="YouTube"
-        (click)="openLink($event, 'https://www.youtube.com/@sm.w/streams')"
-      >
-        <i class="fab fa-youtube" [ngClass]="theme"></i>
-      </a>
-      <a
-        href="https://discord.com"
-        target="_blank"
-        rel="noopener"
-        class="footer-icon"
-        aria-label="Discord"
-        (click)="openLink($event, 'https://discord.com')"
-      >
-        <i class="fab fa-discord" [ngClass]="theme"></i>
-      </a>
-    </div>
+    <app-social-links class="nav__social-links"></app-social-links>
   </nav>
 
   <!-- NavBtn -->
