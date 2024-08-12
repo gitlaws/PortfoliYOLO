@@ -2,21 +2,14 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-$social-links-bg-color-light: #f0f0f0; // Light theme background color
-$social-links-bg-color-dark: #333; // Dark theme background color
-$social-links-border-color: #ccc; // Border color for social links section
-// $social-link-color: #0072ff; // Default color for social links
-$social-link-hover-color: #0056b3; // Hover color for social links
-$social-link-hover-shadow: rgba(
-  0,
-  0,
-  0,
-  0.5
-); // Shadow color for social links on hover
+$social-links-bg-color-light: #f0f0f0;
+$social-links-bg-color-dark: #333;
+$social-links-border-color: #ccc;
+$social-link-hover-color: #0056b3;
+$social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .dropdown-toggle svg line {
   stroke-width: 4;
-  // stroke: #0072ff;
   @include glow-animation(2s, infinite);
 }
 
@@ -48,8 +41,8 @@ $social-link-hover-shadow: rgba(
   opacity: 1;
   z-index: 1000;
   font-size: 1em;
-  // background-color: #773131;
   transition: background-color 0.3s ease;
+
   &.light {
     background-color: #757575;
   }
@@ -87,17 +80,16 @@ $social-link-hover-shadow: rgba(
     }
   }
 
-  // social
   .dropdown-item-social-links {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
-    gap: 5px; // Adjust the gap value as needed
+    gap: 5px;
     @include fadeInDown-animation(0.5s, ease-out, forwards);
 
     i {
-      margin: 0 5px; // Adjust the margin value as needed
+      margin: 0 5px;
 
       &.light {
         color: $social-links-bg-color-light;
