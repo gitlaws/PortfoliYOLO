@@ -83,14 +83,25 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
-  gap: 5px;
+  // padding: 10px 0;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1em;
+  }
+
+  li {
+    // Remove margin
+  }
 
   i {
-    margin: 0 5px;
+    font-size: 1em;
 
     &.light {
-      color: $social-links-bg-color-light;
+      color: $social-links-bg-color-dark;
 
       &:hover {
         color: $social-link-hover-color;
@@ -99,7 +110,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     }
 
     &.dark {
-      color: $social-links-bg-color-dark;
+      color: $social-links-bg-color-light;
 
       &:hover {
         color: $social-link-hover-color;
