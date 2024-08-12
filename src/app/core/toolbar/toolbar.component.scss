@@ -73,37 +73,7 @@
   }
 }
 
-::ng-deep .nav__social-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    gap: 1em; // Adjust the gap value as needed
-
-    li {
-      margin: 0;
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center; // Removed align-self: center;
-        text-decoration: none;
-
-        transition: background-color 0.3s ease, color 0.3s ease;
-
-        i {
-          font-size: 1.75em;
-          @include theme-mode-transition;
-        }
-      }
-    }
-  }
+.nav__social-links {
 }
 
 @media (max-width: $tablet) {
