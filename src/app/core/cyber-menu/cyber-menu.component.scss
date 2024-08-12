@@ -100,7 +100,7 @@ $social-link-hover-shadow: rgba(
       margin: 0 5px; // Adjust the margin value as needed
 
       &.light {
-        color: red;
+        color: $social-links-bg-color-light;
 
         &:hover {
           color: $social-link-hover-color;
@@ -109,7 +109,7 @@ $social-link-hover-shadow: rgba(
       }
 
       &.dark {
-        color: black;
+        color: $social-links-bg-color-dark;
 
         &:hover {
           color: $social-link-hover-color;
