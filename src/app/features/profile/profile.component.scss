@@ -176,40 +176,40 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     background-color: $link-tree-bg;
     box-shadow: $box-shadow;
     background: $background-gradient;
+
     h1 {
-      margin-top: 20px; /* Add space above the heading */
-      margin-bottom: 10px; /* Add space below the heading */
-      text-align: center; /* Center the heading text */
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     p {
-      margin-top: 10px; /* Add space above the paragraph */
-      margin-bottom: 20px; /* Add space below the paragraph */
-      text-align: center; /* Center the paragraph text */
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    /* Media queries for responsiveness */
     @media (max-width: 768px) {
       h1 {
-        margin-top: 15px; /* Adjust space above the heading for smaller screens */
-        margin-bottom: 8px; /* Adjust space below the heading for smaller screens */
+        margin-top: 15px;
+        margin-bottom: 8px;
       }
 
       p {
-        margin-top: 8px; /* Adjust space above the paragraph for smaller screens */
-        margin-bottom: 15px; /* Adjust space below the paragraph for smaller screens */
+        margin-top: 8px;
+        margin-bottom: 15px;
       }
     }
 
     @media (max-width: 480px) {
       h1 {
-        margin-top: 10px; /* Adjust space above the heading for very small screens */
-        margin-bottom: 5px; /* Adjust space below the heading for very small screens */
+        margin-top: 10px;
+        margin-bottom: 5px;
       }
 
       p {
-        margin-top: 5px; /* Adjust space above the paragraph for very small screens */
-        margin-bottom: 10px; /* Adjust space below the paragraph for very small screens */
+        margin-top: 5px;
+        margin-bottom: 10px;
       }
     }
 
