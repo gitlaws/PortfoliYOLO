@@ -2,32 +2,106 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-$primary-color: #ff5722;
-$secondary-color: #2196f3;
-$divider-color: #404040;
-$gradient: linear-gradient(45deg, #ff5722, #ff9800);
-$bio-bg-container: #202020;
-$wrapper-bg-color: #181818;
+// $primary-color: #ff5722;
+// $secondary-color: #2196f3;
+// $divider-color: #404040;
+// $gradient: linear-gradient(45deg, #ff5722, #ff9800);
+// $bio-bg-container: #202020;
+// $wrapper-bg-color: #181818;
 
-//right column
-$background-gradient: linear-gradient(135deg, #ff6ec4, #7873f5);
-$text-color: #ffffff;
-$hover-color: #000000;
-$border-radius: 10px;
-$transition-duration: 0.3s;
-$profile-border-color: rgba(255, 255, 255, 0.6);
-$box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-$backdrop-blur: 10px;
-$link-item-blur: 8px;
-$link-item-padding: 15px 20px;
+// //right column
+// $background-gradient: linear-gradient(135deg, #ff6ec4, #7873f5);
+// $text-color: #ffffff;
+// $hover-color: #000000;
+// $border-radius: 10px;
+// $transition-duration: 0.3s;
+// $profile-border-color: rgba(255, 255, 255, 0.6);
+// $box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+// $backdrop-blur: 10px;
+// $link-item-blur: 8px;
+// $link-item-padding: 15px 20px;
 
-//
-$link-tree-bg: rgba(255, 255, 255, 0.1);
-$link-tree-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-$link-item-hover-bg: rgba(255, 255, 255, 0.3);
-$link-item-hover-color: #000000;
-$link-item-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-$link-item-gradient: linear-gradient(45deg, #ff6ec4, #7873f5);
+// //Link Tree
+// $link-tree-bg: rgba(255, 255, 255, 0.1);
+// $link-tree-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+// $link-item-hover-bg: rgba(255, 255, 255, 0.3);
+// $link-item-hover-color: #000000;
+// $link-item-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// $link-item-gradient: linear-gradient(45deg, #ff6ec4, #7873f5);
+
+// // Define color palette
+// $primary-color: #ff5722;
+// $secondary-color: #2196f3;
+// $accent-color: #ff9800;
+// $text-color: #ffffff;
+// $hover-color: #000000;
+// $background-gradient: linear-gradient(135deg, #ff8a50, #ffccbc);
+// $bio-bg-container: #202020;
+// $wrapper-bg-color: #181818;
+// $divider-color: #404040;
+// $profile-border-color: rgba(255, 255, 255, 0.6);
+
+// // Define consistent shadow style
+// $box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+// $link-item-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// $link-tree-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+// // Define other variables
+// $border-radius: 10px;
+// $transition-duration: 0.3s;
+// $backdrop-blur: 10px;
+// $link-item-blur: 8px;
+// $link-item-padding: 15px 20px;
+// $link-tree-bg: rgba(255, 255, 255, 0.1);
+// $link-item-hover-bg: rgba(255, 255, 255, 0.3);
+// $link-item-hover-color: #000000;
+// $link-item-gradient: linear-gradient(45deg, #ff8a50, #ffccbc);
+
+// Define color palette for dark theme
+$primary-color: #ff5722; // Bright color for primary elements
+$secondary-color: #ff8a50; // Lighter shade of primary color
+$accent-color: #ffccbc; // Even lighter shade for accents
+$text-color: #ffffff; // White text for contrast
+$hover-color: #000000; // Black for hover effects
+$background-gradient: linear-gradient(
+  135deg,
+  #ff8a50,
+  #ffccbc
+); // Gradient for backgrounds
+$bio-bg-container: #202020; // Dark background for bio container
+$wrapper-bg-color: #181818; // Dark background for wrapper
+$divider-color: #404040; // Darker divider color
+$profile-border-color: rgba(
+  255,
+  255,
+  255,
+  0.6
+); // Semi-transparent white for profile borders
+
+// Define consistent shadow style
+$box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Light shadow for elements
+$link-item-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Light shadow for link items
+$link-tree-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Slightly darker shadow for link tree
+
+// Define other variables
+$border-radius: 10px; // Consistent border radius
+$transition-duration: 0.3s; // Transition duration for hover effects
+$backdrop-blur: 10px; // Backdrop blur for containers
+$link-item-blur: 8px; // Blur effect for link items
+$link-item-padding: 15px 20px; // Padding for link items
+$link-tree-bg: rgba(255, 255, 255, 0.1); // Light background for link tree
+$link-item-hover-bg: rgba(
+  255,
+  255,
+  255,
+  0.3
+); // Light background for hover state
+$link-item-hover-color: #000000; // Black text color for hover state
+$link-item-gradient: linear-gradient(
+  45deg,
+  #ff8a50,
+  #ffccbc
+); // Gradient for link items
 
 .wrapper {
   display: flex;
@@ -121,134 +195,124 @@ $link-item-gradient: linear-gradient(45deg, #ff6ec4, #7873f5);
       }
     }
 
-    .cta-button {
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: $gradient;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      font-size: 1.2em;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    // .cta-button {
+    //   margin-top: 20px;
+    //   padding: 15px 30px;
+    //   background: $gradient;
+    //   color: #fff;
+    //   border: none;
+    //   cursor: pointer;
+    //   text-align: center;
+    //   font-size: 1.2em;
+    //   border-radius: 10px;
+    //   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-    }
+    //   &:hover {
+    //     transform: scale(1.05);
+    //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    //   }
   }
+}
 
-  .divider {
-    width: 1px;
-    background-color: $divider-color;
-    margin: 0 20px;
-    order: 2;
+.divider {
+  width: 1px;
+  background-color: $divider-color;
+  margin: 0 20px;
+  order: 2;
 
-    @media (max-width: 767px) {
-      display: none;
-    }
+  @media (max-width: 767px) {
+    display: none;
   }
+}
 
-  .right-column {
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  order: 3;
+
+  .link-tree-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    order: 3;
+    -webkit-backdrop-filter: blur(
+      $backdrop-blur
+    ); /* Added for Safari support */
+    backdrop-filter: blur($backdrop-blur);
+    padding: 20px;
+    border-radius: 15px;
+    background-color: $link-tree-bg;
+    box-shadow: $box-shadow;
+    background: $background-gradient;
+  }
 
-    .link-tree-container {
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .link-tree {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 20px;
+    background-color: $link-tree-bg;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: $link-tree-shadow;
+
+    .link-item {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      -webkit-backdrop-filter: blur(10px); /* Added for Safari support */
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 15px;
-      background-color: $link-tree-bg;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      background: linear-gradient(135deg, #ff6ec4, #7873f5);
-    }
+      justify-content: flex-start;
+      color: $text-color;
+      padding: $link-item-padding;
+      border-radius: $border-radius;
+      box-shadow: $link-item-shadow;
+      transition: all $transition-duration ease;
+      text-decoration: none;
+      font-weight: bold;
 
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
-      object-fit: cover;
-    }
+      &:hover {
+        transform: scale(1.05);
+        color: $hover-color;
+        background: $link-item-hover-bg;
+      }
 
-    .link-tree {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 20px;
-      background-color: $link-tree-bg;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: $link-tree-shadow;
+      .icon {
+        margin-right: 10px;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
 
-      .link-item {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        color: #ffffff;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: $link-item-shadow;
-        transition: all 0.3s ease;
+      .link-text {
+        flex-grow: 1;
         text-decoration: none;
-        font-weight: bold;
+        color: inherit;
+      }
 
-        &:hover {
-          transform: scale(1.05);
-          color: $link-item-hover-color;
-          background: $link-item-hover-bg;
-        }
+      &::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
+        border-radius: $border-radius;
+        background: $link-item-gradient;
+        z-index: -1;
+        filter: blur($link-item-blur);
+        opacity: 0;
+        transition: opacity $transition-duration ease;
+      }
 
-        .icon {
-          margin-right: 10px;
-          font-size: 24px;
-          flex-shrink: 0;
-        }
-
-        .link-text {
-          flex-grow: 1;
-          text-decoration: none;
-          color: inherit;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: -3px;
-          left: -3px;
-          width: calc(100% + 6px);
-          height: calc(100% + 6px);
-          border-radius: 10px;
-          background: $link-item-gradient;
-          z-index: -1;
-          filter: blur(8px);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        &:hover::before {
-          opacity: 1;
-        }
+      &:hover::before {
+        opacity: 1;
       }
     }
-
-    // @media (max-width: 600px) {
-    //   .link-tree {
-    //     grid-template-columns: 1fr;
-    //     padding: 10px;
-    //   }
-
-    //   .link-item {
-    //     padding: 15px;
-    //   }
-    // }
   }
 }
