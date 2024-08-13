@@ -183,10 +183,42 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
       text-align: center;
     }
 
-    p {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      text-align: center;
+    // p {
+    //   margin-top: 10px;
+    //   margin-bottom: 20px;
+    //   text-align: center;
+    // }
+
+    .job-title {
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .citizenship {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
+      display: flex;
+      align-items: center;
+
+      .dual-icons {
+        margin-right: 8px;
+        font-size: 20px;
+        background: linear-gradient(90deg, red, white, blue);
+        -webkit-background-clip: text; /* For Safari and Chrome */
+        -moz-background-clip: text; /* For Firefox */
+        background-clip: text; /* Standard property */
+        -webkit-text-fill-color: transparent;
+        transition: background 0.3s ease;
+      }
+    }
+
+    .relocation {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
     }
 
     @media (max-width: 768px) {
@@ -273,12 +305,6 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
         padding: 25px 200px;
       }
 
-      &:hover {
-        transform: scale(1.05);
-        color: $hover-color;
-        background: $link-item-hover-bg;
-      }
-
       .icon {
         margin-right: 10px;
         font-size: 24px;
@@ -294,7 +320,28 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
         text-decoration: none;
         color: inherit;
       }
+      p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        align-items: center;
+      }
 
+      .icon {
+        margin-right: 8px;
+        font-size: 20px;
+        color: #333333;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+
+      .icon + .icon {
+        margin-left: 8px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -308,10 +355,21 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
         filter: blur($link-item-blur);
         opacity: 0;
         transition: opacity $transition-duration ease;
+        will-change: opacity;
       }
 
       &:hover::before {
         opacity: 1;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        color: $hover-color;
+        background: $link-item-hover-bg;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease,
+          box-shadow 0.3s ease;
+        will-change: transform, color, background, box-shadow;
       }
     }
   }
