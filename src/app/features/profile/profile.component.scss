@@ -171,11 +171,47 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
       $backdrop-blur
     ); /* Added for Safari support */
     backdrop-filter: blur($backdrop-blur);
-    // padding: 20px;
+    padding: 20px;
     border-radius: 15px;
     background-color: $link-tree-bg;
     box-shadow: $box-shadow;
     background: $background-gradient;
+    h1 {
+      margin-top: 20px; /* Add space above the heading */
+      margin-bottom: 10px; /* Add space below the heading */
+      text-align: center; /* Center the heading text */
+    }
+
+    p {
+      margin-top: 10px; /* Add space above the paragraph */
+      margin-bottom: 20px; /* Add space below the paragraph */
+      text-align: center; /* Center the paragraph text */
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+      h1 {
+        margin-top: 15px; /* Adjust space above the heading for smaller screens */
+        margin-bottom: 8px; /* Adjust space below the heading for smaller screens */
+      }
+
+      p {
+        margin-top: 8px; /* Adjust space above the paragraph for smaller screens */
+        margin-bottom: 15px; /* Adjust space below the paragraph for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        margin-top: 10px; /* Adjust space above the heading for very small screens */
+        margin-bottom: 5px; /* Adjust space below the heading for very small screens */
+      }
+
+      p {
+        margin-top: 5px; /* Adjust space above the paragraph for very small screens */
+        margin-bottom: 10px; /* Adjust space below the paragraph for very small screens */
+      }
+    }
 
     // @media (max-width: 320px) {
     //   padding: 10px;
@@ -187,7 +223,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     height: 150px;
     border-radius: 50%;
     box-shadow: $box-shadow;
-    margin-bottom: 20px;
+    margin-bottom: 20px auto;
     object-fit: cover;
 
     @media (max-width: 320px) {
