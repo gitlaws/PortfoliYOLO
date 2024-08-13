@@ -2,22 +2,22 @@
   <header [ngClass]="theme">
     <h1>Projects</h1>
   </header>
-  <article [ngClass]="theme">
+  <section [ngClass]="theme">
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quae
       delectus eaque deserunt ipsa animi dignissimos vel ullam doloremque at,
       quia, magni, numquam consectetur obcaecati tempore impedit sit. Illum,
       labore.
     </p>
-  </article>
+  </section>
 </main>
 
 <div class="vertical-spacing" [ngClass]="theme"></div>
 
-<div class="projects-wrapper" [ngClass]="theme">
+<section class="projects-wrapper" [ngClass]="theme">
   <div class="projects-container">
     <div class="grid">
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -37,6 +37,14 @@
               <i class="fab fa-github"></i>
             </a>
             <a
+              href="https://yourprojectlink.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Project Link"
+            >
+              <i class="fas fa-link"></i>
+            </a>
+            <a
               href="https://youtube.com/yourchannel"
               target="_blank"
               rel="noopener"
@@ -46,9 +54,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
 
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -77,9 +85,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
 
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -108,9 +116,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
 
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -139,9 +147,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
 
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -170,9 +178,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
 
-      <div class="card" [ngClass]="theme">
+      <article class="card" [ngClass]="theme">
         <figure>
           <img
             src="https://via.placeholder.com/150"
@@ -201,9 +209,9 @@
             </a>
           </div>
         </figure>
-      </div>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
 <div class="vertical-spacing" [ngClass]="theme"></div>
