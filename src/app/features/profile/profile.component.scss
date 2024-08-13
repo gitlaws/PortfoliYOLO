@@ -182,13 +182,24 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: $box-shadow;
-  margin-bottom: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1); // Enhanced shadow
+  margin: 0 auto 20px;
   object-fit: cover;
+  border: 2px solid #888; // Add a border for better visibility
 
-  @media (max-width: 320px) {
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 480px) {
     width: 100px;
     height: 100px;
+  }
+
+  @media (max-width: 320px) {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -358,13 +369,12 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     // }
 
     &:hover {
+      background: $link-item-hover-bg;
       transform: scale(1.05);
       color: $hover-color;
-      background: $link-item-hover-bg;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease,
-        box-shadow 0.3s ease;
-      will-change: transform, color, background, box-shadow;
+      opacity: 0.9;
+      transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+      will-change: transform, color, opacity;
     }
   }
 }
