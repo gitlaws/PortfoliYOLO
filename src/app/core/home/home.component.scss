@@ -64,3 +64,95 @@
     color: white;
   }
 }
+
+.under-development-section {
+  text-align: center;
+  margin-top: 2em; // Adjusted margin-top
+  margin-bottom: 4em; // Adjusted margin-bottom
+  background: linear-gradient(
+    to right,
+    #f8f9fa,
+    #e9ecef
+  ); // Added background gradient
+  border: 1px solid #dee2e6; // Added border
+  padding: 2em; // Added padding for better spacing
+
+  p {
+    font-size: 1.75em; // Adjusted font size
+    font-weight: 600; // Adjusted font weight
+    margin-bottom: 1em; // Adjusted margin-bottom
+    color: #343a40; // Adjusted text color
+  }
+
+  .fa-cogs {
+    font-size: 4em; // Adjusted icon size
+    color: #6c757d; // Adjusted icon color
+    margin-top: 1em; // Added margin-top for spacing
+  }
+}
+
+.update-section {
+  text-align: center;
+  margin-top: 2em; // Adjusted margin-top
+  margin-bottom: 5em; // Adjusted margin-bottom
+  padding: 2em; // Added padding for better spacing
+
+  p {
+    font-size: 1.75em; // Adjusted font size
+    font-weight: 600; // Adjusted font weight
+    margin-bottom: 1em; // Adjusted margin-bottom
+    color: #343a40; // Adjusted text color
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    font-size: 1.25em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.25em;
+    text-decoration: none;
+    margin-top: 1em; // Added margin-top for spacing
+  }
+
+  .progress-bar {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 0.25em;
+    overflow: hidden;
+    margin-top: 1em; // Added margin-top for spacing
+
+    .progress {
+      width: 50%; // Example progress
+      height: 1em;
+      background-color: #007bff;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .under-development-section,
+  .update-section {
+    margin-top: 1em; // Adjusted margin-top for mobile
+    margin-bottom: 2em; // Adjusted margin-bottom for mobile
+    padding: 1em; // Adjusted padding for mobile
+
+    p {
+      font-size: 1.5em; // Adjusted font size for mobile
+    }
+
+    .fa-cogs {
+      font-size: 3em; // Adjusted icon size for mobile
+    }
+
+    .cta-button {
+      font-size: 1em; // Adjusted button size for mobile
+    }
+
+    .progress-bar .progress {
+      height: 0.75em; // Adjusted progress bar height for mobile
+    }
+  }
+}
