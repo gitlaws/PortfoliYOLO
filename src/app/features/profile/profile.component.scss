@@ -175,201 +175,205 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     background-color: $link-tree-bg;
     box-shadow: $box-shadow;
     background: $background-gradient;
+  }
+}
 
-    h1 {
-      margin-top: 20px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: $box-shadow;
+  margin-bottom: 20px auto;
+  object-fit: cover;
 
-    // p {
-    //   margin-top: 10px;
-    //   margin-bottom: 20px;
-    //   text-align: center;
-    // }
+  @media (max-width: 320px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.profile-details {
+  padding: 20px;
+  // background-color: #ffffff; // Brighter background color
+  // border-radius: 10px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .job-title {
+    margin: 10px 0;
+    font-size: 1.75rem; // Larger font size for prominence
+    font-weight: bold;
+    font-family: "Arial", sans-serif; // Different font family for emphasis
+    text-transform: uppercase; // Uppercase for emphasis
+    color: #2c3e50; // Contrasting color
+  }
+
+  .dual-icons {
+    font-size: 1.5rem; // Larger icon size
+    background: linear-gradient(
+      90deg,
+      red,
+      white,
+      blue
+    ); // Gradient with red, white, and blue
+    -webkit-background-clip: text; /* For Safari and Chrome */
+    -moz-background-clip: text; /* For Firefox */
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent;
+    margin-right: 8px;
+    vertical-align: middle; // Align icon with text
+    transition: background 0.3s ease;
+    margin-right: 8px;
+    vertical-align: middle; // Align icon with text
+  }
+
+  p {
+    font-size: 1rem; // Readable font size
+    font-weight: normal;
+    line-height: 1.5; // Improved readability
+    letter-spacing: 0.5px; // Improved readability
+    color: #7f8c8d; // Consistent color with good contrast
+    margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
 
     .job-title {
-      margin: 10px 0;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
+      font-size: 1.5rem; // Adjusted for better readability on smaller screens
     }
 
-    .citizenship {
-      margin: 10px 0;
-      font-size: 16px;
-      color: #333;
-      display: flex;
-      align-items: center;
-
-      .dual-icons {
-        margin-right: 8px;
-        font-size: 20px;
-        background: linear-gradient(90deg, red, white, blue);
-        -webkit-background-clip: text; /* For Safari and Chrome */
-        -moz-background-clip: text; /* For Firefox */
-        background-clip: text; /* Standard property */
-        -webkit-text-fill-color: transparent;
-        transition: background 0.3s ease;
-      }
+    .dual-icons {
+      font-size: 1.25rem; // Adjusted for better readability on smaller screens
     }
 
-    .relocation {
-      margin: 10px 0;
-      font-size: 16px;
-      color: #333;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        margin-top: 15px;
-        margin-bottom: 8px;
-      }
-
-      p {
-        margin-top: 8px;
-        margin-bottom: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      p {
-        margin-top: 5px;
-        margin-bottom: 10px;
-      }
-    }
-
-    // @media (max-width: 320px) {
-    //   padding: 10px;
-    // }
-  }
-
-  .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    box-shadow: $box-shadow;
-    margin-bottom: 20px auto;
-    object-fit: cover;
-
-    @media (max-width: 320px) {
-      width: 100px;
-      height: 100px;
+    p {
+      font-size: 0.9375rem; // Adjusted for better readability on smaller screens
     }
   }
 
-  .link-tree {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    background-color: $link-tree-bg;
-    padding: 20px;
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    .job-title {
+      font-size: 1.25rem; // Adjusted for better readability on smaller screens
+    }
+
+    .dual-icons {
+      font-size: 1rem; // Adjusted for better readability on smaller screens
+    }
+
+    p {
+      font-size: 0.875rem; // Adjusted for better readability on smaller screens
+    }
+  }
+}
+
+.link-tree {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  background-color: $link-tree-bg;
+  padding: 20px;
+  border-radius: $border-radius;
+  box-shadow: $link-tree-shadow;
+
+  @media (max-width: 320px) {
+    padding: 10px;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: $text-color;
+    padding: 15px 80px;
     border-radius: $border-radius;
-    box-shadow: $link-tree-shadow;
+    box-shadow: $link-item-shadow;
+    transition: all $transition-duration ease;
+    text-decoration: none;
+    font-weight: bold;
 
-    @media (max-width: 320px) {
-      padding: 10px;
+    // @media (min-width: 20px) and (max-width: 320px) {
+    //   padding: 10px 100px;
+    // }
+
+    @media (min-width: 0px) and (max-width: 320px) {
+      padding: 10px 120px;
     }
 
-    .link-item {
+    @media (min-width: 768px) {
+      padding: 20px 150px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 25px 200px;
+    }
+
+    .icon {
+      margin-right: 10px;
+      font-size: 24px;
+      flex-shrink: 0;
+
+      @media (max-width: 320px) {
+        font-size: 20px;
+      }
+    }
+
+    .link-text {
+      flex-grow: 1;
+      text-decoration: none;
+      color: inherit;
+    }
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      color: $text-color;
-      padding: 15px 80px;
-      border-radius: $border-radius;
-      box-shadow: $link-item-shadow;
-      transition: all $transition-duration ease;
-      text-decoration: none;
-      font-weight: bold;
+    }
 
-      // @media (min-width: 20px) and (max-width: 320px) {
-      //   padding: 10px 100px;
-      // }
-
-      @media (min-width: 0px) and (max-width: 320px) {
-        padding: 10px 120px;
-      }
-
-      @media (min-width: 768px) {
-        padding: 20px 150px;
-      }
-
-      @media (min-width: 1440px) {
-        padding: 25px 200px;
-      }
-
-      .icon {
-        margin-right: 10px;
-        font-size: 24px;
-        flex-shrink: 0;
-
-        @media (max-width: 320px) {
-          font-size: 20px;
-        }
-      }
-
-      .link-text {
-        flex-grow: 1;
-        text-decoration: none;
-        color: inherit;
-      }
-      p {
-        margin: 10px 0;
-        font-size: 16px;
-        color: #333;
-        display: flex;
-        align-items: center;
-      }
-
-      .icon {
-        margin-right: 8px;
-        font-size: 20px;
-        color: #333333;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #0056b3;
-        }
-      }
-
-      .icon + .icon {
-        margin-left: 8px;
-      }
-      // &::before {
-      //   content: "";
-      //   position: absolute;
-      //   top: -3px;
-      //   left: -3px;
-      //   width: calc(100% + 6px);
-      //   height: calc(100% + 6px);
-      //   border-radius: $border-radius;
-      //   background: $link-item-gradient;
-      //   z-index: -1;
-      //   filter: blur($link-item-blur);
-      //   opacity: 0;
-      //   transition: opacity $transition-duration ease;
-      //   will-change: opacity;
-      // }
-
-      // &:hover::before {
-      //   opacity: 1;
-      // }
+    .icon {
+      margin-right: 8px;
+      font-size: 20px;
+      color: #333333;
+      transition: color 0.3s ease;
 
       &:hover {
-        transform: scale(1.05);
-        color: $hover-color;
-        background: $link-item-hover-bg;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease,
-          box-shadow 0.3s ease;
-        will-change: transform, color, background, box-shadow;
+        color: #0056b3;
       }
+    }
+
+    .icon + .icon {
+      margin-left: 8px;
+    }
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: -3px;
+    //   left: -3px;
+    //   width: calc(100% + 6px);
+    //   height: calc(100% + 6px);
+    //   border-radius: $border-radius;
+    //   background: $link-item-gradient;
+    //   z-index: -1;
+    //   filter: blur($link-item-blur);
+    //   opacity: 0;
+    //   transition: opacity $transition-duration ease;
+    //   will-change: opacity;
+    // }
+
+    // &:hover::before {
+    //   opacity: 1;
+    // }
+
+    &:hover {
+      transform: scale(1.05);
+      color: $hover-color;
+      background: $link-item-hover-bg;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease,
+        box-shadow 0.3s ease;
+      will-change: transform, color, background, box-shadow;
     }
   }
 }
