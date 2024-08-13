@@ -17,7 +17,7 @@ $profile-border-color: rgba(255, 255, 255, 0.6);
 $box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 $backdrop-blur: 10px;
 $link-item-blur: 8px;
-$link-item-padding: 15px 20px;
+// $link-item-padding: 15px 20px;
 $link-tree-bg: rgba(255, 255, 255, 0.1);
 $link-tree-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 $link-item-hover-bg: rgba(255, 255, 255, 0.3);
@@ -41,7 +41,7 @@ $link-item-gradient: linear-gradient(45deg, #ff6ec4, #7873f5);
   max-width: 1240px;
   background-color: $bio-bg-container;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     flex-direction: row;
   }
 
@@ -214,12 +214,24 @@ $link-item-gradient: linear-gradient(45deg, #ff6ec4, #7873f5);
       align-items: center;
       justify-content: flex-start;
       color: $text-color;
-      padding: $link-item-padding;
+      // padding: 15px 120px;
       border-radius: $border-radius;
       box-shadow: $link-item-shadow;
       transition: all $transition-duration ease;
       text-decoration: none;
       font-weight: bold;
+
+      @media (max-width: 320px) {
+        padding: 10px 20px;
+      }
+
+      @media (min-width: 768px) {
+        padding: 20px 150px;
+      }
+
+      @media (min-width: 1440px) {
+        padding: 25px 200px;
+      }
 
       &:hover {
         transform: scale(1.05);
