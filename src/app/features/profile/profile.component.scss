@@ -119,7 +119,7 @@ $link-item-gradient: linear-gradient(
   max-width: 1240px;
   background-color: $bio-bg-container;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     flex-direction: row;
   }
 
