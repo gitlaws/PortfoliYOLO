@@ -16,8 +16,39 @@ $spacing: 2rem;
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+$spacing: 2rem;
+$font-family-sans: "Roboto", sans-serif; // Example sans-serif font
+$font-family-serif: "Merriweather", serif; // Example serif font
+
+// .projects-intro {
+//   margin-top: 100px;
+//   &.theme-light {
+//     background-color: $light-bg-color;
+//     color: $light-text-color;
+//   }
+
+//   &.theme-dark {
+//     background-color: $dark-bg-color;
+//     color: $dark-text-color;
+//   }
+
+//   header {
+//     margin-bottom: 1rem;
+//   }
+
+//   section {
+//     p {
+//       margin: 0;
+//     }
+//   }
+// }
 
 .projects-intro {
+  margin-top: 100px;
+  padding: 2rem; // Add padding for visual breathing room
+  font-family: $font-family-sans; // Apply sans-serif font for modern look
+  box-shadow: $card-shadow; // Add box-shadow for depth
+
   &.theme-light {
     background-color: $light-bg-color;
     color: $light-text-color;
@@ -29,13 +60,53 @@ $breakpoint-desktop: 1024px;
   }
 
   header {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem; // Adjust margin for vertical spacing
+    font-size: 1.75rem; // Experiment with font size
+    font-weight: bold; // Experiment with font weight
+    letter-spacing: 0.1em; // Adjust letter spacing
+    text-align: center; // Center align text
   }
 
   section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; // Adjust spacing distribution
+
     p {
       margin: 0;
+      font-size: 1.2rem; // Adjust font size for readability
+      line-height: 1.6; // Adjust line height for readability
+      font-weight: normal; // Different font weight for contrast
+      text-align: center; // Center align text
     }
+  }
+
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; // Smooth theme transition
+}
+
+// Responsive design
+@media (max-width: $breakpoint-mobile) {
+  .projects-intro {
+    padding: 1rem; // Adjust padding for smaller screens
+    header {
+      font-size: 1.75rem; // Adjust font size for smaller screens
+    }
+    section {
+      p {
+        font-size: 1rem; // Adjust font size for smaller screens
+      }
+    }
+  }
+}
+
+// Keyframes for animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -68,7 +139,7 @@ $breakpoint-desktop: 1024px;
     max-width: 100%; // Default max-width for smaller screens
 
     @media (min-width: $breakpoint-pcontainer) {
-      max-width: 816px; // Apply max-width for desktop breakpoint
+      max-width: 1010px; // Apply max-width for desktop breakpoint
       margin: 0 auto; // Center the container
     }
   }
