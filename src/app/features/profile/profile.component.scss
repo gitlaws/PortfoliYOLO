@@ -174,7 +174,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     border-radius: 15px;
     background-color: $link-tree-bg;
     box-shadow: $box-shadow;
-    background: $background-gradient;
+    // background: $background-gradient;
   }
 }
 
@@ -194,9 +194,6 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
 
 .profile-details {
   padding: 20px;
-  // background-color: #ffffff; // Brighter background color
-  // border-radius: 10px;
-  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .job-title {
     margin: 10px 0;
@@ -204,7 +201,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     font-weight: bold;
     font-family: "Arial", sans-serif; // Different font family for emphasis
     text-transform: uppercase; // Uppercase for emphasis
-    color: #2c3e50; // Contrasting color
+    color: #bdc3c7; // Darker color for better contrast
   }
 
   .dual-icons {
@@ -222,8 +219,6 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     margin-right: 8px;
     vertical-align: middle; // Align icon with text
     transition: background 0.3s ease;
-    margin-right: 8px;
-    vertical-align: middle; // Align icon with text
   }
 
   p {
@@ -231,7 +226,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     font-weight: normal;
     line-height: 1.5; // Improved readability
     letter-spacing: 0.5px; // Improved readability
-    color: #7f8c8d; // Consistent color with good contrast
+    color: #ecf0f1; // Darker color for better contrast
     margin: 10px 0;
   }
 
@@ -337,10 +332,6 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
       font-size: 20px;
       color: #333333;
       transition: color 0.3s ease;
-
-      &:hover {
-        color: #0056b3;
-      }
     }
 
     .icon + .icon {
