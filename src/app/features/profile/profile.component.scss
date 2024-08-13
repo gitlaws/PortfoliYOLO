@@ -171,15 +171,15 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
       $backdrop-blur
     ); /* Added for Safari support */
     backdrop-filter: blur($backdrop-blur);
-    padding: 20px;
+    // padding: 20px;
     border-radius: 15px;
     background-color: $link-tree-bg;
     box-shadow: $box-shadow;
     background: $background-gradient;
 
-    @media (max-width: 320px) {
-      padding: 10px;
-    }
+    // @media (max-width: 320px) {
+    //   padding: 10px;
+    // }
   }
 
   .profile-image {
@@ -214,15 +214,19 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
       align-items: center;
       justify-content: flex-start;
       color: $text-color;
-      // padding: 15px 120px;
+      padding: 15px 80px;
       border-radius: $border-radius;
       box-shadow: $link-item-shadow;
       transition: all $transition-duration ease;
       text-decoration: none;
       font-weight: bold;
 
-      @media (max-width: 320px) {
-        padding: 10px 20px;
+      // @media (min-width: 20px) and (max-width: 320px) {
+      //   padding: 10px 100px;
+      // }
+
+      @media (min-width: 0px) and (max-width: 320px) {
+        padding: 10px 120px;
       }
 
       @media (min-width: 768px) {
