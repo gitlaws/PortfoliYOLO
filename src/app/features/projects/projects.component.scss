@@ -17,37 +17,14 @@ $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $spacing: 2rem;
-$font-family-sans: "Roboto", sans-serif; // Example sans-serif font
-$font-family-serif: "Merriweather", serif; // Example serif font
-
-// .projects-intro {
-//   margin-top: 100px;
-//   &.theme-light {
-//     background-color: $light-bg-color;
-//     color: $light-text-color;
-//   }
-
-//   &.theme-dark {
-//     background-color: $dark-bg-color;
-//     color: $dark-text-color;
-//   }
-
-//   header {
-//     margin-bottom: 1rem;
-//   }
-
-//   section {
-//     p {
-//       margin: 0;
-//     }
-//   }
-// }
+$font-family-sans: "Roboto", sans-serif;
+$font-family-serif: "Merriweather", serif;
 
 .projects-intro {
   margin-top: 100px;
-  padding: 2rem; // Add padding for visual breathing room
-  font-family: $font-family-sans; // Apply sans-serif font for modern look
-  box-shadow: $card-shadow; // Add box-shadow for depth
+  padding: 2rem;
+  font-family: $font-family-sans;
+  box-shadow: $card-shadow;
 
   &.theme-light {
     background-color: $light-bg-color;
@@ -60,47 +37,46 @@ $font-family-serif: "Merriweather", serif; // Example serif font
   }
 
   header {
-    margin-bottom: 2rem; // Adjust margin for vertical spacing
-    font-size: 1.75rem; // Experiment with font size
-    font-weight: bold; // Experiment with font weight
-    letter-spacing: 0.1em; // Adjust letter spacing
-    text-align: center; // Center align text
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
   }
 
   section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around; // Adjust spacing distribution
+    justify-content: space-around;
 
     p {
-      margin: 0;
-      font-size: 1.2rem; // Adjust font size for readability
-      line-height: 1.6; // Adjust line height for readability
-      font-weight: normal; // Different font weight for contrast
-      text-align: center; // Center align text
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-weight: normal;
+      text-align: center;
+      max-width: 600px;
     }
   }
 
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; // Smooth theme transition
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-// Responsive design
 @media (max-width: $breakpoint-mobile) {
   .projects-intro {
-    padding: 1rem; // Adjust padding for smaller screens
+    padding: 1rem;
     header {
-      font-size: 1.75rem; // Adjust font size for smaller screens
+      font-size: 1.75rem;
     }
     section {
       p {
-        font-size: 1rem; // Adjust font size for smaller screens
+        font-size: 1rem;
       }
     }
   }
 }
 
-// Keyframes for animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -110,19 +86,8 @@ $font-family-serif: "Merriweather", serif; // Example serif font
   }
 }
 
-.vertical-spacing {
-  height: $spacing;
-
-  &.theme-light {
-    background-color: $light-bg-color;
-  }
-
-  &.theme-dark {
-    background-color: $dark-bg-color;
-  }
-}
-
 .projects-wrapper {
+  margin-bottom: 3rem;
   &.theme-light {
     background-color: $light-bg-color;
   }
@@ -131,16 +96,15 @@ $font-family-serif: "Merriweather", serif; // Example serif font
     background-color: $dark-bg-color;
   }
 
-  // Variables
   $breakpoint-pcontainer: 1024px;
 
   .projects-container {
     padding: 1rem;
-    max-width: 100%; // Default max-width for smaller screens
+    max-width: 100%;
 
     @media (min-width: $breakpoint-pcontainer) {
-      max-width: 1010px; // Apply max-width for desktop breakpoint
-      margin: 0 auto; // Center the container
+      max-width: 1010px;
+      margin: 0 auto;
     }
   }
 
