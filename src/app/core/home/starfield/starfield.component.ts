@@ -39,23 +39,25 @@ export class StarfieldComponent implements OnInit {
   }
 
   createStars(): void {
-    this.stars = [];
-    for (let i = 0; i < this.numStars; i++) {
-      const x = Math.round(Math.random() * this.screenW);
-      const y = Math.round(Math.random() * this.screenH);
-      const length = 1 + Math.random() * 2;
-      const opacity = Math.random();
-      const star = new Star(x, y, length, opacity);
-      this.stars.push(star);
-    }
+    this.stars = Array.from(
+      { length: this.numStars },
+      () =>
+        new Star(
+          Math.round(Math.random() * this.screenW),
+          Math.round(Math.random() * this.screenH),
+          1 + Math.random() * 2,
+          Math.random()
+        )
+    );
   }
 
   animate(): void {
     const draw = () => {
       this.context.clearRect(0, 0, this.screenW, this.screenH);
-      this.stars.forEach((star) =>
-        star.draw(this.context, this.screenW, this.screenH)
-      );
+      this.stars.forEach((star) => {
+        star.update(this.screenW, this.screenH);
+        star.render(this.context, this.screenW, this.screenH);
+      });
       requestAnimationFrame(draw);
     };
     draw();
