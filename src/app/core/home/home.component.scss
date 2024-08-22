@@ -94,11 +94,11 @@
     background: $dark-intro-section-bg-color
       url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
     position: absolute;
+    // display: block;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    display: block;
     z-index: -1;
   }
 
@@ -139,6 +139,31 @@
   //   -webkit-animation: move-background 150s linear infinite;
   //   animation: move-background 150s linear infinite;
   // }
+
+  .clouds {
+    width: 10000px; /* Adjusted to be responsive */
+    height: 100%;
+    background: transparent
+      url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png")
+      repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    animation: move-background 150s linear infinite;
+  }
+
+  /* Keyframes for the animation */
+  @keyframes move-background {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 1000px 0; /* Adjust based on the desired effect */
+    }
+  }
 
   .planet-container {
     position: absolute;
@@ -234,8 +259,8 @@
 .under-development-section {
   text-align: center;
   background-color: #343a40;
-  padding: 12em;
-  z-index: 5;
+  padding: 8em 2em; // Simplified padding for better responsiveness
+  z-index: 0;
 
   p {
     font-size: 1.75em;
@@ -249,29 +274,30 @@
     color: #ffffff;
     margin-top: 1em;
   }
-}
 
-// Responsive Design
-@media (max-width: 768px) {
-  .under-development-section {
-    margin-top: 1em; // Adjusted margin-top for mobile
-    margin-bottom: 2em; // Adjusted margin-bottom for mobile
-    padding: 1em; // Adjusted padding for mobile
+  @media (max-width: 1024px) {
+    // Tablet
+    padding: 8em 1.5em;
 
     p {
-      font-size: 1.5em; // Adjusted font size for mobile
+      font-size: 1.5em;
     }
 
     .fa-cogs {
-      font-size: 3em; // Adjusted icon size for mobile
+      font-size: 3.5em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    // Mobile
+    padding: 8em 1em;
+
+    p {
+      font-size: 1.25em;
     }
 
-    .cta-button {
-      font-size: 1em; // Adjusted button size for mobile
-    }
-
-    .progress-bar .progress {
-      height: 0.75em; // Adjusted progress bar height for mobile
+    .fa-cogs {
+      font-size: 3em;
     }
   }
 }
