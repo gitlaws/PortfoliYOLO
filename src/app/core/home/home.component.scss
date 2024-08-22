@@ -2,24 +2,85 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// .intro-section {
-//   position: relative;
-//   text-align: center;
-//   padding: 150px 0;
-//   margin-top: 100px;
-//   height: 100%;
-//   width: 100%;
-//   overflow-x: hidden;
-//   @include theme-mode-transition;
+.intro-section {
+  &.light {
+    background: linear-gradient(270deg, #d3d3d3, #ffffff, #d3d3d3);
+    background-size: 600% 600%;
+    color: black;
+    animation: gradientAnimation 20s ease infinite;
+  }
 
-//   &.light {
-//     background-color: $light-intro-section-bg-color;
-//   }
+  &.dark {
+    background: linear-gradient(270deg, #121212, #3a3a3a, #121212);
+    background-size: 600% 600%;
+    color: white;
+    animation: gradientAnimation 20s ease infinite;
+  }
 
-//   &.dark {
-//     background-color: $dark-intro-section-bg-color;
-//   }
-// }
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.intro-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0.3;
+  animation: pulseAnimation 10s infinite;
+}
+
+@keyframes pulseAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.intro-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-headline {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.intro-description {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
 
 // .intro-content {
 //   position: relative;
@@ -41,9 +102,7 @@
 //   }
 
 //   &.dark {
-//     background: linear-gradient(to right, #00f260 0%, #0575e6 100%);
-//     // background: linear-gradient(to right, #ff00ff 0%, #00ffff 100%);
-
+//     background: linear-gradient(to bottom, #3a1c71 0%, #ffaf7b 100%);
 //     -webkit-background-clip: text;
 //     background-clip: text;
 //     -webkit-text-fill-color: transparent;
@@ -62,222 +121,6 @@
 //     color: white;
 //   }
 // }
-
-.intro-section {
-  position: relative;
-  text-align: center;
-  padding: 150px 0;
-  margin-top: 100px;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  @include theme-mode-transition;
-
-  // &.light {
-  //   background-color: $light-intro-section-bg-color;
-  // }
-
-  // &.dark {
-  //   background-color: $dark-intro-section-bg-color;
-  // }
-
-  .background-container {
-    position: absolute; // Changed from fixed to absolute
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -2;
-  }
-
-  // .stars {
-  //   // background: $dark-intro-section-bg-color
-  //   //   url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
-  //   background: linear-gradient(to bottom, #000428, #004e92),
-  //     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
-  //   position: absolute;
-  //   // display: block;
-  //   top: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   z-index: -1;
-  // }
-
-  .stars {
-    background: black
-      url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    z-index: 0;
-  }
-
-  .twinkling {
-    width: 100%;
-    height: 100%;
-    background: transparent
-      url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png")
-      repeat;
-    background-size: 100px 100px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    -moz-animation: move-background 70s linear infinite;
-    -ms-animation: move-background 70s linear infinite;
-    -o-animation: move-background 70s linear infinite;
-    -webkit-animation: move-background 70s linear infinite;
-    animation: move-background 70s linear infinite;
-  }
-
-  // .clouds {
-  //   width: 10000px;
-  //   height: 100%;
-  //   background: transparent
-  //     url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png")
-  //     repeat;
-  //   background-size: 1000px 1000px;
-  //   position: absolute;
-  //   right: 0;
-  //   top: 0;
-  //   bottom: 0;
-  //   z-index: 3;
-  //   -moz-animation: move-background 150s linear infinite;
-  //   -ms-animation: move-background 150s linear infinite;
-  //   -o-animation: move-background 150s linear infinite;
-  //   -webkit-animation: move-background 150s linear infinite;
-  //   animation: move-background 150s linear infinite;
-  // }
-
-  .clouds {
-    width: 10000px; /* Adjusted to be responsive */
-    height: 100%;
-    background: transparent
-      url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png")
-      repeat;
-    background-size: 1000px 1000px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    animation: move-background 150s linear infinite;
-
-    @media (max-width: 1024px) {
-      // Tablet
-      background-size: 800px 800px;
-    }
-
-    @media (max-width: 768px) {
-      // Mobile
-      background-size: 500px 500px;
-    }
-  }
-
-  /* Keyframes for the animation */
-  @keyframes move-background {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 1000px 0; /* Adjust based on the desired effect */
-    }
-  }
-
-  .planet-container {
-    position: absolute;
-    right: 20px;
-    z-index: 3;
-    height: 20vh;
-    width: 20vh;
-  }
-
-  .planet {
-    height: 100%;
-    width: 100%;
-  }
-
-  @keyframes move-background {
-    from {
-      -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to {
-      -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-  }
-
-  @-webkit-keyframes move-background {
-    from {
-      -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to {
-      -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-  }
-
-  @-moz-keyframes move-background {
-    from {
-      -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to {
-      -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-  }
-
-  @-webkit-keyframes move-background {
-    from {
-      -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to {
-      -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-  }
-}
-
-.intro-content {
-  position: relative;
-  z-index: 1;
-  // max-width: 800px;
-  margin: 0 auto;
-  // height: 500px;
-}
-
-.intro-headline {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-
-  &.light {
-    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  &.dark {
-    background: linear-gradient(to bottom, #3a1c71 0%, #ffaf7b 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-.intro-description {
-  font-size: 1.2em;
-  margin-bottom: 40px;
-
-  &.light {
-    color: black;
-  }
-
-  &.dark {
-    color: white;
-  }
-}
 
 .under-development-section {
   text-align: center;
