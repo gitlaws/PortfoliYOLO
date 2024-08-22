@@ -1,20 +1,28 @@
-<div class="intro-section" [ngClass]="theme">
+<!-- <div class="intro-section" [ngClass]="theme">
   <div class="intro-content">
-    <h1 class="intro-headline" [ngClass]="theme">
-      Intro Headline
-    </h1>
-    <p class="intro-description" [ngClass]="theme">
-      Description
-    </p>
+    <h1 class="intro-headline" [ngClass]="theme">Intro Headline</h1>
+    <p class="intro-description" [ngClass]="theme">Description</p>
+  </div>
+</div> -->
+
+<div class="intro-section" [ngClass]="theme">
+  <div class="background-container">
+    <img class="planet"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png"
+      alt=""
+    />
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+  </div>
+  <div class="intro-content">
+    <h1 class="intro-headline" [ngClass]="theme">Intro Headline</h1>
+    <p class="intro-description" [ngClass]="theme">Description</p>
   </div>
 </div>
 
 <div class="under-development-section">
-  <p>This page is currently under development.</p>
+  <p>Development In Progress</p>
   <i class="fas fa-cogs fa-5x"></i>
   <!-- Font Awesome logo -->
-</div>
-
-<div class="update-section">
-  <p>Stay tuned for updates! Check back later for more content.</p>
 </div>
