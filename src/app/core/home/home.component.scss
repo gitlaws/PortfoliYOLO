@@ -91,7 +91,9 @@
   }
 
   .stars {
-    background: $dark-intro-section-bg-color
+    // background: $dark-intro-section-bg-color
+    //   url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+    background: linear-gradient(to bottom, #000428, #004e92),
       url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
     position: absolute;
     // display: block;
@@ -153,6 +155,16 @@
     bottom: 0;
     z-index: 3;
     animation: move-background 150s linear infinite;
+
+    @media (max-width: 1024px) {
+      // Tablet
+      background-size: 800px 800px;
+    }
+
+    @media (max-width: 768px) {
+      // Mobile
+      background-size: 500px 500px;
+    }
   }
 
   /* Keyframes for the animation */
