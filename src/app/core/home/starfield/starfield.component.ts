@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Star } from './star';
 
 @Component({
   selector: 'app-starfield',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './starfield.component.html',
-  styleUrl: './starfield.component.scss',
+  styleUrls: ['./starfield.component.scss'],
 })
 export class StarfieldComponent implements OnInit {
   canvas!: HTMLCanvasElement;
@@ -14,13 +15,18 @@ export class StarfieldComponent implements OnInit {
   screenH!: number;
   screenW!: number;
   stars: Star[] = [];
-  fps = 50;
   numStars = 2000;
 
   ngOnInit(): void {
     this.initCanvas();
     this.createStars();
-    setInterval(() => this.animate(), 1000 / this.fps);
+    this.animate();
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.initCanvas();
+    this.createStars();
   }
 
   initCanvas(): void {
@@ -33,6 +39,7 @@ export class StarfieldComponent implements OnInit {
   }
 
   createStars(): void {
+    this.stars = [];
     for (let i = 0; i < this.numStars; i++) {
       const x = Math.round(Math.random() * this.screenW);
       const y = Math.round(Math.random() * this.screenH);
@@ -44,9 +51,13 @@ export class StarfieldComponent implements OnInit {
   }
 
   animate(): void {
-    this.context.clearRect(0, 0, this.screenW, this.screenH);
-    this.stars.forEach((star) =>
-      star.draw(this.context, this.screenW, this.screenH)
-    );
+    const draw = () => {
+      this.context.clearRect(0, 0, this.screenW, this.screenH);
+      this.stars.forEach((star) =>
+        star.draw(this.context, this.screenW, this.screenH)
+      );
+      requestAnimationFrame(draw);
+    };
+    draw();
   }
 }

@@ -1,51 +1,60 @@
 export class Star {
   x: number;
   y: number;
-  length: number;
-  opacity: number;
-  factor = 1;
-  increment = Math.random() * 0.03;
+  z: number;
+  size: number;
+  speed: number;
 
-  constructor(x: number, y: number, length: number, opacity: number) {
-    this.x = x;
-    this.y = y;
-    this.length = length;
-    this.opacity = opacity;
+  constructor(width: number, height: number) {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.z = Math.random() * width;
+    this.size = Math.random() * 2 + 1;
+    this.speed = Math.random() * 0.05 + 0.05;
   }
 
-  draw(
-    context: CanvasRenderingContext2D,
-    screenW: number,
-    screenH: number
-  ): void {
-    context.save();
-    context.translate(this.x, this.y);
-    context.rotate((Math.PI * 1) / 10);
-
-    if (this.opacity > 1) {
-      this.factor = -1;
-    } else if (this.opacity <= 0) {
-      this.factor = 1;
-      this.x = Math.round(Math.random() * screenW);
-      this.y = Math.round(Math.random() * screenH);
+  update(width: number, height: number) {
+    this.z -= this.speed;
+    if (this.z <= 0) {
+      this.z = width;
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
     }
+  }
 
-    this.opacity += this.increment * this.factor;
-    context.beginPath();
-    for (let i = 5; i--; ) {
-      context.lineTo(0, this.length);
-      context.translate(0, this.length);
-      context.rotate((Math.PI * 2) / 10);
-      context.lineTo(0, -this.length);
-      context.translate(0, -this.length);
-      context.rotate((-Math.PI * 6) / 10);
-    }
-    context.lineTo(0, this.length);
-    context.closePath();
-    context.fillStyle = `rgba(255, 255, 200, ${this.opacity})`;
-    context.shadowBlur = 5;
-    context.shadowColor = '#ffff33';
-    context.fill();
-    context.restore();
+  render(ctx: CanvasRenderingContext2D, width: number, height: number) {
+    const sx = (this.x - width / 2) * (width / this.z);
+    const sy = (this.y - height / 2) * (width / this.z);
+    const size = this.size * (width / this.z);
+
+    ctx.beginPath();
+    ctx.arc(sx + width / 2, sy + height / 2, size, 0, 2 * Math.PI);
+    ctx.fillStyle = 'white';
+    ctx.fill();
   }
 }
+
+function animate() {
+  const canvas = document.getElementById('starfield') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    console.error('Failed to get 2D context');
+    return;
+  }
+  const width = (canvas.width = window.innerWidth);
+  const height = (canvas.height = window.innerHeight);
+  const stars = Array.from({ length: 1000 }, () => new Star(width, height));
+
+  function draw() {
+    ctx!.clearRect(0, 0, width, height);
+    stars.forEach((star) => {
+      star.update(width, height);
+      star.render(ctx!, width, height);
+    });
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
+
+animate();
