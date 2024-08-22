@@ -96,6 +96,7 @@
 }
 
 /* Profile TabNav Mixins */
+
 @mixin gradient-animation($duration, $timing-function, $iteration) {
   @keyframes Gradient {
     0% {
