@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Star } from './star';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { StarfieldService } from './starfield.service';
 
 @Component({
   selector: 'app-starfield',
@@ -9,57 +9,28 @@ import { Star } from './star';
   templateUrl: './starfield.component.html',
   styleUrls: ['./starfield.component.scss'],
 })
-export class StarfieldComponent implements OnInit {
-  canvas!: HTMLCanvasElement;
-  context!: CanvasRenderingContext2D;
-  screenH!: number;
-  screenW!: number;
-  stars: Star[] = [];
-  numStars = 2000;
+export class StarfieldComponent implements AfterViewInit {
+  @ViewChild('starfieldCanvas', { static: false })
+  canvasRef!: ElementRef<HTMLCanvasElement>; // Use definite assignment assertion
 
-  ngOnInit(): void {
-    this.initCanvas();
-    this.createStars();
-    this.animate();
-  }
+  constructor(private starfieldService: StarfieldService) {}
 
-  @HostListener('window:resize')
-  onResize(): void {
-    this.initCanvas();
-    this.createStars();
-  }
+  ngAfterViewInit() {
+    const canvas = this.canvasRef.nativeElement;
+    const context = canvas.getContext('2d');
 
-  initCanvas(): void {
-    this.screenH = window.innerHeight;
-    this.screenW = window.innerWidth;
-    this.canvas = document.getElementById('space') as HTMLCanvasElement;
-    this.canvas.width = this.screenW;
-    this.canvas.height = this.screenH;
-    this.context = this.canvas.getContext('2d') as CanvasRenderingContext2D;
-  }
+    if (context) {
+      // Add null check
+      const screenW = window.innerWidth;
+      const screenH = window.innerHeight;
 
-  createStars(): void {
-    this.stars = Array.from(
-      { length: this.numStars },
-      () =>
-        new Star(
-          Math.round(Math.random() * this.screenW),
-          Math.round(Math.random() * this.screenH),
-          1 + Math.random() * 2,
-          Math.random()
-        )
-    );
-  }
+      canvas.width = screenW;
+      canvas.height = screenH;
 
-  animate(): void {
-    const draw = () => {
-      this.context.clearRect(0, 0, this.screenW, this.screenH);
-      this.stars.forEach((star) => {
-        star.update(this.screenW, this.screenH);
-        star.render(this.context, this.screenW, this.screenH);
-      });
-      requestAnimationFrame(draw);
-    };
-    draw();
+      this.starfieldService.initializeStars(screenW, screenH);
+      this.starfieldService.startAnimation(context, screenW, screenH);
+    } else {
+      console.error('Failed to get 2D context');
+    }
   }
 }
