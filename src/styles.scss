@@ -40,20 +40,14 @@
   font-family: "Raleway", sans-serif;
 }
 
-// body {
-//   transition: background-color 0.3s ease;
-// }
+body {
+  transition: background-color 0.3s ease;
 
-// body.light-theme {
-//   background-color: $body-light-mode-color;
-//   // color: #333;
+  &.light {
+    background-color: #f9f9f9;
+  }
 
-//   /* Add other styles for light theme here */
-// }
-
-// body.dark-theme {
-//   background-color: $body-dark-mode-color;
-//   // color: #fff;
-
-//   /* Add other styles for dark theme here */
-// }
+  &.dark {
+    background-color: #121212;
+  }
+}
