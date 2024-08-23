@@ -25,14 +25,6 @@ export class CyberMenuComponent implements OnInit {
     window.open(url, '_blank', 'noopener'); // Open link in a new tab
   }
 
-  // toggleMenu() {
-  //   this.isMenuOpen = !this.isMenuOpen;
-  // }
-
-  // toggleMenu(event: MouseEvent) {
-  //   event.stopPropagation();
-  //   this.isMenuOpen = !this.isMenuOpen;
-  // }
   constructor(
     private elementRef: ElementRef,
     private themeService: ThemeService

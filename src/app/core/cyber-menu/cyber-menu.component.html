@@ -12,8 +12,12 @@
   [ngClass]="theme"
   (click)="$event.stopPropagation()"
 >
-  <li class="dropdown-item"><a routerLink="/projects">Projects</a></li>
-  <li class="dropdown-item"><a routerLink="/profile">Profile</a></li>
+  <li class="dropdown-item">
+    <a routerLink="/projects" [ngClass]="theme">Projects</a>
+  </li>
+  <li class="dropdown-item">
+    <a routerLink="/profile" [ngClass]="theme">Profile</a>
+  </li>
   <li class="dropdown-item"><app-theme-toggle></app-theme-toggle></li>
   <li class="dropdown-item-social-links">
     <a
