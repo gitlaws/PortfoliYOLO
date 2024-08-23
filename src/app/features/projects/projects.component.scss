@@ -7,8 +7,8 @@ $projects-breakpoint-mobile: 480px;
 $projects-breakpoint-tablet: 768px;
 $projects-breakpoint-desktop: 1024px;
 $projects-spacing: 2rem;
-$projects-font-family-sans: "Roboto", sans-serif;
-$projects-font-family-serif: "Merriweather", serif;
+$projects-font-family-sans: "Comic mono", sans-serif;
+$projects-font-family-serif: "Helvetica Neue", Arial, sans-serif;
 
 // Color Scheme
 $projects-primary-color: #3498db;
@@ -23,8 +23,16 @@ $projects-dark-bg-color: #121212;
 $projects-dark-text-color: #f9f9f9;
 
 .projects-wrapper {
-  &.theme {
-    // Add theme-specific styles here
+  margin-top: 100px;
+  transition: background-color 0.3s, color 0.3s;
+  &.light {
+    background-color: $projects-light-bg-color;
+    color: $projects-light-text-color;
+  }
+
+  &.dark {
+    background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
   }
 
   .projects-header {
@@ -36,7 +44,8 @@ $projects-dark-text-color: #f9f9f9;
     .projects-title {
       font-family: $projects-font-family-serif;
       font-size: 2rem;
-      color: $projects-primary-color;
+      // color: $projects-primary-color;
+
       margin-bottom: $projects-spacing;
     }
   }
@@ -52,7 +61,7 @@ $projects-dark-text-color: #f9f9f9;
       }
 
       .card {
-        background-color: $projects-background-color;
+        // background-color: $projects-background-color;
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
@@ -86,7 +95,7 @@ $projects-dark-text-color: #f9f9f9;
               font-family: $projects-font-family-serif;
               font-size: 1.5rem;
               font-weight: bold;
-              color: $projects-primary-color;
+              // color: $projects-primary-color;
               margin: 0.5rem 0;
             }
 
@@ -94,7 +103,7 @@ $projects-dark-text-color: #f9f9f9;
               font-family: $projects-font-family-sans;
               font-size: 1rem;
               line-height: 1.5;
-              color: $projects-text-color;
+              // color: $projects-text-color;
               margin: 0.5rem 0;
             }
 
