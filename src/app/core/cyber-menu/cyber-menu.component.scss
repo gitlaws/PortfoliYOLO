@@ -45,11 +45,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s ease;
 
   &.light {
-    background-color: #e0e0e0; // Light gray
+    background-color: #e0e0e0;
   }
 
   &.dark {
-    background-color: #333333; // Dark gray
+    background-color: #333333;
   }
 
   &.open {
@@ -101,7 +101,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       margin: 0 5px;
 
       &.light {
-        color: $social-links-bg-color-light;
+        color: #000000;
 
         &:hover {
           color: $social-link-hover-color;
@@ -110,7 +110,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: $social-links-bg-color-dark;
+        color: #ffffff;
 
         &:hover {
           color: $social-link-hover-color;
