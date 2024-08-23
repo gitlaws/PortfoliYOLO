@@ -122,7 +122,7 @@ $font-family-serif: "Merriweather", serif;
     box-shadow: $card-shadow;
     overflow: hidden;
     width: calc(33.333% - 1rem);
-    height: 500px;
+
     transition: background-color 0.3s ease-in-out;
 
     @media (max-width: $breakpoint-desktop) {
@@ -145,6 +145,7 @@ $font-family-serif: "Merriweather", serif;
 
     figure {
       margin: 0;
+      flex-grow: 1;
 
       img {
         display: none;
@@ -194,6 +195,7 @@ $font-family-serif: "Merriweather", serif;
         justify-content: space-around;
         padding: 0.5rem 1rem;
         background-color: rgba(0, 0, 0, 0.05);
+        margin-top: auto;
 
         a {
           color: inherit;
