@@ -23,18 +23,18 @@
   // padding: 0 0.5em;
   position: relative;
   cursor: pointer;
-  border: 1px solid $btn-border;
+  // border: 1px solid $theme-btn-border;
   border-radius: 10em;
   background-color: rgba(101, 117, 133, 0.16);
-  box-shadow: $btn-box-shadow;
+  box-shadow: $theme-btn-box-shadow;
   transition: border-color 0.3s ease;
 
   .btn__indicator {
     width: 1.4em;
     height: 1.4em;
     position: absolute;
-    border-radius: $btn-border-radius;
-    box-shadow: $btn-box-shadow;
+    border-radius: $theme-btn-border-radius;
+    box-shadow: $theme-btn-box-shadow;
     transition: transform 0.3s ease;
   }
 
@@ -44,15 +44,15 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 1px solid $btn-border;
-    border-radius: $btn-border-radius;
+    border: 1px solid $theme-btn-border;
+    border-radius: $theme-btn-border-radius;
     background-color: #b0e2ff;
   }
 
   .btn__icon {
     font-size: 12px;
     // font-size: 1rem;
-    color: $btn-icon;
+    color: $theme-btn-icon;
     transition: color 0.3s ease;
   }
 
@@ -71,6 +71,7 @@
 
   &.dark {
     // styles for dark mode
+    border: 1px solid #2a2a2a;
     &:hover {
       border-color: #ffd700;
     }
@@ -78,6 +79,7 @@
 
   &.light {
     // styles for light mode
+    border: 1px solid #f0f0f0;
     &:hover {
       border-color: #7fff00;
     }
