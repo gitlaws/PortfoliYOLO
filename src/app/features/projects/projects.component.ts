@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Theme } from '../../shared/models/theme.enum';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 
+declare var GitHubCalendar: any; // Declare GitHubCalendar to avoid TypeScript errors
+
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -21,13 +23,16 @@ export class ProjectsComponent implements OnInit {
     });
 
     // Initialize GitHub Calendar
+    GitHubCalendar('.calendar', 'gitlaws');
+
+    // Enable responsive functionality
     GitHubCalendar('.calendar', 'gitlaws', { responsive: true });
+
+    // Use a proxy with type assertion
+    GitHubCalendar('.calendar', 'gitlaws', {
+      proxy(gitlaws: string) {
+        return fetch(`https://your-proxy.com/github?user=${gitlaws}`);
+      },
+    } as any).then((r: Response) => r.text());
   }
-}
-function GitHubCalendar(
-  arg0: string,
-  arg1: string,
-  arg2: { responsive: boolean }
-) {
-  throw new Error('Function not implemented.');
 }
