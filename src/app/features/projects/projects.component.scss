@@ -51,6 +51,14 @@ $projects-dark-text-color: #f9f9f9;
   }
 
   .projects-container {
+    // padding: 1rem;
+    max-width: 100%;
+
+    @media (min-width: $projects-breakpoint-desktop) {
+      max-width: 1010px;
+      margin: 0 auto;
+    }
+
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -66,8 +74,12 @@ $projects-dark-text-color: #f9f9f9;
         border-radius: 8px;
         overflow: hidden;
         transition: background-color 0.3s, box-shadow 0.3s;
-        width: calc(33.333% - #{$projects-spacing});
+        width: calc(33.333% - 1rem);
         margin-bottom: $projects-spacing;
+
+        @media (max-width: $projects-breakpoint-desktop) {
+          width: calc(50% - 1rem);
+        }
 
         @media (max-width: $projects-breakpoint-tablet) {
           width: 100%;
