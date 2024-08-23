@@ -23,10 +23,13 @@ export class ProjectsComponent implements OnInit {
     });
 
     // Initialize GitHub Calendar
-    GitHubCalendar('.calendar', 'gitlaws');
+    // GitHubCalendar('.calendar', 'gitlaws');
 
     // Enable responsive functionality
     GitHubCalendar('.calendar', 'gitlaws', { responsive: true });
+
+    // Disable global stats
+    GitHubCalendar('.calendar', 'gitlaws', { global_stats: true });
 
     // Use a proxy with type assertion
     GitHubCalendar('.calendar', 'gitlaws', {

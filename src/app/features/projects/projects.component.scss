@@ -158,3 +158,28 @@ $projects-dark-text-color: #f9f9f9;
     }
   }
 }
+
+.github-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  .calendar {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: transparent;
+    box-sizing: border-box;
+
+    @media (max-width: 600px) {
+      padding: 5px;
+      // box-shadow: none;
+    }
+  }
+}
