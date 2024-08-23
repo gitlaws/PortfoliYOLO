@@ -4,7 +4,7 @@
 
 // Breakpoints
 $projects-breakpoint-mobile: 480px;
-$projects-breakpoint-tablet: 768px;
+$projects-breakpoint-tablet: 1023px;
 $projects-breakpoint-desktop: 1024px;
 $projects-spacing: 2rem;
 $projects-font-family-sans: "Comic mono", sans-serif;
@@ -25,6 +25,7 @@ $projects-dark-text-color: #f9f9f9;
 .projects-wrapper {
   margin-top: 100px;
   transition: background-color 0.3s, color 0.3s;
+
   &.light {
     background-color: $projects-light-bg-color;
     color: $projects-light-text-color;
@@ -44,15 +45,12 @@ $projects-dark-text-color: #f9f9f9;
     .projects-title {
       font-family: $projects-font-family-serif;
       font-size: 2rem;
-      // color: $projects-primary-color;
-
       margin-bottom: $projects-spacing;
     }
   }
 
   .projects-container {
     padding: 1rem;
-    // max-width: 100%;
 
     @media (min-width: $projects-breakpoint-desktop) {
       max-width: 1010px;
@@ -63,32 +61,31 @@ $projects-dark-text-color: #f9f9f9;
       display: flex;
       flex-wrap: wrap;
       gap: $projects-spacing;
+      justify-content: center; // Center the cards horizontally
 
       @media (max-width: $projects-breakpoint-tablet) {
         flex-direction: column;
+        align-items: center; // Center the cards within the column
       }
 
-      // @media (max-width: $projects-breakpoint-desktop) {
-      //   .projects__container {
-      //     flex-direction: row;
-      //   }
-      // }
-
       .card {
-        // background-color: $projects-background-color;
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
         transition: background-color 0.3s, box-shadow 0.3s;
-        width: calc(33.333% - 1rem);
         flex: 1 1 calc(33.333% - #{$projects-spacing});
         margin-bottom: $projects-spacing;
 
         @media (max-width: $projects-breakpoint-desktop) {
-          width: calc(50% - 1rem);
+          // width: calc(50% - 0.5rem);
+          width: 100%;
         }
 
         @media (max-width: $projects-breakpoint-tablet) {
+          width: 75%;
+        }
+
+        @media (max-width: $projects-breakpoint-mobile) {
           width: 100%;
         }
 
@@ -114,7 +111,6 @@ $projects-dark-text-color: #f9f9f9;
               font-family: $projects-font-family-serif;
               font-size: 1.5rem;
               font-weight: bold;
-              // color: $projects-primary-color;
               margin: 0.5rem 0;
             }
 
@@ -122,7 +118,6 @@ $projects-dark-text-color: #f9f9f9;
               font-family: $projects-font-family-sans;
               font-size: 1rem;
               line-height: 1.5;
-              // color: $projects-text-color;
               margin: 0.5rem 0;
             }
 
