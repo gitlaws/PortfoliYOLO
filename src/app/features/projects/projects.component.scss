@@ -51,8 +51,8 @@ $projects-dark-text-color: #f9f9f9;
   }
 
   .projects-container {
-    // padding: 1rem;
-    max-width: 100%;
+    padding: 1rem;
+    // max-width: 100%;
 
     @media (min-width: $projects-breakpoint-desktop) {
       max-width: 1010px;
@@ -68,6 +68,12 @@ $projects-dark-text-color: #f9f9f9;
         flex-direction: column;
       }
 
+      // @media (max-width: $projects-breakpoint-desktop) {
+      //   .projects__container {
+      //     flex-direction: row;
+      //   }
+      // }
+
       .card {
         // background-color: $projects-background-color;
         border: 1px solid #ddd;
@@ -75,6 +81,7 @@ $projects-dark-text-color: #f9f9f9;
         overflow: hidden;
         transition: background-color 0.3s, box-shadow 0.3s;
         width: calc(33.333% - 1rem);
+        flex: 1 1 calc(33.333% - #{$projects-spacing});
         margin-bottom: $projects-spacing;
 
         @media (max-width: $projects-breakpoint-desktop) {
