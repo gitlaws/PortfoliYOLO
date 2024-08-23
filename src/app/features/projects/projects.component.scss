@@ -15,7 +15,8 @@ $projects-primary-color: #3498db;
 $projects-secondary-color: #2ecc71;
 $projects-text-color: #333;
 $projects-background-color: #fff;
-$projects-hover-background-color: #f0f0f0;
+$projects-hover-background-light-color: #f0f0f0;
+$projects-hover-background-dark-color: #333;
 $projects-icon-color: #555;
 $projects-light-bg-color: #f9f9f9;
 $projects-light-text-color: #333;
@@ -90,7 +91,14 @@ $projects-dark-text-color: #f9f9f9;
         }
 
         &:hover {
-          background-color: $projects-hover-background-color;
+          &.light {
+            background-color: $projects-hover-background-light-color;
+          }
+
+          &.dark {
+            background-color: $projects-hover-background-dark-color;
+          }
+
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
