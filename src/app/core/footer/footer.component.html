@@ -1,5 +1,5 @@
 <footer
-  #footerElement
+  *ngIf="!isFooterHidden"
   class="footer"
   [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
 >
@@ -29,7 +29,6 @@
     >
       <i class="fab fa-github" [ngClass]="theme"></i>
     </a>
-
     <a
       href="https://www.youtube.com"
       target="_blank"

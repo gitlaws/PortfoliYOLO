@@ -10,21 +10,12 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .footer {
   position: fixed;
+  padding: 20px;
+  text-align: center;
   bottom: 0;
   width: 100%;
-  transition: height 0.3s, padding 0.3s;
+  @include theme-mode-transition;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensure content is hidden when collapsed */
-
-  &.collapsed {
-    height: 40px; /* Height when collapsed */
-    padding: 5px 20px; /* Padding when collapsed */
-  }
-
-  &.expanded {
-    height: 200px; /* Full height when expanded */
-    padding: 20px; /* Padding when expanded */
-  }
 
   &.light {
     background-color: $lm-toolbar-background-color;
