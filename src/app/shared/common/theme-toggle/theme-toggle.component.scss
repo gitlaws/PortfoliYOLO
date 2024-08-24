@@ -7,23 +7,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  justify-content: center;
   font-family: Arial, sans-serif;
   color: #ff6347;
 }
 
 .btn {
   display: flex;
-  // justify-content: center;
   align-items: center;
   padding: 0;
   width: 2.75em;
   height: 1.5em;
-  // padding: 0 0.5em;
   position: relative;
   cursor: pointer;
-  // border: 1px solid $theme-btn-border;
   border-radius: 10em;
   background-color: rgba(101, 117, 133, 0.16);
   box-shadow: $theme-btn-box-shadow;
@@ -44,22 +39,21 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
     border-radius: $theme-btn-border-radius;
     background-color: #b0e2ff;
 
-    // &.light {
-    //   border: 1px solid red;
-    // }
+    &.light {
+      border: 1px solid red;
+    }
 
-    // &.dark {
-    //   border: 1px solid blue;
-    // }
+    &.dark {
+      border: 1px solid blue;
+    }
   }
 
   .btn__icon {
     font-size: 12px;
-    // font-size: 1rem;
     color: $theme-btn-icon;
     transition: color 0.3s ease;
   }
@@ -78,7 +72,6 @@
   }
 
   &.dark {
-    // styles for dark mode
     border: 1px solid #2a2a2a;
     &:hover {
       border-color: #ffd700;
@@ -86,7 +79,6 @@
   }
 
   &.light {
-    // styles for light mode
     border: 1px solid #f0f0f0;
     &:hover {
       border-color: #7fff00;
@@ -99,8 +91,6 @@
 }
 
 .logo-toggle-button.hidden {
-  // visibility: hidden;
-  // display: none;
   background-color: #ffcc00;
   color: #333;
 }

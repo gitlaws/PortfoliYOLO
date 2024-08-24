@@ -9,7 +9,7 @@ import { StorageService } from '../../services/theme/storage.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './theme-toggle.component.html',
-  styleUrl: './theme-toggle.component.scss',
+  styleUrls: ['./theme-toggle.component.scss'],
 })
 export class ThemeToggleComponent {
   isDarkMode!: boolean;
@@ -24,26 +24,22 @@ export class ThemeToggleComponent {
   ngOnInit(): void {
     this.themeService.currentTheme.subscribe((theme) => {
       this.isDarkMode = theme === Theme.Dark;
+      this.updateTooltipText();
     });
-    this.tooltipText = this.isDarkMode
-      ? 'Toggle Light Mode'
-      : 'Toggle Dark Mode';
   }
 
   toggleTheme(): void {
-    // Save the current theme to the storage
-    this.storageService.setItem(
-      'theme',
-      this.isDarkMode ? Theme.Light : Theme.Dark
-    );
-
+    const newTheme = this.isDarkMode ? Theme.Light : Theme.Dark;
+    this.storageService.setItem('theme', newTheme);
     this.themeService.toggleTheme();
     this.isAnimated = true;
     setTimeout(() => {
       this.isAnimated = false;
     }, 500);
+    this.updateTooltipText();
+  }
 
-    // Update tooltipText based on the new theme mode
+  private updateTooltipText(): void {
     this.tooltipText = this.isDarkMode
       ? 'Toggle Light Mode'
       : 'Toggle Dark Mode';

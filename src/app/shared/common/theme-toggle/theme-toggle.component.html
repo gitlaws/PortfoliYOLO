@@ -1,7 +1,5 @@
 <main class="parent">
   <article class="child">
-    <!-- <h1><span class="highlight">Theme</span></h1> -->
-    <!-- theme-toggle.button -->
     <div
       class="btn"
       (click)="toggleTheme()"
@@ -9,7 +7,6 @@
       [class.dark]="isDarkMode"
       [class.light]="!isDarkMode"
     >
-      <!-- Rotate Icon 'translateX()' -->
       <div
         class="btn__indicator"
         [ngStyle]="{ transform: isDarkMode ? 'translateX(1.24em)' : 'none' }"
