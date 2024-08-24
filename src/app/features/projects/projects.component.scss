@@ -9,8 +9,24 @@ $projects-light-bg-color: #f0f0f0;
 $projects-hover-bg-color: #e0e0e0;
 $projects-hover-text-color: #000;
 
-.cards-title {
+.projects-container {
+  // padding-top: 100px;
   margin-top: 100px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.light {
+    background-color: $projects-light-bg-color;
+    color: $projects-light-text-color;
+  }
+
+  &.dark {
+    background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
+  }
+}
+
+.cards-title {
+  // margin-top: 100px;
   text-align: center;
   padding: 2rem;
   font-size: 2rem;
@@ -29,18 +45,7 @@ $projects-hover-text-color: #000;
 }
 
 #cards-wrapper {
-  padding-top: 100px;
   transition: background-color 0.3s, color 0.3s;
-
-  &.light {
-    background-color: $projects-light-bg-color;
-    color: $projects-light-text-color;
-  }
-
-  &.dark {
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
-  }
 }
 
 .cards-container {
@@ -52,19 +57,19 @@ $projects-hover-text-color: #000;
   transition: background-color 0.3s, color 0.3s;
 
   &.light {
-    // background-color: $projects-light-bg-color;
+    background-color: $projects-light-bg-color;
     color: $projects-light-text-color;
   }
 
   &.dark {
-    // background-color: $projects-dark-bg-color;
+    background-color: $projects-dark-bg-color;
     color: $projects-dark-text-color;
   }
 
-  @media (min-width: 1024px) {
-    max-width: 1010px;
-    margin: 0 auto;
-  }
+  // @media (min-width: 1024px) {
+  //   max-width: 1010px;
+  //   margin: 0 auto;
+  // }
 }
 
 .card {
@@ -116,15 +121,15 @@ $projects-hover-text-color: #000;
     padding: 1rem;
     background-color: #fff;
 
-    &.light {
-      background-color: #fff;
-      color: $projects-light-text-color;
-    }
+    // &.light {
+    //   background-color: #fff;
+    //   color: $projects-light-text-color;
+    // }
 
-    &.dark {
-      background-color: $projects-dark-bg-color;
-      color: $projects-dark-text-color;
-    }
+    // &.dark {
+    //   background-color: $projects-dark-bg-color;
+    //   color: $projects-dark-text-color;
+    // }
   }
 
   footer {
@@ -132,15 +137,15 @@ $projects-hover-text-color: #000;
     background-color: $projects-light-bg-color;
     border-top: 1px solid #eee;
 
-    &.light {
-      background-color: $projects-light-bg-color;
-      color: $projects-light-text-color;
-    }
+    // &.light {
+    //   background-color: $projects-light-bg-color;
+    //   color: $projects-light-text-color;
+    // }
 
-    &.dark {
-      background-color: $projects-dark-bg-color;
-      color: $projects-dark-text-color;
-    }
+    // &.dark {
+    //   background-color: $projects-dark-bg-color;
+    //   color: $projects-dark-text-color;
+    // }
   }
 
   .card-icons {
