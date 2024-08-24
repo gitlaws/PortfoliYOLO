@@ -1,8 +1,23 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
+// _variables.scss
+
+$breakpoint-desktop-container: 1024px;
+$breakpoint-desktop: 1200px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 600px;
+
+$primary-color: #0f0f0f;
+$secondary-color: #1f1f1f;
+$accent-color: #00ffcc;
+$font-family: "Roboto", sans-serif;
+
 .top-container {
   padding-top: 100px;
+  background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+  color: #fff;
+  font-family: $font-family;
 }
 
 .container {
@@ -17,35 +32,52 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  border: 1px solid $secondary-color;
+  box-shadow: 0 4px 8px rgba(0, 255, 204, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: $primary-color;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 255, 204, 0.4);
+  }
 }
 
 .card-header {
   font-size: 1.5em;
-  color: #333;
+  color: $accent-color;
   padding: 10px;
-  background-color: #f4f4f4;
+  background-color: $secondary-color;
+  border-bottom: 1px solid $accent-color;
 }
 
 .card-content {
   flex: 1;
   padding: 10px;
-  background-color: #fff;
+  background-color: $primary-color;
 }
 
 .card-footer {
   padding: 10px;
-  background-color: #f4f4f4;
+  background-color: $secondary-color;
   text-align: center;
+  border-top: 1px solid $accent-color;
+
+  a {
+    color: $accent-color;
+    margin: 0 5px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.card:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 600px) {
+@media (max-width: $breakpoint-mobile) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -53,5 +85,23 @@
 
   .card {
     width: 90%;
+  }
+}
+
+@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+  .card {
+    width: 30%;
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .card {
+    width: 22%;
   }
 }
