@@ -53,6 +53,7 @@ $card-hover-text-color: #000;
   display: grid;
   // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-areas: "card1 card2 card3";
+  grid-template-rows: repeat(3, 1fr);
   gap: 2rem;
   padding: 1rem;
   // border-radius: 12px;
@@ -71,16 +72,24 @@ $card-hover-text-color: #000;
   @media (min-width: 1024px) {
     max-width: 1010px;
     margin: 0 auto;
-  }
+    .card {
+      width: 300px;
+  }}
 
   @media (max-width: 1023px) {
-    // .cards-container {
-    //   display: grid;
-    //   grid-template-areas:
-    //     "card1"
-    //     "card2"
-    //     "card3";
-    // }
+    grid-template-areas:
+      "card1"
+      "card2"
+      "card3";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+
+    .card {
+      width: 75%;
+    }
   }
 
   .card1 {
@@ -101,11 +110,17 @@ $card-hover-text-color: #000;
     border: 12px solid $container-light-bg-color;
     border-radius: 12px;
     overflow: hidden;
-    width: 300px;
+    // width: 100%;
     transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
     margin-bottom: 2rem;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    // @media (max-width: 1023px) {
+    //   .card {
+    //     width: 300px;
+    //   }
+    // }
 
     &.light {
       border-color: $container-light-bg-color;
