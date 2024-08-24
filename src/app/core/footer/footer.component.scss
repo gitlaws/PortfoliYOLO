@@ -9,13 +9,22 @@ $social-link-hover-color: #0056b3;
 $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .footer {
-  padding: 20px;
-  text-align: center;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  @include theme-mode-transition;
+  transition: height 0.3s, padding 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure content is hidden when collapsed */
+
+  &.collapsed {
+    height: 40px; /* Height when collapsed */
+    padding: 5px 20px; /* Padding when collapsed */
+  }
+
+  &.expanded {
+    height: 200px; /* Full height when expanded */
+    padding: 20px; /* Padding when expanded */
+  }
 
   &.light {
     background-color: $lm-toolbar-background-color;
