@@ -2,188 +2,64 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// Breakpoints
-$projects-breakpoint-mobile: 480px;
-$projects-breakpoint-tablet: 1023px;
-$projects-breakpoint-desktop: 1024px;
-$projects-spacing: 2rem;
-$projects-font-family-sans: "Comic mono", sans-serif;
-$projects-font-family-serif: "Helvetica Neue", Arial, sans-serif;
-
-// Color Scheme
-$projects-primary-color: #3498db;
-$projects-secondary-color: #2ecc71;
-$projects-text-color: #333;
-$projects-background-color: #fff;
-$projects-hover-background-light-color: #f0f0f0;
-$projects-hover-background-dark-color: #333;
-$projects-icon-color: #555;
-$projects-light-bg-color: #f9f9f9;
-$projects-light-text-color: #333;
-$projects-dark-bg-color: #121212;
 $projects-dark-text-color: #f9f9f9;
-
-// .projects-wrapper {
-//   margin-top: 100px;
-//   transition: background-color 0.3s, color 0.3s;
-
-//   &.light {
-//     background-color: $projects-light-bg-color;
-//     color: $projects-light-text-color;
-//   }
-
-//   &.dark {
-//     background-color: $projects-dark-bg-color;
-//     color: $projects-dark-text-color;
-//   }
-
-//   .projects-header {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     text-align: center;
-
-//     .projects-title {
-//       font-family: $projects-font-family-serif;
-//       font-size: 2rem;
-//       margin-bottom: $projects-spacing;
-//     }
-//   }
-
-//   .projects-container {
-//     padding: 1rem;
-
-//     @media (min-width: $projects-breakpoint-desktop) {
-//       max-width: 1010px;
-//       margin: 0 auto;
-//     }
-
-//     .grid {
-//       display: flex;
-//       flex-wrap: wrap;
-//       gap: $projects-spacing;
-//       justify-content: center; // Center the cards horizontally
-
-//       @media (max-width: $projects-breakpoint-tablet) {
-//         flex-direction: column;
-//         align-items: center; // Center the cards within the column
-//       }
-
-//       .card {
-//         border: 1px solid #ddd;
-//         border-radius: 8px;
-//         overflow: hidden;
-//         transition: background-color 0.3s, box-shadow 0.3s;
-//         // flex: 1 1 calc(33.333% - #{$projects-spacing});
-//         margin-bottom: $projects-spacing;
-
-//         @media (max-width: $projects-breakpoint-desktop) {
-//           // width: calc(50% - 0.5rem);
-//           width: 100%;
-//         }
-
-//         @media (max-width: $projects-breakpoint-tablet) {
-//           width: 75%;
-//         }
-
-//         @media (max-width: $projects-breakpoint-mobile) {
-//           width: 100%;
-//         }
-
-//         &:hover {
-//           &.light {
-//             background-color: $projects-hover-background-light-color;
-//           }
-
-//           &.dark {
-//             background-color: $projects-hover-background-dark-color;
-//           }
-
-//           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//         }
-
-//         figure {
-//           margin: 0;
-
-//           img {
-//             display: none;
-//             max-width: 100%;
-//             height: auto;
-//             border-bottom: 1px solid #ddd;
-//           }
-
-//           .project-caption {
-//             padding: $projects-spacing;
-
-//             .project-title {
-//               font-family: $projects-font-family-serif;
-//               font-size: 1.5rem;
-//               font-weight: bold;
-//               margin: 0.5rem 0;
-//             }
-
-//             .project-description {
-//               font-family: $projects-font-family-sans;
-//               font-size: 1rem;
-//               line-height: 1.5;
-//               margin: 0.5rem 0;
-//             }
-
-//             .project-note {
-//               font-family: $projects-font-family-sans;
-//               font-size: 0.875rem;
-//               color: $projects-secondary-color;
-//               font-style: italic;
-//             }
-//           }
-
-//           .card-icons {
-//             // position: absolute;
-
-//             display: flex;
-//             justify-content: space-around;
-//             gap: 0.5rem;
-//             padding: $projects-spacing;
-
-//             a {
-//               color: $projects-icon-color;
-//               text-decoration: none;
-//               font-size: 1.25rem;
-
-//               &:hover {
-//                 color: $projects-primary-color;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+$projects-light-text-color: #333;
+$projects-dark-bg-color: #333;
+$projects-light-bg-color: #f0f0f0;
+$projects-hover-bg-color: #e0e0e0;
+$projects-hover-text-color: #000;
 
 .cards-title {
   margin-top: 100px;
-  // padding-top: 100px;
   text-align: center;
   padding: 2rem;
   font-size: 2rem;
   font-weight: bold;
-  background-color: grey;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.light {
+    background-color: $projects-light-bg-color;
+    color: $projects-light-text-color;
+  }
+
+  &.dark {
+    background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
+  }
 }
 
 #cards-wrapper {
-  margin-top: 100px;
+  padding-top: 100px;
   transition: background-color 0.3s, color 0.3s;
+
+  &.light {
+    background-color: $projects-light-bg-color;
+    color: $projects-light-text-color;
+  }
+
+  &.dark {
+    background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
+  }
 }
 
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  // padding-top: 100px;
-  background-color: black;
-  color: white;
   padding: 1rem;
+  // border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.light {
+    // background-color: $projects-light-bg-color;
+    color: $projects-light-text-color;
+  }
+
+  &.dark {
+    // background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
+  }
 
   @media (min-width: 1024px) {
     max-width: 1010px;
@@ -194,42 +70,93 @@ $projects-dark-text-color: #f9f9f9;
 .card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  border: 12px solid seashell;
-  border-radius: 8px;
+  border: 12px solid $projects-light-bg-color;
+  border-radius: 12px;
   overflow: hidden;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
   margin-bottom: 2rem;
-}
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-.card header {
-  padding: 1rem;
-  text-align: center;
-}
+  &.light {
+    border-color: $projects-light-bg-color;
+    background-color: #fff;
+    color: $projects-light-text-color;
+  }
 
-.card-content {
-  padding: 1rem;
-  // display: -webkit-box;
-  // -webkit-box-orient: vertical;
-  // -webkit-line-clamp: 3;
-  // overflow: hidden;
-}
+  &.dark {
+    border-color: $projects-dark-bg-color;
+    background-color: $projects-dark-bg-color;
+    color: $projects-dark-text-color;
+  }
 
-.card footer {
-  padding: 1rem;
-}
+  &:hover {
+    background-color: $projects-hover-bg-color;
+    color: $projects-hover-text-color;
+  }
 
-.card-icons {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
+  header {
+    padding: 1rem;
+    text-align: center;
+    background-color: $projects-light-bg-color;
+    border-bottom: 1px solid #eee;
 
-.link-icon {
-  color: #555;
-  text-decoration: none;
-  font-size: 1.25rem;
-}
+    &.light {
+      background-color: $projects-light-bg-color;
+      color: $projects-light-text-color;
+    }
 
-.link-icon:hover {
-  color: #3498db;
+    &.dark {
+      background-color: $projects-dark-bg-color;
+      color: $projects-dark-text-color;
+    }
+  }
+
+  .card-content {
+    padding: 1rem;
+    background-color: #fff;
+
+    &.light {
+      background-color: #fff;
+      color: $projects-light-text-color;
+    }
+
+    &.dark {
+      background-color: $projects-dark-bg-color;
+      color: $projects-dark-text-color;
+    }
+  }
+
+  footer {
+    padding: 1rem;
+    background-color: $projects-light-bg-color;
+    border-top: 1px solid #eee;
+
+    &.light {
+      background-color: $projects-light-bg-color;
+      color: $projects-light-text-color;
+    }
+
+    &.dark {
+      background-color: $projects-dark-bg-color;
+      color: $projects-dark-text-color;
+    }
+  }
+
+  .card-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+
+    .link-icon {
+      color: #888;
+      text-decoration: none;
+      font-size: 1.25rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
 }
