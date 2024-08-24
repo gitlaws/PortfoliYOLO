@@ -3,9 +3,8 @@
 
 // _variables.scss
 
-$breakpoint-desktop-container: 1024px;
-$breakpoint-desktop: 1200px;
-$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 1023px;
 $breakpoint-mobile: 600px;
 
 // Light Theme Colors
@@ -49,6 +48,13 @@ $font-family: "Roboto", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  @media (min-width: $breakpoint-desktop) {
+    justify-content: center;
+    align-items: center;
+    max-width: 1010px;
+    margin: 0 auto;
+  }
 }
 
 .card {
@@ -174,8 +180,8 @@ $font-family: "Roboto", sans-serif;
   }
 }
 
-@media (min-width: $breakpoint-desktop) {
-  .card {
-    width: 22%;
-  }
-}
+// @media (min-width: $breakpoint-desktop) {
+//   .card {
+//     width: 22%;
+//   }
+// }
