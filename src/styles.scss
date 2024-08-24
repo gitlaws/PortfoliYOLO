@@ -42,9 +42,11 @@
 
 /* styles.css or styles.scss */
 body.light-mode {
-  background-color: #ffffff;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
   background-color: #181818;
+  transition: background-color 0.3s, color 0.3s;
 }
