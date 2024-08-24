@@ -13,8 +13,8 @@ import { ThemeService } from '../../shared/services/theme/theme.service';
 export class FooterComponent implements OnInit {
   theme!: 'light' | 'dark';
   isDarkMode: boolean = false;
-  isFooterHidden: boolean = false; // Property to track footer visibility
-  threshold: number = 100; // Scroll threshold to hide the footer
+  isFooterHidden: boolean = true; // Initially hidden
+  scrollTimeout: any; // Timeout to hide the footer after scrolling stops
 
   constructor(private themeService: ThemeService) {}
 
@@ -27,12 +27,23 @@ export class FooterComponent implements OnInit {
   // Listen for scroll events on the window
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
-    // Check scroll position and update isFooterHidden
-    if (window.scrollY > this.threshold) {
-      this.isFooterHidden = true;
-    } else {
-      this.isFooterHidden = false;
+    console.log('Scroll event detected');
+    console.log('Scroll position:', window.scrollY);
+
+    // Show the footer when scrolling
+    this.isFooterHidden = false;
+    console.log('Footer visible');
+
+    // Clear the previous timeout if it exists
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
     }
+
+    // Set a timeout to hide the footer after scrolling stops
+    this.scrollTimeout = setTimeout(() => {
+      this.isFooterHidden = true;
+      console.log('Footer hidden');
+    }, 1000); // Adjust the delay as needed
   }
 
   openLink(event: MouseEvent, url: string): void {
