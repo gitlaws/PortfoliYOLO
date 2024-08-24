@@ -8,10 +8,10 @@ $breakpoint-tablet: 1023px;
 $breakpoint-mobile: 600px;
 
 // Light Theme Colors
-$light-primary-color: #ffffff;
-$light-secondary-color: #f0f0f0;
-$light-accent-color: #007bff;
-$light-text-color: #333333;
+$light-primary-color: #fff3e0; // Light orange
+$light-secondary-color: #ffffff; // Pure white
+$light-accent-color: #ff9100; // Bright orange
+$light-text-color: #3e2723; // Dark brown
 
 // Dark Theme Colors
 $dark-primary-color: #0f0f0f;
@@ -26,20 +26,20 @@ $font-family: "Roboto", sans-serif;
   font-family: $font-family;
 
   &.light {
-    background: linear-gradient(
-      135deg,
-      $light-primary-color,
-      $light-secondary-color
-    );
+    // background: linear-gradient(
+    //   135deg,
+    //   $light-primary-color,
+    //   $light-secondary-color
+    // );
     color: $light-text-color;
   }
 
   &.dark {
-    background: linear-gradient(
-      135deg,
-      $dark-primary-color,
-      $dark-secondary-color
-    );
+    // background: linear-gradient(
+    //   135deg,
+    //   $dark-primary-color,
+    //   $dark-secondary-color
+    // );
     color: $dark-text-color;
   }
 }
