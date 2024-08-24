@@ -23,163 +23,189 @@ $projects-light-text-color: #333;
 $projects-dark-bg-color: #121212;
 $projects-dark-text-color: #f9f9f9;
 
-.projects-wrapper {
-  margin-top: 100px;
-  transition: background-color 0.3s, color 0.3s;
+// .projects-wrapper {
+//   margin-top: 100px;
+//   transition: background-color 0.3s, color 0.3s;
 
-  &.light {
-    background-color: $projects-light-bg-color;
-    color: $projects-light-text-color;
-  }
+//   &.light {
+//     background-color: $projects-light-bg-color;
+//     color: $projects-light-text-color;
+//   }
 
-  &.dark {
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
-  }
+//   &.dark {
+//     background-color: $projects-dark-bg-color;
+//     color: $projects-dark-text-color;
+//   }
 
-  .projects-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+//   .projects-header {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
 
-    .projects-title {
-      font-family: $projects-font-family-serif;
-      font-size: 2rem;
-      margin-bottom: $projects-spacing;
-    }
-  }
+//     .projects-title {
+//       font-family: $projects-font-family-serif;
+//       font-size: 2rem;
+//       margin-bottom: $projects-spacing;
+//     }
+//   }
 
-  .projects-container {
-    padding: 1rem;
+//   .projects-container {
+//     padding: 1rem;
 
-    @media (min-width: $projects-breakpoint-desktop) {
-      max-width: 1010px;
-      margin: 0 auto;
-    }
+//     @media (min-width: $projects-breakpoint-desktop) {
+//       max-width: 1010px;
+//       margin: 0 auto;
+//     }
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $projects-spacing;
-      justify-content: center; // Center the cards horizontally
+//     .grid {
+//       display: flex;
+//       flex-wrap: wrap;
+//       gap: $projects-spacing;
+//       justify-content: center; // Center the cards horizontally
 
-      @media (max-width: $projects-breakpoint-tablet) {
-        flex-direction: column;
-        align-items: center; // Center the cards within the column
-      }
+//       @media (max-width: $projects-breakpoint-tablet) {
+//         flex-direction: column;
+//         align-items: center; // Center the cards within the column
+//       }
 
-      .card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        transition: background-color 0.3s, box-shadow 0.3s;
-        flex: 1 1 calc(33.333% - #{$projects-spacing});
-        margin-bottom: $projects-spacing;
+//       .card {
+//         border: 1px solid #ddd;
+//         border-radius: 8px;
+//         overflow: hidden;
+//         transition: background-color 0.3s, box-shadow 0.3s;
+//         // flex: 1 1 calc(33.333% - #{$projects-spacing});
+//         margin-bottom: $projects-spacing;
 
-        @media (max-width: $projects-breakpoint-desktop) {
-          // width: calc(50% - 0.5rem);
-          width: 100%;
-        }
+//         @media (max-width: $projects-breakpoint-desktop) {
+//           // width: calc(50% - 0.5rem);
+//           width: 100%;
+//         }
 
-        @media (max-width: $projects-breakpoint-tablet) {
-          width: 75%;
-        }
+//         @media (max-width: $projects-breakpoint-tablet) {
+//           width: 75%;
+//         }
 
-        @media (max-width: $projects-breakpoint-mobile) {
-          width: 100%;
-        }
+//         @media (max-width: $projects-breakpoint-mobile) {
+//           width: 100%;
+//         }
 
-        &:hover {
-          &.light {
-            background-color: $projects-hover-background-light-color;
-          }
+//         &:hover {
+//           &.light {
+//             background-color: $projects-hover-background-light-color;
+//           }
 
-          &.dark {
-            background-color: $projects-hover-background-dark-color;
-          }
+//           &.dark {
+//             background-color: $projects-hover-background-dark-color;
+//           }
 
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+//           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//         }
 
-        figure {
-          margin: 0;
+//         figure {
+//           margin: 0;
 
-          img {
-            display: none;
-            max-width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-          }
+//           img {
+//             display: none;
+//             max-width: 100%;
+//             height: auto;
+//             border-bottom: 1px solid #ddd;
+//           }
 
-          .project-caption {
-            padding: $projects-spacing;
+//           .project-caption {
+//             padding: $projects-spacing;
 
-            .project-title {
-              font-family: $projects-font-family-serif;
-              font-size: 1.5rem;
-              font-weight: bold;
-              margin: 0.5rem 0;
-            }
+//             .project-title {
+//               font-family: $projects-font-family-serif;
+//               font-size: 1.5rem;
+//               font-weight: bold;
+//               margin: 0.5rem 0;
+//             }
 
-            .project-description {
-              font-family: $projects-font-family-sans;
-              font-size: 1rem;
-              line-height: 1.5;
-              margin: 0.5rem 0;
-            }
+//             .project-description {
+//               font-family: $projects-font-family-sans;
+//               font-size: 1rem;
+//               line-height: 1.5;
+//               margin: 0.5rem 0;
+//             }
 
-            .project-note {
-              font-family: $projects-font-family-sans;
-              font-size: 0.875rem;
-              color: $projects-secondary-color;
-              font-style: italic;
-            }
-          }
+//             .project-note {
+//               font-family: $projects-font-family-sans;
+//               font-size: 0.875rem;
+//               color: $projects-secondary-color;
+//               font-style: italic;
+//             }
+//           }
 
-          .card-icons {
-            display: flex;
-            justify-content: space-around;
-            gap: 0.5rem;
-            padding: $projects-spacing;
+//           .card-icons {
+//             // position: absolute;
 
-            a {
-              color: $projects-icon-color;
-              text-decoration: none;
-              font-size: 1.25rem;
+//             display: flex;
+//             justify-content: space-around;
+//             gap: 0.5rem;
+//             padding: $projects-spacing;
 
-              &:hover {
-                color: $projects-primary-color;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+//             a {
+//               color: $projects-icon-color;
+//               text-decoration: none;
+//               font-size: 1.25rem;
+
+//               &:hover {
+//                 color: $projects-primary-color;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+.cards-container {
+  padding-top: 100px;
+  background-color: black;
+  color: white;
 }
 
-.github-grid {
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, content, footer */
+  border: 12px solid indigo;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 2rem; /* Adjust spacing as needed */
+}
+
+.card header {
+  padding: 1rem; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.card main {
+  padding: 1rem; /* Adjust padding as needed */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Number of lines to show before truncating */
+  overflow: hidden;
+}
+
+.card footer {
+  padding: 1rem; /* Adjust padding as needed */
+}
+
+.card-icons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 100%;
-  box-sizing: border-box;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
 
-  .calendar {
-    width: 100%;
-    max-width: 800px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: transparent;
-    box-sizing: border-box;
+.link-icon {
+  color: #555; /* Adjust icon color as needed */
+  text-decoration: none;
+  font-size: 1.25rem;
+}
 
-    @media (max-width: 600px) {
-      padding: 5px;
-      // box-shadow: none;
-    }
-  }
+.link-icon:hover {
+  color: #3498db; /* Adjust hover color as needed */
 }
