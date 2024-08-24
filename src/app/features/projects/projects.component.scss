@@ -136,8 +136,10 @@ h1 {
 }
 
 .card-footer {
+  display: flex;
   padding: 10px;
   text-align: center;
+  justify-content: space-around;
 
   &.light {
     background-color: $light-secondary-color;
