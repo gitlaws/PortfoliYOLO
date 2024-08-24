@@ -12,6 +12,7 @@ $projects-hover-text-color: #000;
 .projects-container {
   // padding-top: 100px;
   margin-top: 100px;
+  padding-bottom: 100px;
   transition: background-color 0.3s, color 0.3s;
 
   &.light {
@@ -66,10 +67,10 @@ $projects-hover-text-color: #000;
     color: $projects-dark-text-color;
   }
 
-  // @media (min-width: 1024px) {
-  //   max-width: 1010px;
-  //   margin: 0 auto;
-  // }
+  @media (min-width: 1024px) {
+    max-width: 1010px;
+    margin: 0 auto;
+  }
 }
 
 .card {

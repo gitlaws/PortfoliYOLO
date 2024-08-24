@@ -39,3 +39,14 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
+
+/* styles.css or styles.scss */
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}

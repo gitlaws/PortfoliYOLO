@@ -9,26 +9,28 @@ import { StorageService } from './storage.service';
 export class ThemeService {
   private themeKey = 'theme';
   private themeSubject: BehaviorSubject<Theme>;
-  isDark: any;
 
   constructor(private storageService: StorageService) {
     const storedTheme =
       (this.storageService.getItem(this.themeKey) as Theme) || Theme.Light;
     this.themeSubject = new BehaviorSubject<Theme>(storedTheme);
+    this.applyTheme(storedTheme);
   }
 
   get currentTheme() {
     return this.themeSubject.asObservable();
   }
 
-  // get theme$(): Observable<Theme> {
-  //   return this.themeSubject.asObservable();
-  // }
-
   toggleTheme(): void {
     const newTheme =
       this.themeSubject.value === Theme.Light ? Theme.Dark : Theme.Light;
     this.storageService.setItem(this.themeKey, newTheme);
     this.themeSubject.next(newTheme);
+    this.applyTheme(newTheme);
+  }
+
+  private applyTheme(theme: Theme): void {
+    document.body.classList.toggle('dark-mode', theme === Theme.Dark);
+    document.body.classList.toggle('light-mode', theme === Theme.Light);
   }
 }
