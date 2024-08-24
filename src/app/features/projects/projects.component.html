@@ -1,11 +1,11 @@
-<h1 class="cards-title">Header Title</h1>
+<h1 class="cards-title" [ngClass]="theme">Header Title</h1>
 
-<div id="cards-wrapper" class="cards-container">
-  <div class="card">
-    <header>
+<div id="cards-wrapper" class="cards-container" [ngClass]="theme">
+  <div class="card" [ngClass]="theme">
+    <header [ngClass]="theme">
       <h2>Angular Essentials</h2>
     </header>
-    <div class="card-content">
+    <div class="card-content" [ngClass]="theme">
       <p>
         Demonstrating my mastery of Angular fundamentals with this project. I've
         expertly crafted reusable components, pipes, services, and directives to
@@ -14,7 +14,7 @@
         data.
       </p>
     </div>
-    <footer class="card-icons">
+    <footer class="card-icons" [ngClass]="theme">
       <a href="#" class="link-icon" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
@@ -27,11 +27,11 @@
     </footer>
   </div>
 
-  <div class="card">
-    <header>
+  <div class="card" [ngClass]="theme">
+    <header [ngClass]="theme">
       <h2>Rest Hub</h2>
     </header>
-    <div class="card-content">
+    <div class="card-content" [ngClass]="theme">
       <p class="project-description">
         Demonstrate my Angular proficiency with this fully functional CRUD
         application. I've skillfully integrated HTTP requests, reactive forms,
@@ -44,7 +44,7 @@
         machine to fully interact with the data and API.
       </p>
     </div>
-    <footer class="card-icons">
+    <footer class="card-icons" [ngClass]="theme">
       <a href="#" class="link-icon" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
@@ -57,14 +57,14 @@
     </footer>
   </div>
 
-  <div class="card">
-    <header>
+  <div class="card" [ngClass]="theme">
+    <header [ngClass]="theme">
       <h2>Card Title</h2>
     </header>
-    <div class="card-content">
+    <div class="card-content" [ngClass]="theme">
       <p>Card content goes here.</p>
     </div>
-    <footer class="card-icons">
+    <footer class="card-icons" [ngClass]="theme">
       <a href="#" class="link-icon" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
