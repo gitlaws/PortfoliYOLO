@@ -2,12 +2,12 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-$projects-dark-text-color: #f9f9f9;
-$projects-light-text-color: #333;
-$projects-dark-bg-color: #333;
-$projects-light-bg-color: #f0f0f0;
-$projects-hover-bg-color: #e0e0e0;
-$projects-hover-text-color: #000;
+$container-dark-text-color: #f9f9f9;
+$container-light-text-color: #333;
+$container-dark-bg-color: #181818;
+$container-light-bg-color: #f0f0f0;
+$card-hover-bg-color: #e0e0e0;
+$card-hover-text-color: #000;
 
 .projects-container {
   // padding-top: 100px;
@@ -16,13 +16,13 @@ $projects-hover-text-color: #000;
   transition: background-color 0.3s, color 0.3s;
 
   &.light {
-    background-color: $projects-light-bg-color;
-    color: $projects-light-text-color;
+    background-color: $container-light-bg-color;
+    color: $container-light-text-color;
   }
 
   &.dark {
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
+    background-color: $container-dark-bg-color;
+    color: $container-dark-text-color;
   }
 }
 
@@ -35,13 +35,13 @@ $projects-hover-text-color: #000;
   transition: background-color 0.3s, color 0.3s;
 
   &.light {
-    background-color: $projects-light-bg-color;
-    color: $projects-light-text-color;
+    background-color: $container-light-bg-color;
+    color: $container-light-text-color;
   }
 
   &.dark {
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
+    background-color: $container-dark-bg-color;
+    color: $container-dark-text-color;
   }
 }
 
@@ -58,13 +58,13 @@ $projects-hover-text-color: #000;
   transition: background-color 0.3s, color 0.3s;
 
   &.light {
-    background-color: $projects-light-bg-color;
-    color: $projects-light-text-color;
+    background-color: $container-light-bg-color;
+    color: $container-light-text-color;
   }
 
   &.dark {
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
+    background-color: $container-dark-bg-color;
+    color: $container-dark-text-color;
   }
 
   @media (min-width: 1024px) {
@@ -76,7 +76,7 @@ $projects-hover-text-color: #000;
 .card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  border: 12px solid $projects-light-bg-color;
+  border: 12px solid $container-light-bg-color;
   border-radius: 12px;
   overflow: hidden;
   transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
@@ -85,36 +85,36 @@ $projects-hover-text-color: #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &.light {
-    border-color: $projects-light-bg-color;
+    border-color: $container-light-bg-color;
     background-color: #fff;
-    color: $projects-light-text-color;
+    color: $container-light-text-color;
   }
 
   &.dark {
-    border-color: $projects-dark-bg-color;
-    background-color: $projects-dark-bg-color;
-    color: $projects-dark-text-color;
+    border-color: $container-dark-bg-color;
+    background-color: $container-dark-bg-color;
+    color: $container-dark-text-color;
   }
 
   &:hover {
-    background-color: $projects-hover-bg-color;
-    color: $projects-hover-text-color;
+    background-color: $card-hover-bg-color;
+    color: $card-hover-text-color;
   }
 
   header {
     padding: 1rem;
     text-align: center;
-    background-color: $projects-light-bg-color;
+    background-color: $container-light-bg-color;
     border-bottom: 1px solid #eee;
 
     &.light {
-      background-color: $projects-light-bg-color;
-      color: $projects-light-text-color;
+      background-color: $container-light-bg-color;
+      color: $container-light-text-color;
     }
 
     &.dark {
-      background-color: $projects-dark-bg-color;
-      color: $projects-dark-text-color;
+      background-color: $container-dark-bg-color;
+      color: $container-dark-text-color;
     }
   }
 
@@ -124,28 +124,28 @@ $projects-hover-text-color: #000;
 
     // &.light {
     //   background-color: #fff;
-    //   color: $projects-light-text-color;
+    //   color: $container-light-text-color;
     // }
 
     // &.dark {
-    //   background-color: $projects-dark-bg-color;
-    //   color: $projects-dark-text-color;
+    //   background-color: $container-dark-bg-color;
+    //   color: $container-dark-text-color;
     // }
   }
 
   footer {
     padding: 1rem;
-    background-color: $projects-light-bg-color;
+    background-color: $container-light-bg-color;
     border-top: 1px solid #eee;
 
     // &.light {
-    //   background-color: $projects-light-bg-color;
-    //   color: $projects-light-text-color;
+    //   background-color: $container-light-bg-color;
+    //   color: $container-light-text-color;
     // }
 
     // &.dark {
-    //   background-color: $projects-dark-bg-color;
-    //   color: $projects-dark-text-color;
+    //   background-color: $container-dark-bg-color;
+    //   color: $container-dark-text-color;
     // }
   }
 
