@@ -44,9 +44,17 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    border: 1px solid $theme-btn-border;
+    border: 1px solid red;
     border-radius: $theme-btn-border-radius;
     background-color: #b0e2ff;
+
+    // &.light {
+    //   border: 1px solid red;
+    // }
+
+    // &.dark {
+    //   border: 1px solid blue;
+    // }
   }
 
   .btn__icon {
@@ -84,10 +92,6 @@
       border-color: #7fff00;
     }
   }
-
-  // &:hover {
-  //   border-color: $btn-hover;
-  // }
 
   .btn.darkmode {
     background-color: #1a1a1a;
