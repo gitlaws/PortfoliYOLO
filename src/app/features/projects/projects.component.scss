@@ -161,37 +161,61 @@ $projects-dark-text-color: #f9f9f9;
 //   }
 // }
 
+.cards-title {
+  margin-top: 100px;
+  // padding-top: 100px;
+  text-align: center;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: grey;
+}
+
+#cards-wrapper {
+  margin-top: 100px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
   padding-top: 100px;
   background-color: black;
   color: white;
+  padding: 1rem;
+
+  @media (min-width: 1024px) {
+    max-width: 1010px;
+    margin: 0 auto;
+  }
 }
 
 .card {
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Header, content, footer */
-  border: 12px solid indigo;
+  grid-template-rows: auto 1fr auto;
+  border: 12px solid seashell;
   border-radius: 8px;
   overflow: hidden;
   transition: background-color 0.3s, box-shadow 0.3s;
-  margin-bottom: 2rem; /* Adjust spacing as needed */
+  margin-bottom: 2rem;
 }
 
 .card header {
-  padding: 1rem; /* Adjust padding as needed */
+  padding: 1rem;
   text-align: center;
 }
 
-.card main {
-  padding: 1rem; /* Adjust padding as needed */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* Number of lines to show before truncating */
-  overflow: hidden;
+.card-content {
+  padding: 1rem;
+  // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // -webkit-line-clamp: 3;
+  // overflow: hidden;
 }
 
 .card footer {
-  padding: 1rem; /* Adjust padding as needed */
+  padding: 1rem;
 }
 
 .card-icons {
@@ -201,11 +225,11 @@ $projects-dark-text-color: #f9f9f9;
 }
 
 .link-icon {
-  color: #555; /* Adjust icon color as needed */
+  color: #555;
   text-decoration: none;
   font-size: 1.25rem;
 }
 
 .link-icon:hover {
-  color: #3498db; /* Adjust hover color as needed */
+  color: #3498db;
 }
