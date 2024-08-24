@@ -2,7 +2,7 @@
   <h1 class="cards-title" [ngClass]="theme">Header Title</h1>
 
   <div id="cards-wrapper" class="cards-container" [ngClass]="theme">
-    <div class="card card1" [ngClass]="theme">
+    <div class="card" [ngClass]="theme">
       <header [ngClass]="theme">
         <h2>Angular Essentials</h2>
       </header>
@@ -15,20 +15,22 @@
           dynamic, real-world data.
         </p>
       </div>
-      <footer class="card-icons" [ngClass]="theme">
-        <a href="#" class="link-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </footer>
+      <div class="card-footer-container" [ngClass]="theme">
+        <footer class="card-icons" [ngClass]="theme">
+          <a href="#" class="link-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </footer>
+      </div>
     </div>
 
-    <div class="card card2" [ngClass]="theme">
+    <div class="card" [ngClass]="theme">
       <header [ngClass]="theme">
         <h2>Rest CRUD</h2>
       </header>
@@ -45,37 +47,41 @@
           from your machine to fully interact with the data and API.
         </p>
       </div>
-      <footer class="card-icons" [ngClass]="theme">
-        <a href="#" class="link-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </footer>
+      <div class="card-footer-container" [ngClass]="theme">
+        <footer class="card-icons" [ngClass]="theme">
+          <a href="#" class="link-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </footer>
+      </div>
     </div>
 
-    <div class="card card3" [ngClass]="theme">
+    <div class="card" [ngClass]="theme">
       <header [ngClass]="theme">
         <h2>Card Title</h2>
       </header>
       <div class="card-content" [ngClass]="theme">
         <p>Card content goes here.</p>
       </div>
-      <footer class="card-icons" [ngClass]="theme">
-        <a href="#" class="link-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="link-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </footer>
+      <div class="card-footer-container" [ngClass]="theme">
+        <footer class="card-icons" [ngClass]="theme">
+          <a href="#" class="link-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="link-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </footer>
+      </div>
     </div>
   </div>
 </div>
