@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
+import { TypewriterComponent } from './typewriter/typewriter.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TypewriterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
