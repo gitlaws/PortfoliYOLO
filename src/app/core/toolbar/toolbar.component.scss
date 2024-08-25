@@ -96,21 +96,22 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
   i {
     font-size: 1em;
+
     &.light {
-      color: #32cd32;
+      color: #eceff1;
 
       &:hover {
-        color: #228b22;
-        text-shadow: 0px 0px 5px #228b22;
+        color: #cfd8dc;
+        text-shadow: 0px 0px 5px #cfd8dc;
       }
     }
 
     &.dark {
-      color: #ff4500;
+      color: #78909c;
 
       &:hover {
-        color: #ff6347;
-        text-shadow: 0px 0px 5px #ff6347;
+        color: #607d8b;
+        text-shadow: 0px 0px 5px #607d8b;
       }
     }
   }
