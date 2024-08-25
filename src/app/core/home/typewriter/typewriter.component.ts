@@ -45,8 +45,16 @@ export class TypewriterComponent implements AfterViewInit {
       });
     };
 
-    lines.reduce((promise, text) => {
-      return promise.then(() => createTypewriter(text));
-    }, Promise.resolve());
+    const startTypewriterSequence = () => {
+      lines
+        .reduce((promise, text) => {
+          return promise.then(() => createTypewriter(text));
+        }, Promise.resolve())
+        .then(() => {
+          startTypewriterSequence(); // Restart the sequence
+        });
+    };
+
+    startTypewriterSequence();
   }
 }
