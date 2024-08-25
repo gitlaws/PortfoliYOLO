@@ -12,12 +12,14 @@ $light-primary-color: #fff3e0;
 $light-secondary-color: #ffffff;
 $light-accent-color: #ff9100;
 $light-text-color: #3e2723;
+// $light-bg-color: #f5f5f5;
 
 // Dark Theme Colors
-$dark-primary-color: #0f0f0f; // Very dark grey
-$dark-secondary-color: #262626; // Dark grey
-$dark-accent-color: #ff9100; // Bright orange
-$dark-text-color: #d9d9d9; // Light grey
+$dark-primary-color: #0f0f0f;
+$dark-secondary-color: #262626;
+$dark-accent-color: #ff9100;
+$dark-text-color: #d9d9d9;
+// $dark-bg-color: #121212;
 
 $font-family: "Roboto", sans-serif;
 
@@ -26,20 +28,10 @@ $font-family: "Roboto", sans-serif;
   font-family: $font-family;
 
   &.light {
-    // background: linear-gradient(
-    //   135deg,
-    //   $light-primary-color,
-    //   $light-secondary-color
-    // );
     color: $light-text-color;
   }
 
   &.dark {
-    // background: linear-gradient(
-    //   135deg,
-    //   $dark-primary-color,
-    //   $dark-secondary-color
-    // );
     color: $dark-text-color;
   }
 }
@@ -57,6 +49,31 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2rem;
+  background: transparent;
+
+  // &.light {
+  //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
+  //   background-size: 400% 400%;
+  //   animation: gradientAnimation 20s ease infinite;
+  // }
+
+  // &.dark {
+  //   background: linear-gradient(270deg, #1c1c1c, #363636, #1c1c1c);
+  //   background-size: 400% 400%;
+  //   animation: gradientAnimation 20s ease infinite;
+  // }
+
+  // @keyframes gradientAnimation {
+  //   0% {
+  //     background-position: 0% 50%;
+  //   }
+  //   50% {
+  //     background-position: 100% 50%;
+  //   }
+  //   100% {
+  //     background-position: 0% 50%;
+  //   }
+  // }
 
   @media (min-width: $breakpoint-desktop) {
     justify-content: center;
@@ -94,13 +111,13 @@ h1 {
 
   &.dark {
     border: 1px solid $dark-secondary-color;
-    box-shadow: 0 4px 8px rgba(255, 145, 0, 0.2); // Using the bright orange accent color with reduced opacity
+    box-shadow: 0 4px 8px rgba(255, 145, 0, 0.2);
     background: $dark-primary-color;
     color: $dark-text-color;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(255, 145, 0, 0.2); // Using the bright orange accent color with reduced opacity204, 0.4);
+      box-shadow: 0 8px 16px rgba(255, 145, 0, 0.2);
     }
   }
 }
@@ -194,9 +211,3 @@ h1 {
     width: 30%;
   }
 }
-
-// @media (min-width: $breakpoint-desktop) {
-//   .card {
-//     width: 22%;
-//   }
-// }
