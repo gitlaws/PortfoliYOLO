@@ -1,7 +1,7 @@
-$typewriter-color: #3357ff;
-$glitch-color: #ff33a1;
+$typewriter-color: #00ff7f;
+$glitch-color: #ff4500;
 
-$background-color: #000000;
+$background-color: #1a1a1a;
 $background-color-transparent: rgba(0, 0, 0, 0.5);
 
 $font-family: "Courier New", Courier, monospace;
@@ -10,7 +10,7 @@ $font-family: "Courier New", Courier, monospace;
   position: relative;
   width: 100%;
   height: auto;
-  //   background-color: $background-color-transparent;
+  background-color: $background-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +18,10 @@ $font-family: "Courier New", Courier, monospace;
   color: $typewriter-color;
   font-family: $font-family;
   font-size: 2rem;
-  //   text-shadow: 0 0 10px $typewriter-color, 0 0 20px $typewriter-color,
-  //     0 0 30px $typewriter-color, 0 0 40px $typewriter-color,
-  //     0 0 50px $typewriter-color, 0 0 60px $typewriter-color,
-  //     0 0 70px $typewriter-color;
+  text-shadow: 0 0 10px $typewriter-color, 0 0 20px $typewriter-color,
+    0 0 30px $typewriter-color, 0 0 40px $typewriter-color,
+    0 0 50px $typewriter-color, 0 0 60px $typewriter-color,
+    0 0 70px $typewriter-color;
 }
 
 .typewriter-line {
