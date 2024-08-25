@@ -2,35 +2,38 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// Futuristic and technology-inspired colors
-$futuristic-primary: #00ffcc; // Neon Cyan
-$futuristic-secondary: #ff00ff; // Neon Magenta
-$futuristic-bg-dark: #0d0d0d; // Almost Black
-$futuristic-bg-light: #f0f0f0; // Light Grey
-$futuristic-divider: #333333; // Dark Grey
-$futuristic-box-shadow: 0 4px 30px rgba(0, 255, 204, 0.5); // Neon Cyan Shadow
+// Futuristic and
+$futuristic-primary: #ffcc00; // Neon Yellow
+$futuristic-secondary: #00ccff; // Neon Blue
+$futuristic-bg-dark: #1c1c1c; // Very Dark Grey
+$futuristic-bg-light: #f9f9f9; // Almost White
+$futuristic-divider: #4a4a4a; // Medium Grey
+$futuristic-box-shadow: none; // Minimalist approach for light theme
 
 // Cozy and inviting colors
-$cozy-bg-dark: #2c3e50; // Dark Blue
-$cozy-bg-light: #ecf0f1; // Light Grey
-$cozy-text-dark: #ecf0f1; // Light Grey
-$cozy-text-light: #2c3e50; // Dark Blue
-$cozy-border-dark: #34495e; // Darker Blue
-$cozy-border-light: #bdc3c7; // Light Grey
-$cozy-box-shadow: 0 2px 4px rgba(44, 62, 80, 0.5); // Dark Blue Shadow
+$cozy-bg-dark: #2e2e2e; // Dark Grey
+$cozy-bg-light: #e8e8e8; // Light Grey
+$cozy-text-dark: #e8e8e8; // Light Grey
+$cozy-text-light: #2e2e2e; // Dark Grey
+$cozy-border-dark: #1f1f1f; // Darker Grey
+$cozy-border-light: #d1d1d1; // Light Grey
+$cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5); // Dark Grey Shadow
 
 // Wrapper styling
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 
   &.light {
     background-color: $futuristic-bg-light;
+    color: $futuristic-secondary;
   }
 
   &.dark {
     background-color: $futuristic-bg-dark;
+    color: $futuristic-primary;
   }
 }
 
@@ -43,6 +46,7 @@ $cozy-box-shadow: 0 2px 4px rgba(44, 62, 80, 0.5); // Dark Blue Shadow
   padding: 20px;
   max-width: 1240px;
   background-color: $futuristic-bg-light;
+  box-shadow: $futuristic-box-shadow;
 
   &.light {
     background-color: $cozy-bg-light;
@@ -85,7 +89,6 @@ $cozy-box-shadow: 0 2px 4px rgba(44, 62, 80, 0.5); // Dark Blue Shadow
   .left-column {
     .bio-content {
       flex-grow: 1;
-      color: $futuristic-primary;
       line-height: 1.6;
 
       h1,
