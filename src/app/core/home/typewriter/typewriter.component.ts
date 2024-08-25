@@ -9,4 +9,3 @@ import { Component } from '@angular/core';
   styleUrl: './typewriter.component.scss',
 })
 export class TypewriterComponent {}
-//
