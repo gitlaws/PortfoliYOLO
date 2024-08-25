@@ -65,36 +65,12 @@
   }
 }
 
+//intro content
+
 .intro-content {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-}
-
-// .intro-headline {
-//   font-size: 3rem;
-//   font-weight: bold;
-//   margin-bottom: 20px;
-// }
-
-// .intro-description {
-//   font-size: 1.5rem;
-//   line-height: 1.6;
-// }
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
 }
 
 .intro-headline,
@@ -120,7 +96,17 @@
   margin-top: 1em;
 }
 
-// .intro-content {
-//   padding: 3em;
-//   text-align: center;
-// }
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
