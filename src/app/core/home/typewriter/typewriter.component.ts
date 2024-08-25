@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnInit } from '@angular/core';
 import Typewriter from 'typewriter-effect/dist/core';
+import { Theme } from '../../../shared/models/theme.enum';
+import { ThemeService } from '../../../shared/services/theme/theme.service';
 
 @Component({
   selector: 'app-typewriter',
@@ -9,8 +11,16 @@ import Typewriter from 'typewriter-effect/dist/core';
   templateUrl: './typewriter.component.html',
   styleUrls: ['./typewriter.component.scss'],
 })
-export class TypewriterComponent implements AfterViewInit {
-  constructor(private elRef: ElementRef) {}
+export class TypewriterComponent implements AfterViewInit, OnInit {
+  theme!: 'light' | 'dark';
+
+  constructor(private elRef: ElementRef, private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.theme = theme === Theme.Light ? 'light' : 'dark';
+    });
+  }
 
   ngAfterViewInit() {
     const lines = [
