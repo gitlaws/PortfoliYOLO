@@ -1,7 +1,7 @@
-<div class="wrapper">
-  <div class="bio-container">
-    <div class="left-column">
-      <div class="bio-content">
+<div class="wrapper" [ngClass]="theme">
+  <div class="bio-container" [ngClass]="theme">
+    <div class="left-column" [ngClass]="theme">
+      <div class="bio-content" [ngClass]="theme">
         <h1>Experience</h1>
         <p>
           With a solid foundation in full-stack development and keen on crafting
@@ -93,15 +93,15 @@
       </div>
       <!-- <button class="cta-button">Contact Me</button> -->
     </div>
-    <div class="divider"></div>
-    <div class="right-column">
-      <div class="link-tree-container">
+    <div class="divider" [ngClass]="theme"></div>
+    <div class="right-column" [ngClass]="theme">
+      <div class="link-tree-container" [ngClass]="theme">
         <img
           class="profile-image"
           alt="Profile Image"
           src="https://i.imgur.com/pKpu1QR.jpg"
         />
-        <section class="profile-details">
+        <section class="profile-details" [ngClass]="theme">
           <h2 class="job-title">Software Engineer</h2>
 
           <i class="dual-icons fas fa-flag-usa" aria-hidden="true"></i>
@@ -111,24 +111,24 @@
           <p>Languages: English & Polish</p>
         </section>
 
-        <div class="link-tree">
-          <div class="link-item">
+        <div class="link-tree" [ngClass]="theme">
+          <div class="link-item" [ngClass]="theme">
             <i class="icon fab fa-linkedin" aria-hidden="true"></i>
             <a href="#" class="link-text" aria-label="LinkedIn">LinkedIn</a>
           </div>
-          <div class="link-item">
+          <div class="link-item" [ngClass]="theme">
             <i class="icon fab fa-instagram" aria-hidden="true"></i>
             <a href="#" class="link-text" aria-label="Instagram">Instagram</a>
           </div>
-          <div class="link-item">
+          <div class="link-item" [ngClass]="theme">
             <i class="icon fab fa-github" aria-hidden="true"></i>
             <a href="#" class="link-text" aria-label="GitHub">GitHub</a>
           </div>
-          <div class="link-item">
+          <div class="link-item" [ngClass]="theme">
             <i class="icon fab fa-youtube" aria-hidden="true"></i>
             <a href="#" class="link-text" aria-label="YouTube">YouTube</a>
           </div>
-          <div class="link-item">
+          <div class="link-item" [ngClass]="theme">
             <i class="icon fas fa-envelope" aria-hidden="true"></i>
             <a href="#" class="link-text" aria-label="Gmail">Gmail</a>
           </div>
