@@ -4,26 +4,14 @@
 
 .intro-section {
   &.light {
-    background: linear-gradient(
-      270deg,
-      #32cd32,
-      #8a2be2,
-      #32cd32
-    ); // Electric blue to hot pink
+    background: linear-gradient(270deg, #ff4500, #7b68ee, #ff4500);
     background-size: 600% 600%;
-    // color: black;
     animation: gradientAnimation 20s ease infinite;
   }
 
   &.dark {
-    background: linear-gradient(
-      270deg,
-      #ffff00,
-      #ff1493,
-      #ffff00
-    ); // Laser red to neon blue
+    background: linear-gradient(270deg, #ff69b4, #00ced1, #ff69b4);
     background-size: 600% 600%;
-    // color: white;
     animation: gradientAnimation 20s ease infinite;
   }
 
