@@ -14,10 +14,10 @@ $light-accent-color: #ff9100;
 $light-text-color: #3e2723;
 
 // Dark Theme Colors
-$dark-primary-color: #0f0f0f;
-$dark-secondary-color: #1f1f1f;
-$dark-accent-color: #00ffcc;
-$dark-text-color: #ffffff;
+$dark-primary-color: #0f0f0f; // Very dark grey
+$dark-secondary-color: #262626; // Dark grey
+$dark-accent-color: #ff9100; // Bright orange
+$dark-text-color: #d9d9d9; // Light grey
 
 $font-family: "Roboto", sans-serif;
 
@@ -94,13 +94,13 @@ h1 {
 
   &.dark {
     border: 1px solid $dark-secondary-color;
-    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 145, 0, 0.2); // Using the bright orange accent color with reduced opacity
     background: $dark-primary-color;
     color: $dark-text-color;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 255, 204, 0.4);
+      box-shadow: 0 8px 16px rgba(255, 145, 0, 0.2); // Using the bright orange accent color with reduced opacity204, 0.4);
     }
   }
 }
