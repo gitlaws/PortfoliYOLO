@@ -96,22 +96,21 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
   i {
     font-size: 1em;
-
     &.light {
-      color: #607d8b; // Blue-grey for a sophisticated look
+      color: #32cd32;
 
       &:hover {
-        color: #455a64; // Dark blue-grey for a striking hover effect
-        text-shadow: 0px 0px 5px #455a64; // Matching shadow for a glowing effect
+        color: #228b22;
+        text-shadow: 0px 0px 5px #228b22;
       }
     }
 
     &.dark {
-      color: #8d6e63; // Brown for a futuristic look
+      color: #ff4500;
 
       &:hover {
-        color: #ffab40; // Bright amber for a striking hover effect
-        text-shadow: 0px 0px 5px #ffab40; // Matching shadow for a glowing effect
+        color: #ff6347;
+        text-shadow: 0px 0px 5px #ff6347;
       }
     }
   }
