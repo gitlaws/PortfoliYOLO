@@ -4,16 +4,26 @@
 
 .intro-section {
   &.light {
-    background: linear-gradient(270deg, #d3d3d3, #ffffff, #d3d3d3);
+    background: linear-gradient(
+      270deg,
+      #32cd32,
+      #8a2be2,
+      #32cd32
+    ); // Electric blue to hot pink
     background-size: 600% 600%;
-    color: black;
+    // color: black;
     animation: gradientAnimation 20s ease infinite;
   }
 
   &.dark {
-    background: linear-gradient(270deg, #121212, #3a3a3a, #121212);
+    background: linear-gradient(
+      270deg,
+      #ffff00,
+      #ff1493,
+      #ffff00
+    ); // Laser red to neon blue
     background-size: 600% 600%;
-    color: white;
+    // color: white;
     animation: gradientAnimation 20s ease infinite;
   }
 
@@ -36,31 +46,5 @@
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-.intro-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0) 70%
-  );
-  opacity: 0.3;
-  animation: pulseAnimation 10s infinite;
-}
-
-@keyframes pulseAnimation {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
   }
 }
