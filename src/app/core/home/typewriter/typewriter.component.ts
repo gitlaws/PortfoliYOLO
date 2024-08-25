@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import Typewriter from 'typewriter-effect/dist/core';
 
 @Component({
@@ -10,30 +10,43 @@ import Typewriter from 'typewriter-effect/dist/core';
   styleUrls: ['./typewriter.component.scss'],
 })
 export class TypewriterComponent implements AfterViewInit {
-  app: HTMLElement | null = null;
+  constructor(private elRef: ElementRef) {}
 
   ngAfterViewInit() {
-    this.app = document.getElementById('app');
+    const lines = [
+      'Line 1: Welcome to the future.',
+      'Line 2: Embrace the AI.',
+      'Line 3: Cybernetic enhancements activated.',
+    ];
 
-    if (this.app) {
-      const typewriter = new Typewriter(this.app, {
-        loop: true,
-        delay: 75,
+    const container = this.elRef.nativeElement.querySelector(
+      '.typewriter-container'
+    );
+
+    const createTypewriter = (text: string) => {
+      return new Promise<void>((resolve) => {
+        const lineElement = document.createElement('div');
+        lineElement.className = 'typewriter-line';
+        container.appendChild(lineElement);
+
+        const typewriter = new Typewriter(lineElement, {
+          loop: false,
+          delay: 75,
+        });
+
+        typewriter
+          .typeString(text)
+          .pauseFor(1000)
+          .callFunction(() => {
+            container.removeChild(lineElement);
+            resolve();
+          })
+          .start();
       });
+    };
 
-      typewriter
-        .pauseFor(2500)
-        .typeString('A simple yet powerful native javascript')
-        .pauseFor(300)
-        .deleteChars(10)
-        .typeString(
-          '<strong>JS</strong> plugin for a cool typewriter effect and '
-        )
-        .typeString(
-          '<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>'
-        )
-        .pauseFor(1000)
-        .start();
-    }
+    lines.reduce((promise, text) => {
+      return promise.then(() => createTypewriter(text));
+    }, Promise.resolve());
   }
 }
