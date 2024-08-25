@@ -1,21 +1,29 @@
+// Variables
+$backdrop-blur: 10px;
+$link-tree-bg: #ffffff;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
+$border-radius: 15px;
+$link-tree-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
+$link-item-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
+$transition-duration: 0.3s;
 
- .link-tree-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    -webkit-backdrop-filter: blur($backdrop-blur);
-    backdrop-filter: blur($backdrop-blur);
-    padding: 20px;
-    border-radius: 15px;
-    background-color: $link-tree-bg;
-    box-shadow: $box-shadow;
-  }
+.link-tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-backdrop-filter: blur($backdrop-blur);
+  backdrop-filter: blur($backdrop-blur);
+  padding: 20px;
+  border-radius: $border-radius;
+  background-color: $link-tree-bg;
+  box-shadow: $box-shadow;
+}
 
 .profile-image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: $box-shadow;
   margin: 0 auto 20px;
   object-fit: cover;
   border: 2px solid #888;
@@ -44,7 +52,6 @@
     font-size: 1.75rem;
     font-weight: bold;
     font-family: "Arial", sans-serif;
-    // text-transform: uppercase;
     color: #bdc3c7;
   }
 
@@ -57,7 +64,7 @@
     -webkit-text-fill-color: transparent;
     margin-right: 8px;
     vertical-align: middle;
-    transition: background 0.3s ease;
+    transition: background $transition-duration ease;
   }
 
   p {
@@ -148,34 +155,16 @@
     .link-text {
       flex-grow: 1;
       text-decoration: none;
-      // color: inherit;
     }
 
     .icon {
       margin-right: 10px;
       font-size: 24px;
       flex-shrink: 0;
-      // transition: color 0.3s ease;
-
-      // &.light {
-      //   color: rgb(172, 52, 52);
-      // }
-
-      // &.dark {
-      //   color: rgb(199, 66, 66);
-      // }
 
       @media (max-width: 320px) {
         font-size: 20px;
       }
     }
-
-    // &:hover {
-    //   // background: $link-item-hover-bg;
-    //   transform: scale(1.05);
-    //   // color: $hover-color;
-    //   opacity: 0.9;
-    //   transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-    // }
   }
 }
