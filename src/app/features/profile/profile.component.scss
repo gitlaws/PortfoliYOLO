@@ -58,7 +58,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
   &.dark {
     background-color: #212121; // Dark Grey
     color: #f5f5f5; // White Smoke
-    border: 1px solid #616161; // Medium Grey
+    border: 1px solid #1b1b1b; // Medium Grey
     box-shadow: 0 2px 4px rgba(33, 33, 33, 0.4);
   }
 
@@ -292,7 +292,6 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  background-color: $link-tree-bg;
   padding: 20px;
   border-radius: $border-radius;
   box-shadow: $link-tree-shadow;
@@ -301,11 +300,18 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     padding: 10px;
   }
 
+  &.light {
+    background: #f0f0f0;
+  }
+
+  &.dark {
+    background: #333333;
+  }
+
   .link-item {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: $text-color;
     padding: 15px 80px;
     border-radius: $border-radius;
     box-shadow: $link-item-shadow;
@@ -322,50 +328,40 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     }
 
     @media (min-width: 1440px) {
-      // padding: 25px 200px;
+      padding: 25px 200px;
+    }
+
+    .link-text {
+      flex-grow: 1;
+      text-decoration: none;
+      // color: inherit;
     }
 
     .icon {
       margin-right: 10px;
       font-size: 24px;
       flex-shrink: 0;
+      // transition: color 0.3s ease;
+
+      // &.light {
+      //   color: rgb(172, 52, 52);
+      // }
+
+      // &.dark {
+      //   color: rgb(199, 66, 66);
+      // }
 
       @media (max-width: 320px) {
         font-size: 20px;
       }
     }
 
-    .link-text {
-      flex-grow: 1;
-      text-decoration: none;
-      color: inherit;
-    }
-    p {
-      margin: 10px 0;
-      font-size: 16px;
-      color: #333;
-      display: flex;
-      align-items: center;
-    }
-
-    .icon {
-      margin-right: 8px;
-      font-size: 20px;
-      color: #333333;
-      transition: color 0.3s ease;
-    }
-
-    .icon + .icon {
-      margin-left: 8px;
-    }
-
-    &:hover {
-      background: $link-item-hover-bg;
-      transform: scale(1.05);
-      color: $hover-color;
-      opacity: 0.9;
-      transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-      will-change: transform, color, opacity;
-    }
+    // &:hover {
+    //   // background: $link-item-hover-bg;
+    //   transform: scale(1.05);
+    //   // color: $hover-color;
+    //   opacity: 0.9;
+    //   transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    // }
   }
 }
