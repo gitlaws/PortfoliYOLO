@@ -230,7 +230,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     font-size: 1.75rem;
     font-weight: bold;
     font-family: "Arial", sans-serif;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     color: #bdc3c7;
   }
 
@@ -322,7 +322,7 @@ $link-item-gradient: linear-gradient(45deg, #ffd32c, #d0f0c0);
     }
 
     @media (min-width: 1440px) {
-      padding: 25px 200px;
+      // padding: 25px 200px;
     }
 
     .icon {
