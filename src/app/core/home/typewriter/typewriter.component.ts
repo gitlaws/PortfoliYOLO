@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Typewriter-effect}
-
 
 @Component({
   selector: 'app-typewriter',
