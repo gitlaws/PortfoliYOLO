@@ -71,11 +71,11 @@ h1 {
   }
 
   @media (max-width: $breakpoint-tablet) {
-    gap: 1rem;
+    gap: 2rem;
   }
 
   @media (max-width: $breakpoint-mobile) {
-    gap: 1rem;
+    gap: 2rem;
   }
 }
 
