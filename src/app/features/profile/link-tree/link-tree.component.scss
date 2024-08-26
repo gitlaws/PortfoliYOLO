@@ -194,7 +194,9 @@ $monochrome-blue-text: #a0c4ff;
     text-decoration: none;
     font-weight: bold;
     color: $light-text;
-    background: linear-gradient(90deg, #00acc1, #004d40);
+
+    background: linear-gradient(90deg, #ff4081, #00acc1);
+
     background-size: 200% 200%;
     animation: gradient-animation 5s ease infinite;
 
@@ -211,7 +213,8 @@ $monochrome-blue-text: #a0c4ff;
     }
 
     &.dark {
-      background: linear-gradient(90deg, #263238, #1c1f24);
+      background: linear-gradient(90deg, #2e2e2e, #4a4a4a);
+
       background-size: 200% 200%;
       animation: gradient-animation 5s ease infinite;
     }
