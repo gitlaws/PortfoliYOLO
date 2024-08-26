@@ -85,11 +85,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: #78909c;
+        color: #888;
 
         &:hover {
-          color: #546e7a; /* Darker shade of #78909c */
-          text-shadow: 0px 0px 5px #546e7a;
+          color: #555; // Lighter medium gray
+          text-shadow: 0px 0px 5px #555;
           cursor: pointer;
         }
       }
@@ -117,11 +117,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: #78909c;
+        color: #888;
 
         &:hover {
-          color: #607d8b;
-          text-shadow: 0px 0px 5px #607d8b;
+          color: #555; // Lighter medium gray
+          text-shadow: 0px 0px 5px #555;
         }
       }
     }
