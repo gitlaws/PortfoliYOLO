@@ -22,10 +22,10 @@ $transition-duration: 0.3s;
   font-family: "Roboto", sans-serif;
 
   &.light {
-    background-color: #1a1a2e; // Dark blue
-    box-shadow: 0 4px 6px rgba(26, 26, 46, 0.3),
-      0 8px 12px rgba(26, 26, 46, 0.3); // Darker blue shadow
-    color: #a8d5e2; // Soft, light cyan
+    background-color: #f0f8ff; // Alice Blue
+    box-shadow: 0 4px 6px rgba(240, 248, 255, 0.3),
+      0 8px 12px rgba(240, 248, 255, 0.3); // Lighter blue shadow
+    color: #333333; // Dark gray for better contrast
   }
 
   &.dark {
@@ -116,10 +116,14 @@ $transition-duration: 0.3s;
   padding: 20px;
   border-radius: $border-radius;
   box-shadow: $link-tree-shadow;
-  background-color: $light-bg;
+
+  &.light {
+    background-color: #f0f8ff;
+  }
 
   &.dark {
-    background-color: $dark-bg;
+    background-color: #1a1a1a;
+   
   }
 
   @media (max-width: 320px) {
@@ -141,14 +145,14 @@ $transition-duration: 0.3s;
     &.light {
       background: linear-gradient(
         90deg,
-        #1a1a2e,
-        // Dark blue
-        #6a0572,
-        // Dark magenta
-        #0f4c75 // Dark cyan
+        #f0f8ff,
+        // Alice Blue
+        #ffb6c1,
+        // Light Pink
+        #87cefa // Light Sky Blue
       );
-      box-shadow: 0 0 10px #1a1a2e, 0 0 10px #6a0572, 0 0 10px #0f4c75; // Matching shadows
-      text-shadow: 0 0 5px #1a1a2e, 0 0 5px #6a0572, 0 0 5px #0f4c75; // Matching text shadows
+      box-shadow: 0 0 10px #f0f8ff, 0 0 10px #ffb6c1, 0 0 10px #87cefa; // Matching shadows
+      text-shadow: 0 0 5px #f0f8ff, 0 0 5px #ffb6c1, 0 0 5px #87cefa; // Matching text shadows
       background-size: 200% 200%;
       animation: gradient-animation 5s ease infinite;
     }
@@ -166,9 +170,9 @@ $transition-duration: 0.3s;
     }
 
     &.dark {
-      background: linear-gradient(90deg, #0d0d0d, #013220, #145214);
-      box-shadow: 0 0 10px #0d0d0d, 0 0 10px #013220, 0 0 10px #145214;
-      text-shadow: 0 0 5px #0d0d0d, 0 0 5px #013220, 0 0 5px #145214;
+      background: linear-gradient(90deg, #1a1a1a, #333333, #4d4d4d);
+      box-shadow: 0 0 10px #1a1a1a, 0 0 10px #333333, 0 0 10px #4d4d4d;
+      text-shadow: 0 0 5px #1a1a1a, 0 0 5px #333333, 0 0 5px #4d4d4d;
 
       background-size: 200% 200%;
       animation: gradient-animation 5s ease infinite;
