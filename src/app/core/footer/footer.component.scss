@@ -48,11 +48,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     }
 
     &.dark {
-      color: #daa520; // Slightly brighter gold color
+      color: #555; // Lighter dark gray
 
       &:hover {
-        color: #b8860b; // Slightly brighter dark gold color
-        text-shadow: 0px 0px 5px #b8860b; // Slightly brighter dark gold color
+        color: #888; // Lighter medium gray
+        text-shadow: 0px 0px 5px #888; // Lighter medium gray
       }
     }
   }
