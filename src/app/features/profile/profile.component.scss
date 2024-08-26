@@ -151,7 +151,7 @@ $cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5);
         }
 
         li.dark::before {
-          color: #ffff00; // Neon Yellow
+          color: #daa520; // Neon Yellow
         }
       }
 
@@ -164,7 +164,7 @@ $cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5);
         }
 
         &.dark {
-          color: #ffff00; // Neon Yellow
+          color: #daa520; // Neon Yellow
         }
         &:hover {
           text-decoration: underline;
