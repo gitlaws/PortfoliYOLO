@@ -38,11 +38,11 @@ $font-family: "Roboto", sans-serif;
   }
 
   @media (max-width: $breakpoint-tablet) {
-    padding-top: 100px;
+    padding-top: 150px;
   }
 
   @media (max-width: $breakpoint-mobile) {
-    padding-top: 100px;
+    padding-top: 150px;
   }
 }
 
@@ -69,7 +69,11 @@ h1 {
   }
 
   @media (max-width: $breakpoint-tablet) {
-    gap: 0;
+    gap: 1rem;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    gap: 1rem;
   }
 }
 
