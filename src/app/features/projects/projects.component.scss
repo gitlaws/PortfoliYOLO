@@ -39,12 +39,12 @@ $font-family: "Roboto", sans-serif;
 
   @media (max-width: $breakpoint-tablet) {
     padding-top: 150px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
   }
 
   @media (max-width: $breakpoint-mobile) {
     padding-top: 150px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
   }
 }
 
