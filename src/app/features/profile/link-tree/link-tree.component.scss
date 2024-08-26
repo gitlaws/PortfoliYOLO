@@ -1,16 +1,24 @@
-// Variables
 $backdrop-blur: 10px;
-$light-bg: #f0f4f8; // Lighter cyan background for better contrast
-$dark-bg: #1c1f24; // Darker blue-grey background for better contrast
-$light-text: #00796b; // Slightly darker teal text for better readability
-$dark-text: #a7ffeb; // Lighter teal text for better readability
+$light-bg: #f0f4f8;
+$dark-bg: #1c1f24;
+$light-text: #757575;
+$dark-text: #b0bec5;
 $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $border-radius: 15px;
 $link-tree-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $link-item-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $transition-duration: 0.3s;
 
-// Container for the link tree
+$cyberpunk-light-bg: #e0f7fa;
+$cyberpunk-dark-bg: #263238;
+$cyberpunk-light-text: #00acc1;
+$cyberpunk-dark-text: #80deea;
+
+$monochrome-gray-bg: #2e2e2e;
+$monochrome-gray-text: #b0b0b0;
+$monochrome-blue-bg: #1e3a5f;
+$monochrome-blue-text: #a0c4ff;
+
 .link-tree-container {
   display: flex;
   flex-direction: column;
@@ -25,9 +33,28 @@ $transition-duration: 0.3s;
   &.dark {
     background-color: $dark-bg;
   }
+
+  // &.dark {
+  //   background-color: $cyberpunk-light-bg;
+  //   color: $cyberpunk-light-text;
+  // }
+
+  // &.dark{
+  //   background-color: $cyberpunk-dark-bg;
+  //   color: $cyberpunk-dark-text;
+  // }
+
+  // &.dark {
+  //   background-color: $monochrome-gray-bg;
+  //   color: $monochrome-gray-text;
+  // }
+
+  // &.dark {
+  //   background-color: $monochrome-blue-bg;
+  //   color: $monochrome-blue-text;
+  // }
 }
 
-// Profile image styling
 .profile-image {
   width: 150px;
   height: 150px;
@@ -53,13 +80,28 @@ $transition-duration: 0.3s;
   }
 }
 
-// Profile details section
 .profile-details {
   padding: 20px;
   color: $light-text;
 
   &.dark {
     color: $dark-text;
+  }
+
+  &.cyberpunk-light {
+    color: $cyberpunk-light-text;
+  }
+
+  &.cyberpunk-dark {
+    color: $cyberpunk-dark-text;
+  }
+
+  &.monochrome-gray {
+    color: $monochrome-gray-text;
+  }
+
+  &.monochrome-blue {
+    color: $monochrome-blue-text;
   }
 
   .job-title {
@@ -72,12 +114,7 @@ $transition-duration: 0.3s;
 
   .dual-icons {
     font-size: 1.5rem;
-    background: linear-gradient(
-      90deg,
-      #00bcd4,
-      #009688,
-      #004d40
-    ); // Gradient with teal shades
+    background: linear-gradient(90deg, #00bcd4, #009688, #004d40);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -113,7 +150,6 @@ $transition-duration: 0.3s;
   }
 }
 
-// Link tree section
 .link-tree {
   display: grid;
   grid-template-columns: 1fr;
@@ -126,6 +162,22 @@ $transition-duration: 0.3s;
   &.dark {
     background-color: $dark-bg;
   }
+
+  // &.dark {
+  //   background-color: $cyberpunk-light-bg;
+  // }
+
+  // &.dark{
+  //   background-color: $cyberpunk-dark-bg;
+  // }
+
+  // &.dark {
+  //   background-color: $monochrome-gray-bg;
+  // }
+
+  // &.dark {
+  //   background-color: $monochrome-blue-bg;
+  // }
 
   @media (max-width: 320px) {
     padding: 10px;
@@ -142,9 +194,26 @@ $transition-duration: 0.3s;
     text-decoration: none;
     font-weight: bold;
     color: $light-text;
+    background: linear-gradient(90deg, #00acc1, #004d40);
+    background-size: 200% 200%;
+    animation: gradient-animation 5s ease infinite;
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     &.dark {
-      color: $dark-text;
+      background: linear-gradient(90deg, #263238, #1c1f24);
+      background-size: 200% 200%;
+      animation: gradient-animation 5s ease infinite;
     }
 
     @media (max-width: 320px) {
