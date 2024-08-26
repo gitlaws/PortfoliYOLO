@@ -10,7 +10,7 @@ $breakpoint-mobile: 600px;
 // Light Theme Colors
 $light-primary-color: #e0e0e0;
 $light-secondary-color: #f5f5f5;
-$light-accent-color: #bdbdbd;
+$light-accent-color: #757575;
 $light-text-color: #616161;
 $light-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
 $light-box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4);
@@ -18,7 +18,7 @@ $light-box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4);
 // Dark Theme Colors
 $dark-primary-color: #212121;
 $dark-secondary-color: #424242;
-$dark-accent-color: #616161;
+$dark-accent-color: #dcdcdc;
 $dark-text-color: #e0e0e0;
 $dark-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5);
 $dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
@@ -52,30 +52,6 @@ h1 {
   justify-content: space-around;
   gap: 2rem;
   background: transparent;
-
-  // &.light {
-  //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
-  //   background-size: 400% 400%;
-  //   animation: gradientAnimation 20s ease infinite;
-  // }
-
-  // &.dark {
-  //   background: linear-gradient(270deg, #1c1c1c, #363636, #1c1c1c);
-  //   background-size: 400% 400%;
-  //   animation: gradientAnimation 20s ease infinite;
-  // }
-
-  // @keyframes gradientAnimation {
-  //   0% {
-  //     background-position: 0% 50%;
-  //   }
-  //   50% {
-  //     background-position: 100% 50%;
-  //   }
-  //   100% {
-  //     background-position: 0% 50%;
-  //   }
-  // }
 
   @media (min-width: $breakpoint-desktop) {
     justify-content: center;
