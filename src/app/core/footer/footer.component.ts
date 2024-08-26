@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
   isDarkMode: boolean = false;
   isFooterHidden: boolean = true; // Initially hidden
   scrollTimeout: any; // Timeout to hide the footer after scrolling stops
+  isMouseOver: boolean = false; // Track mouse hover state
 
   constructor(private themeService: ThemeService) {}
 
@@ -41,8 +42,32 @@ export class FooterComponent implements OnInit {
 
     // Set a timeout to hide the footer after scrolling stops
     this.scrollTimeout = setTimeout(() => {
-      this.isFooterHidden = true;
-      console.log('Footer hidden');
+      if (!this.isMouseOver) {
+        this.isFooterHidden = true;
+        console.log('Footer hidden');
+      }
+    }, 1000); // Adjust the delay as needed
+  }
+
+  // Listen for mouse enter events on the footer
+  @HostListener('mouseenter')
+  onMouseEnter(): void {
+    this.isMouseOver = true;
+    console.log('Mouse entered footer');
+  }
+
+  // Listen for mouse leave events on the footer
+  @HostListener('mouseleave')
+  onMouseLeave(): void {
+    this.isMouseOver = false;
+    console.log('Mouse left footer');
+
+    // Hide the footer after a delay when the mouse leaves
+    this.scrollTimeout = setTimeout(() => {
+      if (!this.isMouseOver) {
+        this.isFooterHidden = true;
+        console.log('Footer hidden');
+      }
     }, 1000); // Adjust the delay as needed
   }
 
