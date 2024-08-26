@@ -135,6 +135,12 @@ h1 {
   flex: 1;
   padding: 10px;
 
+  .project-note {
+    margin-top: 10px; 
+    font-weight: bold; 
+    color: #4682B4; 
+  }
+
   &.light {
     background-color: $light-primary-color;
   }
