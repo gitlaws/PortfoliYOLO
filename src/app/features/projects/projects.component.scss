@@ -36,6 +36,14 @@ $font-family: "Roboto", sans-serif;
   &.dark {
     color: black;
   }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-top: 100px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding-top: 100px;
+  }
 }
 
 h1 {
@@ -175,17 +183,51 @@ h1 {
 
   .card {
     width: 90%;
+
+    &.light {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &.dark {
+      &:hover {
+        transform: none;
+      }
+    }
   }
 }
 
 @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
   .card {
     width: 45%;
+    &.light {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &.dark {
+      &:hover {
+        transform: none;
+      }
+    }
   }
 }
 
 @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
   .card {
     width: 30%;
+    &.light {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &.dark {
+      &:hover {
+        transform: none;
+      }
+    }
   }
 }
