@@ -48,11 +48,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     }
 
     &.dark {
-      color: #555; // Lighter dark gray
+      color: #888; // Lighter dark gray
 
       &:hover {
-        color: #888; // Lighter medium gray
-        text-shadow: 0px 0px 5px #888; // Lighter medium gray
+        color: #555; // Lighter medium gray
+        text-shadow: 0px 0px 5px #555; // Lighter medium gray
       }
     }
   }
