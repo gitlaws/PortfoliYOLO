@@ -125,10 +125,10 @@ $transition-duration: 0.3s;
   box-shadow: $link-tree-shadow;
 
   &.light {
-    box-shadow: 0 0 15px #e0e0e0, 0 0 15px #c0c0c0, 0 0 15px #a0a0a0;
-    text-shadow: 0 0 10px #e0e0e0, 0 0 10px #c0c0c0, 0 0 10px #a0a0a0;
+    box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
+    text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-    background: linear-gradient(360deg, #f0f8ff, #d9eaf7, #c2ddec, #abcfe2);
+    background: linear-gradient(180deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
     background-color: #f0f8ff; // Alice Blue
     transition: background-color 0.3s ease;
   }
