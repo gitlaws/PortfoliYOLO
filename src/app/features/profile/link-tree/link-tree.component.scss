@@ -139,7 +139,6 @@ $transition-duration: 0.3s;
     transition: all $transition-duration ease;
     text-decoration: none;
     font-weight: bold;
-    color: #fff;
 
     @keyframes gradient-animation {
       0% {
@@ -154,27 +153,23 @@ $transition-duration: 0.3s;
     }
 
     &.light {
-      background: linear-gradient(
-        90deg,
-        #f0f8ff,
-        // Alice Blue
-        #ffb6c1,
-        // Light Pink
-        #87cefa // Light Sky Blue
-      );
-      box-shadow: 0 0 10px #f0f8ff, 0 0 10px #ffb6c1, 0 0 10px #87cefa; // Matching shadows
-      text-shadow: 0 0 5px #f0f8ff, 0 0 5px #ffb6c1, 0 0 5px #87cefa; // Matching text shadows
-      background-size: 200% 200%;
-      animation: gradient-animation 5s ease infinite;
+      box-shadow: 0 0 15px #e0e0e0, 0 0 15px #c0c0c0, 0 0 15px #a0a0a0;
+      text-shadow: 0 0 10px #e0e0e0, 0 0 10px #c0c0c0, 0 0 10px #a0a0a0;
+
+      background: linear-gradient(270deg, #f0f0f0, #d0d0d0, #b0b0b0, #909090);
+      background-size: 800% 800%;
+      animation: gradient-animation 10s ease infinite;
+      transition: background 0.3s ease;
     }
 
     &.dark {
-      box-shadow: 0 0 10px #1a1a1a, 0 0 10px #333333, 0 0 10px #4d4d4d;
-      text-shadow: 0 0 5px #1a1a1a, 0 0 5px #333333, 0 0 5px #4d4d4d;
+      box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
+      text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
       background: linear-gradient(270deg, #1a1a1a, #2b2b2b, #3c3c3c, #4d4d4d);
       background-size: 800% 800%;
       animation: gradient-animation 10s ease infinite;
+      transition: background 0.3s ease;
     }
 
     @media (max-width: 320px) {
@@ -193,6 +188,16 @@ $transition-duration: 0.3s;
       flex-grow: 1;
       text-decoration: none;
       color: inherit;
+
+      &.light {
+        color: #333333;
+        transition: color 0.3s ease;
+      }
+
+      &.dark {
+        color: #fff;
+        transition: color 0.3s ease;
+      }
     }
 
     .icon {
