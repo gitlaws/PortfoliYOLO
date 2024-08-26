@@ -2,22 +2,20 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-// Futuristic and
-$futuristic-primary: #ffcc00; // Neon Yellow
-$futuristic-secondary: #00ccff; // Neon Blue
-$futuristic-bg-dark: #1c1c1c; // Very Dark Grey
-$futuristic-bg-light: #f9f9f9; // Almost White
-$futuristic-divider: #4a4a4a; // Medium Grey
-$futuristic-box-shadow: none; // Minimalist approach for light theme
+$futuristic-primary: #1c1c1c;
+$futuristic-secondary: #b0bec5;
+$futuristic-bg-dark: #1c1c1c;
+$futuristic-bg-light: #f9f9f9;
+$futuristic-divider: #4a4a4a;
+$futuristic-box-shadow: none;
 
-// Cozy and inviting colors
-$cozy-bg-dark: #2e2e2e; // Dark Grey
-$cozy-bg-light: #e8e8e8; // Light Grey
-$cozy-text-dark: #e8e8e8; // Light Grey
-$cozy-text-light: #2e2e2e; // Dark Grey
-$cozy-border-dark: #1f1f1f; // Darker Grey
-$cozy-border-light: #d1d1d1; // Light Grey
-$cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5); // Dark Grey Shadow
+$cozy-bg-dark: #2e2e2e;
+$cozy-bg-light: #e8e8e8;
+$cozy-text-dark: #e8e8e8;
+$cozy-text-light: #2e2e2e;
+$cozy-border-dark: #1f1f1f;
+$cozy-border-light: #d1d1d1;
+$cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5);
 
 // Wrapper styling
 .wrapper {
@@ -142,19 +140,32 @@ $cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5); // Dark Grey Shadow
 
         li::before {
           content: "•";
-          color: $futuristic-primary;
           font-weight: bold;
           display: inline-block;
           width: 1em;
           margin-left: -1em;
         }
+
+        li.light::before {
+          color: #b19cd9; // Neon Purple
+        }
+
+        li.dark::before {
+          color: #ffff00; // Neon Yellow
+        }
       }
 
       a {
-        color: $futuristic-secondary;
         text-decoration: none;
         font-weight: bold;
 
+        &.light {
+          color: #b19cd9; // Neon Purple
+        }
+
+        &.dark {
+          color: #ffff00; // Neon Yellow
+        }
         &:hover {
           text-decoration: underline;
         }
