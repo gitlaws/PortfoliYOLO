@@ -29,8 +29,9 @@ $transition-duration: 0.3s;
   }
 
   &.dark {
-    background-color: #0a0a0a; // Very dark greenish-black
-    color: #a8d5ba; // Soft, gentle green
+    background-color: #333333; // Dark gray that blends
+    color: #a8d5e2; // Soft, gentle green
+    
   }
 }
 
@@ -122,8 +123,7 @@ $transition-duration: 0.3s;
   }
 
   &.dark {
-    background-color: #1a1a1a;
-   
+    background-color: #2c2c2c ;
   }
 
   @media (max-width: 320px) {
