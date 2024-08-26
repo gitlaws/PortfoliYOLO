@@ -1,23 +1,13 @@
 $backdrop-blur: 10px;
-$light-bg: #f0f4f8;
-$dark-bg: #1c1f24;
-$light-text: #757575;
-$dark-text: #b0bec5;
+$light-bg: #1c1f24;
+$dark-bg: #0d0d0d;
+$light-text: #b0bec5;
+$dark-text: #757575;
 $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $border-radius: 15px;
 $link-tree-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $link-item-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1);
 $transition-duration: 0.3s;
-
-$cyberpunk-light-bg: #e0f7fa;
-$cyberpunk-dark-bg: #263238;
-$cyberpunk-light-text: #00acc1;
-$cyberpunk-dark-text: #80deea;
-
-$monochrome-gray-bg: #2e2e2e;
-$monochrome-gray-text: #b0b0b0;
-$monochrome-blue-bg: #1e3a5f;
-$monochrome-blue-text: #a0c4ff;
 
 .link-tree-container {
   display: flex;
@@ -27,32 +17,21 @@ $monochrome-blue-text: #a0c4ff;
   backdrop-filter: blur($backdrop-blur);
   padding: 20px;
   border-radius: $border-radius;
-  background-color: $light-bg;
-  box-shadow: $box-shadow;
+  // box-shadow: $box-shadow;
 
-  &.dark {
-    background-color: $dark-bg;
+  font-family: "Roboto", sans-serif;
+
+  &.light {
+    background-color: #1a1a2e; // Dark blue
+    box-shadow: 0 4px 6px rgba(26, 26, 46, 0.3),
+      0 8px 12px rgba(26, 26, 46, 0.3); // Darker blue shadow
+    color: #a8d5e2; // Soft, light cyan
   }
 
-  // &.dark {
-  //   background-color: $cyberpunk-light-bg;
-  //   color: $cyberpunk-light-text;
-  // }
-
-  // &.dark{
-  //   background-color: $cyberpunk-dark-bg;
-  //   color: $cyberpunk-dark-text;
-  // }
-
-  // &.dark {
-  //   background-color: $monochrome-gray-bg;
-  //   color: $monochrome-gray-text;
-  // }
-
-  // &.dark {
-  //   background-color: $monochrome-blue-bg;
-  //   color: $monochrome-blue-text;
-  // }
+  &.dark {
+    background-color: #0a0a0a; // Very dark greenish-black
+    color: #a8d5ba; // Soft, gentle green
+  }
 }
 
 .profile-image {
@@ -82,27 +61,7 @@ $monochrome-blue-text: #a0c4ff;
 
 .profile-details {
   padding: 20px;
-  color: $light-text;
-
-  &.dark {
-    color: $dark-text;
-  }
-
-  &.cyberpunk-light {
-    color: $cyberpunk-light-text;
-  }
-
-  &.cyberpunk-dark {
-    color: $cyberpunk-dark-text;
-  }
-
-  &.monochrome-gray {
-    color: $monochrome-gray-text;
-  }
-
-  &.monochrome-blue {
-    color: $monochrome-blue-text;
-  }
+  color: inherit;
 
   .job-title {
     margin: 10px 0;
@@ -163,22 +122,6 @@ $monochrome-blue-text: #a0c4ff;
     background-color: $dark-bg;
   }
 
-  // &.dark {
-  //   background-color: $cyberpunk-light-bg;
-  // }
-
-  // &.dark{
-  //   background-color: $cyberpunk-dark-bg;
-  // }
-
-  // &.dark {
-  //   background-color: $monochrome-gray-bg;
-  // }
-
-  // &.dark {
-  //   background-color: $monochrome-blue-bg;
-  // }
-
   @media (max-width: 320px) {
     padding: 10px;
   }
@@ -193,12 +136,22 @@ $monochrome-blue-text: #a0c4ff;
     transition: all $transition-duration ease;
     text-decoration: none;
     font-weight: bold;
-    color: $light-text;
+    color: #fff;
 
-    background: linear-gradient(90deg, #ff4081, #00acc1);
-
-    background-size: 200% 200%;
-    animation: gradient-animation 5s ease infinite;
+    &.light {
+      background: linear-gradient(
+        90deg,
+        #1a1a2e,
+        // Dark blue
+        #6a0572,
+        // Dark magenta
+        #0f4c75 // Dark cyan
+      );
+      box-shadow: 0 0 10px #1a1a2e, 0 0 10px #6a0572, 0 0 10px #0f4c75; // Matching shadows
+      text-shadow: 0 0 5px #1a1a2e, 0 0 5px #6a0572, 0 0 5px #0f4c75; // Matching text shadows
+      background-size: 200% 200%;
+      animation: gradient-animation 5s ease infinite;
+    }
 
     @keyframes gradient-animation {
       0% {
@@ -213,7 +166,9 @@ $monochrome-blue-text: #a0c4ff;
     }
 
     &.dark {
-      background: linear-gradient(90deg, #2e2e2e, #4a4a4a);
+      background: linear-gradient(90deg, #0d0d0d, #013220, #145214);
+      box-shadow: 0 0 10px #0d0d0d, 0 0 10px #013220, 0 0 10px #145214;
+      text-shadow: 0 0 5px #0d0d0d, 0 0 5px #013220, 0 0 5px #145214;
 
       background-size: 200% 200%;
       animation: gradient-animation 5s ease infinite;
