@@ -12,7 +12,7 @@ export class ThemeService {
 
   constructor(private storageService: StorageService) {
     const storedTheme =
-      (this.storageService.getItem(this.themeKey) as Theme) || Theme.Light;
+      (this.storageService.getItem(this.themeKey) as Theme) || Theme.Dark;
     this.themeSubject = new BehaviorSubject<Theme>(storedTheme);
     this.applyTheme(storedTheme);
   }
