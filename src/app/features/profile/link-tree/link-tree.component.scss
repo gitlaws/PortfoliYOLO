@@ -127,17 +127,21 @@ $transition-duration: 0.3s;
   &.light {
     box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
     text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
-
     background: linear-gradient(180deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
-    transition: background-color 0.3s ease;
+    // transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
+    background-size: 800% 800%;
+    animation: gradient-animation 10s ease infinite;
   }
 
   &.dark {
     box-shadow: 0 0 15px #1a1a1a, 0 0 15px #333333, 0 0 15px #4d4d4d;
     text-shadow: 0 0 10px #1a1a1a, 0 0 10px #333333, 0 0 10px #4d4d4d;
-
     background: linear-gradient(360deg, #2c2c2c, #3a3a3a, #484848, #565656);
-    transition: background-color 0.3s ease;
+    // transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
+    background-size: 800% 800%;
+    animation: gradient-animation 10s ease infinite;
   }
 
   @media (max-width: 320px) {
@@ -171,15 +175,11 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
       text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-      // background: linear-gradient(270deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
-
       // background: linear-gradient(270deg, #e6e6e6, #cccccc, #b3b3b3, #999999);
-
-      background: linear-gradient(270deg, #e6e6e6, #cccccc, #b3b3b3, #999999);
 
       transition: background-color 0.3s ease;
       background-size: 800% 800%;
-      animation: gradient-animation 10s ease infinite;
+      // animation: gradient-animation 10s ease infinite;
       transition: background 0.3s ease;
     }
 
@@ -187,12 +187,10 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
       text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-      // background: linear-gradient(270deg, #1a1a1a, #2b2b2b, #3c3c3c, #4d4d4d);
       // background: linear-gradient(270deg, #2a2a2a, #3b3b3b, #4c4c4c, #5d5d5d);
-      background: linear-gradient(270deg, #2a2a2a, #3b3b3b, #4c4c4c, #5d5d5d);
 
       background-size: 800% 800%;
-      animation: gradient-animation 10s ease infinite;
+      // animation: gradient-animation 10s ease infinite;
 
       transition: background 0.3s ease;
     }
