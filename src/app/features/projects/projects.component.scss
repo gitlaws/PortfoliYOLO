@@ -133,12 +133,17 @@ h1 {
 
 .card-content {
   flex: 1;
+  margin: 10px;
   padding: 10px;
+  font-size: 1.2em;
+  max-height: 300px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling for overflow content */
 
   .project-note {
-    margin-top: 10px; 
-    font-weight: bold; 
-    color: #4682B4; 
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #4682b4;
   }
 
   &.light {
@@ -148,13 +153,70 @@ h1 {
   &.dark {
     background-color: $dark-primary-color;
   }
+
+  /* WebKit browsers */
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+
+  &.light ::-webkit-scrollbar-track {
+    background: $light-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.dark ::-webkit-scrollbar-track {
+    background: $dark-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.light ::-webkit-scrollbar-thumb {
+    background: $light-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb {
+    background: $dark-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.light ::-webkit-scrollbar-thumb:hover {
+    background: darken(
+      $light-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb:hover {
+    background: lighten(
+      $dark-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  /* Firefox */
+  &.light {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $light-accent-color $light-secondary-color; /* Thumb and track color */
+  }
+
+  &.dark {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $dark-accent-color $dark-secondary-color; /* Thumb and track color */
+  }
 }
 
 .card-footer {
   display: flex;
-  padding: 10px;
+  padding: 15px; /* Increased padding for better spacing */
   text-align: center;
   justify-content: space-around;
+  align-items: center; /* Center align items vertically */
+  border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+  i {
+    font-size: 24px;
+  }
 
   &.light {
     background-color: $light-secondary-color;
@@ -162,11 +224,15 @@ h1 {
 
     a {
       color: $light-accent-color;
-      margin: 0 5px;
+      margin: 0 10px; /* Increased margin for better spacing */
       text-decoration: none;
+      font-size: 1.2em; /* Increased font size for better readability */
+      transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
 
       &:hover {
         text-decoration: underline;
+        color: darken($light-accent-color, 10%); /* Darken color on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
       }
     }
   }
@@ -177,11 +243,15 @@ h1 {
 
     a {
       color: $dark-accent-color;
-      margin: 0 5px;
+      margin: 0 10px; /* Increased margin for better spacing */
       text-decoration: none;
+      font-size: 1.2em; /* Increased font size for better readability */
+      transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
 
       &:hover {
         text-decoration: underline;
+        color: lighten($dark-accent-color, 10%); /* Lighten color on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
       }
     }
   }
