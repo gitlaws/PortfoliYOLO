@@ -135,9 +135,24 @@ h1 {
   flex: 1;
   margin: 10px;
   padding: 10px;
-  font-size: 1.2em;
   max-height: 300px; /* Set a maximum height */
   overflow-y: auto; /* Enable vertical scrolling for overflow content */
+  word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+  overflow-wrap: break-word;
+
+  p {
+    @media (min-width: $breakpoint-mobile) {
+      font-size: 1em; /* Font size for mobile devices */
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 1.2em; /* Font size for tablets */
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      font-size: 1em; /* Font size for desktops */
+    }
+  }
 
   .project-note {
     margin-top: 10px;
