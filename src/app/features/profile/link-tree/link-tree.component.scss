@@ -171,7 +171,12 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
       text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-      background: linear-gradient(270deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
+      // background: linear-gradient(270deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
+
+      // background: linear-gradient(270deg, #e6e6e6, #cccccc, #b3b3b3, #999999);
+
+      background: linear-gradient(270deg, #e6e6e6, #cccccc, #b3b3b3, #999999);
+
       transition: background-color 0.3s ease;
       background-size: 800% 800%;
       animation: gradient-animation 10s ease infinite;
@@ -182,7 +187,10 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
       text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-      background: linear-gradient(270deg, #1a1a1a, #2b2b2b, #3c3c3c, #4d4d4d);
+      // background: linear-gradient(270deg, #1a1a1a, #2b2b2b, #3c3c3c, #4d4d4d);
+      // background: linear-gradient(270deg, #2a2a2a, #3b3b3b, #4c4c4c, #5d5d5d);
+      background: linear-gradient(270deg, #2a2a2a, #3b3b3b, #4c4c4c, #5d5d5d);
+
       background-size: 800% 800%;
       animation: gradient-animation 10s ease infinite;
 
@@ -241,6 +249,39 @@ $transition-duration: 0.3s;
       margin-right: 10px;
       font-size: 24px;
       flex-shrink: 0;
+
+      // &.light {
+      //   // color: #4657bb;
+      //   transition: color 0.3s ease;
+      // }
+
+      // &.dark {
+      //   // color: #884242;
+      //   transition: color 0.3s ease;
+      // }
+
+      &.linkedin {
+        color: #0077b5; /* LinkedIn Blue */
+      }
+
+      &.instagram {
+        color: #e4405f; /* Instagram Pink-Red */
+      }
+
+      &.github {
+        color: #181717; /* GitHub Black */
+        &.dark {
+          color: #ffffff; /* GitHub White */
+        }
+      }
+
+      &.youtube {
+        color: #ff0000; /* YouTube Red */
+      }
+
+      &.gmail {
+        color: #d93025; /* Gmail Red */
+      }
 
       @media (max-width: 320px) {
         font-size: 20px;
