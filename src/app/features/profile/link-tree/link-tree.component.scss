@@ -124,7 +124,7 @@ $transition-duration: 0.3s;
   &.light {
     box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
     text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
-    background: linear-gradient(180deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
+    background: linear-gradient(360deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
     transition: background 0.3s ease;
   }
 
@@ -167,12 +167,9 @@ $transition-duration: 0.3s;
         background-position: 0% 50%;
       }
     }
-
     &.light {
       box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
       text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
-
-      // background: linear-gradient(180deg, #e6e6e6, #cccccc, #b3b3b3, #999999);
 
       background: linear-gradient(
         180deg,
@@ -181,25 +178,35 @@ $transition-duration: 0.3s;
         rgba(179, 179, 179, 0.8),
         rgba(153, 153, 153, 0.8)
       );
+      backdrop-filter: blur(10px); /* Apply blur effect */
+      -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      transition: background 0.3s ease, text-shadow 0.3s ease;
 
-      transition: background 0.3s ease;
+      &:hover {
+        box-shadow: 0 0 20px #dcdcdc, 0 0 20px #bcbcbc, 0 0 20px #9c9c9c;
+        text-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
+      }
     }
 
     &.dark {
       box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
       text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-      // background: linear-gradient(360deg, #2a2a2a, #3b3b3b, #4c4c4c, #5d5d5d);
-
       background: linear-gradient(
-        360deg,
+        180deg,
         rgba(42, 42, 42, 0.8),
         rgba(59, 59, 59, 0.8),
         rgba(76, 76, 76, 0.8),
         rgba(93, 93, 93, 0.8)
       );
+      backdrop-filter: blur(10px); /* Apply blur effect */
+      -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      transition: background 0.3s ease, text-shadow 0.3s ease;
 
-      transition: background 0.3s ease;
+      &:hover {
+        box-shadow: 0 0 20px #1a1a1a, 0 0 20px #2b2b2b, 0 0 20px #4d4d4d;
+        text-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
+      }
     }
 
     @media (max-width: 320px) {
