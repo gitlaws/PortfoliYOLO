@@ -130,8 +130,8 @@ $transition-duration: 0.3s;
     box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
     text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-    background: linear-gradient(
-      360deg,
+    background: radial-gradient(
+      circle at center,
       rgba(255, 255, 255, 0.8),
       rgba(230, 230, 230, 0.8),
       rgba(204, 204, 204, 0.8),
@@ -151,8 +151,8 @@ $transition-duration: 0.3s;
     box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
     text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-    background: linear-gradient(
-      360deg,
+    background: radial-gradient(
+      circle,
       rgba(42, 42, 42, 0.8),
       rgba(59, 59, 59, 0.8),
       rgba(76, 76, 76, 0.8),
@@ -199,8 +199,8 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
       text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-      background: linear-gradient(
-        0deg,
+      background: radial-gradient(
+        circle at center,
         rgba(230, 230, 230, 0.8),
         rgba(204, 204, 204, 0.8),
         rgba(179, 179, 179, 0.8),
@@ -220,8 +220,8 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
       text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-      background: linear-gradient(
-        0deg,
+      background: radial-gradient(
+        circle,
         rgba(42, 42, 42, 0.8),
         rgba(59, 59, 59, 0.8),
         rgba(76, 76, 76, 0.8),
