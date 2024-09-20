@@ -38,19 +38,22 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   width: 200px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); // Semi-transparent background
+  -webkit-backdrop-filter: blur(10px); // Blur effect for Safari
+  backdrop-filter: blur(10px);
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
   z-index: 1000;
   font-size: 1em;
   transition: background-color 0.3s ease;
 
-  &.light {
-    background-color: #e0e0e0;
-  }
+  // &.light {
+  //   background-color: #e0e0e0;
+  // }
 
-  &.dark {
-    background-color: #333333;
-  }
+  // &.dark {
+  //   background-color: #333333;
+  // }
 
   &.open {
     transform: translateX(-50%);
@@ -120,8 +123,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
         color: #888;
 
         &:hover {
-          color: #555; // Lighter medium gray
-          text-shadow: 0px 0px 5px #555;
+          color: #333; // Darker medium gray
+          text-shadow: 0px 0px 5px #333;
         }
       }
     }
