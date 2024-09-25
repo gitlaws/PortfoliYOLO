@@ -272,6 +272,24 @@ h1 {
   }
 }
 
+.note {
+  font-size: 0.8em; /* Adjust the size as needed */
+  color: #666; /* Change the color to a lighter shade */
+  display: block; /* Make it display as a block element */
+  margin-top: 10px; /* Add some space above the note */
+  line-height: 1.4; /* Improve readability */
+}
+
+.note a {
+  color: #4682b4; /* Match the link color with the theme */
+  text-decoration: underline; /* Underline the link for better visibility */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.note a:hover {
+  color: #1e90ff; /* Change color on hover */
+}
+
 @media (max-width: $breakpoint-mobile) {
   .container {
     flex-direction: column;
