@@ -52,8 +52,20 @@ export class CyberMenuComponent implements OnInit {
     }
   }
 
+  onMouseEnter() {
+    this.isMenuOpen = true;
+  }
+
+  onMouseLeave() {
+    this.isMenuOpen = false;
+  }
+
   toggleMenu(event: MouseEvent) {
     event.stopPropagation();
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeDropdown() {
+    this.isMenuOpen = false;
   }
 }
