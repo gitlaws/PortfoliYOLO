@@ -2,7 +2,6 @@
 @import "../../../styles/_variables.scss";
 
 // _variables.scss
-
 $breakpoint-desktop: 1024px;
 $breakpoint-tablet: 1023px;
 $breakpoint-mobile: 600px;
@@ -345,4 +344,16 @@ h1 {
       }
     }
   }
+}
+
+.portfolio-paragraph {
+  margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+.portfolio-paragraph + ul {
+  margin-top: 20px; /* Add space above the list */
+}
+
+.spaced-list-item {
+  margin-bottom: 10px;
 }
