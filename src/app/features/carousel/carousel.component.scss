@@ -54,40 +54,61 @@ $futuristic-bg-light: #f9f9f9;
       width: 100%;
       height: 100%;
 
-    //   background: linear-gradient(
-    //     45deg,
-    //     #00bfff,
-    //     /* DeepSkyBlue */ #1e90ff,
-    //     /* DodgerBlue */ #4169e1 /* RoyalBlue */
-    //   );
+      // background: linear-gradient(
+      //   45deg,
+      //   #1f1c2c,
+      //   /* Dark Purple */ #928dab,
+      //   /* Lavender Gray */ #1f1c2c /* Dark Purple */
+      // );
 
-        background: linear-gradient(
-          45deg,
-          #32cd32,
-          /* LimeGreen */ #228b22,
-          /* ForestGreen */ #006400 /* DarkGreen */
-        );
+      background: linear-gradient(
+        45deg,
+        #232526,
+        /* Dark Charcoal */ #414345,
+        /* Outer Space */ #232526 /* Dark Charcoal */
+      );
 
-        // background: linear-gradient(
-        //   45deg,
-        //   #ff69b4,
-        //   /* HotPink */ #ff1493,
-        //   /* DeepPink */ #c71585 /* MediumVioletRed */
-        // );
+      // background: linear-gradient(
+      //   45deg,
+      //   #0f0c29,
+      //   /* Black Pearl */ #302b63,
+      //   /* Dark Purple */ #24243e /* Space Cadet */
+      // );
 
-        // background: linear-gradient(
-        //   45deg,
-        //   #ffdead,
-        //   /* NavajoWhite */ #f4a460,
-        //   /* SandyBrown */ #d2691e /* Chocolate */
-        // );
+      // background: linear-gradient(
+      //   45deg,
+      //   #2b5876,
+      //   /* Dark Cerulean */ #4e4376,
+      //   /* Independence */ #2b5876 /* Dark Cerulean */
+      // );
 
-        // background: linear-gradient(
-        //   45deg,
-        //   #dda0dd,
-        //   /* Plum */ #ba55d3,
-        //   /* MediumOrchid */ #8a2be2 /* BlueViolet */
-        // );
+      // background: linear-gradient(
+      //   45deg,
+      //   #141e30,
+      //   /* Dark Midnight Blue */ #243b55,
+      //   /* Dark Slate Blue */ #141e30 /* Dark Midnight Blue */
+      // );
+
+      // background: linear-gradient(
+      //   45deg,
+      //   #3a6073,
+      //   /* Deep Space Sparkle */ #16222a,
+      //   /* Gunmetal */ #3a6073 /* Deep Space Sparkle */
+      // );
+
+      // background: linear-gradient(
+      //   45deg,
+      //   #0f2027,
+      //   /* Dark Gunmetal */ #203a43,
+      //   /* Charcoal */ #2c5364 /* Dark Slate Gray */
+      // );
+
+      // background: linear-gradient(
+      //   45deg,
+      //   #2c3e50,
+      //   /* Midnight Blue */ #34495e,
+      //   /* Wet Asphalt */ #2c3e50 /* Midnight Blue */
+      // );
 
       z-index: -1;
       transition: all 0.3s ease;
