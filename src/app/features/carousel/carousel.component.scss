@@ -3,6 +3,17 @@ $futuristic-bg-light: #f9f9f9;
 
 .carousel-container {
   /* Add your styles here */
+  &.light {
+    background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
+    // background-size: 600% 600%;
+    animation: gradientAnimation 20s ease infinite;
+  }
+
+  &.dark {
+    background: linear-gradient(270deg, #1c1c1c, #363636, #1c1c1c);
+    // background-size: 600% 600%;
+    animation: gradientAnimation 20s ease infinite;
+  }
 }
 
 .carousel-container {
@@ -19,7 +30,7 @@ $futuristic-bg-light: #f9f9f9;
   margin-top: 20px; /* Adjust margin as needed */
   margin-bottom: 80px;
   gap: 20px; /* Space between buttons */
-  background-color: $futuristic-bg-light;
+  //   background-color: $futuristic-bg-light;
 
   button {
     padding: 10px 20px;
@@ -34,26 +45,26 @@ $futuristic-bg-light: #f9f9f9;
     &.light {
       background-color: #e8e8e8; /* Light background */
       color: #2e2e2e; /* Dark text */
-      border: 2px solid #2e2e2e; /* Dark border */
-      box-shadow: 0 0 10px #2e2e2e, 0 0 20px #2e2e2e, 0 0 30px #2e2e2e;
+    //   border: 2px solid #2e2e2e; /* Dark border */
+    //   box-shadow: 0 0 5px #2e2e2e, 0 0 10px #2e2e2e, 0 0 15px #2e2e2e;
 
       &:hover {
         background-color: #2e2e2e; /* Dark background on hover */
         color: #e8e8e8; /* Light text on hover */
-        box-shadow: 0 0 20px #2e2e2e, 0 0 30px #2e2e2e, 0 0 40px #2e2e2e;
+        box-shadow: 0 0 10px #2e2e2e, 0 0 15px #2e2e2e, 0 0 20px #2e2e2e;
       }
     }
 
     &.dark {
       background-color: #2e2e2e; /* Dark background */
       color: #e8e8e8; /* Light text */
-      border: 2px solid #e8e8e8; /* Light border */
-      box-shadow: 0 0 10px #e8e8e8, 0 0 20px #e8e8e8, 0 0 30px #e8e8e8;
+    //   border: 2px solid #e8e8e8; /* Light border */
+    //   box-shadow: 0 0 5px #e8e8e8, 0 0 10px #e8e8e8, 0 0 15px #e8e8e8;
 
       &:hover {
         background-color: #e8e8e8; /* Light background on hover */
         color: #2e2e2e; /* Dark text on hover */
-        box-shadow: 0 0 20px #e8e8e8, 0 0 30px #e8e8e8, 0 0 40px #e8e8e8;
+        box-shadow: 0 0 10px #e8e8e8, 0 0 15px #e8e8e8, 0 0 20px #e8e8e8;
       }
     }
   }
