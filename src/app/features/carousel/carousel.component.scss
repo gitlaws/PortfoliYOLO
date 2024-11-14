@@ -1,9 +1,54 @@
+$futuristic-bg-dark: #1c1c1c;
+$futuristic-bg-light: #f9f9f9;
+
 .carousel-container {
   /* Add your styles here */
 }
 
-.carousel-controls {
+.carousel-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+  margin-bottom: 80px;
+  gap: 20px; /* Space between buttons */
+  background-color: $futuristic-bg-light;
+
+  &.light {
+    background-color: $futuristic-bg-light;
+  }
+
+  &.dark {
+    background-color: $futuristic-bg-dark;
+  }
+
+  button {
+    background-color: #2e2e2e; /* Dark background from ProfileComponent */
+    color: #e8e8e8; /* Light text from ProfileComponent */
+    border: 2px solid #e8e8e8; /* Light border from ProfileComponent */
+    padding: 10px 20px;
+    font-family: "Orbitron", sans-serif; /* Futuristic font */
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #e8e8e8, 0 0 20px #e8e8e8, 0 0 30px #e8e8e8;
+
+    &:hover {
+      background-color: #e8e8e8; /* Light background on hover */
+      color: #2e2e2e; /* Dark text on hover */
+      box-shadow: 0 0 20px #e8e8e8, 0 0 30px #e8e8e8, 0 0 40px #e8e8e8;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 }
