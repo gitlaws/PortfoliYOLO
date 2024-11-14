@@ -2,94 +2,13 @@
   <div class="bio-container" [ngClass]="theme">
     <div class="left-column" [ngClass]="theme">
       <div class="bio-content" [ngClass]="theme">
-        <h1 [ngClass]="theme">Key Terms and Definitions</h1>
-        <h2 [ngClass]="theme">Adult wage / More than enough:</h2>
-        <p [ngClass]="theme">
-          <strong>Cost of Living:</strong> The amount of money needed to cover
-          basic expenses such as housing, food, taxes, and healthcare in a
-          certain location in a certain time period.
-        </p>
-        <p [ngClass]="theme">
-          <strong>Full-time Work:</strong> 2,080 hours per year (40 hours each
-          week for 52 weeks) are used to calculate full-time wages for hourly
-          worker statistics for research purposes. The average employee works
-          roughly 35 hours per week.
-        </p>
-        <p [ngClass]="theme">
-          <strong>Housing Wage:</strong> The estimated full-time hourly wage
-          workers must earn to afford an adequate rental home at the U.S.
-          Department of Housing and Urban Development’s Fair Market Rent (the
-          40th percentile of gross rents for standard rental units) while
-          spending no more than 30 percent of their income on housing costs.
-        </p>
-        <p [ngClass]="theme">
-          <strong>Living Wage:</strong> A measure of basic needs that draws on
-          geographically specific data related to a family’s likely minimum
-          costs for basic necessities such as food, childcare, health insurance,
-          housing, transportation, clothing and personal care items. It
-          determines the minimum employment earnings necessary to meet basic
-          needs while also maintaining financial self-sufficiency, taking into
-          account income and payroll taxes.
-        </p>
-        <p [ngClass]="theme">
-          <strong>Low Wage:</strong> A wage that is above the legally defined
-          minimum wage of the set locality but does not meet the determined
-          living wage of the location.
-        </p>
-        <p [ngClass]="theme">
-          <strong>Minimum Wage:</strong> The lowest legal amount an employer may
-          pay a worker for an hour of work, with the exception of tipped wage
-          workers as long as their wages with tips amount to at least the
-          mandated minimum wage per hour.
-        </p>
-        <h2 [ngClass]="theme">
-          Minimum Wage vs. Living Wage vs. True Living Wage vs. Adult Wage (More
-          than enough wage)
-        </h2>
-        <p [ngClass]="theme">
-          Living wage (or subsistence wage) is a measure of basic needs that
-          draws on geographically specific data related to a family’s likely
-          minimum costs for food, childcare, health insurance, housing,
-          transportation, and other basic necessities. It determines the minimum
-          employment earnings necessary to meet basic needs while also
-          maintaining financial self-sufficiency, taking into account income and
-          payroll taxes. Living wage is the minimum income standard that draws a
-          very fine line between financial independence and the need to seek out
-          public assistance or suffer consistent and severe housing and food
-          insecurity.
-        </p>
-        <p [ngClass]="theme">
-          Living wage, unlike minimum wage, factors in cost of living, which may
-          vary by location. The range in the U.S. varies widely. For example,
-          the most expensive places to live are Hawaii and Washington D.C.,
-          where one would need to make $38.57 per hour and $39.41, respectively,
-          to meet the basic necessities as an adult with one child. Two states
-          that have the lowest cost of living are South Dakota and Mississippi,
-          where one would still need to make $27.06 and $26.74 to meet basic
-          needs. Further in many places $15 per hour would not be a sufficient
-          living wage for a single person. Even without children, living wages
-          in Hawaii and Washington D.C. are $19.43 and $20.49, respectively.
-        </p>
-        <p [ngClass]="theme">
-          It is important to note that the living wage calculation is based on
-          working full-time hours, 52 weeks per year, and does not factor in the
-          opportunity to take unpaid time off for illness, family leave, or
-          vacation. It also does not include setting aside any income as savings
-          for emergencies, large purchases such as a car or house, or
-          retirement. It also excludes the comforts that many people think of as
-          essential to “living,” such as occasionally eating out, birthday and
-          holiday gifts and celebrations, cable television or streaming
-          services, high speed internet, and education expenses.
-        </p>
-        <p [ngClass]="theme">
-          Living wage should be viewed as an entry point to the conversation
-          about wages–the amount necessary just to get by.
-        </p>
+        <app-left-column></app-left-column>
       </div>
       <!-- <button class="cta-button">Contact Me</button> -->
     </div>
     <div class="divider" [ngClass]="theme"></div>
     <div class="right-column" [ngClass]="theme">
+      <app-right-column></app-right-column>
       <!-- <app-link-tree></app-link-tree> -->
     </div>
   </div>
