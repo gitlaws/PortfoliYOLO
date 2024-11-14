@@ -26,9 +26,9 @@ export class TypewriterComponent implements AfterViewInit, OnInit {
     const lines = [
       'Frontend',
       'Backend',
+      'Clean code',
       'Performance optimization',
       'Code refactoring',
-      'Clean code',
       'Responsive design',
       'Cross-browser compatibility',
     ];
