@@ -1,0 +1,53 @@
+// Base styles
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$color-text: #333;
+$color-heading: #222;
+$color-background: #f9f9f9;
+
+.left-container {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-background;
+}
+
+// Layout styles
+section {
+  padding: 20px;
+  //   margin: 20px 0;
+  background-color: $color-background;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  //   margin-bottom: 20px;
+
+  h1 {
+    color: $color-heading;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: $color-heading;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+article {
+  margin-bottom: 20px;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
