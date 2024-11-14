@@ -30,7 +30,7 @@ export class TypewriterComponent implements AfterViewInit, OnInit {
       'Code refactoring',
       'Clean code',
       'Responsive design',
-      'Cross-platform compatibility',
+      'Cross-browser compatibility',
     ];
 
     const container = this.elRef.nativeElement.querySelector(
