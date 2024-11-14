@@ -23,32 +23,45 @@ $futuristic-bg-light: #f9f9f9;
 
   &.light {
     background-color: $futuristic-bg-light;
+
+    button {
+      background-color: #e8e8e8; /* Light background */
+      color: #2e2e2e; /* Dark text */
+      border: 2px solid #2e2e2e; /* Dark border */
+      box-shadow: 0 0 10px #2e2e2e, 0 0 20px #2e2e2e, 0 0 30px #2e2e2e;
+
+      &:hover {
+        background-color: #2e2e2e; /* Dark background on hover */
+        color: #e8e8e8; /* Light text on hover */
+        box-shadow: 0 0 20px #2e2e2e, 0 0 30px #2e2e2e, 0 0 40px #2e2e2e;
+      }
+    }
   }
 
   &.dark {
     background-color: $futuristic-bg-dark;
+
+    button {
+      background-color: #2e2e2e; /* Dark background */
+      color: #e8e8e8; /* Light text */
+      border: 2px solid #e8e8e8; /* Light border */
+      box-shadow: 0 0 10px #e8e8e8, 0 0 20px #e8e8e8, 0 0 30px #e8e8e8;
+
+      &:hover {
+        background-color: #e8e8e8; /* Light background on hover */
+        color: #2e2e2e; /* Dark text on hover */
+        box-shadow: 0 0 20px #e8e8e8, 0 0 30px #e8e8e8, 0 0 40px #e8e8e8;
+      }
+    }
   }
 
   button {
-    background-color: #2e2e2e; /* Dark background from ProfileComponent */
-    color: #e8e8e8; /* Light text from ProfileComponent */
-    border: 2px solid #e8e8e8; /* Light border from ProfileComponent */
     padding: 10px 20px;
     font-family: "Orbitron", sans-serif; /* Futuristic font */
     font-size: 16px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px #e8e8e8, 0 0 20px #e8e8e8, 0 0 30px #e8e8e8;
-
-    &:hover {
-      background-color: #e8e8e8; /* Light background on hover */
-      color: #2e2e2e; /* Dark text on hover */
-      box-shadow: 0 0 20px #e8e8e8, 0 0 30px #e8e8e8, 0 0 40px #e8e8e8;
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
+    transform: scale(0.95);
   }
 }
