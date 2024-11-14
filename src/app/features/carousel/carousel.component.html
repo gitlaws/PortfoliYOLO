@@ -2,6 +2,10 @@
   <ng-container *ngComponentOutlet="components[currentIndex]"></ng-container>
 </div>
 <div class="carousel-buttons" [ngClass]="theme">
-  <button *ngIf="currentIndex === 1" (click)="prevPage()">Profile</button>
-  <button *ngIf="currentIndex === 0" (click)="nextPage()">Negotiables</button>
+  <button *ngIf="currentIndex === 1" (click)="prevPage()" [ngClass]="theme">
+    Profile
+  </button>
+  <button *ngIf="currentIndex === 0" (click)="nextPage()" [ngClass]="theme">
+    Negotiables
+  </button>
 </div>

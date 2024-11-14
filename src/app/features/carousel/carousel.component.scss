@@ -19,10 +19,10 @@ $futuristic-bg-light: #f9f9f9;
   margin-top: 20px; /* Adjust margin as needed */
   margin-bottom: 80px;
   gap: 20px; /* Space between buttons */
-  background-color: $futuristic-bg-light;
+  //   background-color: $futuristic-bg-light;
 
   &.light {
-    background-color: $futuristic-bg-light;
+    // background-color: $futuristic-bg-light;
 
     button {
       background-color: #e8e8e8; /* Light background */
@@ -39,7 +39,7 @@ $futuristic-bg-light: #f9f9f9;
   }
 
   &.dark {
-    background-color: $futuristic-bg-dark;
+    // background-color: $futuristic-bg-dark;
 
     button {
       background-color: #2e2e2e; /* Dark background */
@@ -57,6 +57,7 @@ $futuristic-bg-light: #f9f9f9;
 
   button {
     padding: 10px 20px;
+    border-radius: 32px;
     font-family: "Orbitron", sans-serif; /* Futuristic font */
     font-size: 16px;
     text-transform: uppercase;
