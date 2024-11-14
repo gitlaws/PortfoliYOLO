@@ -21,10 +21,10 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'carousel',
+    path: 'profile',
     loadComponent: () =>
-      import('./features/carousel/carousel.component').then(
-        (m) => m.CarouselComponent
+      import('./features/profile/profile.component').then(
+        (m) => m.ProfileComponent
       ),
   },
   // other routes...

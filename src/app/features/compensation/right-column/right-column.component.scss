@@ -3,8 +3,9 @@ $font-size-base: 16px;
 $line-height-base: 1.5;
 $color-text: #333;
 $color-heading: #222;
-$color-background: #f9f9f9;
+$color-background: #e8e8e8;
 $color-highlight: #f5f5f5;
+$color-border: #ddd;
 $border-radius: 8px;
 $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 $padding: 20px;
@@ -20,7 +21,11 @@ $margin: 20px 0;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $color-text;
+  text-align: left;
   background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  @include box-shadow($box-shadow);
 }
 
 // Layout styles
@@ -47,6 +52,15 @@ article {
 
   p {
     margin-bottom: 10px;
+  }
+
+  ul {
+    margin-bottom: 10px;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 5px;
+    }
   }
 
   strong {
