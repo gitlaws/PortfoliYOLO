@@ -2,6 +2,21 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
+$futuristic-primary: #1c1c1c;
+$futuristic-secondary: #b0bec5;
+$futuristic-bg-dark: #1c1c1c;
+$futuristic-bg-light: #f9f9f9;
+$futuristic-divider: #4a4a4a;
+$futuristic-box-shadow: none;
+
+$cozy-bg-dark: #2e2e2e;
+$cozy-bg-light: #e8e8e8;
+$cozy-text-dark: #e8e8e8;
+$cozy-text-light: #2e2e2e;
+$cozy-border-dark: #1f1f1f;
+$cozy-border-light: #d1d1d1;
+$cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5);
+
 // Wrapper styling
 .wrapper {
   display: flex;
