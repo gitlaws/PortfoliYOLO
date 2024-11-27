@@ -28,4 +28,11 @@ export const routes: Routes = [
       ),
   },
   // other routes...
+  {
+    path: 'mock',
+    loadComponent: () =>
+      import('./features/mock/mock.component').then(
+        (component) => component.MockComponent
+      ),
+  },
 ];
