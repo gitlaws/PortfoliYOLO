@@ -45,12 +45,27 @@
   align-items: center;
   margin-top: 20px;
 
-  i {
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #333;
-    &:hover {
-      color: #555;
+  &.light {
+    i {
+      color: #333;
+      font-size: 1.5em;
+      cursor: pointer;
+
+      &:hover {
+        color: #555;
+      }
+    }
+  }
+
+  &.dark {
+    i {
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+
+      &:hover {
+        color: #ccc;
+      }
     }
   }
 }
