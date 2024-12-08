@@ -1,3 +1,23 @@
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 1023px;
+$breakpoint-mobile: 600px;
+
+// Light Theme Colors
+$light-primary-color: #e0e0e0;
+$light-secondary-color: #f5f5f5;
+$light-accent-color: #757575;
+$light-text-color: #616161;
+$light-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
+$light-box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4);
+
+// Dark Theme Colors
+$dark-primary-color: #212121;
+$dark-secondary-color: #424242;
+$dark-accent-color: #dcdcdc;
+$dark-text-color: #e0e0e0;
+$dark-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5);
+$dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
+
 .top-container {
   margin-top: 300px;
   margin-bottom: 300px;
@@ -32,6 +52,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
+  // width: 300px;
   color: #333;
 
   &:hover {
@@ -61,6 +82,7 @@
 
 .card-body {
   height: 200px;
+  overflow: hidden;
 }
 
 .card-footer {
@@ -69,6 +91,12 @@
   align-items: center;
   margin-top: 20px;
   margin: 0 20px;
+  padding: 15px;
+  flex-wrap: wrap;
+
+  i {
+    font-size: 24px;
+  }
 
   &.light {
     a {
@@ -106,4 +134,101 @@
       }
     }
   }
+}
+
+.card-text {
+  max-height: 300px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling for overflow content */
+  word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+  overflow-wrap: break-word;
+  margin-bottom: 20px;
+
+  .project-note {
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #4682b4;
+  }
+
+  p {
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+
+  &.light ::-webkit-scrollbar-track {
+    background: $light-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.dark ::-webkit-scrollbar-track {
+    background: $dark-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.light ::-webkit-scrollbar-thumb {
+    background: $light-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb {
+    background: $dark-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.light ::-webkit-scrollbar-thumb:hover {
+    background: darken(
+      $light-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb:hover {
+    background: lighten(
+      $dark-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  /* Firefox */
+  &.light {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $light-accent-color $light-secondary-color; /* Thumb and track color */
+  }
+
+  &.dark {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $dark-accent-color $dark-secondary-color; /* Thumb and track color */
+  }
+}
+
+.note {
+  font-size: 0.8em; /* Adjust the size as needed */
+  color: #666; /* Change the color to a lighter shade */
+  display: block; /* Make it display as a block element */
+  margin-top: 10px; /* Add some space above the note */
+  line-height: 1.4; /* Improve readability */
+}
+
+.note a {
+  color: #4682b4; /* Match the link color with the theme */
+  text-decoration: underline; /* Underline the link for better visibility */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.note a:hover {
+  color: #1e90ff; /* Change color on hover */
+}
+
+.portfolio-paragraph {
+  margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+.portfolio-paragraph + ul {
+  margin-top: 20px; /* Add space above the list */
+}
+
+.spaced-list-item {
+  margin-bottom: 10px;
 }
