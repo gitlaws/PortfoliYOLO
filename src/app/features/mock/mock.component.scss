@@ -1,100 +1,26 @@
-// _variables.scss
 $breakpoint-desktop: 1024px;
 $breakpoint-tablet: 1023px;
 $breakpoint-mobile: 600px;
 
-// CSS Variables for colors
-:root {
-  --color-primary-light: #e0e0e0;
-  --color-secondary-light: #f5f5f5;
-  --color-accent-light: #757575;
-  --color-text-light: #616161;
-  --color-icon-light: #333333;
-  --color-icon-hover-light: #555555;
+// Light Theme Colors
+$light-primary-color: #e0e0e0;
+$light-secondary-color: #f5f5f5;
+$light-accent-color: #757575;
+$light-text-color: #616161;
+$light-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
+$light-box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4);
 
-  --color-primary-dark: #212121;
-  --color-secondary-dark: #424242;
-  --color-accent-dark: #dcdcdc;
-  --color-text-dark: #e0e0e0;
-  --color-icon-dark: #ffffff;
-  --color-icon-hover-dark: #cccccc;
-}
-
-// _themes.scss
-$light-theme: (
-  primary: var(--color-primary-light),
-  secondary: var(--color-secondary-light),
-  accent: var(--color-accent-light),
-  text: var(--color-text-light),
-  icon: var(--color-icon-light),
-  icon-hover: var(--color-icon-hover-light),
-  box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3),
-  box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4),
-);
-
-$dark-theme: (
-  primary: var(--color-primary-dark),
-  secondary: var(--color-secondary-dark),
-  accent: var(--color-accent-dark),
-  text: var(--color-text-dark),
-  icon: var(--color-icon-dark),
-  icon-hover: var(--color-icon-hover-dark),
-  box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5),
-  box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3),
-);
-
-// _mixins.scss
-@mixin theme-styles($theme) {
-  background-color: map-get($theme, primary);
-  color: map-get($theme, text);
-  box-shadow: map-get($theme, box-shadow);
-
-  &:hover {
-    box-shadow: map-get($theme, box-shadow-hover);
-  }
-
-  h2 {
-    color: map-get($theme, text);
-  }
-
-  p {
-    color: map-get($theme, text);
-  }
-
-  .card__footer i {
-    color: map-get($theme, icon);
-    font-size: 24px;
-    cursor: pointer;
-
-    &:hover {
-      color: map-get($theme, icon-hover);
-    }
-  }
-
-  .card__text {
-    &::-webkit-scrollbar-track {
-      background: map-get($theme, secondary);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: map-get($theme, accent);
-
-      &:hover {
-        background: lighten(map-get($theme, accent), 10%);
-      }
-    }
-
-    scrollbar-color: map-get($theme, accent) map-get($theme, secondary);
-  }
-}
-
-// main.scss
-// @import "variables";
-// @import "themes";
-// @import "mixins";
+// Dark Theme Colors
+$dark-primary-color: #212121;
+$dark-secondary-color: #424242;
+$dark-accent-color: #dcdcdc;
+$dark-text-color: #e0e0e0;
+$dark-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5);
+$dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
 
 .top-container {
-  margin: 300px 0;
+  margin-top: 300px;
+  margin-bottom: 300px;
 }
 
 .container {
@@ -123,9 +49,11 @@ $dark-theme: (
 .card {
   background-color: transparent;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // width: 300px;
+  color: #333;
 
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -133,101 +61,174 @@ $dark-theme: (
     filter: brightness(0.9);
   }
 
-  &__header {
-    @include theme-styles($theme);
+  h2 {
+    margin-top: 0;
+    font-size: 1.5em;
   }
 
-  &__body {
-    @include theme-styles($theme);
+  p {
+    margin-top: 10px;
+    color: #666;
+  }
+}
+
+.card-header {
+  h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: white;
+  }
+}
+
+.card-body {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  margin: 0 20px;
+  padding: 15px;
+  flex-wrap: wrap;
+
+  i {
+    font-size: 24px;
   }
 
-  &__footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
-    padding: 15px;
-    flex-wrap: wrap;
+  &.light {
+    a {
+      transition: color 0.3s, transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
 
     i {
-      font-size: 24px;
+      color: #333;
+      font-size: 1.5em;
       cursor: pointer;
 
-      &.light {
-        color: map-get($light-theme, icon);
-
-        &:hover {
-          color: map-get($light-theme, icon-hover);
-        }
-      }
-
-      &.dark {
-        color: map-get($dark-theme, icon);
-
-        &:hover {
-          color: map-get($dark-theme, icon-hover);
-        }
+      &:hover {
+        color: #555;
       }
     }
   }
 
-  &__text {
-    max-height: 300px;
-    overflow-y: auto;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    margin-bottom: 20px;
-
-    .project-note {
-      margin-top: 10px;
-      font-size: 0.8em;
-      font-weight: bold;
-      color: #4682b4;
+  &.dark {
+    a {
+      transition: color 0.3s, transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
+    i {
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
 
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &.light {
-      scrollbar-width: thin;
-    }
-
-    &.dark {
-      scrollbar-width: thin;
+      &:hover {
+        color: #ccc;
+      }
     }
   }
 }
 
-// Note styles
-.note {
-  font-size: 0.8em;
-  color: #666;
-  display: block;
-  margin-top: 10px;
-  line-height: 1.4;
-
-  a {
-    color: #4682b4;
-    text-decoration: underline;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #1e90ff;
-    }
-  }
-}
-
-// Portfolio paragraph styles
-.portfolio-paragraph {
+.card-text {
+  max-height: 300px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling for overflow content */
+  word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+  overflow-wrap: break-word;
   margin-bottom: 20px;
 
-  + ul {
-    margin-top: 20px;
+  .project-note {
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #4682b4;
+  }
+
+  p {
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+
+  &.light ::-webkit-scrollbar-track {
+    background: $light-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.dark ::-webkit-scrollbar-track {
+    background: $dark-secondary-color; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+
+  &.light ::-webkit-scrollbar-thumb {
+    background: $light-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb {
+    background: $dark-accent-color; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+
+  &.light ::-webkit-scrollbar-thumb:hover {
+    background: darken(
+      $light-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  &.dark ::-webkit-scrollbar-thumb:hover {
+    background: lighten(
+      $dark-accent-color,
+      10%
+    ); /* Color of the scrollbar thumb on hover */
+  }
+
+  /* Firefox */
+  &.light {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $light-accent-color $light-secondary-color; /* Thumb and track color */
+  }
+
+  &.dark {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: $dark-accent-color $dark-secondary-color; /* Thumb and track color */
   }
 }
 
-// Spaced list item styles
+.note {
+  font-size: 0.8em; /* Adjust the size as needed */
+  color: #666; /* Change the color to a lighter shade */
+  display: block; /* Make it display as a block element */
+  margin-top: 10px; /* Add some space above the note */
+  line-height: 1.4; /* Improve readability */
+}
+
+.note a {
+  color: #4682b4; /* Match the link color with the theme */
+  text-decoration: underline; /* Underline the link for better visibility */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.note a:hover {
+  color: #1e90ff; /* Change color on hover */
+}
+
+.portfolio-paragraph {
+  margin-bottom: 20px; /* Add space below the paragraph */
+}
+
+.portfolio-paragraph + ul {
+  margin-top: 20px; /* Add space above the list */
+}
+
 .spaced-list-item {
   margin-bottom: 10px;
 }
