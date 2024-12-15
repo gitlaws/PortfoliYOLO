@@ -1,234 +1,58 @@
-$breakpoint-desktop: 1024px;
-$breakpoint-tablet: 1023px;
-$breakpoint-mobile: 600px;
+@import "../../../styles/_variables.scss";
 
-// Light Theme Colors
-$light-primary-color: #e0e0e0;
-$light-secondary-color: #f5f5f5;
-$light-accent-color: #757575;
-$light-text-color: #616161;
-$light-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
-$light-box-shadow-hover: 0 8px 16px rgba(97, 97, 97, 0.4);
-
-// Dark Theme Colors
-$dark-primary-color: #212121;
-$dark-secondary-color: #424242;
-$dark-accent-color: #dcdcdc;
-$dark-text-color: #e0e0e0;
-$dark-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5);
-$dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
-
-.top-container {
-  margin-top: 300px;
-  margin-bottom: 300px;
-}
-
-.container {
-  margin: 0 auto;
+.card-container {
   display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 2rem;
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px;
+  margin-top: 160px;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    max-width: 80%;
+  @media (min-width: $desktop) {
+    max-width: 1440px;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 160px;
+    padding: 0 20px;
   }
 
-  @media (min-width: 1500px) {
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    max-width: 75%;
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
 
-  @media (max-width: 1500px) {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
 .card {
-  background-color: transparent;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 20px;
-  margin: 20px;
-  // width: 300px;
-  color: #333;
+  text-align: center;
 
-  &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    filter: brightness(0.9);
-  }
-
-  h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-  }
-
-  p {
-    margin-top: 10px;
-    color: #666;
-  }
-}
-
-.card-header {
-  h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: white;
-  }
-}
-
-.card-body {
-  height: 200px;
-  overflow: hidden;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-  margin: 0 20px;
-  padding: 15px;
-  flex-wrap: wrap;
-
-  i {
-    font-size: 24px;
-  }
-
-  &.light {
-    a {
-      transition: color 0.3s, transform 0.3s;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-
-    i {
-      color: #333;
-      font-size: 1.5em;
-      cursor: pointer;
-
-      &:hover {
-        color: #555;
-      }
-    }
-  }
-
-  &.dark {
-    a {
-      transition: color 0.3s, transform 0.3s;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-    i {
-      color: #fff;
-      font-size: 1.5em;
-      cursor: pointer;
-
-      &:hover {
-        color: #ccc;
-      }
-    }
-  }
-}
-
-.card-text {
-  max-height: 300px; /* Set a maximum height */
-  overflow-y: auto; /* Enable vertical scrolling for overflow content */
-  word-wrap: break-word; /* Ensure long words break and wrap to the next line */
-  overflow-wrap: break-word;
-  margin-bottom: 20px;
-
-  .project-note {
-    margin-top: 10px;
-    font-size: 0.8em;
+  header {
+    font-size: 20px;
     font-weight: bold;
-    color: #4682b4;
+    margin-bottom: 10px;
   }
 
-  p {
+  section {
+    margin-bottom: 10px;
   }
 
-  ::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+  footer {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
   }
-
-  &.light ::-webkit-scrollbar-track {
-    background: $light-secondary-color; /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
-  }
-
-  &.dark ::-webkit-scrollbar-track {
-    background: $dark-secondary-color; /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
-  }
-
-  &.light ::-webkit-scrollbar-thumb {
-    background: $light-accent-color; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-  }
-
-  &.dark ::-webkit-scrollbar-thumb {
-    background: $dark-accent-color; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-  }
-
-  &.light ::-webkit-scrollbar-thumb:hover {
-    background: darken(
-      $light-accent-color,
-      10%
-    ); /* Color of the scrollbar thumb on hover */
-  }
-
-  &.dark ::-webkit-scrollbar-thumb:hover {
-    background: lighten(
-      $dark-accent-color,
-      10%
-    ); /* Color of the scrollbar thumb on hover */
-  }
-
-  /* Firefox */
-  &.light {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: $light-accent-color $light-secondary-color; /* Thumb and track color */
-  }
-
-  &.dark {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: $dark-accent-color $dark-secondary-color; /* Thumb and track color */
-  }
-}
-
-.note {
-  font-size: 0.8em; /* Adjust the size as needed */
-  color: #666; /* Change the color to a lighter shade */
-  display: block; /* Make it display as a block element */
-  margin-top: 10px; /* Add some space above the note */
-  line-height: 1.4; /* Improve readability */
-}
-
-.note a {
-  color: #4682b4; /* Match the link color with the theme */
-  text-decoration: underline; /* Underline the link for better visibility */
-  transition: color 0.3s; /* Smooth transition for hover effect */
-}
-
-.note a:hover {
-  color: #1e90ff; /* Change color on hover */
-}
-
-.portfolio-paragraph {
-  margin-bottom: 20px; /* Add space below the paragraph */
-}
-
-.portfolio-paragraph + ul {
-  margin-top: 20px; /* Add space above the list */
-}
-
-.spaced-list-item {
-  margin-bottom: 10px;
 }
