@@ -17,12 +17,34 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet) {
   .video-container {
     .video-wrapper {
       iframe {
         width: 560px;
         height: 315px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .video-container {
+    .video-wrapper {
+      iframe {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1024px) {
+  .video-container {
+    .video-wrapper {
+      iframe {
+        width: 460px; /* Adjust as needed */
+        height: 215px;
       }
     }
   }
