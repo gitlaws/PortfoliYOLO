@@ -20,18 +20,19 @@ $transition-duration: 0.3s;
   // box-shadow: $box-shadow;
 
   font-family: "Roboto", sans-serif;
+  background: transparent;
 
   &.light {
     box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
     text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-    background: radial-gradient(
-      circle at center,
-      #b3b3b3,
-      #cccccc,
-      #e6e6e6,
-      #ffffff
-    );
+    // background: radial-gradient(
+    //   circle at center,
+    //   #b3b3b3,
+    //   #cccccc,
+    //   #e6e6e6,
+    //   #ffffff
+    // );
     transition: background 0.3s ease;
   }
 
@@ -39,9 +40,11 @@ $transition-duration: 0.3s;
     box-shadow: 0 0 15px #1a1a1a, 0 0 15px #333333, 0 0 15px #4d4d4d;
     text-shadow: 0 0 10px #1a1a1a, 0 0 10px #333333, 0 0 10px #4d4d4d;
 
-    background: linear-gradient(180deg, #333333, #4d4d4d, #666666, #808080);
+    // background: linear-gradient(180deg, #333333, #4d4d4d, #666666, #808080);
     transition: background 0.3s ease;
   }
+
+  // background-color: red;
 }
 
 .profile-image {
@@ -72,7 +75,6 @@ $transition-duration: 0.3s;
 .profile-details {
   padding: 20px;
   color: inherit;
-
   .job-title {
     margin: 10px 0;
     font-size: 1.75rem;
@@ -124,8 +126,9 @@ $transition-duration: 0.3s;
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px;
-  border-radius: $border-radius;
-  box-shadow: $link-tree-shadow;
+
+  // border-radius: $border-radius;
+  // box-shadow: $link-tree-shadow;
 
   &.light {
     // box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
@@ -133,18 +136,18 @@ $transition-duration: 0.3s;
     // background: linear-gradient(360deg, #ffffff, #e6e6e6, #cccccc, #b3b3b3);
     // transition: background 0.3s ease;
 
-    box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
-    text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
-    background: radial-gradient(
-      circle at center,
-      rgba(179, 179, 179, 0.8),
-      rgba(204, 204, 204, 0.8),
-      rgba(230, 230, 230, 0.8),
-      rgba(255, 255, 255, 0.8)
-    );
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    transition: background 0.3s ease, text-shadow 0.3s ease;
+    // box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
+    // text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
+    // background: radial-gradient(
+    //   circle at center,
+    //   rgba(179, 179, 179, 0.8),
+    //   rgba(204, 204, 204, 0.8),
+    //   rgba(230, 230, 230, 0.8),
+    //   rgba(255, 255, 255, 0.8)
+    // );
+    // -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    // backdrop-filter: blur(10px); /* Apply blur effect */
+    // transition: background 0.3s ease, text-shadow 0.3s ease;
   }
 
   &.dark {
@@ -153,19 +156,19 @@ $transition-duration: 0.3s;
     // background: linear-gradient(360deg, #2c2c2c, #3a3a3a, #484848, #565656);
     // transition: background 0.3s ease;
 
-    box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
-    text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
+    // box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
+    // text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-    background: radial-gradient(
-      circle,
-      rgba(93, 93, 93, 0.8),
-      rgba(76, 76, 76, 0.8),
-      rgba(59, 59, 59, 0.8),
-      rgba(42, 42, 42, 0.8)
-    );
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    transition: background 0.3s ease, text-shadow 0.3s ease;
+    // // background: radial-gradient(
+    // //   circle,
+    // //   rgba(93, 93, 93, 0.8),
+    // //   rgba(76, 76, 76, 0.8),
+    // //   rgba(59, 59, 59, 0.8),
+    // //   rgba(42, 42, 42, 0.8)
+    // // );
+    // -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    // backdrop-filter: blur(10px); /* Apply blur effect */
+    // transition: background 0.3s ease, text-shadow 0.3s ease;
   }
 
   @media (max-width: 320px) {
@@ -204,13 +207,13 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
       text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
 
-      background: radial-gradient(
-        circle at center,
-        rgba(230, 230, 230, 0.8),
-        rgba(204, 204, 204, 0.8),
-        rgba(179, 179, 179, 0.8),
-        rgba(153, 153, 153, 0.8)
-      );
+      // background: radial-gradient(
+      //   circle at center,
+      //   rgba(230, 230, 230, 0.8),
+      //   rgba(204, 204, 204, 0.8),
+      //   rgba(179, 179, 179, 0.8),
+      //   rgba(153, 153, 153, 0.8)
+      // );
       -webkit-backdrop-filter: blur(10px); /* For Safari support */
       backdrop-filter: blur(10px); /* Apply blur effect */
       transition: background 0.3s ease, text-shadow 0.3s ease;
@@ -218,6 +221,8 @@ $transition-duration: 0.3s;
       &:hover {
         box-shadow: 0 0 20px #dcdcdc, 0 0 20px #bcbcbc, 0 0 20px #9c9c9c;
         text-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
+        backdrop-filter: blur(10px);
+        filter: brightness(0.9);
       }
     }
 
@@ -225,13 +230,13 @@ $transition-duration: 0.3s;
       box-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
       text-shadow: 0 0 10px #1a1a1a, 0 0 10px #2b2b2b, 0 0 10px #4d4d4d;
 
-      background: radial-gradient(
-        circle,
-        rgba(93, 93, 93, 0.8),
-        rgba(76, 76, 76, 0.8),
-        rgba(59, 59, 59, 0.8),
-        rgba(42, 42, 42, 0.8)
-      );
+      // background: radial-gradient(
+      //   circle,
+      //   rgba(93, 93, 93, 0.8),
+      //   rgba(76, 76, 76, 0.8),
+      //   rgba(59, 59, 59, 0.8),
+      //   rgba(42, 42, 42, 0.8)
+      // );
       -webkit-backdrop-filter: blur(10px); /* For Safari support */
       backdrop-filter: blur(10px); /* Apply blur effect */
       transition: background 0.3s ease, text-shadow 0.3s ease;
@@ -239,6 +244,8 @@ $transition-duration: 0.3s;
       &:hover {
         box-shadow: 0 0 20px #1a1a1a, 0 0 20px #2b2b2b, 0 0 20px #4d4d4d;
         text-shadow: 0 0 15px #1a1a1a, 0 0 15px #2b2b2b, 0 0 15px #4d4d4d;
+        backdrop-filter: blur(10px);
+        filter: brightness(0.9);
       }
     }
 
