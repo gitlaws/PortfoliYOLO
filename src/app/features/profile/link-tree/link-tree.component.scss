@@ -185,6 +185,7 @@ $transition-duration: 0.3s;
     transition: all $transition-duration ease;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
 
     @keyframes gradient-animation {
       0% {
