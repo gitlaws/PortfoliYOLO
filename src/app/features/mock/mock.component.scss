@@ -54,24 +54,25 @@ $dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
 .card {
   display: flex;
   flex-direction: column;
-  // border: 1px solid #ccc;
   background-color: transparent;
-  // border-radius: 8px;
+  // color: #cf6d6d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  // border-radius: 8px;
+  // border: 1px solid #ccc;
   padding: 20px;
   text-align: center;
-  min-height: 300px; /* Minimum height for consistency */
-  max-height: 400px; /* Maximum height for consistency */
+  min-height: 300px;
+  max-height: 400px;
   height: 100%;
 
   &.light {
-    background-color: $light-secondary-color;
+    // background-color: $light-secondary-color;
     box-shadow: $light-box-shadow;
   }
 
   &.dark {
-    background-color: $dark-secondary-color;
+    // background-color: $dark-secondary-color;
     box-shadow: $dark-box-shadow;
   }
 
