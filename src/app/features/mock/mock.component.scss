@@ -61,6 +61,9 @@ $dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
   border-radius: 5px;
   padding: 20px;
   text-align: center;
+  min-height: 300px; /* Minimum height for consistency */
+  max-height: 400px; /* Maximum height for consistency */
+  height: 100%;
 
   &.light {
     background-color: $light-secondary-color;
