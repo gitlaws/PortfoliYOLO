@@ -54,3 +54,53 @@
     }
   }
 }
+
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 20px;
+  margin-top: 20px;
+
+  .tech-icon {
+    font-size: 3rem;
+    color: #333;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: red;
+    }
+
+    &.light {
+      color: #333;
+    }
+
+    &.dark {
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .icon-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 10px;
+
+    .tech-icon {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: 1024px) {
+  .icon-container {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 15px;
+
+    .tech-icon {
+      font-size: 2.5rem;
+    }
+  }
+}

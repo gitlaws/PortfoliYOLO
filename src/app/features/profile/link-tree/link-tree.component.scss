@@ -214,8 +214,8 @@ $transition-duration: 0.3s;
       //   rgba(179, 179, 179, 0.8),
       //   rgba(153, 153, 153, 0.8)
       // );
-      -webkit-backdrop-filter: blur(10px); /* For Safari support */
-      backdrop-filter: blur(10px); /* Apply blur effect */
+      // -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      // backdrop-filter: blur(10px); /* Apply blur effect */
       transition: background 0.3s ease, text-shadow 0.3s ease;
 
       &:hover {
@@ -237,8 +237,8 @@ $transition-duration: 0.3s;
       //   rgba(59, 59, 59, 0.8),
       //   rgba(42, 42, 42, 0.8)
       // );
-      -webkit-backdrop-filter: blur(10px); /* For Safari support */
-      backdrop-filter: blur(10px); /* Apply blur effect */
+      // -webkit-backdrop-filter: blur(10px); /* For Safari support */
+      // backdrop-filter: blur(10px); /* Apply blur effect */
       transition: background 0.3s ease, text-shadow 0.3s ease;
 
       &:hover {
