@@ -7,6 +7,7 @@
 
   h2 {
     font-size: 1.5rem;
+    margin-top: 10px;
     margin-bottom: 20px;
   }
 
@@ -64,20 +65,93 @@
 
   .tech-icon {
     font-size: 3rem;
-    color: #333;
     transition: color 0.3s ease;
 
-    &:hover {
-      color: red;
+    &.fa-angular {
+      color: #dd0031;
     }
 
-    &.light {
-      color: #333;
+    &.fa-react {
+      color: #61dafb;
     }
 
-    &.dark {
-      color: #fff;
+    &.fa-node-js {
+      color: #68a063;
     }
+
+    &.fa-code {
+      color: #5c2d91;
+    }
+
+    &.fa-js {
+      color: #f7df1e;
+    }
+
+    &.fa-html5 {
+      color: #e34f26;
+    }
+
+    &.fa-css3-alt {
+      color: #1572b6;
+    }
+
+    &.fa-python {
+      color: #3776ab;
+    }
+
+    &.fa-java {
+      color: #007396;
+    }
+
+    &.fa-android {
+      color: #3ddc84;
+    }
+
+    &.fa-apple {
+      color: #999999;
+    }
+
+    &.fa-git {
+      color: #f05032;
+    }
+
+    &.fa-docker {
+      color: #2496ed;
+    }
+
+    &.fa-aws {
+      color: #ff9900;
+    }
+
+    &.fa-terminal {
+      color: #007acc;
+    }
+
+    &.fa-linux {
+      color: #fcc624;
+    }
+
+    &.fa-windows {
+      color: #0078d6;
+    }
+
+    &.fa-php {
+      color: #777bb4;
+    }
+
+    &.fa-ruby {
+      color: #cc342d;
+    }
+
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+
+    // &.light {
+    //   color: #333;
+    // }
+
+    // &.dark {
+    //   color: #fff;
+    // }
   }
 }
 

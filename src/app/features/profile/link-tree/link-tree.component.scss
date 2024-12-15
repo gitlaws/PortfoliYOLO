@@ -25,21 +25,15 @@ $transition-duration: 0.3s;
   &.light {
     box-shadow: 0 0 15px #dcdcdc, 0 0 15px #bcbcbc, 0 0 15px #9c9c9c;
     text-shadow: 0 0 10px #dcdcdc, 0 0 10px #bcbcbc, 0 0 10px #9c9c9c;
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-    // background: radial-gradient(
-    //   circle at center,
-    //   #b3b3b3,
-    //   #cccccc,
-    //   #e6e6e6,
-    //   #ffffff
-    // );
+    background: radial-gradient(at center, #f5f5f5, #e0e0e0);
     transition: background 0.3s ease;
   }
 
   &.dark {
     box-shadow: 0 0 15px #1a1a1a, 0 0 15px #333333, 0 0 15px #4d4d4d;
     text-shadow: 0 0 10px #1a1a1a, 0 0 10px #333333, 0 0 10px #4d4d4d;
-    background: linear-gradient(135deg, #232526, #414345);
+    background: radial-gradient(at center, #2e2e2e, #1e1e1e);
+
     transition: background 0.3s ease;
   }
 
