@@ -16,6 +16,14 @@ $dark-text-color: #e0e0e0;
 $dark-box-shadow: 0 4px 8px rgba(97, 97, 97, 0.5);
 $dark-box-shadow-hover: 0 8px 16px rgba(224, 224, 224, 0.3);
 
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
