@@ -54,18 +54,15 @@
 }
 
 body.light-mode {
-  background: radial-gradient(at center, #d3d3d3, #a9a9a9, #d3d3d3);
+  background: linear-gradient(315deg, #d3d3d3, #a9a9a9, #d3d3d3);
   background-size: 600% 600%;
   @include theme-mode-transition;
 }
 
 body.dark-mode {
-  // background: radial-gradient(at center, #2b2b2b, #4a4a4a, #2b2b2b);
-  // background: radial-gradient(at center, #1c1c1c, #363636, #1c1c1c);
-  // background: radial-gradient(at center, #1f1f1f, #3c3c3c, #1f1f1f);
-  background: radial-gradient(at center, #2e2e2e, #5a5a5a, #2e2e2e);
-  // background: radial-gradient(at center, #242424, #484848, #242424);
-
+  // background: linear-gradient(135deg, #2e2e2e, #5a5a5a, #2e2e2e);
+  background: linear-gradient(135deg, #1c1c1c, #3a3a3a, #2e2e2e);
+  // background: linear-gradient(135deg, #1c1c1c, #363636, #1c1c1c);
   background-size: 600% 600%;
   @include theme-mode-transition;
 }

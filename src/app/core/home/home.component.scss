@@ -3,17 +3,18 @@
 @import "../../../styles/_variables.scss";
 
 .intro-section {
-  &.light {
-    background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
-    background-size: 600% 600%;
-    // animation: gradientAnimation 20s ease infinite;
-  }
+  // &.light {
+  //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
+  //   background-size: 600% 600%;
+  //   // animation: gradientAnimation 20s ease infinite;
+  // }
 
-  &.dark {
-    background: linear-gradient(270deg, #1c1c1c, #363636, #1c1c1c);
-    background-size: 600% 600%;
-    // animation: gradientAnimation 20s ease infinite;
-  }
+  // &.dark {
+  //   background: linear-gradient(135deg, #1c1c1c, #363636, #1c1c1c);
+  //   //  background: linear-gradient(135deg, #1c1c1c, #3a3a3a, #2e2e2e);
+  //   background-size: 600% 600%;
+  //   // animation: gradientAnimation 20s ease infinite;
+  // }
 
   position: relative;
   overflow: hidden;

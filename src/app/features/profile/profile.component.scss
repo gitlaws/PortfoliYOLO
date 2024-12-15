@@ -24,11 +24,11 @@ $cozy-box-shadow: 0 2px 4px rgba(46, 46, 46, 0.5);
   align-items: center;
   padding: 20px;
 
-  &.light {
-    background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
-    // background-size: 600% 600%;
-    animation: gradientAnimation 20s ease infinite;
-  }
+  // &.light {
+  //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
+  //   // background-size: 600% 600%;
+  //   animation: gradientAnimation 20s ease infinite;
+  // }
 
   &.dark {
     background: linear-gradient(270deg, #1c1c1c, #363636, #1c1c1c);
