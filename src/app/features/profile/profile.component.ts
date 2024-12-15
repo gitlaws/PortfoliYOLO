@@ -4,11 +4,12 @@ import { ThemeService } from '../../shared/services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { LinkTreeComponent } from './link-tree/link-tree.component';
+import { VideosComponent } from './videos/videos.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, LinkTreeComponent],
+  imports: [CommonModule, LinkTreeComponent, VideosComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
