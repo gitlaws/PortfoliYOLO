@@ -1,8 +1,9 @@
 # Angular 17 SPA – Portfolio
 
 A modern, responsive single-page application (SPA) built using **Angular 17** with a focus on modular design, component reusability, responsive layout, dynamic theming, and clean architecture.
-
 https://gitlaws.github.io/PortfoliYOLO/
+
+
 ---
 
 ## 🚀 Features
