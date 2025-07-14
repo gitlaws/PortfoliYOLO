@@ -2,6 +2,7 @@
 
 A modern, responsive single-page application (SPA) built using **Angular 17** with a focus on modular design, component reusability, responsive layout, dynamic theming, and clean architecture.
 
+https://gitlaws.github.io/PortfoliYOLO/
 ---
 
 ## 🚀 Features
@@ -76,5 +77,3 @@ A modern, responsive single-page application (SPA) built using **Angular 17** wi
 | Font Awesome     | Icons                       |
 | Angular Router   | Navigation                  |
 | Angular Services | State & theme management    |
-
-https://gitlaws.github.io/PortfoliYOLO/
