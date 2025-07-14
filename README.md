@@ -1,27 +1,79 @@
-# PortfoliYOLO
+# Angular 17 SPA – Projects, Profile & Compensation Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+A modern, responsive single-page application (SPA) built using **Angular 17** with a focus on modular design, component reusability, responsive layout, dynamic theming, and clean architecture.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+### 🧱 Front-End Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Responsive Design**: Mobile-first layout using CSS Grid, Flexbox, and media queries
+- **Dynamic Theming**: Light/Dark mode toggle using Angular’s `[ngClass]` directive
+- **Animations**: Custom CSS keyframe animations and transitions for interactive UI
+- **Styling Tools**:
+  - SCSS architecture with mixins, variables, and nested styles
+  - Integrated Font Awesome icons for clean, consistent UI
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 🧩 Component-Based Architecture
 
-## Running unit tests
+- **Reusable Components**:
+  - Toolbar, Footer, Theme Toggle, and Cube Logo
+- **Component Communication**:
+  - Used `@Input()` decorators for theme propagation
+- **SCSS Modules**:
+  - Component-scoped styling and global variables for maintainability
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### 🧠 Modern Web Technologies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Angular 17**:
+  - Built with latest Angular CLI and best practices
+- **TypeScript**:
+  - Type-safe logic and improved code maintainability
+- **Advanced CSS3**:
+  - Used `transform`, `transition`, `backdrop-filter`, and gradient animations
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### ♿️ User Experience & Accessibility
+
+- **Semantic HTML & ARIA**: Ensured accessible navigation and structure
+- **Responsive UI**: Optimized for desktops, tablets, and mobile devices
+- **Interactive Effects**: Smooth hover states and transition feedback for user engagement
+
+---
+
+### 🏗️ Project Structure & Best Practices
+
+- **Feature-Based Folder Structure**:
+  - Organized using Angular CLI standards
+- **Separation of Concerns**:
+  - Divided into core, shared, and feature modules
+- **Clean Code Principles**:
+  - Consistent naming conventions and logical component organization
+
+---
+
+## 📁 Sections
+
+- **Projects**: Showcase or list of items with interactive elements
+- **Profile**: Personal info and theme customization settings
+- **Compensation**: Layout for salary or payment breakdowns (placeholder)
+
+---
+
+## 🔧 Technologies Used
+
+| Technology       | Role                        |
+|------------------|-----------------------------|
+| Angular 17       | Framework                   |
+| TypeScript       | Language                    |
+| SCSS / Sass      | Styling                     |
+| CSS3             | Responsive design & effects |
+| Font Awesome     | Icons                       |
+| Angular Router   | Navigation                  |
+| Angular Services | State & theme management    |
