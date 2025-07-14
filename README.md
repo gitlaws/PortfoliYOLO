@@ -62,7 +62,6 @@ A modern, responsive single-page application (SPA) built using **Angular 17** wi
 
 - **Projects**: Showcase or list of items with interactive elements
 - **Profile**: Personal info and theme customization settings
-- **Compensation**: Layout for salary or payment breakdowns (placeholder)
 
 ---
 
