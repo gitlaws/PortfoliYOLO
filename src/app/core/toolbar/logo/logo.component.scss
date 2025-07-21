@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+.logo {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 15px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover::after {
+    width: 100%;
+    background: #00ff7f;
+  }
+}

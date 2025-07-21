@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../shared/models/theme.enum';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { StorageService } from '../../shared/services/theme/storage.service';
+import { LogoComponent } from '../toolbar/logo/logo.component';
 import { CubeLogoComponent } from './cube-logo/cube-logo.component';
 import { CyberMenuComponent } from '../cyber-menu/cyber-menu.component';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
@@ -17,6 +18,7 @@ import { RouterLink } from '@angular/router';
     CommonModule,
     RouterLink,
     CubeLogoComponent,
+    LogoComponent,
     CyberMenuComponent,
     ThemeToggleComponent,
   ],
