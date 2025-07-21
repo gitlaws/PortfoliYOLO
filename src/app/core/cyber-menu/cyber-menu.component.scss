@@ -13,7 +13,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-toggle svg line {
-  stroke-width: 4;
+  stroke-width: 3;
   @include glow-animation(2s, infinite);
 }
 
@@ -21,7 +21,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   background-color: $cybermenu-bg-color;
   color: $white-color;
   font-size: 1.2em;
-  padding: 10px;
+  padding: 4px;
   transition: $transition-effect;
   border: 1px solid $cybermenu-border-color;
 
