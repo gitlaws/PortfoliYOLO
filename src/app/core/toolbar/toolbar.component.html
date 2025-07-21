@@ -10,6 +10,13 @@
   <nav class="header__nav" aria-label="Main Navigation">
     <!-- Links -->
     <a
+      routerLink="/Home"
+      class="nav__item-link"
+      [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
+      >Home</a
+    >
+
+    <a
       routerLink="/mock"
       class="nav__item-link"
       [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
@@ -24,7 +31,7 @@
     <!-- Theme Toggle -->
     <app-theme-toggle class="nav__theme-toggle"></app-theme-toggle>
     <!-- Social Links -->
-    <div class="nav__social-links">
+    <!-- <div class="nav__social-links">
       <ul>
         <li>
           <a
@@ -80,7 +87,7 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
 
   <!-- NavBtn -->
