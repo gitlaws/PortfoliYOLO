@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-logo',
   standalone: true,
-  imports: [],
+  imports: [CommonModule], // Add this import
   templateUrl: './logo.component.html',
-  styleUrl: './logo.component.scss',
+  styleUrls: ['./logo.component.scss'],
 })
-export class LogoComponent {}
+export class LogoComponent implements OnInit {
+  theme: string = 'light'; // Add this property
+
+  constructor() {}
+
+  ngOnInit(): void {
+    // Initialize theme logic here
+  }
+}
