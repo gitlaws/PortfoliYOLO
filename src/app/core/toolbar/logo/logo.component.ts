@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { theme } from '../../../shared/models/theme.enum';
+import { ThemeService } from '../../../shared/services/theme/theme.service';
 
 @Component({
   selector: 'app-logo',
@@ -9,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent implements OnInit {
-  theme: string = 'light'; // Add this property
+  theme!: 'light' | 'dark';
 
   constructor() {}
 
