@@ -2,28 +2,48 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
+// .intro-section {
+//   // &.light {
+//   //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
+//   //   background-size: 600% 600%;
+//   //   // animation: gradientAnimation 20s ease infinite;
+//   // }
+
+//   // &.dark {
+//   //   background: linear-gradient(135deg, #1c1c1c, #363636, #1c1c1c);
+//   //   //  background: linear-gradient(135deg, #1c1c1c, #3a3a3a, #2e2e2e);
+//   //   background-size: 600% 600%;
+//   //   // animation: gradientAnimation 20s ease infinite;
+//   // }
+
+//   position: relative;
+//   overflow: hidden;
+//   padding: 100px 20px;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+// }
+
 .intro-section {
-  // &.light {
-  //   background: linear-gradient(270deg, #d3d3d3, #a9a9a9, #d3d3d3);
-  //   background-size: 600% 600%;
-  //   // animation: gradientAnimation 20s ease infinite;
-  // }
-
-  // &.dark {
-  //   background: linear-gradient(135deg, #1c1c1c, #363636, #1c1c1c);
-  //   //  background: linear-gradient(135deg, #1c1c1c, #3a3a3a, #2e2e2e);
-  //   background-size: 600% 600%;
-  //   // animation: gradientAnimation 20s ease infinite;
-  // }
-
   position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
   overflow: hidden;
-  padding: 100px 20px;
-  text-align: center;
+  background: #000; /* Fallback background */
+}
+
+.intro-content {
+  position: relative;
+  z-index: 1; /* Above the particles */
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  color: #fff;
 }
 
 @keyframes gradientAnimation {
