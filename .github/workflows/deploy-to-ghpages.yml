@@ -5,20 +5,26 @@ on:
     branches:
       - main  
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '22.4.0'
           cache: 'npm'
           
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
         
       - name: Install Angular CLI and GH Pages
         run: npm install -g @angular/cli angular-cli-ghpages
@@ -26,5 +32,7 @@ jobs:
       - name: Build
         run: ng build --configuration production --base-href "https://gitlaws.github.io/PortfoliYOLO/"
         
-      - name: Deploy
-        run: npx angular-cli-ghpages --dir=dist/PortfoliYOLO/browser
+      - name: Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/portfoli-yolo/browser --no-silent
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
