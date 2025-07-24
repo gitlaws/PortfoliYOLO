@@ -14,15 +14,14 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .dropdown-toggle svg line {
   stroke-width: 3;
-  stroke: #757575;
+  // stroke: #757575;
 
-  // Light/Dark mode support
-  // .light & {
-  //   stroke: #757575; // medium gray for light mode
-  // }
-  // .dark & {
-  //   stroke: #e0e0e0; // light gray for dark mode
-  // }
+  &.light {
+    stroke: #757575; // medium gray for light mode
+  }
+  &.dark {
+    stroke: #e0e0e0; // light gray for dark mode
+  }
   // @include glow-animation(2s, infinite);
 }
 
