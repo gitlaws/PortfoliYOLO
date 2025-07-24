@@ -22,13 +22,14 @@
     </li>
 
     <li class="dropdown-item">
-      <a routerLink="/mock" [ngClass]="theme" (click)="closeDropdown()"
-        >Projects</a
-      >
-    </li>
-    <li class="dropdown-item">
       <a routerLink="/profile" [ngClass]="theme" (click)="closeDropdown()"
         >Profile</a
+      >
+    </li>
+
+    <li class="dropdown-item">
+      <a routerLink="/mock" [ngClass]="theme" (click)="closeDropdown()"
+        >Projects</a
       >
     </li>
     <li class="dropdown-item"><app-theme-toggle></app-theme-toggle></li>

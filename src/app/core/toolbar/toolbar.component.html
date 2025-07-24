@@ -18,16 +18,17 @@
     >
 
     <a
-      routerLink="/mock"
-      class="nav__item-link"
-      [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
-      >Projects</a
-    >
-    <a
       routerLink="/profile"
       class="nav__item-link"
       [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
       >Profile</a
+    >
+
+    <a
+      routerLink="/mock"
+      class="nav__item-link"
+      [ngClass]="{ light: theme === 'light', dark: theme === 'dark' }"
+      >Projects</a
     >
     <!-- Theme Toggle -->
     <app-theme-toggle class="nav__theme-toggle"></app-theme-toggle>
