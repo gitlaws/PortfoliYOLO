@@ -126,31 +126,31 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .dropdown-toggle svg line {
   stroke-width: 3;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 
-  // Light theme - cool to neutral
+  // Light theme - gradient inspired
   &.light {
     &:nth-child(1) {
-      stroke: #90a4ae; // Blue grey
+      stroke: #ffffff;
     }
     &:nth-child(2) {
-      stroke: #b39ddb; // Light purple
+      stroke: #e8eaf6;
     }
     &:nth-child(3) {
-      stroke: #f8bbd9; // Light pink
+      stroke: #9fa8da;
     }
   }
 
-  // Dark theme - cold spectrum
+  // Dark theme - electric sequence
   &.dark {
     &:nth-child(1) {
-      stroke: #263238; // Dark blue grey
+      stroke: #00bcd4; // Cyan
     }
     &:nth-child(2) {
-      stroke: #37474f; // Medium grey
+      stroke: #8bc34a; // Light Green
     }
     &:nth-child(3) {
-      stroke: #546e7a; // Light grey
+      stroke: #ffeb3b; // Yellow
     }
   }
 }
@@ -158,35 +158,110 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 .dropdown-toggle:hover svg line {
   &.light {
     &:nth-child(1) {
-      stroke: #ff5722; // Deep orange
-      stroke-width: 4;
+      stroke: #ff6b35;
+      animation: lightPulse1 1.5s ease-in-out infinite;
     }
     &:nth-child(2) {
-      stroke: #ff9800; // Orange
-      stroke-width: 4;
+      stroke: #f7931e;
+      animation: lightPulse2 1.5s ease-in-out infinite 0.2s;
     }
     &:nth-child(3) {
-      stroke: #ffc107; // Amber
-      stroke-width: 4;
+      stroke: #ffd23f;
+      animation: lightPulse3 1.5s ease-in-out infinite 0.4s;
     }
   }
 
   &.dark {
     &:nth-child(1) {
-      stroke: #00e5ff; // Cyan
-      stroke-width: 4;
-      filter: drop-shadow(0 0 6px #00e5ff);
+      stroke: #00ffff;
+      animation: darkPulse1 1.5s ease-in-out infinite;
     }
     &:nth-child(2) {
-      stroke: #1de9b6; // Teal
-      stroke-width: 4;
-      filter: drop-shadow(0 0 6px #1de9b6);
+      stroke: #ff0080;
+      animation: darkPulse2 1.5s ease-in-out infinite 0.2s;
     }
     &:nth-child(3) {
-      stroke: #76ff03; // Light green
-      stroke-width: 4;
-      filter: drop-shadow(0 0 6px #76ff03);
+      stroke: #8000ff;
+      animation: darkPulse3 1.5s ease-in-out infinite 0.4s;
     }
+  }
+}
+
+@keyframes lightPulse1 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 0.7;
+    stroke-width: 5;
+  }
+}
+
+@keyframes lightPulse2 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 0.7;
+    stroke-width: 5;
+  }
+}
+
+@keyframes lightPulse3 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 0.7;
+    stroke-width: 5;
+  }
+}
+
+@keyframes darkPulse1 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 0px currentColor);
+  }
+  50% {
+    opacity: 0.8;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+}
+
+@keyframes darkPulse2 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 0px currentColor);
+  }
+  50% {
+    opacity: 0.8;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+}
+
+@keyframes darkPulse3 {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 0px currentColor);
+  }
+  50% {
+    opacity: 0.8;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 8px currentColor);
   }
 }
 
