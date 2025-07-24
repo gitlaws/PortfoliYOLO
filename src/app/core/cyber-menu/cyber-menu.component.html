@@ -1,5 +1,6 @@
-<div class="dropdown-container">
+<div class="dropdown-container" [ngClass]="theme">
   <button
+    [ngClass]="theme"
     class="dropdown-toggle"
     aria-label="Menu"
     (click)="toggleMenu($event)"
