@@ -45,14 +45,57 @@ interface TrailDot {
 export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
   private container?: Container;
   private themeSubscription?: Subscription;
-  public currentTheme: 'light' | 'dark' = 'dark';
-  private isBrowser: boolean;
-
-  // Particle effects properties
-  stars: Star[] = [];
-  trailDots: TrailDot[] = [];
-  private trailIdCounter = 0;
   private animationFrame?: number;
+  private trailIdCounter = 0;
+  private readonly isBrowser: boolean;
+
+  public currentTheme: 'light' | 'dark' = 'dark';
+  public stars: Star[] = [];
+  public trailDots: TrailDot[] = [];
+
+  // Configuration constants
+  private readonly RESPONSIVE_BREAKPOINTS = {
+    mobile: {
+      max: 768,
+      factor: 0.04,
+      particles: 30,
+      size: [1, 3],
+      speed: 0.5,
+      distance: 100,
+    },
+    tablet: {
+      max: 1200,
+      factor: 0.05,
+      particles: 50,
+      size: [1.5, 4],
+      speed: 0.8,
+      distance: 120,
+    },
+    desktop: {
+      factor: 0.06,
+      particles: 80,
+      size: [2, 5],
+      speed: 1.2,
+      distance: 150,
+    },
+  };
+
+  private readonly THEME_CONFIG = {
+    light: {
+      particles: '#1a1a1a',
+      links: '#404040',
+      opacity: [0.4, 0.8],
+      linkOpacity: 0.5,
+      linkWidth: 1.2,
+    },
+    dark: {
+      particles: '#ffffff',
+      links: '#ffffff',
+      opacity: [0.3, 0.7],
+      linkOpacity: 0.4,
+      linkWidth: 1,
+    },
+  };
 
   constructor(
     private themeService: ThemeService,
@@ -63,47 +106,58 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.isBrowser) {
-      this.subscribeToTheme();
-      this.initializeParticles();
-      this.generateStars();
-      this.startTrailCleanup();
-    }
+    if (!this.isBrowser) return;
+
+    this.subscribeToTheme();
+    this.initializeParticles();
+    this.generateStars();
+    this.startTrailCleanup();
   }
 
   ngOnDestroy(): void {
-    if (this.container) {
-      this.container.destroy();
-    }
-    if (this.themeSubscription) {
-      this.themeSubscription.unsubscribe();
-    }
-    if (this.animationFrame) {
-      cancelAnimationFrame(this.animationFrame);
-    }
+    this.container?.destroy();
+    this.themeSubscription?.unsubscribe();
+    if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(): void {
     if (this.isBrowser && this.container) {
-      setTimeout(() => {
-        this.updateParticlesConfig();
-      }, 250);
+      setTimeout(() => this.updateParticlesConfig(), 250);
     }
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (!this.isBrowser) return;
+
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    this.trailDots.push({
+      id: this.trailIdCounter++,
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+      opacity: 0.8,
+      scale: 1,
+    });
+
+    if (this.trailDots.length > 10) this.trailDots.shift();
+  }
+
+  clearTrail(): void {
+    this.trailDots = [];
+  }
+
+  trackTrailDot(index: number, dot: TrailDot): number {
+    return dot.id;
   }
 
   private subscribeToTheme(): void {
     this.themeSubscription = this.themeService.currentTheme.subscribe(
-      (theme: Theme) => {
+      (theme) => {
         const newTheme = theme === Theme.Light ? 'light' : 'dark';
-
         if (this.currentTheme !== newTheme) {
           this.currentTheme = newTheme;
           this.cdr.detectChanges();
-
-          if (this.container) {
-            this.updateParticlesConfig();
-          }
+          this.container && this.updateParticlesConfig();
         }
       }
     );
@@ -113,7 +167,6 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
     try {
       const { tsParticles } = await import('@tsparticles/engine');
       await loadAll(tsParticles);
-
       this.container = await tsParticles.load({
         id: 'particles-canvas',
         options: this.getParticlesConfig(),
@@ -124,66 +177,45 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
   }
 
   private updateParticlesConfig(): void {
-    if (this.container) {
-      this.container.destroy();
-      this.initializeParticles();
-    }
+    this.container?.destroy();
+    this.initializeParticles();
   }
 
   private getResponsiveConfig(): ResponsiveConfig {
-    const screenWidth = window.innerWidth;
+    const width = window.innerWidth;
+    const config =
+      width < this.RESPONSIVE_BREAKPOINTS.mobile.max
+        ? this.RESPONSIVE_BREAKPOINTS.mobile
+        : width < this.RESPONSIVE_BREAKPOINTS.tablet.max
+        ? this.RESPONSIVE_BREAKPOINTS.tablet
+        : this.RESPONSIVE_BREAKPOINTS.desktop;
 
-    if (screenWidth < 768) {
-      return {
-        particleCount: Math.min(30, Math.floor(screenWidth * 0.04)),
-        particleSize: { min: 1, max: 3 },
-        speed: 0.5,
-        linkDistance: 100,
-      };
-    } else if (screenWidth < 1200) {
-      return {
-        particleCount: Math.min(50, Math.floor(screenWidth * 0.05)),
-        particleSize: { min: 1.5, max: 4 },
-        speed: 0.8,
-        linkDistance: 120,
-      };
-    } else {
-      return {
-        particleCount: Math.min(80, Math.floor(screenWidth * 0.06)),
-        particleSize: { min: 2, max: 5 },
-        speed: 1.2,
-        linkDistance: 150,
-      };
-    }
-  }
-
-  private getThemeColors() {
     return {
-      particles: this.currentTheme === 'light' ? '#1a1a1a' : '#ffffff',
-      links: this.currentTheme === 'light' ? '#404040' : '#ffffff',
+      particleCount: Math.min(
+        config.particles,
+        Math.floor(width * config.factor)
+      ),
+      particleSize: { min: config.size[0], max: config.size[1] },
+      speed: config.speed,
+      linkDistance: config.distance,
     };
   }
 
   private getParticlesConfig(): ISourceOptions {
     const responsive = this.getResponsiveConfig();
-    const colors = this.getThemeColors();
+    const theme = this.THEME_CONFIG[this.currentTheme];
+    const isMobile = window.innerWidth < 768;
 
     return {
       fpsLimit: 60,
       detectRetina: true,
-      background: {
-        color: { value: 'transparent' },
-        opacity: 0,
-      },
+      background: { color: { value: 'transparent' }, opacity: 0 },
       particles: {
         number: { value: responsive.particleCount },
-        color: { value: colors.particles },
+        color: { value: theme.particles },
         shape: { type: 'circle' },
         opacity: {
-          value: {
-            min: this.currentTheme === 'light' ? 0.4 : 0.3,
-            max: this.currentTheme === 'light' ? 0.8 : 0.7,
-          },
+          value: { min: theme.opacity[0], max: theme.opacity[1] },
           animation: { enable: true, speed: 0.8, sync: false },
         },
         size: {
@@ -196,9 +228,9 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
         links: {
           enable: true,
           distance: responsive.linkDistance,
-          color: colors.links,
-          opacity: this.currentTheme === 'light' ? 0.5 : 0.4,
-          width: this.currentTheme === 'light' ? 1.2 : 1,
+          color: theme.links,
+          opacity: theme.linkOpacity,
+          width: theme.linkWidth,
         },
         move: {
           enable: true,
@@ -218,11 +250,8 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
           resize: { enable: true },
         },
         modes: {
-          repulse: {
-            distance: window.innerWidth < 768 ? 80 : 120,
-            duration: 0.4,
-          },
-          push: { quantity: window.innerWidth < 768 ? 2 : 4 },
+          repulse: { distance: isMobile ? 80 : 120, duration: 0.4 },
+          push: { quantity: isMobile ? 2 : 4 },
         },
       },
     };
@@ -236,34 +265,6 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
     }));
   }
 
-  onMouseMove(event: MouseEvent): void {
-    if (!this.isBrowser) return;
-
-    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    this.trailDots.push({
-      id: this.trailIdCounter++,
-      x,
-      y,
-      opacity: 0.8,
-      scale: 1,
-    });
-
-    if (this.trailDots.length > 10) {
-      this.trailDots.shift();
-    }
-  }
-
-  clearTrail(): void {
-    this.trailDots = [];
-  }
-
-  trackTrailDot(index: number, dot: TrailDot): number {
-    return dot.id;
-  }
-
   private startTrailCleanup(): void {
     const animate = () => {
       this.trailDots = this.trailDots
@@ -273,7 +274,6 @@ export class ParticlesBackgroundComponent implements OnInit, OnDestroy {
           scale: dot.scale * 0.98,
         }))
         .filter((dot) => dot.opacity > 0.1);
-
       this.animationFrame = requestAnimationFrame(animate);
     };
     animate();

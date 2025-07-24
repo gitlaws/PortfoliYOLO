@@ -1,3 +1,7 @@
+.overlay {
+  
+}
+
 .particles-canvas {
   position: absolute;
   top: 0;
@@ -8,8 +12,6 @@
   pointer-events: none;
   transition: background 0.3s ease-in-out;
   overflow: hidden;
-
-  // Light theme gradient
   &.light {
     background: linear-gradient(
       135deg,
@@ -19,9 +21,14 @@
       #c5cae9 75%,
       #9fa8da 100%
     );
+    // Placeholder.com - reliable service
+    //   url("https://w.wallhaven.cc/full/vm/wallhaven-vmojp3.jpg");
+
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
   }
 
-  // Dark theme gradient
   &.dark {
     background: linear-gradient(
       135deg,
@@ -31,6 +38,12 @@
       #0f3460 75%,
       #1a1a2e 100%
     );
+    // Placeholder.com with dark theme
+    //   url("https://w.wallhaven.cc/full/vm/wallhaven-vmojp3.jpg");
+
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
   }
 }
 
