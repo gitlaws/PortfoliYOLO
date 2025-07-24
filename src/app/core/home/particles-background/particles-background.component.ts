@@ -7,7 +7,7 @@ import {
   PLATFORM_ID,
   ChangeDetectorRef,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../../shared/services/theme/theme.service';
 import { Theme } from '../../../shared/models/theme.enum';
@@ -38,7 +38,7 @@ interface TrailDot {
 @Component({
   selector: 'app-particles-background',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './particles-background.component.html',
   styleUrls: ['./particles-background.component.scss'],
 })
