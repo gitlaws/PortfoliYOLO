@@ -10,20 +10,44 @@
   padding: 10px 15px;
 
   &.light {
-    background: linear-gradient(90deg, #ffde59, #ff914d, #ff4e9b);
+    background: linear-gradient(90deg, #ffde59, #ff914d, #ff4e9b, #ffde59);
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    transition: background-position 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: gradientShift 23s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 222, 89, 0.5));
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      filter: drop-shadow(0 0 15px rgba(255, 222, 89, 0.8));
+      // transform: translateX(-50%) scale(1.05);
+    }
   }
 
   &.dark {
-    background: linear-gradient(90deg, #00ff7f, #1e90ff, #ff00cc);
+    background: linear-gradient(90deg, #00ff7f, #1e90ff, #ff00cc, #00ff7f);
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    transition: background-position 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: gradientShift 23s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 127, 0.5));
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      filter: drop-shadow(0 0 15px rgba(0, 255, 127, 0.8));
+      // transform: translateX(-50%) scale(1.05);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }
