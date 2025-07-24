@@ -12,11 +12,64 @@ $menu-link-color: #ffffff;
 $menu-link-hover-color: #000000;
 
 /* Theme Button Colors */
-$theme-btn-icon: #f6b162;
-$theme-btn-border: #2a2a2a;
-$theme-btn-hover: #f1c40f;
-$theme-btn-icon-container: #4a4a4a;
-$theme-btn-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+// $theme-btn-icon: #f6b162;
+// $theme-btn-border: #2a2a2a;
+// $theme-btn-hover: #f1c40f;
+// $theme-btn-icon-container-light: #b3e6ff; // Lighter bright day sky blue for light mode
+// $theme-btn-icon-container-dark: #1a1a1a; // Dark gray for dark mode
+// $theme-btn-box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); // Softer shadow for light mode
+// $theme-btn-box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.4); // Stronger shadow for dark mode
+// $theme-btn-border-radius: 50%;
+
+/* Theme Button Colors VARIATION TEST! */
+$theme-btn-icon-light: #495057; // Darker gray for better contrast on light backgrounds
+$theme-btn-icon-dark: #adb5bd; // Lighter gray for better contrast on dark backgrounds
+
+// Border colors
+$theme-btn-border-light: rgba(0, 0, 0, 0.12); // Subtle border for light mode
+$theme-btn-border-dark: #444c56; // Visible border for dark mode
+
+// Hover states - improved contrast
+$theme-btn-hover-light: #343a40; // Darker for better hover feedback
+$theme-btn-hover-dark: #6c757d; // Maintained good contrast
+
+// Icon containers - better harmony with toolbar colors
+$theme-btn-icon-container-light: rgba(
+  248,
+  249,
+  250,
+  0.95
+); // More opaque, matches toolbar opacity
+$theme-btn-icon-container-dark: #1c2128; // Slightly lighter than toolbar for subtle distinction
+
+// Button backgrounds - improved integration
+$theme-btn-background-light: rgba(
+  255,
+  255,
+  255,
+  0.9
+); // Closer to toolbar background
+$theme-btn-background-dark: rgba(
+  12,
+  12,
+  12,
+  0.9
+); // Matches toolbar darkness with slight transparency
+
+// Enhanced shadows for better depth
+$theme-btn-box-shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1),
+  0 1px 3px rgba(0, 0, 0, 0.06); // Layered shadow for depth
+$theme-btn-box-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.6),
+  0 2px 6px rgba(0, 0, 0, 0.3); // Enhanced shadow for dark mode
+
+// Active/pressed states (new)
+$theme-btn-active-light: rgba(0, 0, 0, 0.18); // Pressed state border
+$theme-btn-active-dark: #4a5568; // Pressed state border
+
+// Focus states for accessibility (new)
+$theme-btn-focus-light: #007bff; // Blue focus ring for light mode
+$theme-btn-focus-dark: #66b3ff; // Lighter blue focus ring for dark mode
+
 $theme-btn-border-radius: 50%;
 
 /* Toggle Menu Colors */
