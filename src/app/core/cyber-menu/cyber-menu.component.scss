@@ -144,13 +144,13 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   // Dark theme - electric sequence
   &.dark {
     &:nth-child(1) {
-      stroke: #00bcd4; // Cyan
+      stroke: #00e5ff; // Electric Cyan
     }
     &:nth-child(2) {
-      stroke: #8bc34a; // Light Green
+      stroke: #1de9b6; // Bright Teal
     }
     &:nth-child(3) {
-      stroke: #ffeb3b; // Yellow
+      stroke: #69f0ae; // Light Green
     }
   }
 }

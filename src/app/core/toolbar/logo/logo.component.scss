@@ -25,18 +25,17 @@
   }
 
   &.dark {
-    background: linear-gradient(90deg, #00ff7f, #1e90ff, #ff00cc, #00ff7f);
+    background: linear-gradient(90deg, #1e88e5, #3f51b5, #673ab7, #1e88e5);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradientShift 23s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 127, 0.5));
+    filter: drop-shadow(0 0 8px rgba(30, 136, 229, 0.5));
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      filter: drop-shadow(0 0 15px rgba(0, 255, 127, 0.8));
-      // transform: translateX(-50%) scale(1.05);
+      filter: drop-shadow(0 0 15px rgba(30, 136, 229, 0.8));
     }
   }
 
