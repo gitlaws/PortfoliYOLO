@@ -1,35 +1,41 @@
-$typewriter-color: #00ff7f;
-$glitch-color: #ff4500;
-
-$background-color: #1a1a1a;
-$background-color-transparent: rgba(0, 0, 0, 0.5);
-
+$typewriter-color-light: #1a1a2e;
+$typewriter-color-dark: #ffffff;
 $font-family: "Courier New", Courier, monospace;
+$text-shadow-glow-light: 0 0 8px #9fa8da, 0 0 16px #c5cae9, 0 0 24px #e8eaf6,
+  0 0 32px rgba(159, 168, 218, 0.6);
+$text-shadow-glow-dark: 0 0 8px #64ffda, 0 0 16px #4ecdc4, 0 0 24px #1a1a2e,
+  0 0 32px rgba(100, 255, 218, 0.6);
 
 .typewriter-container {
   position: relative;
   width: 100%;
   height: auto;
-  background-color: $background-color;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: $typewriter-color;
+  color: $typewriter-color-light;
   font-family: $font-family;
   font-size: 2rem;
-  text-shadow: 0 0 10px $typewriter-color, 0 0 20px $typewriter-color,
-    0 0 30px $typewriter-color, 0 0 40px $typewriter-color,
-    0 0 50px $typewriter-color, 0 0 60px $typewriter-color,
-    0 0 70px $typewriter-color;
+  text-shadow: $text-shadow-glow-light;
+
+  &.dark {
+    color: $typewriter-color-dark;
+    text-shadow: $text-shadow-glow-dark;
+  }
 }
 
 .typewriter-line {
   position: absolute;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid $typewriter-color;
+  border-right: 0.15em solid $typewriter-color-light;
   animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+
+  &.dark {
+    border-right-color: $typewriter-color-dark;
+  }
 }
 
 @keyframes typing {
@@ -47,63 +53,19 @@ $font-family: "Courier New", Courier, monospace;
     border-color: transparent;
   }
   50% {
-    border-color: $typewriter-color;
+    border-color: $typewriter-color-light;
   }
 }
 
-.glitch {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $background-color;
-  mix-blend-mode: difference;
-  animation: glitch 1s infinite, glitch-color 2s infinite;
-}
-
-@keyframes glitch {
-  0% {
-    clip: rect(0, 100%, 0, 0);
+.dark .typewriter-line {
+  @keyframes blink-caret-dark {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: $typewriter-color-dark;
+    }
   }
-  10% {
-    clip: rect(10%, 90%, 20%, 0);
-  }
-  20% {
-    clip: rect(20%, 80%, 30%, 0);
-  }
-  30% {
-    clip: rect(30%, 70%, 40%, 0);
-  }
-  40% {
-    clip: rect(40%, 60%, 50%, 0);
-  }
-  50% {
-    clip: rect(50%, 50%, 60%, 0);
-  }
-  60% {
-    clip: rect(60%, 40%, 70%, 0);
-  }
-  70% {
-    clip: rect(70%, 30%, 80%, 0);
-  }
-  80% {
-    clip: rect(80%, 20%, 90%, 0);
-  }
-  90% {
-    clip: rect(90%, 10%, 100%, 0);
-  }
-  100% {
-    clip: rect(100%, 0, 0, 0);
-  }
-}
-
-@keyframes glitch-color {
-  0%,
-  100% {
-    background: $background-color;
-  }
-  50% {
-    background: $glitch-color;
-  }
+  animation: typing 2s steps(30, end), blink-caret-dark 0.75s step-end infinite;
 }
