@@ -3,21 +3,34 @@
   class="particles-canvas"
   [class.light]="currentTheme === 'light'"
   [class.dark]="currentTheme === 'dark'"
-></div>
+>
+  <!-- Floating Geometric Shapes -->
+  <div class="floating-shapes">
+    <div class="float-shape triangle triangle-1"></div>
+    <div class="float-shape triangle triangle-2"></div>
+    <div class="float-shape circle circle-1"></div>
+    <div class="float-shape circle circle-2"></div>
+    <div class="float-shape square square-1"></div>
+    <div class="float-shape hexagon hexagon-1"></div>
+  </div>
 
-<div class="decorative-elements">
-  <div class="shape dots-grid dots-grid-1"></div>
-  <div class="shape dots-grid dots-grid-2"></div>
-  <div class="shape dots-grid dots-grid-3"></div>
-</div>
+  <!-- Morphing Blobs -->
+  <div class="morphing-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
-<div class="particles">
-  <div class="particle p1"></div>
-  <div class="particle p2"></div>
-  <div class="particle p3"></div>
-  <div class="particle p4"></div>
-  <div class="particle p5"></div>
-  <div class="particle p6"></div>
-  <div class="particle p7"></div>
-  <div class="particle p8"></div>
+  <!-- Constellation -->
+  <div class="constellation">
+    <div
+      class="star"
+      *ngFor="let star of stars; let i = index"
+      [style.left.%]="star.x"
+      [style.top.%]="star.y"
+      [style.animation-delay.s]="star.delay"
+    >
+      <div class="star-glow"></div>
+    </div>
+  </div>
 </div>
