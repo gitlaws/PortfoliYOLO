@@ -44,13 +44,13 @@
     // background-color: #b0e2ff;
 
     &.light {
-      border: 1px solid #add8e6;
-      background-color: #b0e2ff;
+      border: 1px solid #90caf9; // Soft blue, matches light theme accent
+      background-color: #e3f2fd; // Light blue, subtle for light theme
     }
 
     &.dark {
-      border: 1px solid #353839;
-      background-color: #36454f;
+      border: 1px solid #444c56;
+      background-color: #23272f;
     }
   }
 
@@ -64,32 +64,32 @@
     @include spin-animation;
   }
 
-  .darkmode-bg {
-    background-color: #1a1a1a;
-    color: #c0c0c0;
-  }
+  // .darkmode-bg {
+  //   background-color: #1a1a1a;
+  //   color: #c0c0c0;
+  // }
 
   &:active {
     transform: scale(0.95);
   }
 
   &.dark {
-    border: 1px solid #2a2a2a;
+    border: 1px solid #444c56;
     &:hover {
-      border-color: #ffd700;
+      border-color: #4a5568;
     }
   }
 
   &.light {
-    border: 1px solid #dcdcdc;
+    border: 1px solid #b0e2ff;
     &:hover {
       border-color: #808080;
     }
   }
 
-  .btn.darkmode {
-    background-color: #1a1a1a;
-  }
+  // .btn.darkmode {
+  //   background-color: #1a1a1a;
+  // }
 }
 
 .logo-toggle-button.hidden {
