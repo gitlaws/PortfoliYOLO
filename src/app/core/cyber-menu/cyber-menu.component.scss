@@ -126,12 +126,67 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .dropdown-toggle svg line {
   stroke-width: 3;
+  transition: all 0.5s ease;
 
+  // Light theme - cool to neutral
   &.light {
-    stroke: #8e94cc;
+    &:nth-child(1) {
+      stroke: #90a4ae; // Blue grey
+    }
+    &:nth-child(2) {
+      stroke: #b39ddb; // Light purple
+    }
+    &:nth-child(3) {
+      stroke: #f8bbd9; // Light pink
+    }
   }
+
+  // Dark theme - cold spectrum
   &.dark {
-    stroke: #33ccff;
+    &:nth-child(1) {
+      stroke: #263238; // Dark blue grey
+    }
+    &:nth-child(2) {
+      stroke: #37474f; // Medium grey
+    }
+    &:nth-child(3) {
+      stroke: #546e7a; // Light grey
+    }
+  }
+}
+
+.dropdown-toggle:hover svg line {
+  &.light {
+    &:nth-child(1) {
+      stroke: #ff5722; // Deep orange
+      stroke-width: 4;
+    }
+    &:nth-child(2) {
+      stroke: #ff9800; // Orange
+      stroke-width: 4;
+    }
+    &:nth-child(3) {
+      stroke: #ffc107; // Amber
+      stroke-width: 4;
+    }
+  }
+
+  &.dark {
+    &:nth-child(1) {
+      stroke: #00e5ff; // Cyan
+      stroke-width: 4;
+      filter: drop-shadow(0 0 6px #00e5ff);
+    }
+    &:nth-child(2) {
+      stroke: #1de9b6; // Teal
+      stroke-width: 4;
+      filter: drop-shadow(0 0 6px #1de9b6);
+    }
+    &:nth-child(3) {
+      stroke: #76ff03; // Light green
+      stroke-width: 4;
+      filter: drop-shadow(0 0 6px #76ff03);
+    }
   }
 }
 
