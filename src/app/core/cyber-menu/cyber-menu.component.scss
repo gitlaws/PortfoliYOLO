@@ -134,10 +134,10 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       stroke: #ffffff;
     }
     &:nth-child(2) {
-      stroke: #e8eaf6;
+      stroke: #3f51b5;
     }
     &:nth-child(3) {
-      stroke: #9fa8da;
+      stroke: #1a237e;
     }
   }
 
@@ -158,15 +158,15 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 .dropdown-toggle:hover svg line {
   &.light {
     &:nth-child(1) {
-      stroke: #ff6b35;
+      stroke: #42a5f5;
       animation: lightPulse1 1.5s ease-in-out infinite;
     }
     &:nth-child(2) {
-      stroke: #f7931e;
+      stroke: #5c6bc0;
       animation: lightPulse2 1.5s ease-in-out infinite 0.2s;
     }
     &:nth-child(3) {
-      stroke: #ffd23f;
+      stroke: #7986cb;
       animation: lightPulse3 1.5s ease-in-out infinite 0.4s;
     }
   }
