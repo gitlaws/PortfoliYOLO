@@ -1,19 +1,21 @@
 <div class="intro-section" [ngClass]="theme">
   <app-particles-background></app-particles-background>
   <div class="intro-content">
-    <div class="hero-content-wrapper">
-      <div class="modern-hero backdrop-blur">
-        <div class="accent-line"></div>
+    <div class="hero-content-wrapper" [ngClass]="theme">
+      <div class="modern-hero backdrop-blur" [ngClass]="theme">
+        <div class="accent-line" [ngClass]="theme"></div>
         <div class="floating-element title-element">
           <h1>
-            <span class="gradient-text">Stanisław Wasilewski</span>
+            <span class="gradient-text" [ngClass]="theme"
+              >Stanisław Wasilewski</span
+            >
           </h1>
         </div>
         <div class="floating-element subtitle-element">
-          <p class="subtitle">Full-stack Developmer</p>
+          <p class="subtitle" [ngClass]="theme">Full-stack Developmer</p>
         </div>
         <div class="floating-element description-element">
-          <p class="description">
+          <p class="description" [ngClass]="theme">
             I specialize in building reliable systems amid a changing tech
             landscape. As AI reshapes development, I focus on what’s essential:
             clean logic, adaptable architecture, and full-stack fluency grounded
@@ -22,13 +24,15 @@
           <app-typewriter></app-typewriter>
         </div>
         <div class="floating-element buttons-element">
-          <a href="#projects" class="min-button min-button-fill"
+          <a
+            href="#projects"
+            class="min-button min-button-fill"
+            [ngClass]="theme"
             >View Projects</a
           >
-          <a href="#contact" class="min-button">Contact Me</a>
+          <a href="#contact" class="min-button" [ngClass]="theme">Contact Me</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-  

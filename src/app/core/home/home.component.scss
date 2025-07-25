@@ -70,7 +70,13 @@
 }
 
 .modern-hero {
-  background: rgba(20, 20, 30, 0.85);
+  // &.light {
+  //   background: rgba(255, 255, 255, 0.85);
+  // }
+  // &.dark {
+  //   background: rgba(20, 20, 30, 0.85);
+  // }
+  background-color: transparent;
   border-radius: 32px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   padding: 48px 32px;
@@ -88,7 +94,12 @@
 .accent-line {
   width: 64px;
   height: 4px;
-  background: linear-gradient(90deg, #ff6a00, #ffd800, #00ffb8, #0078ff);
+  &.light {
+    background: linear-gradient(90deg, #f8ffae, #43c6ac, #191654, #f8ffae);
+  }
+  &.dark {
+    background: linear-gradient(90deg, #232526, #414345, #283e51, #485563);
+  }
   border-radius: 2px;
   margin-bottom: 16px;
   animation: accentLineGlow 2s infinite alternate;
@@ -130,7 +141,14 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ff6a00, #ffd800, #00ffb8, #0078ff);
+  background: linear-gradient(
+    270deg,
+    #00ffb8,
+    #0078ff,
+    #ff6a00,
+    #ffd800,
+    #43c6ac
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -153,7 +171,7 @@
 .subtitle {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #e0e0e0;
+  color: #3a7bd5;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
