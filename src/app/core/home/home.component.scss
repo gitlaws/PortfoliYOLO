@@ -87,8 +87,8 @@
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .accent-line {
@@ -178,9 +178,14 @@
 
 .description {
   font-size: 1rem;
-  color: #b0b0b0;
   margin-bottom: 16px;
   line-height: 1.6;
+  &.light {
+    color: #232526;
+  }
+  &.dark {
+    color: #b0b0b0;
+  }
 }
 
 .buttons-element {

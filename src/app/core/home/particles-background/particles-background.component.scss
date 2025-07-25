@@ -26,23 +26,23 @@
   }
 
   &.dark {
-    background: linear-gradient(
-      135deg,
-      #000000 0%,
-      #0d0d0d 25%,
-      #1a1a1a 50%,
-      #141414 75%,
-      #000000 100%
-    );
-    //DEFAULT BACKGROUND
     // background: linear-gradient(
     //   135deg,
-    //   #0c0c0c 0%,
-    //   #1a1a2e 25%,
-    //   #16213e 50%,
-    //   #0f3460 75%,
-    //   #1a1a2e 100%
+    //   #000000 0%,
+    //   #0d0d0d 25%,
+    //   #1a1a1a 50%,
+    //   #141414 75%,
+    //   #000000 100%
     // );
+    //DEFAULT BACKGROUND
+    background: linear-gradient(
+      135deg,
+      #0c0c0c 0%,
+      #1a1a2e 25%,
+      #16213e 50%,
+      #0f3460 75%,
+      #1a1a2e 100%
+    );
     // Placeholder.com with dark theme
     //   url("https://w.wallhaven.cc/full/vm/wallhaven-vmojp3.jpg");
 
