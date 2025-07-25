@@ -5,11 +5,17 @@ import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
 import { TypewriterComponent } from './typewriter/typewriter.component';
 import { ParticlesBackgroundComponent } from './particles-background/particles-background.component';
+import { CubeLogoComponent } from '../toolbar/cube-logo/cube-logo.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TypewriterComponent, ParticlesBackgroundComponent],
+  imports: [
+    CommonModule,
+    TypewriterComponent,
+    ParticlesBackgroundComponent,
+    CubeLogoComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
