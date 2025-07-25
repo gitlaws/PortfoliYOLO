@@ -1,124 +1,200 @@
-<div class="wrapper" [ngClass]="theme">
-  <div class="bio-container" [ngClass]="theme">
-    <div class="left-column" [ngClass]="theme">
-      <div class="bio-content" [ngClass]="theme">
-        <h1 [ngClass]="theme">Experience</h1>
-        <p [ngClass]="theme">
-          With a solid foundation in full-stack development and keen on crafting
-          clean, efficient code, I’m excited to dive into all stages of
-          development—from design and coding to troubleshooting and debugging.
-        </p>
-        <h2 [ngClass]="theme">Here’s what I bring to the table:</h2>
-        <h3 [ngClass]="theme">Full-Stack Expertise</h3>
-        <p [ngClass]="theme">
-          My hands-on experience spans both front-end and back-end technologies,
-          including Angular, React, and database integration.
-        </p>
-        <h3 [ngClass]="theme">Performance Optimization</h3>
-        <p [ngClass]="theme">
-          I specialize in transforming slow applications into high-performance
-          scalable apps, enhancing user experience through effective code
-          refactoring and optimization.
-        </p>
-        <h3 [ngClass]="theme">Continuous Learning</h3>
-        <p [ngClass]="theme">
-          Following industry trends and tools is a priority for me. Whether it’s
-          exploring AI technologies or the latest code methods and engaging with
-          developer communities, I’m committed to ongoing growth and learning.
-        </p>
-        <h3 [ngClass]="theme">Project Management</h3>
-        <p [ngClass]="theme">
-          I employ a rigorous SDLC-based approach to deliver successful
-          projects, effectively balancing structure with agile adaptability.
-        </p>
-        <h2 [ngClass]="theme">Technical Skills</h2>
-        <ul [ngClass]="theme">
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">Front End:</strong> Angular,
-            React/Redux/Native, PHP, jQuery, SASS, HTML5, CSS3, JavaScript,
-            TypeScript, UI/UX
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">Back End:</strong> Node.js, Spring Boot,
-            Kotlin, PostgreSQL, Ruby on Rails, C# .Net, JSON, API integration
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">Principles & Methodologies:</strong> Clean
-            Code, SDLC, Responsive design, SOLID, Agile, Scrum
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">AI:</strong> GitHub Copilot, Gemini,
-            ChatGPT, etc.
-          </li>
-        </ul>
-        <h2 [ngClass]="theme">Projects</h2>
-        <ul [ngClass]="theme">
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">Angular Essentials:</strong> Core Angular
-            Components, Services, Pipes, Directives + API Integration
-            <br />
-            <a
-              href="https://gitlaws.github.io/angular-net-connect/"
-              target="_blank"
-              rel="noopener"
-              [ngClass]="theme"
-              >Project Demo</a
-            >
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">PortfoliYOLO:</strong> Crafted Angular
-            portfolio site template with Single Page Application routes,
-            responsive design, UI/UX with a variety of functionalities.
-            <br />
-            <a
-              href="https://gitlaws.github.io/PortfoliYOLO/"
-              target="_blank"
-              rel="noopener"
-              [ngClass]="theme"
-              >Project Demo</a
-            >
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">REST CRUD:</strong> Crafted a Bootstrap
-            Angular REST CRUD app with JSON Server for structured data
-            management.
-            <br />
-            <a
-              href="https://github.com/laws"
-              target="_blank"
-              rel="noopener"
-              [ngClass]="theme"
-              >Project Demo</a
-            >
-          </li>
-          <li [ngClass]="theme">
-            <strong [ngClass]="theme">Ignite:</strong> Firebase & Google Cloud
-            App with secure user authentication, real-time updates, and
-            personalized profiles.
-            <br />
-            <a
-              href="https://ignitebase.firebaseapp.com/"
-              target="_blank"
-              rel="noopener"
-              [ngClass]="theme"
-              >Project Demo</a
-            >
-          </li>
-        </ul>
-        <h2 [ngClass]="theme">Education</h2>
-        <p [ngClass]="theme">
-          Business Administration - LCC Stars, 2013
-          <br />
-          Self-Taught: I've mastered a diverse range of tech skills and proven
-          my abilities through my work.
-        </p>
+<main class="container" [ngClass]="theme">
+  <!-- Section Navigation Sidebar -->
+  <section class="page-nav">
+    <nav class="section-nav">
+      <a href="#about" class="section-link">About Me</a>
+      <a href="#experience" class="section-link">Experience</a>
+      <a href="#education" class="section-link">Education</a>
+      <a href="#interests" class="section-link">Interests</a>
+      <a href="/assets/cv.pdf" class="section-link" download>
+        <svg width="16" height="16" fill="currentColor"><!-- SVG icon --></svg>
+        Download CV
+      </a>
+    </nav>
+  </section>
+
+  <!-- Main Two-Column Layout -->
+  <div class="about-layout">
+    <!-- Left Sidebar -->
+    <aside class="about-sidebar">
+      <!-- Profile Card -->
+      <div class="profile-card">
+        <img
+          class="profile-photo"
+          src="/assets/profile.jpg"
+          alt="Profile Photo"
+        />
+        <h2 class="profile-name">John Doe</h2>
+        <p class="profile-title">Full Stack Developer</p>
+        <div class="profile-details">
+          <div class="profile-detail">
+            <svg width="16" height="16" fill="currentColor">
+              <!-- Location SVG -->
+            </svg>
+            <span>San Francisco, CA</span>
+          </div>
+          <div class="profile-detail">
+            <svg width="16" height="16" fill="currentColor">
+              <!-- Email SVG -->
+            </svg>
+            <!-- <span>john.doe@email.com</span> -->
+          </div>
+        </div>
+        <div class="social-links">
+          <a
+            href="https://github.com/johndoe"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <svg width="16" height="16" fill="currentColor">
+              <!-- GitHub SVG -->
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/johndoe"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <svg width="16" height="16" fill="currentColor">
+              <!-- LinkedIn SVG -->
+            </svg>
+          </a>
+        </div>
       </div>
-      <!-- <button class="cta-button">Contact Me</button> -->
-    </div>
-    <div class="divider" [ngClass]="theme"></div>
-    <div class="right-column" [ngClass]="theme">
-      <app-link-tree class="spaced-component"></app-link-tree>
-      <app-videos class="spaced-component"></app-videos>
+      <!-- Skills Card -->
+      <div class="skills-card">
+        <h3 class="skills-title">Skills</h3>
+        <div class="skills-cloud">
+          <div class="skill-category">
+            <h4>Technical Skills</h4>
+            <span class="skill-tag level-5">Angular</span>
+            <span class="skill-tag level-4">React</span>
+            <span class="skill-tag level-4">Node.js</span>
+            <span class="skill-tag level-3">Python</span>
+            <span class="skill-tag level-3">SQL</span>
+          </div>
+          <div class="skill-category">
+            <h4>Soft Skills</h4>
+            <span class="skill-tag level-5">Communication</span>
+            <span class="skill-tag level-4">Teamwork</span>
+            <span class="skill-tag level-4">Problem Solving</span>
+          </div>
+          <div class="skill-category">
+            <h4>Languages</h4>
+            <span class="skill-tag level-5">English</span>
+            <span class="skill-tag level-3">Spanish</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Main Content -->
+    <div class="about-content">
+      <!-- About Me Section -->
+      <section class="about-section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+          <p>
+            Passionate full stack developer with 5+ years of experience building
+            scalable web applications. I thrive in collaborative environments
+            and enjoy solving complex problems with clean, maintainable code.
+          </p>
+          <p>
+            My approach combines technical expertise with a strong focus on user
+            experience and accessibility. I am always eager to learn new
+            technologies and contribute to impactful projects.
+          </p>
+        </div>
+      </section>
+
+      <!-- Professional Experience Section -->
+      <section class="about-section" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Senior Developer</h3>
+              <p class="timeline-subtitle">TechCorp &mdash; 2021–Present</p>
+              <p>
+                Leading a team to develop enterprise-level Angular applications,
+                optimizing performance and implementing best practices.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Frontend Developer</h3>
+              <p class="timeline-subtitle">WebWorks &mdash; 2018–2021</p>
+              <p>
+                Built responsive React interfaces and collaborated closely with
+                designers to deliver seamless user experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="about-section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>BSc Computer Science</h3>
+              <p class="timeline-subtitle">
+                State University &mdash; 2014–2018
+              </p>
+              <p>
+                Graduated with honors, focusing on software engineering and web
+                development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interests Section -->
+      <section class="about-section" id="interests">
+        <h2 class="section-title">Interests</h2>
+        <div class="interests-grid">
+          <div class="interest-card">
+            <div class="interest-header">
+              <svg width="24" height="24" fill="currentColor">
+                <!-- Coding SVG -->
+              </svg>
+              <h3>Coding</h3>
+            </div>
+            <p class="interest-description">
+              Exploring new frameworks and contributing to open source projects.
+            </p>
+          </div>
+          <div class="interest-card">
+            <div class="interest-header">
+              <svg width="24" height="24" fill="currentColor">
+                <!-- Music SVG -->
+              </svg>
+              <h3>Music</h3>
+            </div>
+            <p class="interest-description">
+              Playing guitar and composing electronic music in my free time.
+            </p>
+          </div>
+          <div class="interest-card">
+            <div class="interest-header">
+              <svg width="24" height="24" fill="currentColor">
+                <!-- Hiking SVG -->
+              </svg>
+              <h3>Hiking</h3>
+            </div>
+            <p class="interest-description">
+              Enjoying nature trails and outdoor adventures on weekends.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</div>
+</main>
