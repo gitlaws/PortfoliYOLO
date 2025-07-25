@@ -1,6 +1,31 @@
 <div class="intro-section" [ngClass]="theme">
   <app-particles-background></app-particles-background>
   <div class="intro-content">
-    <app-typewriter></app-typewriter>
+    <div class="hero-content-wrapper">
+      <div class="modern-hero backdrop-blur">
+        <div class="accent-line"></div>
+        <div class="floating-element title-element">
+          <h1>
+            <span class="gradient-text">Stanisław Wasilewski</span>
+          </h1>
+        </div>
+        <div class="floating-element subtitle-element">
+          <p class="subtitle">I reverse engineer thinking</p>
+        </div>
+        <div class="floating-element description-element">
+          <p class="description">
+            Building stuff that learns, works, and looks good. If you can
+            imagine it, I can build it.
+          </p>
+          <app-typewriter></app-typewriter>
+        </div>
+        <div class="floating-element buttons-element">
+          <a href="#projects" class="min-button min-button-fill"
+            >View Projects</a
+          >
+          <a href="#contact" class="min-button">Contact Me</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

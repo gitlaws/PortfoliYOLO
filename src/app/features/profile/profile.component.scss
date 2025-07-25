@@ -5,8 +5,7 @@
 $color-bg-light: #f3f4f6; // light mode background
 
 // Dark mode colors
-$color-bg-dark: #1e293b; // dark mode background
-$color-bg-dark-light: #334155; // lighter dark background
+$color-bg-dark: #475569; // lighter dark mode background
 $color-shadow: #0f172a; // deep blue-gray for subtle shadow
 $color-primary: #3b82f6; // vibrant blue, matches toolbar accent
 $color-primary-light: #dbeafe; // soft blue, matches home highlights
@@ -15,44 +14,85 @@ $color-bg: #ffffff; // pure white for main backgrounds
 $color-text: #1e293b; // dark slate, matches home/toolbar text
 $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary text
 
+// Optimized transitions and shadows
+$transition-smooth: all 0.2s ease-out;
+$shadow-subtle: 0 2px 8px rgba($color-shadow, 0.08);
+$shadow-light: 0 2px 8px rgba($color-shadow, 0.05);
+$shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem 1rem;
   max-width: 1200px;
-  margin: 100px auto;
+  margin: 100px auto 2rem;
+  min-height: calc(100vh - 200px);
 }
 
 .page-nav {
+  &.light {
+    background: $color-bg-light;
+  }
+  &.dark {
+    background: $color-bg-dark;
+
+    .section-link {
+      color: lighten($color-primary, 10%);
+
+      &:hover,
+      &:focus {
+        background: rgba($color-primary-light, 0.1);
+        color: lighten($color-primary, 20%);
+      }
+    }
+  }
+
   width: 100%;
-  background: $color-bg-light;
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba($color-shadow, 0.08);
+  box-shadow: $shadow-subtle;
   padding: 1.5rem 2rem;
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 
   .section-nav {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 
     .section-link {
-      // @include link-reset;
       color: $color-primary;
       font-weight: 500;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: background 0.2s, color 0.2s;
+      transition: $transition-smooth;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
 
       &:hover,
       &:focus {
         background: $color-primary-light;
         color: $color-primary-dark;
+        border-color: rgba($color-primary, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
     }
   }
@@ -62,63 +102,109 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   display: flex;
   flex: 1;
   gap: 2rem;
+  align-items: flex-start;
 }
 
 .about-sidebar {
   width: 320px;
-  min-width: 260px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: sticky;
+  top: 6rem;
+  align-self: flex-start;
 }
 
 .profile-card {
-  background: $color-bg-light;
+  &.light {
+    background: $color-bg-light;
+  }
+  &.dark {
+    background: $color-bg-dark;
+
+    .profile-name {
+      color: lighten($color-text, 60%);
+    }
+
+    .profile-title {
+      color: lighten($color-text-muted, 20%);
+    }
+
+    .profile-detail {
+      color: lighten($color-text-muted, 20%);
+    }
+  }
+
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba($color-shadow, 0.08);
+  box-shadow: $shadow-subtle;
   padding: 2rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: $transition-smooth;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba($color-shadow, 0.12);
+  }
 
   .profile-photo {
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid $color-primary;
+    margin-bottom: 1.5rem;
+    border: 4px solid $color-primary;
+    transition: $transition-smooth;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+
+    &:hover {
+      transform: scale(1.05);
+      border-color: $color-primary-dark;
+    }
   }
 
   .profile-name {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: $color-text;
+    line-height: 1.2;
   }
 
   .profile-title {
     font-size: 1rem;
     color: $color-text-muted;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
   }
 
   .profile-details {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
 
     .profile-detail {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.75rem;
       color: $color-text-muted;
       font-size: 0.95rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: $transition-smooth;
 
       svg {
         color: $color-primary;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
     }
   }
@@ -126,24 +212,27 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   .social-links {
     display: flex;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
 
     a {
-      // @include link-reset;
       color: $color-primary;
       background: $color-bg;
       border-radius: 50%;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s, color 0.2s;
+      transition: $transition-smooth;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba($color-shadow, 0.1);
 
       &:hover,
       &:focus {
         background: $color-primary-light;
         color: $color-primary-dark;
+        box-shadow: 0 4px 8px rgba($color-primary, 0.3);
       }
 
       svg {
@@ -155,15 +244,35 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
 }
 
 .skills-card {
-  background: $color-bg-light;
+  &.light {
+    background: $color-bg-light;
+  }
+
+  &.dark {
+    background: $color-bg-dark;
+
+    .skills-title {
+      color: lighten($color-primary, 10%);
+    }
+
+    .skill-category h4 {
+      color: lighten($color-text, 60%);
+    }
+  }
+
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba($color-shadow, 0.08);
-  padding: 1.5rem 1.2rem;
+  box-shadow: $shadow-subtle;
+  padding: 2rem 1.5rem;
+  transition: $transition-smooth;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba($color-shadow, 0.12);
+  }
 
   .skills-title {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: $color-primary;
     text-align: center;
   }
@@ -171,38 +280,51 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   .skills-cloud {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
 
     .skill-category {
       h4 {
         font-size: 1rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
         color: $color-text;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
       }
 
       .skill-tag {
         display: inline-block;
-        margin: 0.2rem 0.3rem 0.2rem 0;
-        padding: 0.35rem 0.8rem;
-        border-radius: 1rem;
-        font-size: 0.95rem;
+        margin: 0.25rem 0.3rem 0.25rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 1.5rem;
+        font-size: 0.9rem;
         font-weight: 500;
         background: $color-bg;
         color: $color-primary;
-        transition: background 0.2s, color 0.2s;
+        transition: $transition-smooth;
+        cursor: default;
+        border: 1px solid transparent;
+
+        &:hover {
+          box-shadow: 0 2px 4px rgba($color-primary, 0.2);
+        }
 
         &.level-5 {
           background: $color-primary;
           color: #fff;
+          font-weight: 600;
+          border-color: $color-primary-dark;
         }
         &.level-4 {
           background: $color-primary-light;
           color: $color-primary-dark;
+          border-color: $color-primary;
         }
         &.level-3 {
           background: $color-bg-light;
           color: $color-primary;
+          border-color: rgba($color-primary, 0.3);
         }
       }
     }
@@ -214,28 +336,78 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  min-width: 0; // Prevents flex overflow
 }
 
 .about-section {
-  background: $color-bg;
+  &.light {
+    background: $color-bg-light;
+  }
+
+  &.dark {
+    background: $color-bg-dark;
+
+    .section-title {
+      color: lighten($color-primary, 10%);
+    }
+
+    .about-text {
+      color: lighten($color-text, 60%);
+    }
+
+    .timeline-content h3 {
+      color: lighten($color-text, 60%);
+    }
+
+    .timeline-subtitle {
+      color: lighten($color-text-muted, 20%);
+    }
+
+    .timeline-content p {
+      color: lighten($color-text, 50%);
+    }
+  }
+
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba($color-shadow, 0.05);
-  padding: 2rem 1.5rem;
+  box-shadow: $shadow-light;
+  padding: 2.5rem 2rem;
+  transition: $transition-smooth;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba($color-shadow, 0.08);
+  }
 
   .section-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: $color-primary;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, $color-primary, $color-primary-light);
+      border-radius: 2px;
+    }
   }
 
   .about-text {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: $color-text;
-    line-height: 1.7;
+    line-height: 1.8;
 
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -243,12 +415,25 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, $color-primary, $color-primary-light);
+    border-radius: 1px;
+  }
 
   .timeline-item {
     display: flex;
     align-items: flex-start;
-    gap: 1.2rem;
+    gap: 1.5rem;
+    position: relative;
 
     .timeline-marker {
       width: 16px;
@@ -258,28 +443,42 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
       margin-top: 0.3rem;
       flex-shrink: 0;
       box-shadow: 0 0 0 4px $color-primary-light;
+      z-index: 1;
+      position: relative;
+      transition: $transition-smooth;
+
+      &:hover {
+        box-shadow: 0 0 0 6px rgba($color-primary-light, 0.8);
+      }
     }
 
     .timeline-content {
       flex: 1;
+      padding: 0.5rem 0;
 
       h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         font-weight: 600;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
         color: $color-text;
       }
 
       .timeline-subtitle {
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: $color-text-muted;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 500;
       }
 
       p {
         font-size: 1rem;
         color: $color-text;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -287,31 +486,56 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
 
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
 .interest-card {
-  background: $color-bg-light;
-  border-radius: 0.8rem;
-  box-shadow: 0 2px 8px rgba($color-shadow, 0.07);
-  padding: 1.2rem 1rem;
+  &.light {
+    background: $color-bg-light;
+  }
+
+  &.dark {
+    background: $color-bg-dark;
+
+    .interest-header h3 {
+      color: lighten($color-text, 60%);
+    }
+
+    .interest-description {
+      color: lighten($color-text-muted, 20%);
+    }
+  }
+
+  border-radius: 1rem;
+  box-shadow: $shadow-card;
+  padding: 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: $transition-smooth;
+  border: 1px solid transparent;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba($color-shadow, 0.12);
+    border-color: rgba($color-primary, 0.2);
+  }
 
   .interest-header {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 0.5rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 
     svg {
       color: $color-primary;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
     }
 
     h3 {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: $color-text;
       margin: 0;
@@ -319,30 +543,47 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   }
 
   .interest-description {
-    font-size: 0.98rem;
+    font-size: 1rem;
     color: $color-text-muted;
     margin: 0;
+    line-height: 1.6;
   }
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .about-sidebar {
+    position: static;
+    top: auto;
+  }
+}
+
 @media (max-width: 900px) {
   .container {
-    flex-direction: column;
     gap: 1.5rem;
+    margin-top: 80px;
   }
 
   .page-nav {
+    position: static;
+    top: auto;
+
     .section-nav {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+
+      .section-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+      }
     }
   }
 
   .about-layout {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .about-sidebar {
@@ -356,40 +597,93 @@ $color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary t
   .profile-card,
   .skills-card {
     flex: 1;
+    min-width: 280px;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
+    margin-top: 60px;
   }
 
   .page-nav {
-    padding: 1rem 0.5rem;
-    border-radius: 0.7rem;
+    padding: 1.25rem 1rem;
+    border-radius: 0.75rem;
 
     .section-nav {
-      flex-direction: column;
-      align-items: center;
       gap: 0.75rem;
 
       .section-link {
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
       }
     }
   }
 
   .about-section {
-    padding: 1.2rem 0.7rem;
+    padding: 1.5rem 1rem;
+
+    .section-title {
+      font-size: 1.3rem;
+    }
+
+    .about-text {
+      font-size: 1rem;
+    }
   }
 
   .about-sidebar {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+
+  .profile-card {
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   .interests-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .timeline {
+    gap: 2rem;
+
+    .timeline-item {
+      gap: 1rem;
+
+      .timeline-content {
+        h3 {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .page-nav {
+    padding: 1rem 0.75rem;
+  }
+
+  .about-section {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .profile-card,
+  .skills-card {
+    padding: 1.5rem 1rem;
   }
 }

@@ -1,6 +1,6 @@
-<main class="container" [ngClass]="theme">
+<main class="container">
   <!-- Section Navigation Sidebar -->
-  <section class="page-nav">
+  <section class="page-nav" [ngClass]="theme">
     <nav class="section-nav">
       <a href="#about" class="section-link">About Me</a>
       <a href="#experience" class="section-link">Experience</a>
@@ -14,11 +14,11 @@
   </section>
 
   <!-- Main Two-Column Layout -->
-  <div class="about-layout">
+  <div class="about-layout" [ngClass]="theme">
     <!-- Left Sidebar -->
-    <aside class="about-sidebar">
+    <aside class="about-sidebar" [ngClass]="theme">
       <!-- Profile Card -->
-      <div class="profile-card">
+      <div class="profile-card" [ngClass]="theme">
         <img
           class="profile-photo"
           src="/assets/profile.jpg"
@@ -31,7 +31,7 @@
             <svg width="16" height="16" fill="currentColor">
               <!-- Location SVG -->
             </svg>
-            <span>San Francisco, CA</span>
+            <span>East Lansing, MI</span>
           </div>
           <div class="profile-detail">
             <svg width="16" height="16" fill="currentColor">
@@ -62,7 +62,7 @@
         </div>
       </div>
       <!-- Skills Card -->
-      <div class="skills-card">
+      <div class="skills-card" [ngClass]="theme">
         <h3 class="skills-title">Skills</h3>
         <div class="skills-cloud">
           <div class="skill-category">
@@ -89,9 +89,9 @@
     </aside>
 
     <!-- Right Main Content -->
-    <div class="about-content">
+    <div class="about-content" [ngClass]="theme">
       <!-- About Me Section -->
-      <section class="about-section" id="about">
+      <section class="about-section" id="about" [ngClass]="theme">
         <h2 class="section-title">About Me</h2>
         <div class="about-text">
           <p>
@@ -108,7 +108,7 @@
       </section>
 
       <!-- Professional Experience Section -->
-      <section class="about-section" id="experience">
+      <section class="about-section" id="experience" [ngClass]="theme">
         <h2 class="section-title">Professional Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
@@ -137,7 +137,7 @@
       </section>
 
       <!-- Education Section -->
-      <section class="about-section" id="education">
+      <section class="about-section" id="education" [ngClass]="theme">
         <h2 class="section-title">Education</h2>
         <div class="timeline">
           <div class="timeline-item">
@@ -157,7 +157,7 @@
       </section>
 
       <!-- Interests Section -->
-      <section class="about-section" id="interests">
+      <section class="about-section" id="interests" [ngClass]="theme">
         <h2 class="section-title">Interests</h2>
         <div class="interests-grid">
           <div class="interest-card">
