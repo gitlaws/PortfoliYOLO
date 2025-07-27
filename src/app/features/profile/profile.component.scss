@@ -12,7 +12,7 @@ $color-primary-light: #cffafe; // ice blue
 $color-primary-dark: #164e63; // deep teal
 $color-bg: #ffffff;
 $social-links-bg-light: #e0f7fa; // light mode social links background (soft cyan)
-$social-links-bg-dark: #334155; // dark mode social links background (slate blue-gray)
+$social-links-bg-dark: #1e293b; // dark mode social links background (slate blue-gray)
 $color-text: #16213e; // matches your gradient
 $color-text-muted: #475569;
 
@@ -220,27 +220,28 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
     a {
       color: $color-primary;
       background: $social-links-bg-dark;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      // border-radius: 50%;
+      // width: 40px;
+      // height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: $transition-smooth;
       text-decoration: none;
       box-shadow: 0 2px 4px rgba($color-shadow, 0.1);
+      font-size: 1em;
 
       &:hover,
       &:focus {
-        background: $color-primary-light;
-        color: $color-primary-dark;
-        box-shadow: 0 4px 8px rgba($color-primary, 0.3);
+        // background: $color-primary-light;
+        color: #fff;
+        // box-shadow: 0 4px 8px rgba($color-primary, 0.3);
       }
 
-      svg {
-        width: 20px;
-        height: 20px;
-      }
+      // svg {
+      //   width: 20px;
+      //   height: 20px;
+      // }
     }
   }
 }
