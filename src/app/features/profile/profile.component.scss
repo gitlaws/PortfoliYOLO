@@ -162,7 +162,7 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
     box-shadow: 0 4px 12px rgba($color-primary, 0.3);
 
     &:hover {
-      transform: scale(1.05);
+      // transform: scale(1.05);
       border-color: $color-primary-dark;
     }
   }

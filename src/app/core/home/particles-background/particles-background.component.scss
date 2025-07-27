@@ -127,25 +127,25 @@
 // Theme colors for shapes
 .light {
   .triangle-1 {
-    border-bottom: 12px solid rgba(63, 81, 181, 0.3);
+    border-bottom: 12px solid rgba(63, 81, 181, 0.4); // indigo
   }
   .triangle-2 {
-    border-bottom: 10px solid rgba(156, 39, 176, 0.3);
+    border-bottom: 10px solid rgba(156, 39, 176, 0.4); // purple
   }
   .circle-1 {
-    background: rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.4); // green
   }
   .circle-2 {
-    background: rgba(255, 152, 0, 0.3);
+    background: rgba(255, 183, 77, 0.4); // orange
   }
   .square-1 {
-    background: rgba(244, 67, 54, 0.3);
+    background: rgba(239, 154, 154, 0.4); // light red
   }
   .hexagon-1 {
-    background: rgba(96, 125, 139, 0.3);
+    background: rgba(144, 164, 174, 0.4); // blue grey
   }
 }
-
+  
 .dark {
   .triangle-1 {
     border-bottom: 12px solid rgba(100, 181, 246, 0.4);
