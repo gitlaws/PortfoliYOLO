@@ -1,26 +1,150 @@
-// @import "../../../styles/_colors.scss";
 @import "../../../styles/_mixins.scss";
-// @import "../../../styles/_variables.scss";
 
-$color-bg-light: #f3f4f6; // light mode background
+// Enhanced monochromatic palette for sophistication
+$color-bg-light: #f8f8f8; // Softer light grey instead of white
+$color-bg-dark: #080808; // Pure deep black
+$color-surface-light: #fdfdfd; // Off-white for cards
+$color-surface-dark: #0f0f0f; // Rich charcoal, deeper than bg
+$color-shadow: #000000;
 
-// Dark mode colors
-$color-bg-dark: #1e293b;
-$color-shadow: #0f172a;
-$color-primary: #06b6d4; // bright cyan
-$color-primary-light: #cffafe; // ice blue
-$color-primary-dark: #164e63; // deep teal
-$color-bg: #ffffff;
-$social-links-bg-light: #e0f7fa; // light mode social links background (soft cyan)
-$social-links-bg-dark: #1e293b; // dark mode social links background (slate blue-gray)
-$color-text: #16213e; // matches your gradient
-$color-text-muted: #475569;
+// Refined primary colors with better variations
+$color-primary: #0ea5e9; // Sky blue - keeping your brand color
+$color-primary-light: #e5e7eb; // Light grey instead of blue
+$color-primary-dark: #374151; // Dark grey instead of blue
+$color-primary-muted: #6b7280; // Medium grey for dark mode
+$color-primary-desaturated: #4b5563; // Darker grey accent
+$color-primary-accent: #9ca3af; // Light grey accent for highlights
 
-// Optimized transitions and shadows
-$transition-smooth: all 0.2s ease-out;
-$shadow-subtle: 0 2px 8px rgba($color-shadow, 0.08);
-$shadow-light: 0 2px 8px rgba($color-shadow, 0.05);
-$shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
+// Enhanced text colors - WCAG AA compliant with pure grey tones
+$color-text: #111111; // Pure dark grey for maximum contrast
+$color-text-light: #374151; // Medium dark grey for secondary text
+$color-text-muted: #6b7280; // Medium grey for muted text
+$color-text-dark: #f3f4f6; // Light grey for dark mode text
+$color-text-dark-muted: #d1d5db; // Medium light grey for dark mode muted text
+
+// Interactive state colors - pure monochromatic
+$color-hover-light: #f3f4f6; // Light grey hover
+$color-hover-dark: #1f2937; // Dark grey hover
+$color-focus: #0ea5e9; // Keep brand blue for focus states only
+$color-active: #374151; // Medium grey for active states
+
+// Status colors for feedback
+$color-success: #10b981;
+$color-warning: #f59e0b;
+$color-error: #ef4444;
+$color-info: #3b82f6;
+
+// Premium shadow system with realistic depth
+$shadow-ambient: 0 1px 3px rgba($color-shadow, 0.05);
+$shadow-subtle: 0 4px 6px -1px rgba($color-shadow, 0.08),
+  0 2px 4px -1px rgba($color-shadow, 0.04);
+$shadow-elevated: 0 10px 15px -3px rgba($color-shadow, 0.08),
+  0 4px 6px -2px rgba($color-shadow, 0.04);
+$shadow-floating: 0 20px 25px -5px rgba($color-shadow, 0.12),
+  0 10px 10px -5px rgba($color-shadow, 0.04);
+$shadow-glow: 0 0 0 1px rgba($color-primary, 0.05),
+  0 1px 3px rgba($color-primary, 0.1);
+
+// Refined transitions for micro-interactions
+$transition-quick: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+$transition-micro: transform 0.1s ease-out;
+
+// Performance-optimized transitions
+$transition-transform: transform 0.2s ease-out;
+$transition-background: background-color 0.2s ease-out;
+$transition-shadow: box-shadow 0.2s ease-out;
+$transition-border: border-color 0.2s ease-out;
+$transition-color: color 0.2s ease-out;
+$transition-hover: transform 0.2s ease-out, box-shadow 0.2s ease-out,
+  background-color 0.2s ease-out;
+$transition-interactive: background-color 0.2s ease-out,
+  border-color 0.2s ease-out, color 0.2s ease-out;
+
+// Premium theme mixin with gradients
+@mixin premium-card($light-bg, $dark-bg) {
+  &.light {
+    background: linear-gradient(
+      145deg,
+      $light-bg 0%,
+      lighten($light-bg, 1%) 100%
+    );
+    border: 1px solid rgba($color-primary, 0.08);
+  }
+
+  &.dark {
+    background: linear-gradient(
+      145deg,
+      $dark-bg 0%,
+      lighten($dark-bg, 2%) 100%
+    );
+    border: 1px solid rgba($color-primary-muted, 0.1);
+    backdrop-filter: blur(20px);
+  }
+}
+
+// Theme mixins
+@mixin theme-colors($light-bg, $dark-bg) {
+  &.light {
+    background: $light-bg;
+  }
+  &.dark {
+    background: $dark-bg;
+  }
+}
+
+@mixin theme-text($light-color, $dark-color) {
+  &.light {
+    color: $light-color;
+  }
+  &.dark {
+    color: $dark-color;
+  }
+}
+
+// Interactive state mixins for consistent hover/focus states
+@mixin interactive-light($base-color) {
+  color: $base-color;
+  transition: $transition-interactive;
+
+  &:hover {
+    color: darken($base-color, 10%);
+    background-color: $color-hover-light;
+  }
+
+  &:focus {
+    color: $color-focus;
+    outline: 2px solid rgba($color-focus, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    color: $color-active;
+    transform: translateY(1px);
+  }
+}
+
+@mixin interactive-dark($base-color) {
+  color: $base-color;
+  transition: $transition-interactive;
+
+  &:hover {
+    color: lighten($base-color, 15%);
+    background-color: $color-hover-dark;
+  }
+
+  &:focus {
+    color: $color-primary-accent;
+    outline: 2px solid rgba($color-primary-accent, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    color: $color-primary-muted;
+    transform: translateY(1px);
+  }
+}
 
 .container {
   display: flex;
@@ -33,68 +157,83 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 }
 
 .page-nav {
-  &.light {
-    background: $color-bg-light;
-  }
-  &.dark {
-    background: $color-bg-dark;
-
-    .section-link {
-      color: lighten($color-primary, 10%);
-
-      &:hover,
-      &:focus {
-        background: rgba($color-primary-light, 0.1);
-        color: lighten($color-primary, 20%);
-      }
-    }
-  }
+  @include premium-card($color-surface-light, $color-surface-dark);
 
   width: 100%;
-  border-radius: 1rem;
-  box-shadow: $shadow-subtle;
-  padding: 1.5rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: $shadow-elevated;
+  padding: 2rem 2.5rem;
   position: sticky;
   top: 1rem;
   z-index: 10;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+
+  &.dark .section-link {
+    @include interactive-dark($color-primary-muted);
+  }
 
   .section-nav {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
     .section-link {
-      color: $color-primary;
-      font-weight: 500;
-      padding: 0.75rem 1.25rem;
-      border-radius: 0.75rem;
+      @include interactive-light($color-primary);
+      font-weight: 600;
+      font-size: 0.875rem; // 14px
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: $transition-smooth;
+      gap: 0.75rem;
       text-decoration: none;
       white-space: nowrap;
       border: 1px solid transparent;
+      letter-spacing: 0.025em;
+      position: relative;
+      overflow: hidden;
+
+      // Animated underline
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: $color-primary;
+        transition: $transition-smooth;
+        transform: translateX(-50%);
+      }
 
       &:hover,
       &:focus {
-        background: $color-primary-light;
+        background: linear-gradient(
+          135deg,
+          $color-primary-light,
+          lighten($color-primary-light, 3%)
+        );
         color: $color-primary-dark;
         border-color: rgba($color-primary, 0.2);
-      }
+        box-shadow: $shadow-elevated;
 
-      &:active {
-        transform: translateY(0);
+        &::after {
+          width: 80%;
+        }
+
+        svg {
+          transform: scale(1.1);
+        }
       }
 
       svg {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
         flex-shrink: 0;
+        transition: $transition-smooth;
       }
     }
   }
@@ -119,28 +258,11 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 }
 
 .profile-card {
-  &.light {
-    background: $color-bg-light;
-  }
-  &.dark {
-    background: $color-bg-dark;
+  @include premium-card($color-surface-light, $color-surface-dark);
 
-    .profile-name {
-      color: lighten($color-text, 60%);
-    }
-
-    .profile-title {
-      color: lighten($color-text-muted, 20%);
-    }
-
-    .profile-detail {
-      color: lighten($color-text-muted, 20%);
-    }
-  }
-
-  border-radius: 1rem;
-  box-shadow: $shadow-subtle;
-  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: $shadow-elevated;
+  padding: 2.5rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -149,8 +271,37 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   overflow: hidden;
   transition: $transition-smooth;
 
+  // Subtle background texture
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($color-primary, 0.1),
+      transparent
+    );
+  }
+
+  &.dark {
+    .profile-name {
+      color: $color-text-dark;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .profile-title {
+      color: $color-primary-muted; // Better than muted text
+    }
+    .profile-detail {
+      color: $color-text-dark-muted;
+    }
+  }
+
   &:hover {
-    box-shadow: 0 4px 16px rgba($color-shadow, 0.12);
+    box-shadow: $shadow-floating;
   }
 
   .profile-photo {
@@ -159,54 +310,71 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 4px solid $color-primary;
+    border: 3px solid transparent;
+    background: linear-gradient($color-surface-light, $color-surface-light)
+        padding-box,
+      linear-gradient(135deg, $color-primary, $color-primary-light) border-box;
     transition: $transition-smooth;
-    box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+    box-shadow: $shadow-elevated, 0 0 0 1px rgba($color-primary, 0.1);
 
     &:hover {
-      // transform: scale(1.05);
-      border-color: $color-primary-dark;
+      transform: scale(1.02);
+      box-shadow: $shadow-floating, 0 0 0 2px rgba($color-primary, 0.2);
     }
   }
 
   .profile-name {
-    font-size: 1.5rem;
+    font-size: 1.25rem; // 20px
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: $color-text;
     line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   .profile-title {
-    font-size: 1rem;
-    color: $color-text-muted;
+    font-size: 1rem; // 16px
+    color: $color-primary;
     margin-bottom: 1.5rem;
     font-weight: 500;
+    letter-spacing: 0.015em;
   }
 
   .profile-details {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     width: 100%;
+    align-items: center;
 
     .profile-detail {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 0.75rem;
       color: $color-text-muted;
-      font-size: 0.95rem;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
+      font-size: 0.875rem; // 14px
+      padding: 0.25rem 1rem;
+      border-radius: 1rem;
       transition: $transition-smooth;
+      position: relative;
 
-      svg {
+      i {
         color: $color-primary;
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background: rgba($color-primary, 0.1);
         flex-shrink: 0;
+      }
+
+      span {
+        font-weight: 500;
+        letter-spacing: 0.025em;
       }
     }
   }
@@ -214,70 +382,170 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   .social-links {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     justify-content: center;
+    flex-wrap: wrap;
 
-    a {
-      color: $color-primary;
-      background: $social-links-bg-dark;
-      // border-radius: 50%;
-      // width: 40px;
-      // height: 40px;
+    .social-link {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: $transition-smooth;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 2px 4px rgba($color-shadow, 0.1);
-      font-size: 1em;
+      transition: $transition-smooth;
+      background: linear-gradient(
+        145deg,
+        rgba($color-primary, 0.08),
+        rgba($color-primary, 0.12)
+      );
+      border: 1px solid rgba($color-primary, 0.1);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
 
-      &:hover,
-      &:focus {
-        // background: $color-primary-light;
-        color: #fff;
-        // box-shadow: 0 4px 8px rgba($color-primary, 0.3);
+      // Animated background ring
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          $color-primary,
+          $color-primary-light,
+          $color-primary
+        );
+        opacity: 0;
+        transition: $transition-smooth;
+        z-index: -1;
       }
 
-      // svg {
-      //   width: 20px;
-      //   height: 20px;
-      // }
+      &.light {
+        background: linear-gradient(
+          145deg,
+          rgba($color-primary, 0.06),
+          rgba($color-primary, 0.1)
+        );
+        box-shadow: $shadow-subtle;
+      }
+
+      &.dark {
+        background: linear-gradient(
+          145deg,
+          rgba($color-primary-muted, 0.1),
+          rgba($color-primary-muted, 0.15)
+        );
+        box-shadow: $shadow-ambient;
+      }
+
+      i {
+        font-size: 18px;
+        color: $color-primary;
+        transition: $transition-smooth;
+        position: relative;
+        z-index: 2;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: $shadow-floating;
+
+        &::before {
+          opacity: 1;
+        }
+
+        &.light {
+          background: linear-gradient(
+            145deg,
+            rgba($color-primary, 0.12),
+            rgba($color-primary, 0.18)
+          );
+        }
+
+        &.dark {
+          background: linear-gradient(
+            145deg,
+            rgba($color-primary-muted, 0.15),
+            rgba($color-primary-muted, 0.22)
+          );
+        }
+
+        i {
+          transform: scale(1.1);
+          filter: drop-shadow(0 2px 8px rgba($color-primary, 0.4));
+        }
+      }
+
+      // Platform-specific enhanced colors
+      &.github:hover {
+        &::before {
+          background: linear-gradient(45deg, #24292f, #4a5568, #24292f);
+        }
+        i {
+          color: #24292f;
+        }
+      }
+
+      &.linkedin:hover {
+        &::before {
+          background: linear-gradient(45deg, #0a66c2, #2563eb, #0a66c2);
+        }
+        i {
+          color: #0a66c2;
+        }
+      }
+
+      &.email:hover {
+        &::before {
+          background: linear-gradient(45deg, #ea580c, #f97316, #ea580c);
+        }
+        i {
+          color: #ea580c;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: $shadow-glow, $shadow-elevated;
+      }
+
+      &:active {
+        transform: scale(1.02);
+      }
     }
   }
 }
 
 .skills-card {
-  &.light {
-    background: $color-bg-light;
-  }
+  @include premium-card($color-surface-light, $color-surface-dark);
 
-  &.dark {
-    background: $color-bg-dark;
-
-    .skills-title {
-      color: lighten($color-primary, 10%);
-    }
-
-    .skill-category h4 {
-      color: lighten($color-text, 60%);
-    }
-  }
-
-  border-radius: 1rem;
-  box-shadow: $shadow-subtle;
+  border-radius: 1.5rem;
+  box-shadow: $shadow-elevated;
   padding: 2rem 1.5rem;
   transition: $transition-smooth;
 
+  &.dark {
+    .skills-title {
+      color: $color-primary-muted;
+    }
+    .skill-category h4 {
+      color: $color-text-dark;
+    }
+  }
+
   &:hover {
-    box-shadow: 0 4px 16px rgba($color-shadow, 0.12);
+    box-shadow: $shadow-floating;
   }
 
   .skills-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.125rem; // 18px
+    font-weight: 700;
     margin-bottom: 1.5rem;
     color: $color-primary;
     text-align: center;
+    letter-spacing: -0.025em;
   }
 
   .skills-cloud {
@@ -287,47 +555,57 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
     .skill-category {
       h4 {
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 0.75rem; // 12px
+        font-weight: 700;
         margin-bottom: 0.75rem;
         color: $color-text;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        opacity: 0.8;
       }
 
       .skill-tag {
         display: inline-block;
-        margin: 0.25rem 0.3rem 0.25rem 0;
+        margin: 0.25rem 0.375rem 0.25rem 0;
         padding: 0.5rem 1rem;
-        border-radius: 1.5rem;
-        font-size: 0.9rem;
-        font-weight: 500;
-        background: $color-bg;
-        color: $color-primary;
+        border-radius: 2rem;
+        font-size: 0.75rem; // 12px
+        font-weight: 600;
         transition: $transition-smooth;
         cursor: default;
         border: 1px solid transparent;
+        letter-spacing: 0.025em;
 
         &:hover {
-          box-shadow: 0 2px 4px rgba($color-primary, 0.2);
+          box-shadow: $shadow-elevated;
         }
 
         &.level-5 {
-          background: $color-primary;
-          color: #fff;
-          font-weight: 600;
-          border-color: $color-primary-dark;
+          background: linear-gradient(
+            135deg,
+            $color-primary,
+            lighten($color-primary, 5%)
+          );
+          color: white;
+          box-shadow: $shadow-subtle, inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         &.level-4 {
-          background: $color-primary-light;
+          background: linear-gradient(
+            135deg,
+            $color-primary-light,
+            lighten($color-primary-light, 3%)
+          );
           color: $color-primary-dark;
-          border-color: $color-primary;
+          border-color: rgba($color-primary, 0.2);
         }
         &.level-3 {
-          background: $color-bg-light;
+          background: linear-gradient(
+            135deg,
+            $color-bg-light,
+            lighten($color-bg-light, 2%)
+          );
           color: $color-primary;
-          border-color: rgba($color-primary, 0.3);
+          border-color: rgba($color-primary, 0.15);
         }
       }
     }
@@ -338,76 +616,59 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  min-width: 0; // Prevents flex overflow
+  gap: 2rem;
+  min-width: 0;
 }
 
 .about-section {
-  &.light {
-    background: $color-bg-light;
-  }
+  @include premium-card($color-surface-light, $color-surface-dark);
 
-  &.dark {
-    background: $color-bg-dark;
-
-    .section-title {
-      color: lighten($color-primary, 10%);
-    }
-
-    .about-text {
-      color: lighten($color-text, 60%);
-    }
-
-    .timeline-content h3 {
-      color: lighten($color-text, 60%);
-    }
-
-    .timeline-subtitle {
-      color: lighten($color-text-muted, 20%);
-    }
-
-    .timeline-content p {
-      color: lighten($color-text, 50%);
-    }
-  }
-
-  border-radius: 1rem;
-  box-shadow: $shadow-light;
+  border-radius: 1.5rem;
+  box-shadow: $shadow-elevated;
   padding: 2.5rem 2rem;
   transition: $transition-smooth;
+  position: relative;
+
+  &.dark {
+    .section-title {
+      color: $color-primary-muted;
+    }
+    .about-text {
+      color: $color-text-dark;
+    }
+    .timeline-content h3 {
+      color: $color-text-dark;
+    }
+    .timeline-subtitle {
+      color: $color-text-dark-muted;
+    }
+    .timeline-content p {
+      color: $color-text-dark-muted;
+    }
+  }
 
   &:hover {
-    box-shadow: 0 4px 16px rgba($color-shadow, 0.08);
+    box-shadow: $shadow-floating;
   }
 
   .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.375rem; // 22px
+    font-weight: 800;
     color: $color-primary;
     margin-bottom: 1.5rem;
     position: relative;
-    padding-bottom: 0.5rem;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, $color-primary, $color-primary-light);
-      border-radius: 2px;
-    }
+    letter-spacing: -0.05em;
+    line-height: 1.1;
   }
 
   .about-text {
-    font-size: 1.1rem;
+    font-size: 1rem; // 16px
     color: $color-text;
-    line-height: 1.8;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
 
     p {
       margin-bottom: 1.25rem;
-
       &:last-child {
         margin-bottom: 0;
       }
@@ -428,8 +689,14 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, $color-primary, $color-primary-light);
+    background: linear-gradient(
+      180deg,
+      $color-primary 0%,
+      $color-primary-light 50%,
+      $color-primary 100%
+    );
     border-radius: 1px;
+    box-shadow: 0 0 8px rgba($color-primary, 0.3);
   }
 
   .timeline-item {
@@ -442,42 +709,49 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: $color-primary;
-      margin-top: 0.3rem;
+      background: linear-gradient(135deg, $color-primary, $color-primary-light);
+      margin-top: 0.25rem;
       flex-shrink: 0;
-      box-shadow: 0 0 0 4px $color-primary-light;
+      box-shadow: 0 0 0 4px rgba($color-primary-light, 0.3), $shadow-subtle;
       z-index: 1;
       position: relative;
       transition: $transition-smooth;
+      cursor: pointer;
 
       &:hover {
-        box-shadow: 0 0 0 6px rgba($color-primary-light, 0.8);
+        transform: scale(1.15);
+        box-shadow: 0 0 0 6px rgba($color-primary-light, 0.4), $shadow-elevated;
       }
     }
 
     .timeline-content {
       flex: 1;
       padding: 0.5rem 0;
+      transition: $transition-smooth;
 
       h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.125rem; // 18px
+        font-weight: 700;
         margin-bottom: 0.5rem;
         color: $color-text;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
       }
 
       .timeline-subtitle {
-        font-size: 1rem;
-        color: $color-text-muted;
+        font-size: 1rem; // 16px
+        color: $color-primary;
         margin-bottom: 0.75rem;
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: 0.01em;
       }
 
       p {
-        font-size: 1rem;
-        color: $color-text;
+        font-size: 0.9375rem; // 15px
+        color: $color-text-light; // Fixed - was using dark color in light mode
         margin-bottom: 0.5rem;
         line-height: 1.6;
+        letter-spacing: 0.005em;
 
         &:last-child {
           margin-bottom: 0;
@@ -487,41 +761,62 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .interest-card {
-  &.light {
-    background: $color-bg-light;
-  }
+  @include premium-card($color-surface-light, $color-surface-dark);
 
-  &.dark {
-    background: $color-bg-dark;
-
-    .interest-header h3 {
-      color: lighten($color-text, 60%);
-    }
-
-    .interest-description {
-      color: lighten($color-text-muted, 20%);
-    }
-  }
-
-  border-radius: 1rem;
-  box-shadow: $shadow-card;
+  border-radius: 1.25rem;
+  box-shadow: $shadow-subtle;
   padding: 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   transition: $transition-smooth;
-  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    box-shadow: 0 8px 24px rgba($color-shadow, 0.12);
-    border-color: rgba($color-primary, 0.2);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, $color-primary, $color-primary-light);
+    opacity: 0;
+    transition: $transition-smooth;
+  }
+
+  &.dark {
+    .interest-header h3 {
+      color: $color-text-dark;
+    }
+    .interest-description {
+      color: $color-text-dark-muted;
+    }
   }
 
   .interest-header {
@@ -532,24 +827,108 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
     svg {
       color: $color-primary;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
+      transition: $transition-smooth;
     }
 
     h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1rem; // 16px
+      font-weight: 700;
       color: $color-text;
       margin: 0;
+      letter-spacing: -0.025em;
     }
   }
 
+  &:hover .interest-header svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 4px rgba($color-primary, 0.3));
+  }
+
   .interest-description {
-    font-size: 1rem;
-    color: $color-text-muted;
+    font-size: 0.875rem; // 14px
+    color: $color-text-light;
     margin: 0;
     line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+}
+
+// Screen reader only class
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Icon styling
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+// Email link styling
+.email-link {
+  color: inherit;
+  text-decoration: none;
+  transition: $transition-color;
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+
+// Skill list styling
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+
+  li {
+    display: inline-block;
+  }
+}
+
+// Timeline details styling
+.timeline-details {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.375rem;
+    font-size: 0.9375rem; // 15px
+    color: $color-text-light;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: $color-primary;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -580,6 +959,7 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
         width: 100%;
         max-width: 200px;
         justify-content: center;
+        font-size: 0.8125rem; // 13px for mobile
       }
     }
   }
@@ -604,7 +984,7 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   }
 
   .interests-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
@@ -623,20 +1003,20 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
       .section-link {
         padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.8125rem; // 13px
       }
     }
   }
 
   .about-section {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
 
     .section-title {
-      font-size: 1.3rem;
+      font-size: 1.125rem; // 18px for mobile
     }
 
     .about-text {
-      font-size: 1rem;
+      font-size: 0.9375rem; // 15px for mobile
     }
   }
 
@@ -647,8 +1027,16 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
   .profile-card {
     .profile-photo {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
+    }
+
+    .profile-name {
+      font-size: 1.125rem; // 18px for mobile
+    }
+
+    .profile-title {
+      font-size: 0.9375rem; // 15px for mobile
     }
   }
 
@@ -665,7 +1053,7 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
       .timeline-content {
         h3 {
-          font-size: 1.1rem;
+          font-size: 1rem; // 16px for mobile
         }
       }
     }
@@ -682,11 +1070,11 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
   }
 
   .about-section {
-    padding: 1.25rem 0.75rem;
+    padding: 1rem 0.75rem;
   }
 
   .profile-card,
   .skills-card {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
   }
 }

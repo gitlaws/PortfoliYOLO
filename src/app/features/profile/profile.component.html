@@ -27,31 +27,29 @@
         <h2 class="profile-name">Stanisław Wasilewski</h2>
         <p class="profile-title">Full Stack Developer</p>
         <div class="profile-details">
-          <div class="profile-detail">
-            <svg width="16" height="16" fill="currentColor">
-              <!-- Location SVG -->
-            </svg>
+          <div class="profile-detail location" [ngClass]="theme">
+            <i class="fas fa-map-marker-alt"></i>
             <span>East Lansing, MI</span>
           </div>
-          <div class="profile-detail">
-            <svg width="16" height="16" fill="currentColor">
-              <!-- Email SVG -->
-            </svg>
-            <!-- <span>john.doe@email.com</span> -->
+          <div class="profile-detail email" [ngClass]="theme">
+            <i class="fas fa-envelope"></i>
+            <span>lawmski&#64;gmail.com</span>
           </div>
         </div>
         <div class="social-links">
           <a
             href="https://github.com/stanislaw-wasilewski"
             target="_blank"
-            aria-label="GitHub"
+            aria-label="GitHub Profile"
+            class="social-link github"
           >
             <i class="fab fa-github"></i>
           </a>
           <a
             href="https://linkedin.com/in/stanislaw-wasilewski"
             target="_blank"
-            aria-label="LinkedIn"
+            aria-label="LinkedIn Profile"
+            class="social-link linkedin"
           >
             <i class="fab fa-linkedin"></i>
           </a>
@@ -78,7 +76,7 @@
           <div class="skill-category">
             <h4>Languages</h4>
             <span class="skill-tag level-5">English</span>
-            <span class="skill-tag level-3">Spanish</span>
+            <span class="skill-tag level-3">Polish</span>
           </div>
         </div>
       </div>
@@ -139,14 +137,11 @@
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>BSc Computer Science</h3>
+              <h3>ABA Business Administration</h3>
               <p class="timeline-subtitle">
-                State University &mdash; 2014–2018
+                Lansing Community College &mdash; 2013
               </p>
-              <p>
-                Graduated with honors, focusing on software engineering and web
-                development.
-              </p>
+              <p>Business administration with focus on management</p>
             </div>
           </div>
         </div>
@@ -175,7 +170,7 @@
               <h3>Music</h3>
             </div>
             <p class="interest-description">
-              Playing guitar and composing electronic music in my free time.
+              Audio Engineering and Music Production.
             </p>
           </div>
           <div class="interest-card">
