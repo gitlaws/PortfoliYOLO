@@ -5,14 +5,16 @@
 $color-bg-light: #f3f4f6; // light mode background
 
 // Dark mode colors
-$color-bg-dark: #475569; // lighter dark mode background
-$color-shadow: #0f172a; // deep blue-gray for subtle shadow
-$color-primary: #3b82f6; // vibrant blue, matches toolbar accent
-$color-primary-light: #dbeafe; // soft blue, matches home highlights
-$color-primary-dark: #1e3a8a; // dark blue, matches toolbar hover
-$color-bg: #ffffff; // pure white for main backgrounds
-$color-text: #1e293b; // dark slate, matches home/toolbar text
-$color-text-muted: #64748b; // muted blue-gray, matches toolbar/home secondary text
+$color-bg-dark: #1e293b;
+$color-shadow: #0f172a;
+$color-primary: #06b6d4; // bright cyan
+$color-primary-light: #cffafe; // ice blue
+$color-primary-dark: #164e63; // deep teal
+$color-bg: #ffffff;
+$social-links-bg-light: #e0f7fa; // light mode social links background (soft cyan)
+$social-links-bg-dark: #334155; // dark mode social links background (slate blue-gray)
+$color-text: #16213e; // matches your gradient
+$color-text-muted: #475569;
 
 // Optimized transitions and shadows
 $transition-smooth: all 0.2s ease-out;
@@ -217,7 +219,7 @@ $shadow-card: 0 2px 8px rgba($color-shadow, 0.07);
 
     a {
       color: $color-primary;
-      background: $color-bg;
+      background: $social-links-bg-dark;
       border-radius: 50%;
       width: 40px;
       height: 40px;
