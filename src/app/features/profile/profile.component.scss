@@ -300,9 +300,9 @@ $transition-interactive: background-color 0.2s ease-out,
     }
   }
 
-  &:hover {
-    box-shadow: $shadow-floating;
-  }
+  // &:hover {
+  //   box-shadow: $shadow-floating;
+  // }
 
   .profile-photo {
     width: 120px;
@@ -317,10 +317,10 @@ $transition-interactive: background-color 0.2s ease-out,
     transition: $transition-smooth;
     box-shadow: $shadow-elevated, 0 0 0 1px rgba($color-primary, 0.1);
 
-    &:hover {
-      transform: scale(1.02);
-      box-shadow: $shadow-floating, 0 0 0 2px rgba($color-primary, 0.2);
-    }
+    // &:hover {
+    //   transform: scale(1.02);
+    //   box-shadow: $shadow-floating, 0 0 0 2px rgba($color-primary, 0.2);
+    // }
   }
 
   .profile-name {
@@ -396,31 +396,31 @@ $transition-interactive: background-color 0.2s ease-out,
       border-radius: 50%;
       text-decoration: none;
       transition: $transition-smooth;
-      background: linear-gradient(
-        145deg,
-        rgba($color-primary, 0.08),
-        rgba($color-primary, 0.12)
-      );
+      // background: linear-gradient(
+      //   145deg,
+      //   rgba($color-primary, 0.08),
+      //   rgba($color-primary, 0.12)
+      // );
       border: 1px solid rgba($color-primary, 0.1);
       backdrop-filter: blur(20px);
       overflow: hidden;
 
       // Animated background ring
-      &::before {
-        content: "";
-        position: absolute;
-        inset: -2px;
-        border-radius: 50%;
-        background: linear-gradient(
-          45deg,
-          $color-primary,
-          $color-primary-light,
-          $color-primary
-        );
-        opacity: 0;
-        transition: $transition-smooth;
-        z-index: -1;
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   inset: -2px;
+      //   border-radius: 50%;
+      //   // background: linear-gradient(
+      //   //   45deg,
+      //   //   $color-primary,
+      //   //   $color-primary-light,
+      //   //   $color-primary
+      //   // );
+      //   opacity: 0;
+      //   transition: $transition-smooth;
+      //   z-index: -1;
+      // }
 
       &.light {
         background: linear-gradient(
@@ -449,11 +449,11 @@ $transition-interactive: background-color 0.2s ease-out,
       }
 
       &:hover {
-        transform: scale(1.05);
-        box-shadow: $shadow-floating;
+        // transform: scale(1.05);
+        // box-shadow: $shadow-floating;
 
         &::before {
-          opacity: 1;
+          opacity: 0.1;
         }
 
         &.light {
@@ -473,7 +473,7 @@ $transition-interactive: background-color 0.2s ease-out,
         }
 
         i {
-          transform: scale(1.1);
+          // transform: scale(1.1);
           filter: drop-shadow(0 2px 8px rgba($color-primary, 0.4));
         }
       }
@@ -484,7 +484,7 @@ $transition-interactive: background-color 0.2s ease-out,
           background: linear-gradient(45deg, #24292f, #4a5568, #24292f);
         }
         i {
-          color: #24292f;
+          color: #b3bcc6;
         }
       }
 
@@ -535,9 +535,9 @@ $transition-interactive: background-color 0.2s ease-out,
     }
   }
 
-  &:hover {
-    box-shadow: $shadow-floating;
-  }
+  // &:hover {
+  //   box-shadow: $shadow-floating;
+  // }
 
   .skills-title {
     font-size: 1.125rem; // 18px
@@ -577,7 +577,7 @@ $transition-interactive: background-color 0.2s ease-out,
         letter-spacing: 0.025em;
 
         &:hover {
-          box-shadow: $shadow-elevated;
+          // box-shadow: $shadow-elevated;
         }
 
         &.level-5 {
@@ -647,9 +647,9 @@ $transition-interactive: background-color 0.2s ease-out,
     }
   }
 
-  &:hover {
-    box-shadow: $shadow-floating;
-  }
+  // &:hover {
+  //   box-shadow: $shadow-floating;
+  // }
 
   .section-title {
     font-size: 1.375rem; // 22px
@@ -716,12 +716,12 @@ $transition-interactive: background-color 0.2s ease-out,
       z-index: 1;
       position: relative;
       transition: $transition-smooth;
-      cursor: pointer;
+      // cursor: pointer;
 
-      &:hover {
-        transform: scale(1.15);
-        box-shadow: 0 0 0 6px rgba($color-primary-light, 0.4), $shadow-elevated;
-      }
+      // &:hover {
+      //   transform: scale(1.15);
+      //   box-shadow: 0 0 0 6px rgba($color-primary-light, 0.4), $shadow-elevated;
+      // }
     }
 
     .timeline-content {
