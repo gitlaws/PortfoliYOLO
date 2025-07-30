@@ -27,6 +27,7 @@ $font-family: "Roboto", sans-serif;
 .top-container {
   padding-top: 300px;
   font-family: $font-family;
+  font-size: 1em; // 16px base
 
   &.light {
     color: white;
@@ -50,7 +51,7 @@ $font-family: "Roboto", sans-serif;
 h1 {
   margin-top: 20px;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em; // Changed from 2.5em to 2em (32px)
   margin-bottom: 20px;
   font-family: "Orbitron", sans-serif;
 }
@@ -116,7 +117,7 @@ h1 {
 }
 
 .card-header {
-  font-size: 1.5em;
+  font-size: 1.125em; // Changed from 1.5em to 1.125em (18px)
   padding: 10px;
 
   &.light {
@@ -136,28 +137,19 @@ h1 {
   flex: 1;
   margin: 10px;
   padding: 10px;
-  max-height: 300px; /* Set a maximum height */
-  overflow-y: auto; /* Enable vertical scrolling for overflow content */
-  word-wrap: break-word; /* Ensure long words break and wrap to the next line */
+  max-height: 300px;
+  overflow-y: auto;
+  word-wrap: break-word;
   overflow-wrap: break-word;
 
   p {
-    @media (min-width: $breakpoint-mobile) {
-      font-size: 1em; /* Font size for mobile devices */
-    }
-
-    @media (min-width: $breakpoint-tablet) {
-      font-size: 1.2em; /* Font size for tablets */
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      font-size: 1em; /* Font size for desktops */
-    }
+    font-size: 1em; // Normalized to 1em (16px) for all devices
+    line-height: 1.5; // Added line-height for better readability
   }
 
   .project-note {
     margin-top: 10px;
-    font-size: 0.8em;
+    font-size: 0.875em; // Changed from 0.8em to 0.875em (14px)
     font-weight: bold;
     color: #4682b4;
   }
@@ -172,66 +164,60 @@ h1 {
 
   /* WebKit browsers */
   ::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 8px;
   }
 
   &.light ::-webkit-scrollbar-track {
-    background: $light-secondary-color; /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
+    background: $light-secondary-color;
+    border-radius: 10px;
   }
 
   &.dark ::-webkit-scrollbar-track {
-    background: $dark-secondary-color; /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
+    background: $dark-secondary-color;
+    border-radius: 10px;
   }
 
   &.light ::-webkit-scrollbar-thumb {
-    background: $light-accent-color; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    background: $light-accent-color;
+    border-radius: 10px;
   }
 
   &.dark ::-webkit-scrollbar-thumb {
-    background: $dark-accent-color; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    background: $dark-accent-color;
+    border-radius: 10px;
   }
 
   &.light ::-webkit-scrollbar-thumb:hover {
-    background: darken(
-      $light-accent-color,
-      10%
-    ); /* Color of the scrollbar thumb on hover */
+    background: darken($light-accent-color, 10%);
   }
 
   &.dark ::-webkit-scrollbar-thumb:hover {
-    background: lighten(
-      $dark-accent-color,
-      10%
-    ); /* Color of the scrollbar thumb on hover */
+    background: lighten($dark-accent-color, 10%);
   }
 
   /* Firefox */
   &.light {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: $light-accent-color $light-secondary-color; /* Thumb and track color */
+    scrollbar-width: thin;
+    scrollbar-color: $light-accent-color $light-secondary-color;
   }
 
   &.dark {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: $dark-accent-color $dark-secondary-color; /* Thumb and track color */
+    scrollbar-width: thin;
+    scrollbar-color: $dark-accent-color $dark-secondary-color;
   }
 }
 
 .card-footer {
   display: flex;
-  padding: 15px; /* Increased padding for better spacing */
+  padding: 15px;
   text-align: center;
   justify-content: space-around;
-  align-items: center; /* Center align items vertically */
-  border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 
   i {
-    font-size: 24px;
+    font-size: 1.25em; // Changed from 24px to 1.25em (20px)
   }
 
   &.light {
@@ -240,15 +226,15 @@ h1 {
 
     a {
       color: $light-accent-color;
-      margin: 0 10px; /* Increased margin for better spacing */
+      margin: 0 10px;
       text-decoration: none;
-      font-size: 1.2em; /* Increased font size for better readability */
-      transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+      font-size: 1em; // Changed from 1.2em to 1em (16px)
+      transition: color 0.3s, transform 0.3s;
 
       &:hover {
         text-decoration: underline;
-        color: darken($light-accent-color, 10%); /* Darken color on hover */
-        transform: scale(1.1); /* Slightly enlarge on hover */
+        color: darken($light-accent-color, 10%);
+        transform: scale(1.1);
       }
     }
   }
@@ -259,36 +245,36 @@ h1 {
 
     a {
       color: $dark-accent-color;
-      margin: 0 10px; /* Increased margin for better spacing */
+      margin: 0 10px;
       text-decoration: none;
-      font-size: 1.2em; /* Increased font size for better readability */
-      transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+      font-size: 1em; // Changed from 1.2em to 1em (16px)
+      transition: color 0.3s, transform 0.3s;
 
       &:hover {
         text-decoration: underline;
-        color: lighten($dark-accent-color, 10%); /* Lighten color on hover */
-        transform: scale(1.1); /* Slightly enlarge on hover */
+        color: lighten($dark-accent-color, 10%);
+        transform: scale(1.1);
       }
     }
   }
 }
 
 .note {
-  font-size: 0.8em; /* Adjust the size as needed */
-  color: #666; /* Change the color to a lighter shade */
-  display: block; /* Make it display as a block element */
-  margin-top: 10px; /* Add some space above the note */
-  line-height: 1.4; /* Improve readability */
+  font-size: 0.875em; // Changed from 0.8em to 0.875em (14px)
+  color: #666;
+  display: block;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
 .note a {
-  color: #4682b4; /* Match the link color with the theme */
-  text-decoration: underline; /* Underline the link for better visibility */
-  transition: color 0.3s; /* Smooth transition for hover effect */
+  color: #4682b4;
+  text-decoration: underline;
+  transition: color 0.3s;
 }
 
 .note a:hover {
-  color: #1e90ff; /* Change color on hover */
+  color: #1e90ff;
 }
 
 @media (max-width: $breakpoint-mobile) {
@@ -311,6 +297,15 @@ h1 {
         transform: none;
       }
     }
+  }
+
+  // Mobile-specific font adjustments
+  .card-header {
+    font-size: 1em; // Slightly smaller on mobile
+  }
+
+  .card-content p {
+    font-size: 0.9em; // Slightly smaller for mobile readability
   }
 }
 
@@ -349,13 +344,17 @@ h1 {
 }
 
 .portfolio-paragraph {
-  margin-bottom: 20px; /* Add space below the paragraph */
+  margin-bottom: 20px;
+  font-size: 1em; // Added explicit font size
+  line-height: 1.5; // Added line-height for readability
 }
 
 .portfolio-paragraph + ul {
-  margin-top: 20px; /* Add space above the list */
+  margin-top: 20px;
 }
 
 .spaced-list-item {
   margin-bottom: 10px;
+  font-size: 1em; // Added explicit font size
+  line-height: 1.4; // Added line-height for readability
 }
