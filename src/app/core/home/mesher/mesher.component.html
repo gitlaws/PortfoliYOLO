@@ -1,0 +1,26 @@
+<div
+  class="mesher-canvas"
+  [ngClass]="theme"
+  [attr.data-reduced-motion]="prefersReducedMotion"
+>
+  <!-- Base mesh gradient background -->
+  <div class="mesh-background"></div>
+  <div class="mesh-overlay" aria-hidden="true"></div>
+
+  <!-- Floating Geometric Shapes -->
+  <div class="floating-shapes" aria-hidden="true">
+    <div class="float-shape triangle triangle-1"></div>
+    <div class="float-shape triangle triangle-2"></div>
+    <div class="float-shape circle circle-1"></div>
+    <div class="float-shape circle circle-2"></div>
+    <div class="float-shape square square-1"></div>
+    <div class="float-shape hexagon hexagon-1"></div>
+  </div>
+
+  <!-- Morphing Blobs -->
+  <div class="morphing-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+</div>

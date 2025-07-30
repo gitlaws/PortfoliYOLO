@@ -7,6 +7,7 @@ import { TypewriterComponent } from './typewriter/typewriter.component';
 import { ParticlesBackgroundComponent } from './particles-background/particles-background.component';
 import { CubeLogoComponent } from '../toolbar/cube-logo/cube-logo.component';
 import { HeroComponent } from './hero/hero.component';
+import { MesherComponent } from './mesher/mesher.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { HeroComponent } from './hero/hero.component';
     ParticlesBackgroundComponent,
     CubeLogoComponent,
     HeroComponent,
+    MesherComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
