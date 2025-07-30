@@ -22,10 +22,20 @@
       </p>
     </div>
     <div class="floating-element buttons-element" [ngClass]="theme">
-      <a href="#projects" class="min-button min-button-fill" [ngClass]="theme"
+      <a
+        routerLink="/mock"
+        href="#projects"
+        class="min-button min-button-fill"
+        [ngClass]="theme"
         >View Projects</a
       >
-      <a href="#contact" class="min-button" [ngClass]="theme">Contact Me</a>
+      <a
+        routerLink="/profile"
+        href="#contact"
+        class="min-button"
+        [ngClass]="theme"
+        >Contact Me</a
+      >
     </div>
   </div>
 </div>

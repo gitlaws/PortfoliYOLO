@@ -4,11 +4,12 @@ import { Theme } from '../../../shared/models/theme.enum';
 import { CommonModule } from '@angular/common';
 import { TypewriterComponent } from '../typewriter/typewriter.component';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, TypewriterComponent],
+  imports: [CommonModule, TypewriterComponent, RouterLink],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
