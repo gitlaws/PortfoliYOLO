@@ -48,6 +48,7 @@
   gap: 18px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  @include theme-mode-transition;
 }
 
 .accent-line {
