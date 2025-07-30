@@ -29,12 +29,6 @@
 }
 
 .modern-hero {
-  // &.light {
-  //   background: rgba(255, 255, 255, 0.85);
-  // }
-  // &.dark {
-  //   background: rgba(20, 20, 30, 0.85);
-  // }
   background-color: transparent;
   border-radius: 32px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
@@ -164,33 +158,94 @@
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #00ffb8;
-  box-shadow: 0 2px 8px rgba(0, 255, 184, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  border: 2px solid transparent;
 
-  &:hover,
-  &:focus {
-    background: linear-gradient(90deg, #00ffb8 0%, #0078ff 100%);
-    color: #1c1c1c;
-    box-shadow: 0 4px 16px rgba(0, 120, 255, 0.18);
+  // Light theme - outline button
+  &.light {
+    background: transparent;
+    color: #2196f3;
+    border-color: #2196f3;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(135deg, #2196f3 0%, #00acc1 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Dark theme - outline button
+  &.dark {
+    background: transparent;
+    color: #00ffb8;
+    border-color: #00ffb8;
+    box-shadow: 0 2px 8px rgba(0, 255, 184, 0.15);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(135deg, #00ffb8 0%, #0078ff 100%);
+      color: #1a1a1a;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(0, 255, 184, 0.3);
+      transform: translateY(-2px);
+    }
   }
 }
 
 .min-button-fill {
-  background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
-  color: #1c1c1c;
-  border: none;
-  box-shadow: 0 2px 12px rgba(255, 106, 0, 0.12);
+  border: none !important;
 
-  &:hover,
-  &:focus {
-    background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
-    color: #fff;
-    box-shadow: 0 4px 24px rgba(255, 216, 0, 0.18);
+  // Light theme - filled button
+  &.light {
+    background: linear-gradient(135deg, #2196f3 0%, #00acc1 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 12px rgba(33, 150, 243, 0.2);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(135deg, #1976d2 0%, #0097a7 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 24px rgba(33, 150, 243, 0.35);
+      transform: translateY(-2px);
+    }
   }
+
+  // Dark theme - filled button
+  &.dark {
+    background: linear-gradient(135deg, #00ffb8 0%, #0078ff 100%);
+    color: #1a1a1a;
+    box-shadow: 0 2px 12px rgba(0, 255, 184, 0.2);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(135deg, #00e5a6 0%, #0066dd 100%);
+      color: #1a1a1a;
+      box-shadow: 0 4px 24px rgba(0, 255, 184, 0.35);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Enhanced button animations
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.min-button:active,
+.min-button-fill:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
 }
 
 @media (max-width: 700px) {
@@ -199,13 +254,42 @@
     max-width: 98vw;
     gap: 20px;
   }
+
   .gradient-text {
     font-size: 2rem;
   }
+
   .subtitle {
     font-size: 1rem;
   }
+
   .description {
     font-size: 0.95rem;
+  }
+
+  .buttons-element {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .min-button,
+  .min-button-fill {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+}
+
+// Additional responsive adjustments
+@media (max-width: 480px) {
+  .buttons-element {
+    gap: 10px;
+  }
+
+  .min-button,
+  .min-button-fill {
+    font-size: 0.9rem;
+    padding: 10px 16px;
   }
 }
