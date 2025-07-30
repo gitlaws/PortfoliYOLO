@@ -12,6 +12,6 @@ import { TypewriterComponent } from '../typewriter/typewriter.component';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
-  title: string;
+  title!: string;
   theme!: 'light' | 'dark';
 }
