@@ -33,7 +33,7 @@ $color-primary-accent: #9ca3af; // Light grey accent for highlights
 
 // Enhanced text colors - WCAG AA compliant with pure grey tones
 $color-text: #111111; // Pure dark grey for maximum contrast
-$color-text-light: #374151; // Medium dark grey for secondary text
+$color-text-light: #9ca3af; // Lighter grey for secondary text (alternative: #d1d5db)
 $color-text-muted: #6b7280; // Medium grey for muted text
 $color-text-dark: #f3f4f6; // Light grey for dark mode text
 $color-text-dark-muted: #d1d5db; // Medium light grey for dark mode muted text
@@ -872,12 +872,27 @@ $transition-interactive: background-color 0.2s ease-out,
 
   &:nth-child(2) {
     // Music background
-    background-image: url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop");
+    background-image: url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=300&fit=crop");
   }
 
   &:nth-child(3) {
     // Hiking background
     background-image: url("https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=300&fit=crop");
+  }
+
+  &:nth-child(4) {
+    // Fitness background
+    background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop");
+  }
+
+  &:nth-child(5) {
+    // PC Gaming background
+    background-image: url("https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop");
+  }
+
+  &:nth-child(6) {
+    // Media background
+    background-image: url("https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop");
   }
 
   // Hover effects
