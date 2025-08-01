@@ -1,0 +1,293 @@
+// mesher.component.scss
+
+// Color Variables
+// Cyber Menu & Stroke Color Pairings
+// Option 2: Cyberpunk Purple & Orange Theme
+$primary-light: #4b5c6b; // Stealthy Blue-Gray (Primary)
+$secondary-light: #7a8c99; // Muted Slate (Accent)
+$accent-light: #bfc9d1; // Soft Silver (Highlight)
+$background-light: #181c20; // Charcoal (Background)
+$text-light: #e0e3e6; // Light Gray Text
+
+$primary-dark: #23272b; // Deep Charcoal (Primary Dark)
+$secondary-dark: #3a4046; // Stealthy Gray (Accent Dark)
+$accent-dark: #6e7a88; // Muted Blue-Gray (Highlight Dark)
+$background-dark: #101214; // Almost Black (Dark Background)
+$text-dark: #b0b6bb; // Muted Silver Text
+
+$stroke-light: #4b5c6b; // Stealthy Blue-Gray Stroke
+$stroke-dark: #23272b; // Deep Charcoal Stroke
+
+$shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
+
+// Gradient Backgrounds
+.mesh-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  &.light {
+    background: linear-gradient(
+      120deg,
+      $primary-light 0%,
+      $secondary-light 60%,
+      $accent-light 100%
+    );
+    background-size: 200% 200%;
+    animation: meshGradientMove 8s ease-in-out infinite;
+  }
+  &.dark {
+    background: linear-gradient(
+      120deg,
+      $primary-dark 0%,
+      $secondary-dark 60%,
+      $accent-dark 100%
+    );
+    background-size: 200% 200%;
+    animation: meshGradientMove 8s ease-in-out infinite;
+  }
+}
+
+// Overlay for extra effect
+.mesh-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 80%
+  );
+  mix-blend-mode: lighten;
+}
+
+// Floating Shapes
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  .float-shape {
+    position: absolute;
+    opacity: 0.7;
+    filter: blur(0.5px);
+    animation-timing-function: ease-in-out;
+    will-change: transform;
+  }
+  // Triangles
+  .triangle {
+    width: 60px;
+    height: 52px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: $primary-light;
+    &.triangle-1 {
+      left: 10%;
+      top: 20%;
+      background: $primary-light;
+      animation: floatShapeMove1 7s infinite alternate;
+    }
+    &.triangle-2 {
+      right: 15%;
+      top: 60%;
+      background: $secondary-light;
+      animation: floatShapeMove2 9s infinite alternate;
+    }
+  }
+  // Circles
+  .circle {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    &.circle-1 {
+      left: 70%;
+      top: 10%;
+      background: $accent-light;
+      animation: floatShapeMove3 8s infinite alternate;
+    }
+    &.circle-2 {
+      left: 30%;
+      bottom: 15%;
+      background: $secondary-light;
+      animation: floatShapeMove4 10s infinite alternate;
+    }
+  }
+  // Square
+  .square {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.5rem;
+    left: 80%;
+    bottom: 25%;
+    background: $primary-light;
+    animation: floatShapeMove5 11s infinite alternate;
+  }
+  // Hexagon
+  .hexagon {
+    width: 54px;
+    height: 46px;
+    background: $accent-light;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    right: 8%;
+    top: 35%;
+    animation: floatShapeMove6 13s infinite alternate;
+  }
+  // Dark mode overrides
+  .dark & {
+    .triangle-1 {
+      background: $primary-dark;
+    }
+    .triangle-2 {
+      background: $secondary-dark;
+    }
+    .circle-1 {
+      background: $accent-dark;
+    }
+    .circle-2 {
+      background: $secondary-dark;
+    }
+    .square {
+      background: $primary-dark;
+    }
+    .hexagon {
+      background: $accent-dark;
+    }
+  }
+}
+
+// Floating Shape Animations
+@keyframes floatShapeMove1 {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-40px) scale(1.1) rotate(12deg);
+  }
+}
+@keyframes floatShapeMove2 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-60px) scale(1.15);
+  }
+}
+@keyframes floatShapeMove3 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(30px) scale(0.95);
+  }
+}
+@keyframes floatShapeMove4 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-25px) scale(1.08);
+  }
+}
+@keyframes floatShapeMove5 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(40px) scale(1.12);
+  }
+}
+@keyframes floatShapeMove6 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-35px) scale(1.05);
+  }
+}
+
+// Morphing Blobs
+.morphing-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  .blob {
+    position: absolute;
+    opacity: 0.22;
+    filter: blur(8px);
+    mix-blend-mode: lighten;
+    border-radius: 50%;
+    animation: blobMorph 14s infinite alternate;
+    &.blob-1 {
+      width: 180px;
+      height: 140px;
+      left: 12%;
+      top: 60%;
+      background: $primary-light;
+      animation-delay: 0s;
+    }
+    &.blob-2 {
+      width: 120px;
+      height: 120px;
+      left: 65%;
+      top: 20%;
+      background: $accent-light;
+      animation-delay: 2s;
+    }
+    &.blob-3 {
+      width: 140px;
+      height: 100px;
+      left: 40%;
+      top: 70%;
+      background: $secondary-light;
+      animation-delay: 4s;
+    }
+    // Dark mode overrides
+    .dark &.blob-1 {
+      background: $primary-dark;
+    }
+    .dark &.blob-2 {
+      background: $accent-dark;
+    }
+    .dark &.blob-3 {
+      background: $secondary-dark;
+    }
+  }
+}
+@keyframes blobMorph {
+  0% {
+    border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+    transform: scale(1);
+  }
+  50% {
+    border-radius: 60% 50% 40% 60% / 60% 40% 50% 60%;
+    transform: scale(1.08);
+  }
+  100% {
+    border-radius: 50% 60% 50% 40% / 40% 50% 60% 50%;
+    transform: scale(1);
+  }
+}
+
+// Gradient Animation
+@keyframes meshGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .mesh-background,
+  .mesh-overlay,
+  .floating-shapes,
+  .morphing-blobs {
+    display: none;
+  }
+}
