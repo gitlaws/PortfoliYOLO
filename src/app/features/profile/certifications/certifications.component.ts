@@ -1,325 +1,368 @@
 import {
   Component,
+  ElementRef,
   OnInit,
   OnDestroy,
-  ElementRef,
   ViewChild,
+  ChangeDetectionStrategy,
+  TrackByFunction,
   ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export interface Certification {
+interface Certification {
+  id: string;
   name: string;
   issuer: string;
   date: string;
+  datetime?: string;
   icon: string;
-  org: string;
-  certLink: string;
-  datetime: string;
-  altText?: string;
+  type: 'certification' | 'course' | 'bootcamp';
+  description?: string;
+  skills?: string[];
+  credentialUrl?: string;
+  iconLoaded?: boolean;
+  iconError?: boolean;
 }
 
 @Component({
   selector: 'app-certifications',
-  templateUrl: './certifications.component.html',
-  styleUrls: ['./certifications.component.scss'],
   standalone: true,
   imports: [CommonModule],
+  templateUrl: './certifications.component.html',
+  styleUrls: ['./certifications.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CertificationsComponent implements OnInit, OnDestroy {
-  @ViewChild('certGrid', { static: false })
-  certGridRef!: ElementRef<HTMLElement>;
+  @ViewChild('certGrid', { static: true })
+  certGrid!: ElementRef<HTMLDivElement>;
 
-  certifications: Certification[] = [
+  // Public properties for template access
+  public theme: 'light' | 'dark' = 'light';
+  public isAutoScrolling = true;
+  public isDragging = false;
+  public displayCertifications: Certification[] = [];
+
+  // Private properties
+  private certifications: Certification[] = [
     {
+      id: '1',
+      name: 'AWS Certified Solutions Architect',
+      issuer: 'Amazon Web Services',
+      date: 'Dec 2023',
+      datetime: '2023-12',
+      icon: '/assets/icons/aws.svg',
+      type: 'certification',
+      description:
+        'Professional-level certification for designing distributed systems on AWS.',
+      skills: ['AWS', 'Cloud Architecture', 'Solution Design'],
+      credentialUrl: 'https://aws.amazon.com/verification',
+    },
+    {
+      id: '2',
       name: 'Angular Developer Certification',
       issuer: 'Google',
-      date: 'May 2024',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
-      org: 'Google',
-      certLink: '#',
-      datetime: '2024-05',
-      altText: 'Angular Logo',
-    },
-    {
-      name: 'Modern JavaScript Course',
-      issuer: 'Mozilla Developer Network',
-      date: 'Jan 2024',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-      org: 'Mozilla Developer Network',
-      certLink: '#',
-      datetime: '2024-01',
-      altText: 'JavaScript Icon',
-    },
-    {
-      name: 'React Developer Certification',
-      issuer: 'Meta',
-      date: 'Mar 2024',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      org: 'Meta',
-      certLink: '#',
-      datetime: '2024-03',
-      altText: 'React Icon',
-    },
-    {
-      name: 'AWS Cloud Practitioner',
-      issuer: 'Amazon Web Services',
-      date: 'Feb 2024',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-      org: 'Amazon Web Services',
-      certLink: '#',
-      datetime: '2024-02',
-      altText: 'AWS Icon',
-    },
-    {
-      name: 'Node.js Backend Development',
-      issuer: 'Node.js Foundation',
-      date: 'Dec 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-      org: 'Node.js Foundation',
-      certLink: '#',
-      datetime: '2023-12',
-      altText: 'Node.js Icon',
-    },
-    {
-      name: 'Docker Containerization',
-      issuer: 'Docker Inc.',
       date: 'Nov 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-      org: 'Docker Inc.',
-      certLink: '#',
       datetime: '2023-11',
-      altText: 'Docker Icon',
+      icon: '/assets/icons/angular.svg',
+      type: 'certification',
+      description: 'Official Angular certification from Google.',
+      skills: ['Angular', 'TypeScript', 'RxJS'],
+      credentialUrl: 'https://developers.google.com/certification',
     },
     {
-      name: 'TypeScript Advanced Concepts',
-      issuer: 'Microsoft',
+      id: '3',
+      name: 'Full Stack Web Development',
+      issuer: 'freeCodeCamp',
       date: 'Oct 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      org: 'Microsoft',
-      certLink: '#',
       datetime: '2023-10',
-      altText: 'TypeScript Icon',
+      icon: '/assets/icons/freecodecamp.svg',
+      type: 'course',
+      description: 'Comprehensive full-stack development course.',
+      skills: ['JavaScript', 'Node.js', 'React', 'MongoDB'],
     },
     {
-      name: 'Python for Data Science',
-      issuer: 'Python Software Foundation',
+      id: '4',
+      name: 'Docker Fundamentals',
+      issuer: 'Docker Inc.',
       date: 'Sep 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-      org: 'Python Software Foundation',
-      certLink: '#',
       datetime: '2023-09',
-      altText: 'Python Icon',
+      icon: '/assets/icons/docker.svg',
+      type: 'course',
+      description: 'Container fundamentals and Docker best practices.',
+      skills: ['Docker', 'Containers', 'DevOps'],
     },
     {
-      name: 'Git Version Control Mastery',
-      issuer: 'GitHub',
+      id: '5',
+      name: 'Coding Bootcamp Graduate',
+      issuer: 'Tech Academy',
       date: 'Aug 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-      org: 'GitHub',
-      certLink: '#',
       datetime: '2023-08',
-      altText: 'Git Icon',
-    },
-    {
-      name: 'Kubernetes Administrator',
-      issuer: 'Cloud Native Computing Foundation',
-      date: 'Jul 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
-      org: 'Cloud Native Computing Foundation',
-      certLink: '#',
-      datetime: '2023-07',
-      altText: 'Kubernetes Icon',
-    },
-    {
-      name: 'MongoDB Database Developer',
-      issuer: 'MongoDB University',
-      date: 'Jun 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-      org: 'MongoDB University',
-      certLink: '#',
-      datetime: '2023-06',
-      altText: 'MongoDB Icon',
-    },
-    {
-      name: 'PostgreSQL Database Administration',
-      issuer: 'PostgreSQL Global Development Group',
-      date: 'May 2023',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-      org: 'PostgreSQL Global Development Group',
-      certLink: '#',
-      datetime: '2023-05',
-      altText: 'PostgreSQL Icon',
+      icon: '/assets/icons/bootcamp.svg',
+      type: 'bootcamp',
+      description: 'Intensive 12-week coding bootcamp program.',
+      skills: ['JavaScript', 'Python', 'SQL', 'Git'],
     },
   ];
 
-  duplicatedCertifications = [...this.certifications, ...this.certifications];
-  theme: 'light' | 'dark' = 'light';
-  isModalOpen = false;
-  selectedCertification: Certification | null = null;
-  certificateGifUrl =
-    'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN21ka2lqZW04YjVxem1ueWVwN3k1bWRuYWgwNzdjenhrajJ4eW5nMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t7zOZJb44BtHF41Vbo/giphy.gif';
-
-  // Simplified drag state
-  isDragging = false;
-  isAutoScrolling = true;
-  hasMoved = false;
-  private startX = 0;
-  private transform = 0;
-  private timeout: number | null = null;
-  private events = new Map<string, EventListener>();
+  private autoScrollInterval?: number;
+  private dragStartX = 0;
+  private scrollStartX = 0;
+  private animationFrameId?: number;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
-  ngOnInit() {
-    document.addEventListener('keydown', this.onEscape);
-    setTimeout(() => this.initDrag(), 100);
+  ngOnInit(): void {
+    this.initializeDisplayCertifications();
+    this.startAutoScroll();
+    this.detectTheme();
   }
 
-  ngOnDestroy() {
-    document.removeEventListener('keydown', this.onEscape);
-    this.cleanup();
-  }
-
-  // Drag implementation
-  private initDrag() {
-    if (!this.certGridRef?.nativeElement) return;
-
-    const grid = this.certGridRef.nativeElement;
-
-    this.events.set('start', (e: any) =>
-      this.start(e.touches?.[0]?.clientX || e.clientX, e)
-    );
-    this.events.set('move', (e: any) =>
-      this.move(e.touches?.[0]?.clientX || e.clientX, e)
-    );
-    this.events.set('end', (e: any) => this.end(e));
-
-    grid.addEventListener('mousedown', this.events.get('start')!);
-    grid.addEventListener('touchstart', this.events.get('start')!, {
-      passive: false,
-    });
-  }
-
-  private start(x: number, e: Event) {
-    e.preventDefault();
-    this.startX = x;
-    this.hasMoved = false;
-    this.pause();
-
-    document.addEventListener('mousemove', this.events.get('move')!);
-    document.addEventListener('touchmove', this.events.get('move')!, {
-      passive: false,
-    });
-    document.addEventListener('mouseup', this.events.get('end')!);
-    document.addEventListener('touchend', this.events.get('end')!);
-  }
-
-  private move(x: number, e: Event) {
-    if (!x) return;
-
-    const delta = x - this.startX;
-
-    if (!this.isDragging && Math.abs(delta) > 5) {
-      this.isDragging = true;
-      this.hasMoved = true;
-      this.cdr.detectChanges();
+  ngOnDestroy(): void {
+    this.stopAutoScroll();
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
     }
-
-    if (this.isDragging) {
-      e.preventDefault();
-      this.transform = delta;
-      this.apply();
-    }
+    this.removeEventListeners();
   }
 
-  private end(e: Event) {
-    e.preventDefault();
-    this.isDragging = false;
-    this.resume();
-    this.cdr.detectChanges();
-
-    ['mousemove', 'touchmove', 'mouseup', 'touchend'].forEach((type) =>
-      document.removeEventListener(
-        type,
-        this.events.get('move')! || this.events.get('end')!
-      )
-    );
-  }
-
-  private apply() {
-    if (!this.certGridRef?.nativeElement) return;
-    this.certGridRef.nativeElement.style.transform = `translateX(${this.transform}px)`;
-  }
-
-  private pause() {
+  // Public methods for template access
+  public pauseAutoScroll(): void {
     this.isAutoScrolling = false;
-    if (this.timeout) clearTimeout(this.timeout);
+    this.stopAutoScroll();
   }
 
-  private resume() {
-    this.timeout = window.setTimeout(() => {
+  public resumeAutoScroll(): void {
+    if (!this.isDragging) {
       this.isAutoScrolling = true;
-      this.transform = 0;
-      this.apply();
-    }, 3000);
+      this.startAutoScroll();
+    }
   }
 
-  private cleanup() {
-    if (this.timeout) clearTimeout(this.timeout);
+  // Enhanced drag handling for main container
+  public onDragStart(event: MouseEvent): void {
+    this.isDragging = true;
+    this.isAutoScrolling = false;
+    this.dragStartX = event.clientX;
+    this.scrollStartX = this.certGrid.nativeElement.scrollLeft;
+
+    document.addEventListener('mousemove', this.onDragMove);
+    document.addEventListener('mouseup', this.onDragEnd);
+    event.preventDefault();
   }
 
-  // Event handlers
-  onGridMouseEnter = () => !this.isDragging && this.pause();
-  onGridMouseLeave = () => !this.isDragging && this.resume();
-  onGridFocus = () => !this.isDragging && this.pause();
-  onGridBlur = () => !this.isDragging && this.resume();
+  // Enhanced drag handling for individual card elements
+  public onCardDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
 
-  get gridClasses() {
-    return {
-      'seamless-loop': this.isAutoScrolling && !this.isDragging,
-      dragging: this.isDragging,
-      'user-interacting': !this.isAutoScrolling || this.isDragging,
+  public onContentDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
+
+  public onTitleDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
+
+  public onOrgDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
+
+  public onDateDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
+
+  public onBadgeDragStart(event: MouseEvent): void {
+    event.stopPropagation();
+    this.onDragStart(event);
+  }
+
+  // Touch support for drag functionality
+  public onTouchStart(event: TouchEvent): void {
+    const touch = event.touches[0];
+    const mouseEvent = new MouseEvent('mousedown', {
+      clientX: touch.clientX,
+      clientY: touch.clientY,
+      bubbles: true,
+      cancelable: true,
+    });
+    this.onDragStart(mouseEvent);
+    event.preventDefault();
+  }
+
+  public onCardTouchStart(event: TouchEvent): void {
+    event.stopPropagation();
+    this.onTouchStart(event);
+  }
+
+  public onContentTouchStart(event: TouchEvent): void {
+    event.stopPropagation();
+    this.onTouchStart(event);
+  }
+
+  // Simplified image loading management - Updated for immediate visibility
+  public onImageLoad(cert: Certification): void {
+    cert.iconLoaded = true;
+    cert.iconError = false;
+    // No need to call markForCheck since icons are always visible
+  }
+
+  public onImageError(event: Event, cert: Certification): void {
+    const img = event.target as HTMLImageElement;
+    cert.iconError = true;
+    cert.iconLoaded = false;
+
+    // Try alternative image sources
+    const altSources = [
+      `/assets/icons/${cert.type}-default.svg`,
+      `/assets/icons/certificate-default.svg`,
+      `/assets/icons/default-cert.svg`,
+      `/assets/icons/default.svg`,
+    ];
+
+    const currentSrc = img.src;
+    const nextSource = altSources.find(
+      (src) => !currentSrc.includes(src.split('/').pop() || '')
+    );
+
+    if (nextSource) {
+      setTimeout(() => {
+        img.src = nextSource;
+      }, 100);
+    } else {
+      // All fallbacks failed, show the fallback icon
+      this.cdr.markForCheck(); // Only update when switching to fallback
+    }
+  }
+
+  // Prevent text selection during drag
+  public onSelectStart(event: Event): boolean {
+    if (this.isDragging) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
+  public trackByCert: TrackByFunction<Certification> = (
+    index: number,
+    cert: Certification
+  ) => {
+    return cert.id;
+  };
+
+  // Private methods - Updated for immediate icon visibility
+  private initializeDisplayCertifications(): void {
+    // Duplicate certifications for infinite scroll effect
+    this.displayCertifications = [
+      ...this.certifications.map((cert) => ({
+        ...cert,
+        iconLoaded: true, // Always true for immediate visibility
+        iconError: false,
+      })),
+      ...this.certifications.map((cert) => ({
+        ...cert,
+        id: cert.id + '_dup1',
+        iconLoaded: true, // Always true for immediate visibility
+        iconError: false,
+      })),
+      ...this.certifications.map((cert) => ({
+        ...cert,
+        id: cert.id + '_dup2',
+        iconLoaded: true, // Always true for immediate visibility
+        iconError: false,
+      })),
+    ];
+  }
+
+  private startAutoScroll(): void {
+    this.stopAutoScroll();
+
+    const scroll = () => {
+      if (this.isAutoScrolling && !this.isDragging) {
+        const container = this.certGrid.nativeElement;
+        const scrollAmount = 0.5; // Pixels per frame
+
+        container.scrollLeft += scrollAmount;
+
+        // Reset scroll position when reaching halfway point
+        const maxScroll = container.scrollWidth / 3;
+        if (container.scrollLeft >= maxScroll) {
+          container.scrollLeft = 0;
+        }
+      }
+
+      if (this.isAutoScrolling) {
+        this.animationFrameId = requestAnimationFrame(scroll);
+      }
     };
+
+    this.animationFrameId = requestAnimationFrame(scroll);
   }
 
-  // Utility methods
-  toggleTheme() {
-    this.theme = this.theme === 'light' ? 'dark' : 'light';
+  private stopAutoScroll(): void {
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = undefined;
+    }
   }
 
-  trackByCertification = (i: number, cert: Certification) =>
-    `${cert.name}-${cert.datetime}-${i}`;
+  private onDragMove = (event: MouseEvent): void => {
+    if (!this.isDragging) return;
 
-  openCertificateModal(cert: Certification, e: Event) {
-    if (this.isDragging || this.hasMoved) {
-      e.preventDefault();
-      return;
+    const deltaX = event.clientX - this.dragStartX;
+    const newScrollLeft = this.scrollStartX - deltaX;
+
+    this.certGrid.nativeElement.scrollLeft = Math.max(0, newScrollLeft);
+  };
+
+  private onDragEnd = (): void => {
+    this.isDragging = false;
+
+    this.removeEventListeners();
+
+    // Resume auto-scroll after a short delay
+    setTimeout(() => {
+      this.resumeAutoScroll();
+    }, 1000);
+  };
+
+  private removeEventListeners(): void {
+    document.removeEventListener('mousemove', this.onDragMove);
+    document.removeEventListener('mouseup', this.onDragEnd);
+  }
+
+  private detectTheme(): void {
+    // Detect system theme preference
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.theme = 'dark';
     }
 
-    e.preventDefault();
-    this.selectedCertification = cert;
-    this.isModalOpen = true;
-    document.body.style.overflow = 'hidden';
-  }
+    // Listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeHandler = (e: MediaQueryListEvent) => {
+      this.theme = e.matches ? 'dark' : 'light';
+      this.cdr.markForCheck();
+    };
 
-  closeCertificateModal() {
-    this.isModalOpen = false;
-    this.selectedCertification = null;
-    document.body.style.overflow = 'auto';
-  }
+    mediaQuery.addEventListener('change', themeHandler);
 
-  onModalBackdropClick = (e: Event) => {
-    if (e.target === e.currentTarget) this.closeCertificateModal();
-  };
-
-  private onEscape = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && this.isModalOpen) this.closeCertificateModal();
-  };
-
-  onImageError(e: any) {
-    e.target.src =
-      'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNiA4QzE4LjIwOTEgOCAyMCAxMS43OTA5IDIwIDE2QzIwIDIwLjIwOTEgMTguMjA5MSAyNCAxNiAyNEMxMy43OTA5IDI0IDEyIDIwLjIwOTEgMTIgMTZDMTIgMTEuNzkwOSAxMy43OTA5IDggMTYgOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+Cg==';
-    e.target.alt = 'Certificate icon';
+    // Clean up on destroy
+    this.ngOnDestroy = () => {
+      this.stopAutoScroll();
+      if (this.animationFrameId) {
+        cancelAnimationFrame(this.animationFrameId);
+      }
+      this.removeEventListeners();
+      mediaQuery.removeEventListener('change', themeHandler);
+    };
   }
 }

@@ -1,192 +1,134 @@
-<section
-  class="certifications-section"
-  [ngClass]="theme"
-  aria-label="Professional Certifications"
-  [attr.data-theme]="theme"
->
-  <!-- Main Carousel Container -->
+<section class="certifications-section" [attr.data-theme]="theme">
+  <!-- Certification Row -->
   <div
     #certGrid
-    class="cert-grid"
-    [ngClass]="[theme, gridClasses]"
-    role="region"
-    aria-label="Scrolling certification cards - Click and drag to manually scroll"
-    tabindex="0"
-    (mouseenter)="onGridMouseEnter()"
-    (mouseleave)="onGridMouseLeave()"
-    (focus)="onGridFocus()"
-    (blur)="onGridBlur()"
+    class="cert-row"
+    [ngClass]="{
+      'auto-scrolling': isAutoScrolling && !isDragging,
+      dragging: isDragging
+    }"
+    (mousedown)="onDragStart($event)"
+    (touchstart)="onTouchStart($event)"
+    (mouseenter)="pauseAutoScroll()"
+    (mouseleave)="resumeAutoScroll()"
   >
     <!-- Certification Cards -->
-    <article
+    <div
       class="cert-card"
-      [ngClass]="theme"
-      tabindex="0"
       *ngFor="
-        let cert of duplicatedCertifications;
-        trackBy: trackByCertification;
+        let cert of displayCertifications;
+        trackBy: trackByCert;
         let i = index
       "
-      [attr.aria-hidden]="i >= certifications.length"
-      [attr.aria-label]="cert.name + ' certification card'"
+      [attr.data-index]="i"
+      [attr.draggable]="false"
+      (mousedown)="onCardDragStart($event)"
+      (touchstart)="onCardTouchStart($event)"
+      (selectstart)="onSelectStart($event)"
     >
       <!-- Certificate Icon -->
-      <div class="cert-icon" [ngClass]="theme">
+      <div class="cert-icon">
+        <!-- Main icon - always visible -->
         <img
           [src]="cert.icon"
-          [alt]="cert.altText || cert.name + ' logo'"
-          loading="lazy"
-          (error)="onImageError($event)"
+          [alt]="cert.name + ' certification logo'"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+          (load)="onImageLoad(cert)"
+          (error)="onImageError($event, cert)"
+          (dragstart)="$event.preventDefault()"
+          *ngIf="!cert.iconError"
         />
+
+        <!-- Fallback icon - shown only on error -->
+        <div
+          class="fallback-icon"
+          *ngIf="cert.iconError"
+          [attr.aria-label]="cert.name + ' certification'"
+        >
+          <!-- Enhanced fallback icon based on cert type -->
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            *ngIf="cert.type === 'certification'"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            *ngIf="cert.type === 'course'"
+          >
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+          </svg>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            *ngIf="cert.type === 'bootcamp'"
+          >
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+
+          <!-- Default fallback -->
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            *ngIf="
+              !cert.type ||
+              (cert.type !== 'certification' &&
+                cert.type !== 'course' &&
+                cert.type !== 'bootcamp')
+            "
+          >
+            <path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5" />
+          </svg>
+        </div>
       </div>
 
-      <!-- Certificate Details -->
-      <div class="cert-details">
-        <h3 class="cert-title" [ngClass]="theme">{{ cert.name }}</h3>
-        <p class="cert-org" [ngClass]="theme">{{ cert.org }}</p>
-        <time
+      <!-- Certificate Content -->
+      <div
+        class="cert-content"
+        (mousedown)="onContentDragStart($event)"
+        (touchstart)="onContentTouchStart($event)"
+      >
+        <h4
+          class="cert-title"
+          [title]="cert.name"
+          (mousedown)="onTitleDragStart($event)"
+        >
+          {{ cert.name }}
+        </h4>
+        <p
+          class="cert-org"
+          [title]="cert.issuer"
+          (mousedown)="onOrgDragStart($event)"
+        >
+          {{ cert.issuer }}
+        </p>
+        <span
           class="cert-date"
-          [ngClass]="theme"
-          [attr.datetime]="cert.datetime"
+          [title]="'Issued: ' + cert.date"
+          (mousedown)="onDateDragStart($event)"
         >
           {{ cert.date }}
-        </time>
+        </span>
       </div>
 
-      <!-- View Certificate Button -->
-      <button
-        class="cert-link"
-        [ngClass]="theme"
-        type="button"
-        (click)="openCertificateModal(cert, $event)"
-        [attr.aria-label]="'View certificate for ' + cert.name"
+      <!-- Certificate Badge -->
+      <span
+        class="cert-badge"
+        [ngClass]="cert.type"
+        [title]="cert.type | titlecase"
+        (mousedown)="onBadgeDragStart($event)"
       >
-        View Certificate
-      </button>
-    </article>
+        {{ cert.type }}
+      </span>
+    </div>
   </div>
 </section>
-
-<!-- Certificate Modal Dialog -->
-<div
-  class="modal-overlay"
-  [ngClass]="theme"
-  *ngIf="isModalOpen"
-  role="dialog"
-  aria-modal="true"
-  [attr.aria-labelledby]="getModalId(selectedCertification)"
-  (click)="onModalBackdropClick($event)"
->
-  <div class="modal-content" [ngClass]="theme" role="document">
-    <!-- Modal Header -->
-    <header class="modal-header" [ngClass]="theme">
-      <h2
-        class="modal-title"
-        [ngClass]="theme"
-        [id]="getModalId(selectedCertification)"
-      >
-        {{ selectedCertification?.name }}
-      </h2>
-
-      <button
-        class="modal-close"
-        [ngClass]="theme"
-        type="button"
-        (click)="closeCertificateModal()"
-        aria-label="Close certificate modal"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
-    </header>
-
-    <!-- Modal Body -->
-    <main class="modal-body">
-      <!-- Certificate Information -->
-      <section class="certificate-info" [ngClass]="theme">
-        <dl class="cert-meta">
-          <dt class="visually-hidden">Issuing Organization</dt>
-          <dd class="cert-issuer" [ngClass]="theme">
-            <strong [ngClass]="theme">Issued by:</strong>
-            {{ selectedCertification?.org }}
-          </dd>
-
-          <dt class="visually-hidden">Issue Date</dt>
-          <dd class="cert-date-modal" [ngClass]="theme">
-            <strong [ngClass]="theme">Date:</strong>
-            <time [attr.datetime]="selectedCertification?.datetime">
-              {{ selectedCertification?.date }}
-            </time>
-          </dd>
-        </dl>
-      </section>
-
-      <!-- Certificate Display -->
-      <section class="certificate-display" aria-label="Certificate preview">
-        <img
-          [src]="certificateGifUrl"
-          alt="Interactive certificate demonstration"
-          class="certificate-gif"
-          [ngClass]="theme"
-          loading="lazy"
-        />
-      </section>
-    </main>
-
-    <!-- Modal Footer -->
-    <footer class="modal-actions" [ngClass]="theme">
-      <button
-        class="btn-primary"
-        [ngClass]="theme"
-        type="button"
-        (click)="closeCertificateModal()"
-      >
-        Close
-      </button>
-
-      <a
-        *ngIf="selectedCertification?.certLink !== '#'"
-        [href]="selectedCertification?.certLink"
-        class="btn-secondary"
-        [ngClass]="theme"
-        target="_blank"
-        rel="noopener noreferrer"
-        [attr.aria-label]="
-          'Open ' + selectedCertification?.name + ' certificate in new tab'
-        "
-      >
-        View Original
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path
-            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
-          />
-        </svg>
-      </a>
-    </footer>
-  </div>
-</div>
-
-<!-- Screen Reader Helper Text -->
-<div class="sr-only" aria-live="polite" aria-atomic="true">
-  <span *ngIf="isDragging">Scrolling certification cards</span>
-  <span *ngIf="isModalOpen"
-    >Certificate modal opened for {{ selectedCertification?.name }}</span
-  >
-</div>
