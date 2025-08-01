@@ -1,22 +1,136 @@
-<div class="certifications-container">
-  <h2 class="section-title">Certifications & Courses</h2>
-  <div class="certifications-list">
-    <div class="cert-card">
-      <div class="cert-info">
-        <h3 class="cert-title">Certified Web Developer</h3>
-        <p class="cert-org">Coursera</p>
-        <p class="cert-date">June 2023</p>
+<section
+  class="certifications-section"
+  aria-label="Professional Certifications"
+  [attr.data-theme]="theme"
+  [ngClass]="theme"
+>
+  <div
+    #certGrid
+    class="cert-grid"
+    [ngClass]="gridClasses"
+    role="region"
+    aria-label="Scrolling certification cards - Click and drag to manually scroll"
+    tabindex="0"
+    (mouseenter)="onGridMouseEnter()"
+    (mouseleave)="onGridMouseLeave()"
+    (focus)="onGridFocus()"
+    (blur)="onGridBlur()"
+  >
+    <!-- Dynamic certification cards -->
+    <div
+      class="cert-card"
+      tabindex="0"
+      *ngFor="
+        let cert of duplicatedCertifications;
+        trackBy: trackByCertification;
+        let i = index
+      "
+      [attr.aria-hidden]="i >= certifications.length ? 'true' : null"
+      [ngClass]="theme"
+    >
+      <div class="cert-icon" [ngClass]="theme">
+        <img
+          [src]="cert.icon"
+          [alt]="cert.altText || cert.name + ' Icon'"
+          loading="lazy"
+          (error)="onImageError($event)"
+        />
       </div>
-      <a href="#" class="cert-link" target="_blank">View Certificate</a>
-    </div>
-    <div class="cert-card">
-      <div class="cert-info">
-        <h3 class="cert-title">Advanced JavaScript Course</h3>
-        <p class="cert-org">Udemy</p>
-        <p class="cert-date">March 2024</p>
+
+      <div class="cert-details" [ngClass]="theme">
+        <h3 class="cert-title" [ngClass]="theme">{{ cert.name }}</h3>
+        <p class="cert-org" [ngClass]="theme">{{ cert.org }}</p>
+        <time
+          class="cert-date"
+          [attr.datetime]="cert.datetime"
+          [ngClass]="theme"
+          >{{ cert.date }}</time
+        >
       </div>
-      <a href="#" class="cert-link" target="_blank">View Certificate</a>
+
+      <button
+        class="cert-link"
+        type="button"
+        (click)="openCertificateModal(cert, $event)"
+        [attr.aria-label]="'View ' + cert.name + ' certificate'"
+        [ngClass]="theme"
+      >
+        View Certificate
+      </button>
     </div>
-    <!-- Add more cert-card blocks as needed -->
+  </div>
+</section>
+
+<!-- Certificate Modal -->
+<div
+  class="modal-overlay"
+  *ngIf="isModalOpen"
+  (click)="onModalBackdropClick($event)"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-labelledby]="getModalId(selectedCertification)"
+  [ngClass]="theme"
+>
+  <div class="modal-content" role="document" [ngClass]="theme">
+    <div class="modal-header" [ngClass]="theme">
+      <h2
+        class="modal-title"
+        [id]="getModalId(selectedCertification)"
+        [ngClass]="theme"
+      >
+        {{ selectedCertification?.name }}
+      </h2>
+      <button
+        class="modal-close"
+        type="button"
+        (click)="closeCertificateModal()"
+        aria-label="Close certificate modal"
+        [ngClass]="theme"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body" [ngClass]="theme">
+      <div class="certificate-info" [ngClass]="theme">
+        <p class="cert-issuer" [ngClass]="theme">
+          Issued by: {{ selectedCertification?.org }}
+        </p>
+        <p class="cert-date-modal" [ngClass]="theme">
+          Date: {{ selectedCertification?.date }}
+        </p>
+      </div>
+
+      <div class="certificate-display" [ngClass]="theme">
+        <img
+          [src]="certificateGifUrl"
+          alt="Certificate Animation"
+          class="certificate-gif"
+          loading="lazy"
+          [ngClass]="theme"
+        />
+      </div>
+
+      <div class="modal-actions" [ngClass]="theme">
+        <button
+          class="btn-primary"
+          type="button"
+          (click)="closeCertificateModal()"
+          [ngClass]="theme"
+        >
+          Close
+        </button>
+      </div>
+    </div>
   </div>
 </div>
