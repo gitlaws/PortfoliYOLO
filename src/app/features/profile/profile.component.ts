@@ -4,11 +4,12 @@ import { ThemeService } from '../../shared/services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { InterestsComponent } from './interests/interests.component';
+import { CertificationsComponent } from './certifications/certifications.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, InterestsComponent],
+  imports: [CommonModule, InterestsComponent, CertificationsComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

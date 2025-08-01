@@ -1,0 +1,180 @@
+<section class="certifications-section card-carousel-layout">
+  <!-- <div class="section-header">
+    <h2 class="section-title">
+      <i class="fas fa-certificate"></i>
+      Certifications & Courses
+    </h2>
+    <p class="section-subtitle">
+      Professional achievements and continuous learning
+    </p>
+  </div> -->
+
+  <div class="carousel-container">
+    <div class="cards-grid">
+      <div
+        class="cert-card"
+        *ngFor="let cert of certifications; let i = index"
+        [class.flipped]="cert.isFlipped"
+        (click)="flipCard(cert)"
+        (mouseenter)="onCardHover(cert, true)"
+        (mouseleave)="onCardHover(cert, false)"
+        [style.animation-delay]="i * 100 + 'ms'"
+      >
+        <!-- Front of card -->
+        <div class="card-front">
+          <div class="cert-icon">
+            <img
+              [src]="cert.issuerLogo"
+              [alt]="cert.issuer"
+              *ngIf="cert.issuerLogo"
+            />
+            <i class="fas fa-award" *ngIf="!cert.issuerLogo"></i>
+          </div>
+          <div class="cert-info">
+            <h4 class="cert-title-short">{{ getShortTitle(cert.title) }}</h4>
+            <span class="cert-type">{{
+              getCertificationType(cert.title)
+            }}</span>
+          </div>
+          <div class="status-indicator" [class]="'status-' + cert.status">
+            <i [class]="getStatusIcon(cert.status)"></i>
+          </div>
+          <div class="flip-hint">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+        </div>
+
+        <!-- Back of card -->
+        <div class="card-back">
+          <div class="card-header">
+            <h4 class="full-title">{{ cert.title }}</h4>
+            <span class="issuer">{{ cert.issuer }}</span>
+          </div>
+
+          <div class="card-body">
+            <div class="date-info">
+              <div class="date-item">
+                <i class="fas fa-calendar-check"></i>
+                <span>{{ cert.dateIssued | date : "MMM yyyy" }}</span>
+              </div>
+              <div class="date-item" *ngIf="cert.expiryDate">
+                <i class="fas fa-calendar-times"></i>
+                <span>{{ cert.expiryDate | date : "MMM yyyy" }}</span>
+              </div>
+            </div>
+
+            <div class="skills-preview" *ngIf="cert.skills?.length">
+              <div class="skill-tags">
+                <span
+                  *ngFor="let skill of cert.skills.slice(0, 3)"
+                  class="skill-tag"
+                >
+                  {{ skill }}
+                </span>
+                <span *ngIf="cert.skills.length > 3" class="more-skills">
+                  +{{ cert.skills.length - 3 }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a
+              [href]="cert.credentialUrl"
+              target="_blank"
+              class="view-btn"
+              *ngIf="cert.credentialUrl"
+              (click)="$event.stopPropagation()"
+            >
+              <i class="fas fa-external-link-alt"></i>
+              View
+            </a>
+            <span class="credential-id" *ngIf="cert.credentialId">
+              ID: {{ cert.credentialId.slice(-6) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation arrows for large collections -->
+    <div class="carousel-nav" *ngIf="certifications.length > 6">
+      <button class="nav-btn prev" (click)="scrollCards('prev')">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn next" (click)="scrollCards('next')">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Quick stats -->
+  <div class="stats-summary">
+    <div class="stat-pill">
+      <span class="stat-value">{{ getActiveCerts().length }}</span>
+      <span class="stat-label">Active</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-value">{{ certifications.length }}</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat-pill" *ngIf="getExpiringSoonCerts().length > 0">
+      <span class="stat-value">{{ getExpiringSoonCerts().length }}</span>
+      <span class="stat-label">Expiring</span>
+    </div>
+  </div>
+
+  <!-- Floating action button for details view -->
+  <button
+    class="fab-details"
+    (click)="toggleDetailsView()"
+    [class.active]="showAllDetails"
+  >
+    <i class="fas fa-list"></i>
+  </button>
+
+  <!-- Detailed list view (optional) -->
+  <div class="details-overlay" *ngIf="showAllDetails" [@slideIn]>
+    <div class="details-content">
+      <div class="details-header">
+        <h3>All Certifications</h3>
+        <button class="close-details" (click)="toggleDetailsView()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="details-list">
+        <div class="detail-item" *ngFor="let cert of certifications">
+          <div class="item-icon">
+            <img
+              [src]="cert.issuerLogo"
+              [alt]="cert.issuer"
+              *ngIf="cert.issuerLogo"
+            />
+            <i class="fas fa-certificate" *ngIf="!cert.issuerLogo"></i>
+          </div>
+          <div class="item-content">
+            <h4>{{ cert.title }}</h4>
+            <p>{{ cert.issuer }} • {{ cert.dateIssued | date : "MMM yyyy" }}</p>
+            <div class="item-skills" *ngIf="cert.skills?.length">
+              <span
+                *ngFor="let skill of cert.skills.slice(0, 4)"
+                class="skill-chip"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <a
+              [href]="cert.credentialUrl"
+              target="_blank"
+              *ngIf="cert.credentialUrl"
+            >
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
