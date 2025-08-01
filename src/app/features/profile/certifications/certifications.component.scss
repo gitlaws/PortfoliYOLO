@@ -1,1034 +1,619 @@
-// ==========================================
-// DESIGN SYSTEM VARIABLES
-// ==========================================
+// Variables
+$card-width-desktop: 280px;
+$card-width-tablet: 240px;
+$card-width-mobile: 200px;
+$gap-desktop: 24px;
+$gap-tablet: 20px;
+$gap-mobile: 16px;
+$border-radius: 12px;
+$animation-duration: 20s;
 
-// Light Theme Variables
-$light-bg-primary: #ffffff;
-$light-bg-secondary: #f8fafc;
-$light-bg-tertiary: rgba(59, 130, 246, 0.03);
-$light-text-primary: #1f2937;
-$light-text-secondary: #374151;
-$light-text-muted: #6b7280;
-$light-text-subtle: #9ca3af;
-$light-border-primary: rgba(0, 0, 0, 0.08);
-$light-border-secondary: rgba(0, 0, 0, 0.06);
-$light-border-focus: #3b82f6;
-$light-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
-$light-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
-$light-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
-$light-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-$light-gradient-fade-start: rgba(255, 255, 255, 1);
-$light-gradient-fade-end: rgba(255, 255, 255, 0);
+// Light theme colors
+$light-bg: #ffffff;
+$light-card-bg: #f8fafc;
+$light-text: #1f2937;
+$light-text-secondary: #6b7280;
+$light-border: #e5e7eb;
+$light-hover: #f3f4f6;
+$light-primary: #3b82f6;
+$light-primary-hover: #2563eb;
 
-// Dark Theme Variables
-$dark-bg-primary: #1f2937;
-$dark-bg-secondary: #111827;
-$dark-bg-tertiary: rgba(59, 130, 246, 0.05);
-$dark-text-primary: #f9fafb;
-$dark-text-secondary: #e5e7eb;
-$dark-text-muted: #d1d5db;
-$dark-text-subtle: #9ca3af;
-$dark-border-primary: rgba(255, 255, 255, 0.1);
-$dark-border-secondary: rgba(255, 255, 255, 0.08);
-$dark-border-focus: #60a5fa;
-$dark-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-$dark-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-$dark-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
-$dark-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
-$dark-gradient-fade-start: rgba(31, 41, 55, 1);
-$dark-gradient-fade-end: rgba(31, 41, 55, 0);
+// Dark theme colors
+$dark-bg: #111827;
+$dark-card-bg: #1f2937;
+$dark-text: #f9fafb;
+$dark-text-secondary: #d1d5db;
+$dark-border: #374151;
+$dark-hover: #374151;
+$dark-primary: #60a5fa;
+$dark-primary-hover: #3b82f6;
 
-// Accent Colors
-$accent-primary: #3b82f6;
-$accent-primary-hover: #2563eb;
-$accent-primary-dark: #4f46e5;
-$accent-primary-dark-hover: #4338ca;
-$accent-success: #10b981;
-$accent-warning: #f59e0b;
-$accent-danger: #ef4444;
-
-// Layout Variables
-$card-width-desktop: 160px;
-$card-width-tablet: 140px;
-$card-width-mobile: 120px;
-$card-height-min: 180px;
-$card-height-tablet: 160px;
-$card-height-mobile: 140px;
-
-$gap-desktop: 16px;
-$gap-tablet: 12px;
-$gap-mobile: 8px;
-
-$border-radius-sm: 6px;
-$border-radius-md: 8px;
-$border-radius-lg: 12px;
-$border-radius-xl: 16px;
-
-// Animation Variables
-$animation-duration-fast: 200ms;
-$animation-duration-normal: 300ms;
-$animation-duration-slow: 500ms;
-$animation-scroll-speed: 60s;
-$animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
-
-// Z-index Scale
-$z-modal: 9999;
-$z-overlay: 9998;
-$z-dropdown: 1000;
-$z-sticky: 100;
-$z-base: 1;
-
-// ==========================================
-// UTILITY MIXINS
-// ==========================================
-@mixin button-transition {
-  transition: all $animation-duration-normal $animation-easing;
-}
-
-@mixin text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@mixin multiline-ellipsis($lines: 2) {
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-// ==========================================
-// PROMPT 1: CORE CAROUSEL LAYOUT & SCROLLING MECHANICS
-// ==========================================
-
+// Main section
 .certifications-section {
   width: 100%;
-  padding: clamp(1rem, 3vw, 2rem) 0;
-  position: relative;
+  padding: 2rem 0;
   overflow: hidden;
+  position: relative;
 
-  // Light theme (default)
   &.light {
-    background-color: $light-bg-primary;
-    color: $light-text-primary;
-
-    // Gradient fade edges for light theme
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: clamp(20px, 5vw, 40px);
-      z-index: $z-base;
-      pointer-events: none;
-      background: linear-gradient(
-        to right,
-        $light-gradient-fade-start,
-        $light-gradient-fade-end
-      );
-      transition: background $animation-duration-normal ease;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: clamp(20px, 5vw, 40px);
-      z-index: $z-base;
-      pointer-events: none;
-      background: linear-gradient(
-        to left,
-        $light-gradient-fade-start,
-        $light-gradient-fade-end
-      );
-      transition: background $animation-duration-normal ease;
-    }
+    background-color: $light-bg;
   }
-
-  // Dark theme
   &.dark {
-    background-color: $dark-bg-primary;
-    color: $dark-text-primary;
-
-    // Gradient fade edges for dark theme
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: clamp(20px, 5vw, 40px);
-      z-index: $z-base;
-      pointer-events: none;
-      background: linear-gradient(
-        to right,
-        $dark-gradient-fade-start,
-        $dark-gradient-fade-end
-      );
-      transition: background $animation-duration-normal ease;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: clamp(20px, 5vw, 40px);
-      z-index: $z-base;
-      pointer-events: none;
-      background: linear-gradient(
-        to left,
-        $dark-gradient-fade-start,
-        $dark-gradient-fade-end
-      );
-      transition: background $animation-duration-normal ease;
-    }
+    background-color: $dark-bg;
   }
 }
 
+// Certificate grid container
 .cert-grid {
-  // Core flex layout for horizontal carousel
   display: flex;
-  align-items: stretch;
   gap: $gap-desktop;
-
-  // Horizontal scrolling mechanics
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-
-  // Performance optimizations
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-
-  // Responsive padding to prevent edge clipping
-  padding: 0 clamp(1rem, 5vw, 2rem);
-
-  // Default cursor states
+  align-items: stretch;
   cursor: grab;
   user-select: none;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
 
-  // Light theme scrollbar
-  &.light {
-    scrollbar-width: thin;
-    scrollbar-color: $light-text-subtle transparent;
-
-    &::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $light-text-subtle;
-      border-radius: 3px;
-      opacity: 0.3;
-
-      &:hover {
-        opacity: 0.6;
-      }
-    }
+  &:focus {
+    outline: 2px solid;
+    outline-offset: 4px;
   }
 
-  // Dark theme scrollbar
-  &.dark {
-    scrollbar-width: thin;
-    scrollbar-color: $dark-text-subtle transparent;
-
-    &::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $dark-text-subtle;
-      border-radius: 3px;
-      opacity: 0.3;
-
-      &:hover {
-        opacity: 0.6;
-      }
-    }
+  &.light:focus {
+    outline-color: $light-primary;
+  }
+  &.dark:focus {
+    outline-color: $dark-primary;
   }
 
-  // Dragging feedback
+  // Seamless scrolling animation
+  &.seamless-loop {
+    animation: scroll-left $animation-duration linear infinite;
+  }
+
+  // Dragging state
   &.dragging {
     cursor: grabbing;
-    scroll-snap-type: none; // Disable snap during drag
-
-    .cert-card {
-      pointer-events: none; // Prevent card interactions during drag
-      transform: scale(0.98); // Subtle scale feedback
-    }
+    animation: none !important;
+    transition: none;
   }
 
-  // Active scrolling feedback
-  &.user-interacting {
-    .cert-card {
-      transition-duration: $animation-duration-fast; // Faster transitions during interaction
-    }
-  }
-
-  // Hide scrollbar on smaller screens for cleaner look
-  @media (max-width: 768px) {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  // Responsive gap adjustments
-  @media (max-width: 768px) {
-    gap: $gap-tablet;
-    padding: 0 clamp(0.75rem, 4vw, 1.5rem);
-  }
-
-  @media (max-width: 480px) {
-    gap: $gap-mobile;
-    padding: 0 clamp(0.5rem, 3vw, 1rem);
-  }
-}
-
-// ==========================================
-// PROMPT 2: AUTO-SCROLL ANIMATION & HOVER/FOCUS INTERACTIONS
-// ==========================================
-
-.cert-grid.seamless-loop {
-  animation: seamless-infinite-scroll $animation-scroll-speed linear infinite;
-
-  // Pause on various interaction states
-  &:hover,
-  &:focus-within,
   &.user-interacting {
     animation-play-state: paused;
   }
-}
 
-// Keyframe animation for seamless scrolling
-@keyframes seamless-infinite-scroll {
-  0% {
-    transform: translateX(0);
+  // Responsive gaps
+  @media (max-width: 768px) {
+    gap: $gap-tablet;
   }
-  100% {
-    // Move exactly the width of original cards (12 cards * card width + gap)
-    transform: translateX(
-      calc(-12 * (#{$card-width-desktop} + #{$gap-desktop}))
-    );
+  @media (max-width: 480px) {
+    gap: $gap-mobile;
   }
 }
 
-// Responsive animation adjustments
-@media (max-width: 768px) {
-  @keyframes seamless-infinite-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(
-        calc(-12 * (#{$card-width-tablet} + #{$gap-tablet}))
-      );
-    }
-  }
-
-  .cert-grid.seamless-loop {
-    animation-duration: 45s; // Slower on tablets
-  }
-}
-
-@media (max-width: 480px) {
-  @keyframes seamless-infinite-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(
-        calc(-12 * (#{$card-width-mobile} + #{$gap-mobile}))
-      );
-    }
-  }
-
-  .cert-grid.seamless-loop {
-    animation-duration: 35s; // Slower on mobile
-  }
-}
-
-// ==========================================
-// PROMPT 3: DRAGGABLE FEEDBACK & CARD VISUAL ENHANCEMENTS
-// ==========================================
-
+// Certificate card
 .cert-card {
-  // Core layout and snap behavior
-  flex-shrink: 0;
-  scroll-snap-align: start;
-
-  // Responsive sizing
-  min-width: $card-width-desktop;
-  max-width: $card-width-desktop;
-  min-height: $card-height-min;
-
-  // Layout
+  flex: 0 0 auto;
+  width: $card-width-desktop;
+  padding: 1.5rem;
+  border-radius: $border-radius;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 2vw, 0.75rem);
-  padding: clamp(0.75rem, 2vw, 1rem);
+  gap: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
 
-  // Performance
-  contain: layout style paint;
-  will-change: transform;
+  &:focus {
+    outline: none;
+    border-color: currentColor;
+  }
 
-  // Smooth transitions for all interactions
-  transition: all $animation-duration-normal $animation-easing;
-
-  // Light theme styling
   &.light {
-    background: $light-bg-primary;
-    border: 1px solid $light-border-primary;
-    border-radius: $border-radius-md;
-    box-shadow: $light-shadow-sm;
+    background-color: $light-card-bg;
+    color: $light-text;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-color: $light-border;
 
     &:hover {
+      background-color: $light-hover;
       transform: translateY(-4px);
-      box-shadow: $light-shadow-lg, 0 4px 8px rgba(59, 130, 246, 0.1);
-      border-color: rgba($accent-primary, 0.3);
-
-      .cert-icon img {
-        transform: scale(1.05);
-      }
-
-      .cert-link {
-        background: $accent-primary-hover;
-        transform: translateY(-1px);
-      }
+      box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    &:focus-within {
-      outline: 2px solid $light-border-focus;
-      outline-offset: 2px;
-      transform: translateY(-4px);
-      box-shadow: $light-shadow-lg, 0 4px 8px rgba(59, 130, 246, 0.1);
+    &:focus {
+      border-color: $light-primary;
     }
   }
 
-  // Dark theme styling
   &.dark {
-    background: $dark-bg-primary;
-    border: 1px solid $dark-border-primary;
-    border-radius: $border-radius-md;
-    box-shadow: $dark-shadow-sm;
+    background-color: $dark-card-bg;
+    color: $dark-text;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border-color: $dark-border;
 
     &:hover {
+      background-color: $dark-hover;
       transform: translateY(-4px);
-      box-shadow: $dark-shadow-lg, 0 4px 8px rgba(59, 130, 246, 0.1);
-      border-color: rgba($accent-primary, 0.3);
-
-      .cert-icon img {
-        transform: scale(1.05);
-      }
-
-      .cert-link {
-        background: $accent-primary-dark-hover;
-        transform: translateY(-1px);
-      }
+      box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4),
+        0 10px 10px -5px rgba(0, 0, 0, 0.2);
     }
 
-    &:focus-within {
-      outline: 2px solid $dark-border-focus;
-      outline-offset: 2px;
-      transform: translateY(-4px);
-      box-shadow: $dark-shadow-lg, 0 4px 8px rgba(59, 130, 246, 0.1);
+    &:focus {
+      border-color: $dark-primary;
     }
   }
 
   // Responsive sizing
   @media (max-width: 768px) {
-    min-width: $card-width-tablet;
-    max-width: $card-width-tablet;
-    min-height: $card-height-tablet;
+    width: $card-width-tablet;
+    padding: 1.25rem;
   }
 
   @media (max-width: 480px) {
-    min-width: $card-width-mobile;
-    max-width: $card-width-mobile;
-    min-height: $card-height-mobile;
-    padding: clamp(0.5rem, 1.5vw, 0.75rem);
+    width: $card-width-mobile;
+    padding: 1rem;
   }
 }
 
-// Icon styling
+// Certificate icon
 .cert-icon {
-  width: clamp(32px, 8vw, 48px);
-  height: clamp(32px, 8vw, 48px);
-  border-radius: $border-radius-sm;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color $animation-duration-normal ease;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  flex-shrink: 0;
 
-  // Light theme
   &.light {
-    background: $light-bg-tertiary;
+    background-color: $light-bg;
   }
-
-  // Dark theme
   &.dark {
-    background: $dark-bg-tertiary;
+    background-color: $dark-bg;
   }
 
   img {
-    width: clamp(28px, 6vw, 40px);
-    height: clamp(28px, 6vw, 40px);
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-    border-radius: 4px;
-    transition: transform $animation-duration-normal $animation-easing;
+    transition: transform 0.3s ease;
+  }
+
+  .cert-card:hover & img {
+    transform: scale(1.1);
   }
 }
 
-// Typography hierarchy
+// Certificate details
 .cert-details {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.25rem, 1vw, 0.5rem);
-  min-height: 0; // Allow flex children to shrink
+  gap: 0.5rem;
+  flex-grow: 1;
 }
 
 .cert-title {
+  font-size: 1.125rem;
   font-weight: 600;
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  line-height: 1.3;
+  line-height: 1.4;
   margin: 0;
-  @include multiline-ellipsis(2);
 
-  // Light theme
   &.light {
-    color: $light-text-primary;
+    color: $light-text;
   }
-
-  // Dark theme
   &.dark {
-    color: $dark-text-primary;
+    color: $dark-text;
   }
 }
 
 .cert-org {
-  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
-  @include text-ellipsis;
 
-  // Light theme
   &.light {
     color: $light-text-secondary;
   }
-
-  // Dark theme
   &.dark {
     color: $dark-text-secondary;
   }
 }
 
 .cert-date {
-  font-size: clamp(0.75rem, 1.8vw, 0.85rem);
-  margin: 0;
-  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 400;
 
-  // Light theme
   &.light {
-    color: $light-text-muted;
+    color: $light-text-secondary;
   }
-
-  // Dark theme
   &.dark {
-    color: $dark-text-muted;
+    color: $dark-text-secondary;
   }
 }
 
-// Button styling
+// Certificate link button
 .cert-link {
-  @include button-transition;
-  color: white;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: $border-radius-xl;
-  padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.8rem, 2.5vw, 1.2rem);
-  font-size: clamp(0.75rem, 2vw, 0.85rem);
-  font-weight: 600;
-  font-family: inherit;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
-  text-decoration: none;
+  transition: all 0.2s ease;
   text-align: center;
 
-  // Light theme
   &.light {
-    background: $accent-primary;
+    background-color: $light-primary;
+    color: white;
 
     &:hover {
-      background: $accent-primary-hover;
-      transform: translateY(-1px);
-      box-shadow: $light-shadow-md;
+      background-color: $light-primary-hover;
     }
-
     &:focus {
-      outline: 2px solid $light-border-focus;
+      outline: 2px solid $light-primary;
       outline-offset: 2px;
     }
   }
 
-  // Dark theme
   &.dark {
-    background: $accent-primary-dark;
+    background-color: $dark-primary;
+    color: $dark-bg;
 
     &:hover {
-      background: $accent-primary-dark-hover;
-      transform: translateY(-1px);
-      box-shadow: $dark-shadow-md;
+      background-color: $dark-primary-hover;
     }
-
     &:focus {
-      outline: 2px solid $dark-border-focus;
+      outline: 2px solid $dark-primary;
       outline-offset: 2px;
     }
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  // Touch-friendly sizing
-  @media (pointer: coarse) {
-    min-height: 36px;
-    min-width: 80px;
   }
 }
 
-// ==========================================
-// PROMPT 4: ACCESSIBILITY & THEMING INTEGRATION
-// ==========================================
-
-// // Hide duplicated cards from screen readers
-// .cert-card[aria-hidden="true"] {
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-
-//   // Reduce visual emphasis on duplicates
-//   opacity: 0.95;
-
-//   // Ensure they're not focusable
-//   * {
-//     tabindex: -1;
-//     pointer-events: none;
-//   }
-// }
-
-// // Enhanced focus styles for keyboard navigation
-// .cert-card:focus,
-// .cert-link:focus {
-//   &.light {
-//     outline: 2px solid $light-border-focus;
-//     outline-offset: 2px;
-//   }
-
-//   &.dark {
-//     outline: 2px solid $dark-border-focus;
-//     outline-offset: 2px;
-//   }
-// }
-
-// // Focus visible for better keyboard navigation
-// .cert-card:focus-visible,
-// .cert-link:focus-visible {
-//   &.light {
-//     outline: 2px solid $light-border-focus;
-//     outline-offset: 2px;
-//   }
-
-//   &.dark {
-//     outline: 2px solid $dark-border-focus;
-//     outline-offset: 2px;
-//   }
-// }
-
-// // Remove focus outline for mouse users
-// .cert-card:focus:not(:focus-visible),
-// .cert-link:focus:not(:focus-visible) {
-//   outline: none;
-// }
-
-// // High contrast mode support
-// @media (prefers-contrast: high) {
-//   .cert-card {
-//     border-width: 2px;
-
-//     &.light {
-//       border-color: $light-text-primary;
-//     }
-
-//     &.dark {
-//       border-color: $dark-text-primary;
-//     }
-//   }
-
-//   .cert-link {
-//     border: 2px solid;
-
-//     &.light {
-//       border-color: $light-text-primary;
-//     }
-
-//     &.dark {
-//       border-color: $dark-text-primary;
-//     }
-//   }
-// }
-
-// // Reduced motion support
-// @media (prefers-reduced-motion: reduce) {
-//   .cert-grid {
-//     animation: none !important;
-//     scroll-behavior: auto;
-
-//     &.seamless-loop {
-//       animation: none !important;
-//     }
-//   }
-
-//   .cert-card,
-//   .cert-icon img,
-//   .cert-link {
-//     transition: none !important;
-
-//     &:hover {
-//       transform: none !important;
-//     }
-//   }
-// }
-
-// // Print styles
-// @media print {
-//   .cert-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-//     gap: 1rem;
-//     overflow: visible;
-//     animation: none !important;
-//   }
-
-//   .cert-card {
-//     break-inside: avoid;
-//     box-shadow: none;
-//     border: 1px solid #ccc;
-
-//     &:hover {
-//       transform: none;
-//       box-shadow: none;
-//     }
-//   }
-// }
-
-// ==========================================
-// MODAL STYLES (Supporting the existing HTML)
-// ==========================================
-
+// Modal overlay
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(20px);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: $z-modal;
-  animation: modalFadeIn $animation-duration-slow $animation-easing;
+  padding: 1rem;
 
-  // Light theme
   &.light {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.95) 100%
-    );
+    background-color: rgba(0, 0, 0, 0.5);
   }
-
-  // Dark theme
   &.dark {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(15, 23, 42, 0.98) 100%
-    );
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
 
+// Modal content
 .modal-content {
-  border-radius: $border-radius-xl;
-  width: min(95vw, 800px);
+  width: 100%;
+  max-width: 600px;
   max-height: 90vh;
-  overflow: hidden;
-  animation: modalSlideIn $animation-duration-slow $animation-easing;
+  overflow-y: auto;
+  border-radius: $border-radius;
+  position: relative;
 
-  // Light theme
   &.light {
-    background: $light-bg-primary;
-    border: 1px solid $light-border-primary;
-    box-shadow: $light-shadow-xl;
+    background-color: $light-bg;
+    color: $light-text;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
-  // Dark theme
   &.dark {
-    background: $dark-bg-primary;
-    border: 1px solid $dark-border-primary;
-    box-shadow: $dark-shadow-xl;
+    background-color: $dark-card-bg;
+    color: $dark-text;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
+      0 10px 10px -5px rgba(0, 0, 0, 0.2);
   }
 }
 
+// Modal header
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid;
 
-  // Light theme
   &.light {
-    border-bottom: 1px solid $light-border-secondary;
-    background: $light-bg-secondary;
+    border-color: $light-border;
   }
-
-  // Dark theme
   &.dark {
-    border-bottom: 1px solid $dark-border-secondary;
-    background: $dark-bg-secondary;
+    border-color: $dark-border;
   }
 }
 
 .modal-title {
-  font-size: clamp(1.25rem, 4vw, 1.75rem);
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
-  line-height: 1.2;
 
-  // Light theme
   &.light {
-    color: $light-text-primary;
+    color: $light-text;
   }
-
-  // Dark theme
   &.dark {
-    color: $dark-text-primary;
+    color: $dark-text;
   }
 }
 
 .modal-close {
+  padding: 0.5rem;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: none;
   cursor: pointer;
-  @include button-transition;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 
-  // Light theme
   &.light {
-    background: $light-bg-tertiary;
-    color: $light-text-muted;
+    color: $light-text-secondary;
 
     &:hover {
-      background: rgba($accent-danger, 0.1);
-      color: $accent-danger;
-      transform: scale(1.1);
-    }
-
-    &:focus {
-      outline: 2px solid $light-border-focus;
-      outline-offset: 2px;
+      background-color: $light-hover;
+      color: $light-text;
     }
   }
 
-  // Dark theme
   &.dark {
-    background: $dark-bg-tertiary;
-    color: $dark-text-muted;
+    color: $dark-text-secondary;
 
     &:hover {
-      background: rgba($accent-danger, 0.1);
-      color: $accent-danger;
-      transform: scale(1.1);
-    }
-
-    &:focus {
-      outline: 2px solid $dark-border-focus;
-      outline-offset: 2px;
+      background-color: $dark-hover;
+      color: $dark-text;
     }
   }
 }
 
+// Modal body
 .modal-body {
-  padding: 2rem;
-  overflow-y: auto;
-  max-height: calc(90vh - 120px);
+  padding: 1.5rem;
 }
 
 .certificate-info {
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: $border-radius-md;
+}
 
-  // Light theme
+.cert-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.cert-issuer,
+.cert-date-modal {
+  margin: 0;
+  font-size: 0.875rem;
+
   &.light {
-    background: $light-bg-tertiary;
-    border: 1px solid $light-border-secondary;
+    color: $light-text-secondary;
   }
-
-  // Dark theme
   &.dark {
-    background: $dark-bg-tertiary;
-    border: 1px solid $dark-border-secondary;
+    color: $dark-text-secondary;
   }
 
-  p {
-    margin: 0 0 0.5rem 0;
-    font-weight: 500;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    // Light theme
+  strong {
     &.light {
-      color: $light-text-secondary;
+      color: $light-text;
     }
-
-    // Dark theme
     &.dark {
-      color: $dark-text-secondary;
+      color: $dark-text;
     }
   }
 }
 
 .certificate-display {
   text-align: center;
-  margin: 1.5rem 0;
+}
 
-  .certificate-gif {
-    max-width: 100%;
-    max-height: 60vh;
-    border-radius: $border-radius-md;
-    transition: transform $animation-duration-normal ease;
+.certificate-gif {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
 
-    &:hover {
-      transform: scale(1.02);
-    }
-
-    // Light theme
-    &.light {
-      box-shadow: $light-shadow-lg;
-    }
-
-    // Dark theme
-    &.dark {
-      box-shadow: $dark-shadow-lg;
-    }
+  &.light {
+    border: 1px solid $light-border;
+  }
+  &.dark {
+    border: 1px solid $dark-border;
   }
 }
 
+// Modal footer
 .modal-actions {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  padding: 1.5rem;
+  border-top: 1px solid;
+  justify-content: flex-end;
 
-  // Light theme
   &.light {
-    border-top: 1px solid $light-border-secondary;
+    border-color: $light-border;
   }
-
-  // Dark theme
   &.dark {
-    border-top: 1px solid $dark-border-secondary;
+    border-color: $dark-border;
+  }
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
   }
 }
 
 .btn-primary {
-  @include button-transition;
-  color: white;
-  border: none;
-  border-radius: $border-radius-md;
-  padding: 0.75rem 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-
-  // Light theme
   &.light {
-    background: $accent-primary;
+    background-color: $light-primary;
+    color: white;
 
     &:hover {
-      background: $accent-primary-hover;
-      transform: translateY(-1px);
-      box-shadow: $light-shadow-md;
+      background-color: $light-primary-hover;
     }
-
     &:focus {
-      outline: 2px solid $light-border-focus;
-      outline-offset: 2px;
+      outline-color: $light-primary;
     }
   }
 
-  // Dark theme
   &.dark {
-    background: $accent-primary-dark;
+    background-color: $dark-primary;
+    color: $dark-bg;
 
     &:hover {
-      background: $accent-primary-dark-hover;
-      transform: translateY(-1px);
-      box-shadow: $dark-shadow-md;
+      background-color: $dark-primary-hover;
+    }
+    &:focus {
+      outline-color: $dark-primary;
+    }
+  }
+}
+
+.btn-secondary {
+  &.light {
+    background-color: transparent;
+    color: $light-text-secondary;
+    border: 1px solid $light-border;
+
+    &:hover {
+      background-color: $light-hover;
+      color: $light-text;
     }
 
     &:focus {
-      outline: 2px solid $dark-border-focus;
-      outline-offset: 2px;
+      outline-color: $light-primary;
+    }
+  }
+
+  &.dark {
+    background-color: transparent;
+    color: $dark-text-secondary;
+    border: 1px solid $dark-border;
+
+    &:hover {
+      background-color: $dark-hover;
+      color: $dark-text;
+    }
+
+    &:focus {
+      outline-color: $dark-primary;
     }
   }
 }
 
-// Modal animations
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
+// Screen reader utility
+.sr-only,
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Scrolling animation
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(20px);
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
+// Prevent text selection during drag
+.cert-grid.dragging * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
   }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+
+  .modal-header,
+  .modal-body,
+  .modal-actions {
+    padding: 1rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-section {
+    padding: 1rem 0;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-actions {
+    padding: 0.75rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+}
+
+// Accessibility preferences
+@media (prefers-contrast: high) {
+  .cert-card {
+    border-width: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-grid.seamless-loop {
+    animation: none;
+  }
+
+  .cert-card,
+  .cert-icon img,
+  .cert-link,
+  .modal-close,
+  .btn-primary,
+  .btn-secondary {
+    transition: none;
   }
 }
