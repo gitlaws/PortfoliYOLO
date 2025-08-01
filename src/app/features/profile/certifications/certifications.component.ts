@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-certifications',
   templateUrl: './certifications.component.html',
-  styleUrls: ['./certifications.component.css'],
+  // styleUrls: ['./certifications.component.css'],
   standalone: true,
 })
 export class CertificationsComponent {
