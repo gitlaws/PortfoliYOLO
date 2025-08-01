@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../shared/models/theme.enum';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { LinkTreeComponent } from './link-tree/link-tree.component';
-import { VideosComponent } from './videos/videos.component';
+import { InterestsComponent } from './interests/interests.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, LinkTreeComponent, VideosComponent],
+  imports: [CommonModule, InterestsComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   theme!: 'light' | 'dark';
 
   constructor(private themeService: ThemeService) {}
