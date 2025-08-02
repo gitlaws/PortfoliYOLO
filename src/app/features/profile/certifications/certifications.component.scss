@@ -1,0 +1,78 @@
+// Variables
+$font-family: "Segoe UI", Arial, sans-serif;
+$bg-main: #f9f9f9;
+$bg-card: #fff;
+$color-title: #2d3748;
+$color-card-title: #1a202c;
+$color-details: #4a5568;
+$border-radius-main: 8px;
+$border-radius-card: 6px;
+$border-color: #e2e8f0;
+$box-shadow-main: 0 2px 8px rgba(0, 0, 0, 0.05);
+$box-shadow-hover: 0 4px 16px rgba(44, 62, 80, 0.08);
+$padding-main: 2rem;
+$padding-main-mobile: 1rem;
+$padding-card: 1rem 1.5rem;
+$padding-card-mobile: 0.75rem 1rem;
+$font-size-title: 2rem;
+$font-size-details: 0.95rem;
+$margin-bottom-title: 1.5rem;
+$margin-bottom-card: 1rem;
+$margin-bottom-card-title: 0.25rem;
+
+// Main container class
+.certifications-container {
+  display: block;
+  padding: $padding-main;
+  background: $bg-main;
+  border-radius: $border-radius-main;
+  box-shadow: $box-shadow-main;
+  font-family: $font-family;
+}
+
+h2 {
+  font-size: $font-size-title;
+  margin-bottom: $margin-bottom-title;
+  color: $color-title;
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.certification-item {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-card;
+  padding: $padding-card;
+  margin-bottom: $margin-bottom-card;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: $box-shadow-hover;
+  }
+}
+
+.certification-title {
+  font-weight: 600;
+  color: $color-card-title;
+  margin-bottom: $margin-bottom-card-title;
+}
+
+.certification-details {
+  font-size: $font-size-details;
+  color: $color-details;
+}
+
+@media (max-width: 600px) {
+  .certifications-container {
+    padding: $padding-main-mobile;
+  }
+  .certification-item {
+    padding: $padding-card-mobile;
+  }
+}
