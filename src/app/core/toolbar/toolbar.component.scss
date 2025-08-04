@@ -33,6 +33,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   left: 0;
   z-index: 100;
   width: 100%;
+  // max-width: 1200px;
   height: 72px;
   // background: transparent;
   // background: linear-gradient(to bottom, #1a1a1a, #5c5c5c, #c0c0c0);
@@ -142,8 +143,9 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 @media (max-width: $tablet) {
   .header {
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    // max-width: 1200px;
   }
 
   .nav__theme-toggle {
@@ -165,8 +167,9 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 @media (max-width: $mobile) {
   .header {
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    // max-width: 1200px;
   }
 
   .nav__theme-toggle {
@@ -188,6 +191,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 @media (max-width: 120px) {
   .header {
+    // max-width: 1200px;
     height: auto;
     flex-direction: column;
     overflow: hidden;
