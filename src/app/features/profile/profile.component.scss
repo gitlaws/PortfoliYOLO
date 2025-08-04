@@ -422,7 +422,7 @@ $transition-interactive: background-color 0.2s ease-out,
       //   rgba($color-primary, 0.08),
       //   rgba($color-primary, 0.12)
       // );
-      border: 1px solid rgba($color-primary, 0.1);
+      // border: 1px solid rgba($color-primary, 0.1);
       backdrop-filter: blur(20px);
       overflow: hidden;
 
@@ -505,7 +505,12 @@ $transition-interactive: background-color 0.2s ease-out,
           background: linear-gradient(45deg, #24292f, #4a5568, #24292f);
         }
         i {
-          color: #b3bcc6;
+          &.light {
+            color: #24292f; // Dark grey for light mode
+          }
+          &.dark {
+            color: #f3f4f6; // Light grey for dark mode
+          }
         }
       }
 
@@ -514,7 +519,12 @@ $transition-interactive: background-color 0.2s ease-out,
           background: linear-gradient(45deg, #0a66c2, #2563eb, #0a66c2);
         }
         i {
-          color: #0a66c2;
+          &.light {
+            color: #0a66c2; // LinkedIn blue for light mode
+          }
+          &.dark {
+            color: #b3d3ea; // Softer blue for dark mode, more readable than pure white
+          }
         }
       }
 
@@ -547,18 +557,12 @@ $transition-interactive: background-color 0.2s ease-out,
   padding: 2rem 1.5rem;
   transition: $transition-smooth;
 
+  // Remove the duplicate .skill-category h4 block from the &.dark section
   &.dark {
     .skills-title {
       color: $color-primary-muted;
     }
-    .skill-category h4 {
-      color: $color-text-dark;
-    }
   }
-
-  // &:hover {
-  //   box-shadow: $shadow-floating;
-  // }
 
   .skills-title {
     font-family: "Roboto";
@@ -581,10 +585,20 @@ $transition-interactive: background-color 0.2s ease-out,
         font-size: 0.75rem; // 12px
         font-weight: 700;
         margin-bottom: 0.75rem;
-        color: $color-text;
+        color: $color-text; // Default light mode
         text-transform: uppercase;
         letter-spacing: 0.1em;
         opacity: 0.8;
+
+        // Light mode styling
+        &.light {
+          color: $color-text;
+        }
+
+        // Dark mode styling
+        &.dark {
+          color: $color-text-dark;
+        }
       }
 
       .skill-tag {
@@ -599,10 +613,6 @@ $transition-interactive: background-color 0.2s ease-out,
         cursor: default;
         border: 1px solid transparent;
         letter-spacing: 0.025em;
-
-        &:hover {
-          // box-shadow: $shadow-elevated;
-        }
 
         &.level-5 {
           background: linear-gradient(
