@@ -102,3 +102,13 @@ h2 {
     pointer-events: none;
   }
 }
+
+.under-construction-warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #007bff;
+  width: 100%;
+  margin: 1rem 0;
+}
