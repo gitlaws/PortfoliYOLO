@@ -5,11 +5,17 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { InterestsComponent } from './interests/interests.component';
 import { CertificationsComponent } from './certifications/certifications.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, InterestsComponent, CertificationsComponent],
+  imports: [
+    CommonModule,
+    InterestsComponent,
+    CertificationsComponent,
+    ResumeComponent,
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
