@@ -1,0 +1,186 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+
+  // Responsive layout for larger screens
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
+.resume-btn {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+
+  // Remove default button styles and add custom styling
+  button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+
+    // Icon styling
+    i {
+      margin-right: 0.75rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    // Hover effects
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+
+      i {
+        transform: scale(1.1);
+      }
+    }
+
+    // Focus styles for keyboard navigation
+    &:focus {
+      outline: 3px solid #ffd700;
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+
+    // Active state
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+    }
+
+    // Disabled state
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  // Different colors for each button type
+  &:first-child button {
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    }
+  }
+
+  &:last-child button {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .resume-btn button {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+
+    &:focus {
+      outline: 3px solid #ffff00;
+    }
+  }
+}
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .resume-btn button {
+    transition: none;
+
+    &:hover,
+    &:focus {
+      transform: none;
+    }
+
+    i {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+// Touch device optimizations
+@media (hover: none) and (pointer: coarse) {
+  .resume-btn button {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.15rem;
+
+    &:hover {
+      transform: none;
+    }
+
+    &:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+  }
+}
+
+// Small screen optimizations
+@media (max-width: 480px) {
+  .resume {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .resume-btn button {
+    padding: 1rem;
+    font-size: 1rem;
+
+    i {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Large screen optimizations
+@media (min-width: 1200px) {
+  .resume {
+    max-width: 600px;
+    gap: 2.5rem;
+  }
+
+  .resume-btn button {
+    padding: 1.25rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
+  }
+}
+
+// Print styles
+@media print {
+  .resume {
+    display: none;
+  }
+}
