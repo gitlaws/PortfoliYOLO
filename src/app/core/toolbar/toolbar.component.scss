@@ -54,6 +54,12 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   display: none;
 }
 
+.header__logo,
+.header__menu,
+.header__nav {
+  max-width: 1200px;
+}
+
 .header__nav {
   display: flex;
   // justify-content: space-between;
