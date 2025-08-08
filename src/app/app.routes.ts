@@ -21,6 +21,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'projx',
+    loadComponent: () =>
+      import('./features/projx/projx.component').then(
+        (component) => component.ProjxComponent
+      ),
+  },
+  {
     path: 'profile',
     loadComponent: () =>
       import('./features/profile/profile.component').then(

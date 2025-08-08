@@ -23,6 +23,16 @@ $social-links-border-color: #ccc;
 $social-link-hover-color: #0056b3;
 $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem; /* Optional: add some padding for smaller screens */
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -148,6 +158,10 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: $tablet) {
+  .header__container {
+    padding: 0 1rem;
+  }
+
   .header {
     justify-content: space-between;
     align-items: center;
@@ -172,6 +186,10 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: $mobile) {
+  .header__container {
+    padding: 0 1rem;
+  }
+
   .header {
     justify-content: space-between;
     align-items: center;
@@ -196,6 +214,10 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 120px) {
+  .header__container {
+    padding: 0 1rem;
+  }
+
   .header {
     // max-width: 1200px;
     height: auto;
