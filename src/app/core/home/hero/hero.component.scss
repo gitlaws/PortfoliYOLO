@@ -17,7 +17,19 @@
 /* Optional: Roboto Slab (if you want a slab-serif for body/subheadings) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
-//HERO SECTION
+// Root font size setup for responsive typography
+:root {
+  font-size: 16px; // Base font size
+}
+
+// Container constraint
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// HERO SECTION
 .hero-content-wrapper {
   display: flex;
   justify-content: center;
@@ -30,47 +42,47 @@
 
 .modern-hero {
   background-color: transparent;
-  border-radius: 32px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-  padding: 48px 32px;
-  max-width: 540px;
+  border-radius: 2rem;
+  box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.25);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+  max-width: min(540px, 95vw);
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  gap: clamp(1rem, 2vw, 1.125rem);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
   @include theme-mode-transition;
 }
 
 .accent-line {
-  width: 64px;
-  height: 4px;
+  width: 4rem;
+  height: 0.25rem;
   &.light {
     background: linear-gradient(90deg, #f8ffae, #43c6ac, #191654, #f8ffae);
   }
   &.dark {
     background: linear-gradient(90deg, #232526, #414345, #283e51, #485563);
   }
-  border-radius: 2px;
-  margin-bottom: 16px;
+  border-radius: 0.125rem;
+  margin-bottom: 1rem;
   animation: accentLineGlow 2s infinite alternate;
 }
 
 @keyframes accentLineGlow {
   0% {
-    box-shadow: 0 0 8px #ff6a00;
+    box-shadow: 0 0 0.5rem #ff6a00;
   }
   100% {
-    box-shadow: 0 0 24px #0078ff;
+    box-shadow: 0 0 1.5rem #0078ff;
   }
 }
 
 .floating-element {
   opacity: 0;
-  transform: translateY(32px) scale(0.98);
+  transform: translateY(2rem) scale(0.98);
   animation: floatIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
@@ -94,7 +106,11 @@
   }
 }
 
+// Hero Card Typography - Highly Readable & Responsive
+.hero-card__title,
 .gradient-text {
+  // Aggressive scaling with defined max using clamp()
+  font-size: clamp(1.75rem, 5vw + 0.5rem, 3.5rem);
   background: linear-gradient(
     270deg,
     #1de9b6,
@@ -107,13 +123,13 @@
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  font-size: 2rem;
   font-weight: 800;
   font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
-  letter-spacing: 1px;
-  text-align: center; // Center align the text
-  width: 100%; // Ensure full width for centering
-  display: block; // Block display for better centering
+  letter-spacing: clamp(0.02em, 0.5vw, 0.1em);
+  text-align: center;
+  width: 100%;
+  display: block;
+  line-height: 1.1;
   animation: gradientMove 6s linear infinite;
 }
 
@@ -126,24 +142,31 @@
   }
 }
 
+.hero-card__subtitle,
 .subtitle {
-  font-family: "Roboto";
-  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(0.75rem, 1.5vw + 0.25rem, 1.125rem);
   font-weight: 500;
   color: #1e88e5;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-  text-align: center; // Center align subtitle
+  margin-bottom: 0.5rem;
+  letter-spacing: clamp(0.02em, 0.2vw, 0.05em);
+  text-align: center;
   width: 100%;
+  line-height: 1.4;
 }
 
+.hero-card__description,
 .description {
-  font-family: "Roboto";
-  font-size: 1rem;
-  margin-bottom: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(0.875rem, 2vw + 0.25rem, 1.125rem);
+  margin-bottom: 1rem;
   line-height: 1.6;
-  text-align: center; // Center align description
+  text-align: center;
   width: 100%;
+  max-width: 45ch; // Optimal reading width
+  margin-left: auto;
+  margin-right: auto;
+
   &.light {
     color: #232526;
   }
@@ -154,37 +177,42 @@
 
 .buttons-element {
   display: flex;
-  gap: 16px;
-  margin-top: 8px;
-  justify-content: center; // Center align buttons
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-top: 0.5rem;
+  justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
-.min-button {
-  padding: 10px 28px;
-  border-radius: 24px;
-  font-family: "DM Sans";
-  font-size: 1rem;
+.hero-card__cta-button-text,
+.min-button,
+.min-button-fill {
+  padding: clamp(0.625rem, 1.5vw, 0.75rem) clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: 1.5rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(0.875rem, 1.5vw + 0.125rem, 1rem);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: 2px solid transparent;
+  text-align: center;
+  min-width: 8rem;
 
   // Light theme - outline button
   &.light {
     background: transparent;
     color: #2196f3;
     border-color: #2196f3;
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
+    box-shadow: 0 0.125rem 0.5rem rgba(33, 150, 243, 0.15);
 
     &:hover,
     &:focus {
       background: linear-gradient(135deg, #2196f3 0%, #00acc1 100%);
       color: #ffffff;
       border-color: transparent;
-      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
-      transform: translateY(-2px);
+      box-shadow: 0 0.25rem 1rem rgba(33, 150, 243, 0.3);
+      transform: translateY(-0.125rem);
     }
   }
 
@@ -193,15 +221,15 @@
     background: transparent;
     color: #00ffb8;
     border-color: #00ffb8;
-    box-shadow: 0 2px 8px rgba(0, 255, 184, 0.15);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 255, 184, 0.15);
 
     &:hover,
     &:focus {
       background: linear-gradient(135deg, #00ffb8 0%, #0078ff 100%);
       color: #1a1a1a;
       border-color: transparent;
-      box-shadow: 0 4px 16px rgba(0, 255, 184, 0.3);
-      transform: translateY(-2px);
+      box-shadow: 0 0.25rem 1rem rgba(0, 255, 184, 0.3);
+      transform: translateY(-0.125rem);
     }
   }
 }
@@ -213,14 +241,14 @@
   &.light {
     background: linear-gradient(135deg, #2196f3 0%, #00acc1 100%);
     color: #ffffff;
-    box-shadow: 0 2px 12px rgba(33, 150, 243, 0.2);
+    box-shadow: 0 0.125rem 0.75rem rgba(33, 150, 243, 0.2);
 
     &:hover,
     &:focus {
       background: linear-gradient(135deg, #1976d2 0%, #0097a7 100%);
       color: #ffffff;
-      box-shadow: 0 4px 24px rgba(33, 150, 243, 0.35);
-      transform: translateY(-2px);
+      box-shadow: 0 0.25rem 1.5rem rgba(33, 150, 243, 0.35);
+      transform: translateY(-0.125rem);
     }
   }
 
@@ -228,14 +256,14 @@
   &.dark {
     background: linear-gradient(135deg, #00ffb8 0%, #0078ff 100%);
     color: #1a1a1a;
-    box-shadow: 0 2px 12px rgba(0, 255, 184, 0.2);
+    box-shadow: 0 0.125rem 0.75rem rgba(0, 255, 184, 0.2);
 
     &:hover,
     &:focus {
       background: linear-gradient(135deg, #00e5a6 0%, #0066dd 100%);
       color: #1a1a1a;
-      box-shadow: 0 4px 24px rgba(0, 255, 184, 0.35);
-      transform: translateY(-2px);
+      box-shadow: 0 0.25rem 1.5rem rgba(0, 255, 184, 0.35);
+      transform: translateY(-0.125rem);
     }
   }
 }
@@ -257,146 +285,105 @@
   transition: all 0.1s ease;
 }
 
-// Mobile responsiveness with centered text
-@media (max-width: 700px) {
-  .modern-hero {
-    padding: 32px 16px;
-    max-width: 95vw;
-    gap: 20px;
-  }
+// Typography Examples for General Use
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
 
+h2 {
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.small-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+// Media queries for fine-tuning beyond clamp()
+@media (min-width: 768px) {
+  .hero-card__title,
   .gradient-text {
-    font-size: 1.8rem;
-    text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.02em;
   }
 
-  .subtitle {
-    font-size: 0.9rem;
-    text-align: center;
+  .buttons-element {
+    flex-direction: row;
+    gap: 1rem;
   }
 
+  .min-button,
+  .min-button-fill {
+    width: auto;
+    min-width: 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modern-hero {
+    max-width: 540px;
+  }
+
+  .hero-card__description,
   .description {
-    font-size: 0.95rem;
-    text-align: center;
+    font-size: 1.125rem;
   }
 
+  h1 {
+    font-size: clamp(3rem, 4vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+  }
+}
+
+// Ensure fonts don't become excessively large beyond 1200px
+@media (min-width: 1200px) {
+  .hero-card__title,
+  .gradient-text {
+    font-size: 3.5rem; // Fixed max size
+  }
+
+  .hero-card__subtitle,
+  .subtitle {
+    font-size: 1.125rem; // Fixed max size
+  }
+
+  .hero-card__description,
+  .description {
+    font-size: 1.125rem; // Fixed max size
+  }
+
+  .hero-card__cta-button-text,
+  .min-button,
+  .min-button-fill {
+    font-size: 1rem; // Fixed max size
+  }
+}
+
+// Mobile-specific adjustments
+@media (max-width: 767px) {
   .buttons-element {
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
     align-items: center;
+    gap: 0.75rem;
   }
 
   .min-button,
   .min-button-fill {
     width: 100%;
-    text-align: center;
-    padding: 12px 20px;
-  }
-}
-
-// Small mobile devices (480px and below)
-@media (max-width: 480px) {
-  .modern-hero {
-    padding: 24px 12px;
-    max-width: 98vw;
-    gap: 16px;
-  }
-
-  .gradient-text {
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 1.2;
-    letter-spacing: 0.3px;
-  }
-
-  .subtitle {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .description {
-    font-size: 0.9rem;
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .buttons-element {
-    gap: 10px;
-    align-items: center;
-  }
-
-  .min-button,
-  .min-button-fill {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-    text-align: center;
-  }
-}
-
-// Extra small devices (375px and below - iPhone SE, etc.)
-@media (max-width: 375px) {
-  .modern-hero {
-    padding: 20px 8px;
-    gap: 14px;
-  }
-
-  .gradient-text {
-    font-size: 1.3rem;
-    text-align: center;
-    line-height: 1.1;
-    letter-spacing: 0.2px;
-  }
-
-  .subtitle {
-    font-size: 0.75rem;
-    text-align: center;
-  }
-
-  .description {
-    font-size: 0.85rem;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .min-button,
-  .min-button-fill {
-    font-size: 0.85rem;
-    padding: 9px 14px;
-    text-align: center;
-  }
-}
-
-// Very small devices (320px - older phones)
-@media (max-width: 320px) {
-  .modern-hero {
-    padding: 16px 6px;
-    gap: 12px;
-  }
-
-  .gradient-text {
-    font-size: 1.2rem;
-    text-align: center;
-    line-height: 1.1;
-    letter-spacing: 0.1px;
-  }
-
-  .subtitle {
-    font-size: 0.7rem;
-    text-align: center;
-  }
-
-  .description {
-    font-size: 0.8rem;
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  .min-button,
-  .min-button-fill {
-    font-size: 0.8rem;
-    padding: 8px 12px;
-    text-align: center;
+    max-width: 280px;
   }
 }

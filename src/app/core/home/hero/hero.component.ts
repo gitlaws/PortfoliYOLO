@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { TypewriterComponent } from '../typewriter/typewriter.component';
 import { Subscription } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { CubeLogoComponent } from '../../toolbar/cube-logo/cube-logo.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, TypewriterComponent, RouterLink],
+  imports: [CommonModule, TypewriterComponent, RouterLink, CubeLogoComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
