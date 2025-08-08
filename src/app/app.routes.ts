@@ -27,6 +27,7 @@ export const routes: Routes = [
         (m) => m.ProfileComponent
       ),
   },
+
   // other routes...
   {
     path: 'mock',
