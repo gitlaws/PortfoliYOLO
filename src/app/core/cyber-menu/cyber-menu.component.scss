@@ -46,8 +46,9 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     position: absolute;
     height: 150%;
     width: 150%;
-    // left: 100%;
-    // top: -25%;
+    // left: -150%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     animation: rotateBorder 6s infinite linear;
     z-index: -2;
   }
@@ -291,10 +292,10 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 .dropdown-menu {
   position: absolute;
-  top: 124%;
-  left: 50%;
+  top: 140%;
+  right: 50%;
   list-style-type: none;
-  transform: translateX(-50%);
+  transform: none;
   width: 200px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -386,6 +387,6 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 768px) {
-    left: -50%;
+    right: 50%;
   }
 }
