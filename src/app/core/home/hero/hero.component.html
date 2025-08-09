@@ -1,7 +1,7 @@
 <div class="hero-content-wrapper" [ngClass]="theme">
   <div class="modern-hero backdrop-blur" [ngClass]="theme">
     <!-- <div class="accent-line" [ngClass]="theme"></div> -->
-    <app-cube-logo></app-cube-logo>
+
     <div class="floating-element title-element">
       <h1>
         <span class="gradient-text" [ngClass]="theme"
@@ -9,10 +9,13 @@
         >
       </h1>
     </div>
+
     <div class="floating-element subtitle-element">
       <p class="subtitle" [ngClass]="theme">Full-stack Developer</p>
     </div>
+
     <app-typewriter></app-typewriter>
+
     <div class="floating-element description-element">
       <p class="description" [ngClass]="theme">
         I engineer full-stack web applications that are efficient, scalable, and
@@ -21,6 +24,7 @@
         stability.
       </p>
     </div>
+
     <div class="floating-element buttons-element" [ngClass]="theme">
       <a
         routerLink="/projx"
@@ -36,6 +40,13 @@
         [ngClass]="theme"
         >Contact Me</a
       >
+    </div>
+
+    <!-- Cube Logo positioned at bottom with proper spacing -->
+    <div class="floating-element logo-bottom-element">
+      <div class="cube-logo-bottom-container">
+        <app-cube-logo class="cube-logo-bottom"></app-cube-logo>
+      </div>
     </div>
   </div>
 </div>

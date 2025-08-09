@@ -1,64 +1,142 @@
-.particles-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  transition: background 0.3s ease-in-out;
-  overflow: hidden;
-  &.light {
-    background: linear-gradient(
+// Theme Color Maps
+$light-theme: (
+  // Background gradients (keeping your current ones)
+  bg-gradient:
+    linear-gradient(
       135deg,
       #ffffff 0%,
       #f1f3f4 25%,
       #e8eaf6 50%,
       #c5cae9 75%,
       #9fa8da 100%
-    );
-    // Placeholder.com - reliable service
-    //   url("https://w.wallhaven.cc/full/vm/wallhaven-vmojp3.jpg");
+    ),
+  // Shape colors (using your current color scheme)
+  triangle-1: rgba(63, 81, 181, 0.4),
+  triangle-2: rgba(156, 39, 176, 0.4),
+  circle-1: rgba(76, 175, 80, 0.4),
+  circle-2: rgba(255, 183, 77, 0.4),
+  square-1: rgba(239, 154, 154, 0.4),
+  hexagon-1: rgba(144, 164, 174, 0.4),
+  // Blob colors
+  blob-1: radial-gradient(circle, rgba(63, 81, 181, 0.08) 0%, transparent 70%),
+  blob-2: radial-gradient(circle, rgba(156, 39, 176, 0.08) 0%, transparent 70%),
+  blob-3: radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 70%),
+  // Star colors
+  star-bg: rgba(63, 81, 181, 0.6),
+  star-shadow: rgba(63, 81, 181, 0.4),
+  star-glow: radial-gradient(circle, rgba(63, 81, 181, 0.2) 0%, transparent 70%),
+  // Trail colors
+  trail-bg: rgba(63, 81, 181, 0.6),
+  trail-shadow: rgba(63, 81, 181, 0.3)
+);
 
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
-  }
-
-  &.dark {
-    // background: linear-gradient(
-    //   135deg,
-    //   #000000 0%,
-    //   #0d0d0d 25%,
-    //   #1a1a1a 50%,
-    //   #141414 75%,
-    //   #000000 100%
-    // );
-    //DEFAULT BACKGROUND
-    background: linear-gradient(
+$dark-theme: (
+  // Background gradients (keeping your current ones)
+  bg-gradient:
+    linear-gradient(
       135deg,
       #0c0c0c 0%,
       #1a1a2e 25%,
       #16213e 50%,
       #0f3460 75%,
       #1a1a2e 100%
-    );
-    // Placeholder.com with dark theme
-    //   url("https://w.wallhaven.cc/full/vm/wallhaven-vmojp3.jpg");
+    ),
+  // Shape colors
+  triangle-1: rgba(100, 181, 246, 0.4),
+  triangle-2: rgba(186, 104, 200, 0.4),
+  circle-1: rgba(129, 199, 132, 0.4),
+  circle-2: rgba(255, 183, 77, 0.4),
+  square-1: rgba(239, 154, 154, 0.4),
+  hexagon-1: rgba(144, 164, 174, 0.4),
+  // Blob colors
+  blob-1: radial-gradient(
+      circle,
+      rgba(100, 181, 246, 0.12) 0%,
+      transparent 70%
+    ),
+  blob-2: radial-gradient(circle, rgba(186, 104, 200, 0.12) 0%, transparent 70%),
+  blob-3: radial-gradient(circle, rgba(129, 199, 132, 0.12) 0%, transparent 70%),
+  // Star colors
+  star-bg: rgba(255, 255, 255, 0.8),
+  star-shadow: rgba(255, 255, 255, 0.5),
+  star-glow:
+    radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%),
+  // Trail colors
+  trail-bg: rgba(100, 181, 246, 0.8),
+  trail-shadow: rgba(100, 181, 246, 0.4)
+);
 
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
-  }
-}
+// Variables
+$mobile-breakpoint: 767px;
+$float-duration: 8s;
+$morph-duration: 10s;
+$twinkle-duration: 4s;
+$glow-duration: 5s;
 
-// Floating Shapes
-.floating-shapes {
+// Mixins
+@mixin absolute-fill {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+@mixin theme-background($theme-map) {
+  background: map-get($theme-map, bg-gradient);
+}
+
+@mixin triangle($size, $color) {
+  width: 0;
+  height: 0;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: ($size * 1.2) solid $color;
+}
+
+@mixin performance-optimized {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@mixin reduced-motion-fallback {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Main Canvas
+.particles-canvas {
+  @include absolute-fill;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.3s ease-in-out;
+  overflow: hidden;
+
+  &.light {
+    @include theme-background($light-theme);
+  }
+
+  &.dark {
+    @include theme-background($dark-theme);
+  }
+
+  // Performance optimization for mobile
+  @media (max-width: $mobile-breakpoint) {
+    @include performance-optimized;
+  }
+
+  // Accessibility: Hide for users who prefer reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+
+// Floating Shapes
+.floating-shapes {
+  @include absolute-fill;
   z-index: 1;
   pointer-events: none;
 }
@@ -66,28 +144,25 @@
 .float-shape {
   position: absolute;
   opacity: 0.4;
-  animation: float 8s ease-in-out infinite;
+  animation: float $float-duration ease-in-out infinite;
+  @include reduced-motion-fallback;
 
+  // Triangle shapes
   &.triangle-1 {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    @include triangle(10px, transparent);
     top: 20%;
     left: 10%;
     animation-delay: 0s;
   }
 
   &.triangle-2 {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
+    @include triangle(8px, transparent);
     top: 70%;
     right: 15%;
     animation-delay: 3s;
   }
 
+  // Circle shapes
   &.circle-1 {
     width: 20px;
     height: 20px;
@@ -106,6 +181,7 @@
     animation-delay: 4s;
   }
 
+  // Square shape
   &.square-1 {
     width: 16px;
     height: 16px;
@@ -115,6 +191,7 @@
     transform: rotate(45deg);
   }
 
+  // Hexagon shape
   &.hexagon-1 {
     width: 18px;
     height: 18px;
@@ -124,78 +201,69 @@
   }
 }
 
-// Theme colors for shapes
-.light {
-  .triangle-1 {
-    border-bottom: 12px solid rgba(63, 81, 181, 0.4); // indigo
+// Theme-specific shape colors
+.particles-canvas {
+  &.light {
+    .triangle-1 {
+      border-bottom-color: map-get($light-theme, triangle-1);
+    }
+    .triangle-2 {
+      border-bottom-color: map-get($light-theme, triangle-2);
+    }
+    .circle-1 {
+      background: map-get($light-theme, circle-1);
+    }
+    .circle-2 {
+      background: map-get($light-theme, circle-2);
+    }
+    .square-1 {
+      background: map-get($light-theme, square-1);
+    }
+    .hexagon-1 {
+      background: map-get($light-theme, hexagon-1);
+    }
   }
-  .triangle-2 {
-    border-bottom: 10px solid rgba(156, 39, 176, 0.4); // purple
-  }
-  .circle-1 {
-    background: rgba(76, 175, 80, 0.4); // green
-  }
-  .circle-2 {
-    background: rgba(255, 183, 77, 0.4); // orange
-  }
-  .square-1 {
-    background: rgba(239, 154, 154, 0.4); // light red
-  }
-  .hexagon-1 {
-    background: rgba(144, 164, 174, 0.4); // blue grey
-  }
-}
 
-.dark {
-  .triangle-1 {
-    border-bottom: 12px solid rgba(100, 181, 246, 0.4);
-  }
-  .triangle-2 {
-    border-bottom: 10px solid rgba(186, 104, 200, 0.4);
-  }
-  .circle-1 {
-    background: rgba(129, 199, 132, 0.4);
-  }
-  .circle-2 {
-    background: rgba(255, 183, 77, 0.4);
-  }
-  .square-1 {
-    background: rgba(239, 154, 154, 0.4);
-  }
-  .hexagon-1 {
-    background: rgba(144, 164, 174, 0.4);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-15px) rotate(3deg);
-  }
-  66% {
-    transform: translateY(8px) rotate(-2deg);
+  &.dark {
+    .triangle-1 {
+      border-bottom-color: map-get($dark-theme, triangle-1);
+    }
+    .triangle-2 {
+      border-bottom-color: map-get($dark-theme, triangle-2);
+    }
+    .circle-1 {
+      background: map-get($dark-theme, circle-1);
+    }
+    .circle-2 {
+      background: map-get($dark-theme, circle-2);
+    }
+    .square-1 {
+      background: map-get($dark-theme, square-1);
+    }
+    .hexagon-1 {
+      background: map-get($dark-theme, hexagon-1);
+    }
   }
 }
 
 // Morphing Blobs
 .morphing-blobs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include absolute-fill;
   z-index: 1;
   pointer-events: none;
+
+  // Hide on mobile for performance
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+  }
 }
 
 .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(15px);
-  animation: morph 10s ease-in-out infinite;
+  animation: morph $morph-duration ease-in-out infinite;
+  @include reduced-motion-fallback;
 
   &.blob-1 {
     width: 150px;
@@ -222,51 +290,127 @@
   }
 }
 
-.light {
-  .blob-1 {
-    background: radial-gradient(
-      circle,
-      rgba(63, 81, 181, 0.08) 0%,
-      transparent 70%
-    );
+// Theme-specific blob colors
+.particles-canvas {
+  &.light {
+    .blob-1 {
+      background: map-get($light-theme, blob-1);
+    }
+    .blob-2 {
+      background: map-get($light-theme, blob-2);
+    }
+    .blob-3 {
+      background: map-get($light-theme, blob-3);
+    }
   }
-  .blob-2 {
-    background: radial-gradient(
-      circle,
-      rgba(156, 39, 176, 0.08) 0%,
-      transparent 70%
-    );
-  }
-  .blob-3 {
-    background: radial-gradient(
-      circle,
-      rgba(76, 175, 80, 0.08) 0%,
-      transparent 70%
-    );
+
+  &.dark {
+    .blob-1 {
+      background: map-get($dark-theme, blob-1);
+    }
+    .blob-2 {
+      background: map-get($dark-theme, blob-2);
+    }
+    .blob-3 {
+      background: map-get($dark-theme, blob-3);
+    }
   }
 }
 
-.dark {
-  .blob-1 {
-    background: radial-gradient(
-      circle,
-      rgba(100, 181, 246, 0.12) 0%,
-      transparent 70%
-    );
+// Constellation
+.constellation {
+  @include absolute-fill;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: twinkle $twinkle-duration ease-in-out infinite;
+  @include reduced-motion-fallback;
+}
+
+.star-glow {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: glow $glow-duration ease-in-out infinite;
+  @include reduced-motion-fallback;
+}
+
+// Theme-specific star colors
+.particles-canvas {
+  &.light {
+    .star {
+      background: map-get($light-theme, star-bg);
+      box-shadow: 0 0 4px map-get($light-theme, star-shadow);
+    }
+    .star-glow {
+      background: map-get($light-theme, star-glow);
+    }
   }
-  .blob-2 {
-    background: radial-gradient(
-      circle,
-      rgba(186, 104, 200, 0.12) 0%,
-      transparent 70%
-    );
+
+  &.dark {
+    .star {
+      background: map-get($dark-theme, star-bg);
+      box-shadow: 0 0 6px map-get($dark-theme, star-shadow);
+    }
+    .star-glow {
+      background: map-get($dark-theme, star-glow);
+    }
   }
-  .blob-3 {
-    background: radial-gradient(
-      circle,
-      rgba(129, 199, 132, 0.12) 0%,
-      transparent 70%
-    );
+}
+
+// Trail Container
+.trail-container {
+  @include absolute-fill;
+  z-index: 1;
+  pointer-events: all;
+}
+
+.trail-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+// Theme-specific trail colors
+.particles-canvas {
+  &.light {
+    .trail-dot {
+      background: map-get($light-theme, trail-bg);
+      box-shadow: 0 0 8px map-get($light-theme, trail-shadow);
+    }
+  }
+
+  &.dark {
+    .trail-dot {
+      background: map-get($dark-theme, trail-bg);
+      box-shadow: 0 0 12px map-get($dark-theme, trail-shadow);
+    }
+  }
+}
+
+// Keyframe Animations
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+  66% {
+    transform: translateY(8px) rotate(-2deg);
   }
 }
 
@@ -287,63 +431,6 @@
   75% {
     border-radius: 70% 30% 50% 60%;
     transform: rotate(270deg) scale(1.05);
-  }
-}
-
-// Constellation
-.constellation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  animation: twinkle 4s ease-in-out infinite;
-}
-
-.star-glow {
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  animation: glow 5s ease-in-out infinite;
-}
-
-.light {
-  .star {
-    background: rgba(63, 81, 181, 0.6);
-    box-shadow: 0 0 4px rgba(63, 81, 181, 0.4);
-  }
-  .star-glow {
-    background: radial-gradient(
-      circle,
-      rgba(63, 81, 181, 0.2) 0%,
-      transparent 70%
-    );
-  }
-}
-
-.dark {
-  .star {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
-  }
-  .star-glow {
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.3) 0%,
-      transparent 70%
-    );
   }
 }
 
@@ -371,57 +458,8 @@
   }
 }
 
-// Trail Container
-.trail-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: all;
-}
-
-.trail-dot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.light {
-  .trail-dot {
-    background: rgba(63, 81, 181, 0.6);
-    box-shadow: 0 0 8px rgba(63, 81, 181, 0.3);
-  }
-}
-
-.dark {
-  .trail-dot {
-    background: rgba(100, 181, 246, 0.8);
-    box-shadow: 0 0 12px rgba(100, 181, 246, 0.4);
-  }
-}
-
-// Responsive optimizations
-@media (max-width: 767px) {
-  .particles-canvas {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  .morphing-blobs {
-    display: none;
-  }
-}
-
+// Global reduced motion support
 @media (prefers-reduced-motion: reduce) {
-  .particles-canvas {
-    display: none;
-  }
-
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
