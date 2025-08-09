@@ -25,10 +25,11 @@ $hero-glass-themes: (
     // Borders and edges
     border-primary: rgba(255, 255, 255, 0.25),
     border-glow: rgba(33, 150, 243, 0.4),
+    // blends with #2196f3 (text-secondary: rgba(80, 80, 80, 0.85))
     border-accent: rgba(156, 39, 176, 0.3),
     // Text colors
     text-primary: rgba(46, 46, 46, 0.95),
-    text-secondary: rgba(33, 150, 243, 0.9),
+    text-secondary: rgba(80, 80, 80, 0.85),
     text-muted: rgba(66, 66, 66, 0.8),
     // Shadows and effects
     shadow-primary: rgba(0, 0, 0, 0.12),
@@ -146,7 +147,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -602,11 +603,11 @@ $breakpoints: (
   // Enhanced gradient text implementation
   background: linear-gradient(
     270deg,
-    #1976d2 0%,
-    #1e88e5 25%,
-    #2196f3 50%,
-    #42a5f5 75%,
-    #64b5f6 100%
+    #424242 0%,
+    #616161 25%,
+    #757575 50%,
+    #9e9e9e 75%,
+    #bdbdbd 100%
   );
   background-size: 400% 400%;
   background-clip: text;
@@ -620,11 +621,11 @@ $breakpoints: (
   .dark & {
     background: linear-gradient(
       270deg,
-      #00ffb8 0%,
-      #00e5ff 25%,
-      #2196f3 50%,
-      #3f51b5 75%,
-      #673ab7 100%
+      #78909c 0%,
+      #90a4ae 25%,
+      #b0bec5 50%,
+      #cfd8dc 75%,
+      #eceff1 100%
     );
     background-size: 400% 400%;
     background-clip: text;

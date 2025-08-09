@@ -12,15 +12,20 @@ import { Theme } from '../../../shared/models/theme.enum';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent implements OnInit, OnDestroy {
-  theme: string = 'dark'; // This will be 'light' or 'dark'
+  theme!: 'light' | 'dark';
   private themeSubscription?: Subscription;
 
   constructor(private themeService: ThemeService) {}
 
+  openLink(event: MouseEvent, url: string): void {
+    event.preventDefault();
+    window.open(url, '_blank', 'noopener');
+  }
+
   ngOnInit(): void {
     this.themeSubscription = this.themeService.currentTheme.subscribe(
-      (currentTheme: Theme) => {
-        this.theme = currentTheme === Theme.Light ? 'light' : 'dark';
+      (theme) => {
+        this.theme = theme === Theme.Light ? 'light' : 'dark';
       }
     );
   }
