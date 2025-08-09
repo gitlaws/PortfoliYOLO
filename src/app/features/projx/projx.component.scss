@@ -1,10 +1,10 @@
 /* =============================================================================
-   PROJECTS SECTION - RESPONSIVE GRID LAYOUT
+   PROJECTS SECTION - COMPACT GLASSMORPHISM DESIGN
    ========================================================================== */
 
 // Font imports
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
 
 /* =============================================================================
    DESIGN TOKENS & VARIABLES
@@ -14,9 +14,11 @@ $breakpoints: (
   iphone14pro: 393px,
   mobile: 430px,
   tablet: 768px,
+  ipadair5: 820px,
   desktop: 1024px,
   large: 1200px,
   xlarge: 1400px,
+  xxlarge: 1600px,
 );
 
 $spacing: (
@@ -32,7 +34,9 @@ $spacing: (
   // 32px
   xxl: 3rem,
   // 48px
-  xxxl: 4rem // 64px,
+  xxxl: 4rem,
+  // 64px
+  xxxxl: 6rem // 96px,
 );
 
 $toolbar-heights: (
@@ -42,48 +46,69 @@ $toolbar-heights: (
 );
 
 $glassmorphism: (
-  blur: 20px,
+  blur: 16px,
   blur-mobile: 12px,
   blur-subtle: 8px,
-  border-radius: 16px,
-  border-radius-large: 24px,
-  border-radius-xl: 32px,
+  blur-intense: 24px,
+  border-radius: 12px,
+  border-radius-large: 16px,
+  border-radius-xl: 20px,
+  border-radius-button: 8px,
 );
 
-// Typography scale based on 16px base
+// Compact typography scale
 $typography: (
-  base: 1rem,
-  // 16px
-  sm: 0.875rem,
+  xs: 0.7rem,
+  // 11px
+  sm: 0.8rem,
+  // 13px
+  base: 0.875rem,
   // 14px
-  lg: 1.125rem,
+  lg: 1rem,
+  // 16px
+  xl: 1.125rem,
   // 18px
-  xl: 1.25rem,
+  xxl: 1.25rem,
   // 20px
-  xxl: 1.5rem,
+  xxxl: 1.5rem,
   // 24px
-  xxxl: 2rem,
+  xxxxl: 2rem,
   // 32px
-  display: 3rem // 48px,
+  display: 2.5rem,
+  // 40px
+  hero: 3rem // 48px,
+);
+
+// Color system for enhanced glassmorphism
+$colors: (
+  primary: #667eea,
+  secondary: #764ba2,
+  accent: #f093fb,
+  success: #10b981,
+  warning: #f59e0b,
+  error: #ef4444,
+  info: #3b82f6,
 );
 
 /* =============================================================================
    MIXINS
    ========================================================================== */
 
-@mixin glass-effect($blur: 20px, $opacity: 0.1) {
+@mixin glass-effect($blur: 16px, $opacity: 0.06, $border-opacity: 0.15) {
   background: rgba(255, 255, 255, $opacity);
-  backdrop-filter: blur($blur) saturate(150%);
-  -webkit-backdrop-filter: blur($blur) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur($blur) saturate(150%) brightness(110%);
+  -webkit-backdrop-filter: blur($blur) saturate(150%) brightness(110%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
 }
 
 @mixin glass-hover-effect {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.08),
+    0 3px 6px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
 @mixin center-content {
@@ -102,6 +127,37 @@ $typography: (
   padding-right: clamp(1rem, 4vw, 2rem);
 }
 
+@mixin gradient-text($direction: 135deg) {
+  background: linear-gradient(
+    $direction,
+    map-get($colors, primary) 0%,
+    map-get($colors, secondary) 50%,
+    map-get($colors, accent) 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+@mixin status-indicator($color) {
+  &.status-active {
+    color: map-get($colors, success);
+    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.3));
+  }
+
+  &.status-development {
+    color: map-get($colors, warning);
+    filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.3));
+  }
+
+  &.status-beta {
+    color: map-get($colors, info);
+    filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.3));
+  }
+}
+
 /* =============================================================================
    MAIN CONTAINER
    ========================================================================== */
@@ -109,62 +165,101 @@ $typography: (
 .projects-container {
   @include responsive-container;
   padding-top: clamp(
-    calc(#{map-get($toolbar-heights, mobile)} + 2rem),
-    8vw,
+    calc(#{map-get($toolbar-heights, mobile)} + 1.5rem),
+    6vw,
     calc(#{map-get($toolbar-heights, desktop)} + 3rem)
   );
   padding-bottom: clamp(2rem, 6vw, 4rem);
   min-height: calc(100vh - #{map-get($toolbar-heights, mobile)});
   @include center-content;
-  gap: clamp(2rem, 5vw, 3rem);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  position: relative;
+
+  // Subtle background pattern
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 50%,
+        rgba(102, 126, 234, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(118, 75, 162, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(240, 147, 251, 0.02) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
 
   @media (min-width: map-get($breakpoints, tablet)) {
     min-height: calc(100vh - #{map-get($toolbar-heights, tablet)});
-    gap: clamp(2.5rem, 5vw, 4rem);
+    gap: clamp(2rem, 4vw, 3rem);
   }
 
   @media (min-width: map-get($breakpoints, desktop)) {
     min-height: calc(100vh - #{map-get($toolbar-heights, desktop)});
-    gap: clamp(3rem, 5vw, 4rem);
+    gap: clamp(2.5rem, 4vw, 3.5rem);
   }
 }
 
 /* =============================================================================
-   PROJECTS TITLE
+   PROJECTS HEADER
    ========================================================================== */
 
-.projects-title {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(
-    calc(#{map-get($typography, xxxl)} + 0.25rem),
-    4vw + 1rem,
-    calc(#{map-get($typography, display)} + 0.5rem)
-  ); // 36px - 56px
-  font-weight: 700;
-  letter-spacing: clamp(-0.02em, 0.1vw, 0.01em);
-  line-height: 1.1;
-  margin: 0;
+.projects-header {
+  @include center-content;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
 
-  // Enhanced gradient text effect
-  background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 25%,
-    #f093fb 50%,
-    #667eea 75%,
-    #764ba2 100%
-  );
-  background-size: 300% 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 6s ease-in-out infinite;
+  .projects-title {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(
+      calc(#{map-get($typography, xxxl)} + 0.25rem),
+      3.5vw + 1rem,
+      calc(#{map-get($typography, display)} + 0.5rem)
+    ); // 28px - 48px
+    font-weight: 800;
+    letter-spacing: clamp(-0.02em, 0.05vw, -0.01em);
+    line-height: 1.1;
+    margin: 0;
+    @include gradient-text(135deg);
 
-  // Fallback for browsers that don't support background-clip
-  @supports not (background-clip: text) {
-    background: none;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
+    .projects-icon {
+      margin-right: clamp(0.4rem, 1vw, 0.6rem);
+      font-size: 0.85em;
+      opacity: 0.8;
+    }
+
+    // Fallback for browsers that don't support background-clip
+    @supports not (background-clip: text) {
+      background: none;
+      color: #ffffff;
+      -webkit-text-fill-color: #ffffff;
+    }
+  }
+
+  .projects-subtitle {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(
+      #{map-get($typography, base)},
+      1.5vw + 0.3rem,
+      #{map-get($typography, lg)}
+    ); // 14px - 16px
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    letter-spacing: 0.005em;
   }
 }
 
@@ -175,31 +270,32 @@ $typography: (
 .projects-grid {
   display: grid;
   width: 100%;
-  gap: clamp(1.5rem, 4vw, 2rem);
+  gap: clamp(1rem, 3vw, 1.5rem);
 
-  // iPhone 14 Pro (393px) and Mobile (430px) - Single column
+  // Mobile - Single column
   grid-template-columns: 1fr;
-  max-width: 400px;
+  max-width: 360px;
 
-  // Tablet and up - Two columns
-  @media (min-width: map-get($breakpoints, tablet)) {
+  // iPad Air 5 and above - Two columns only
+  @media (min-width: map-get($breakpoints, ipadair5)) {
     grid-template-columns: repeat(2, 1fr);
-    gap: clamp(2rem, 4vw, 2.5rem);
-    max-width: 800px;
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    max-width: 700px;
   }
 
   @media (min-width: map-get($breakpoints, desktop)) {
-    gap: clamp(2.5rem, 4vw, 3rem);
-    max-width: 900px;
+    gap: clamp(1.5rem, 2.8vw, 2rem);
+    max-width: 750px;
   }
 
   @media (min-width: map-get($breakpoints, large)) {
-    gap: 3rem;
-    max-width: 1000px;
+    gap: 1.75rem;
+    max-width: 800px;
   }
 
   @media (min-width: map-get($breakpoints, xlarge)) {
-    max-width: 1100px;
+    max-width: 850px;
+    gap: 2rem;
   }
 }
 
@@ -208,19 +304,19 @@ $typography: (
    ========================================================================== */
 
 .project-card {
-  @include glass-effect(map-get($glassmorphism, blur), 0.08);
-  border-radius: map-get($glassmorphism, border-radius-large);
+  @include glass-effect(map-get($glassmorphism, blur), 0.05, 0.12);
+  border-radius: map-get($glassmorphism, border-radius-xl);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
   cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
 
-  // Enhanced accessibility
+  // Enhanced focus styles
   &:focus-visible {
-    outline: 3px solid #667eea;
+    outline: 2px solid map-get($colors, primary);
     outline-offset: 2px;
   }
 
@@ -231,38 +327,45 @@ $typography: (
       transform: scale(1.05);
     }
 
-    .project-image::before {
+    .project-overlay {
       opacity: 1;
+    }
+
+    .project-category {
+      transform: translateY(0);
     }
   }
 
-  @media (max-width: map-get($breakpoints, tablet)) {
-    @include glass-effect(map-get($glassmorphism, blur-mobile), 0.1);
+  @media (max-width: map-get($breakpoints, ipadair5)) {
+    @include glass-effect(map-get($glassmorphism, blur-mobile), 0.06, 0.15);
   }
 }
 
 /* =============================================================================
-   PROJECT IMAGES WITH ENHANCED PLACEHOLDERS
+   PROJECT HEADER & IMAGE
    ========================================================================== */
+
+.project-header {
+  position: relative;
+  overflow: hidden;
+}
 
 .project-image {
   width: 100%;
-  // iPhone 14 Pro and Mobile - Taller images for single column
-  height: clamp(180px, 25vw, 220px);
+  height: clamp(140px, 18vw, 180px);
   position: relative;
   overflow: hidden;
 
-  // Tablet and up - Shorter images for two column layout
-  @media (min-width: map-get($breakpoints, tablet)) {
-    height: clamp(140px, 18vw, 180px);
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    height: clamp(110px, 12vw, 140px);
   }
 
   @media (min-width: map-get($breakpoints, desktop)) {
-    height: clamp(160px, 15vw, 200px);
+    height: clamp(120px, 11vw, 150px);
   }
 
   @media (min-width: map-get($breakpoints, large)) {
-    height: clamp(180px, 12vw, 220px);
+    height: clamp(130px, 10vw, 160px);
   }
 
   img {
@@ -270,79 +373,60 @@ $typography: (
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    filter: brightness(0.95) contrast(1.05);
-  }
-
-  // Enhanced loading state with gradient overlay
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      45deg,
-      rgba(102, 126, 234, 0.15) 0%,
-      rgba(118, 75, 162, 0.1) 50%,
-      rgba(240, 147, 251, 0.15) 100%
-    );
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  // Shimmer effect
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 100%
-    );
-    z-index: 2;
-    transition: left 0.8s ease;
-  }
-
-  &:hover::after {
-    left: 100%;
+    filter: brightness(0.85) contrast(1.05) saturate(1.1);
   }
 }
 
-// Enhanced Unsplash placeholder images
-.project-image-placeholder {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.08) 0%,
+    rgba(118, 75, 162, 0.04) 50%,
+    rgba(240, 147, 251, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem);
 
-  &.web-development {
-    background-image: url("https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    padding: clamp(0.625rem, 1.8vw, 0.875rem);
+  }
+}
+
+.project-category {
+  @include glass-effect(map-get($glassmorphism, blur-subtle), 0.08, 0.25);
+  padding: clamp(0.25rem, 0.8vw, 0.375rem) clamp(0.4rem, 1vw, 0.6rem);
+  border-radius: map-get($glassmorphism, border-radius-button);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(
+    #{map-get($typography, xs)},
+    0.9vw,
+    #{map-get($typography, sm)}
+  );
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(8px);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    padding: clamp(0.3rem, 0.9vw, 0.4rem) clamp(0.5rem, 1.1vw, 0.7rem);
+    font-size: clamp(
+      #{map-get($typography, xs)},
+      0.8vw,
+      #{map-get($typography, sm)}
+    );
   }
 
-  &.mobile-app {
-    background-image: url("https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
-  }
-
-  &.ui-design {
-    background-image: url("https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
-  }
-
-  &.data-science {
-    background-image: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
-  }
-
-  &.ai-ml {
-    background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
-  }
-
-  &.blockchain {
-    background-image: url("https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&h=350&fit=crop&crop=entropy&auto=format&q=85");
+  i {
+    margin-right: 0.3rem;
+    font-size: 1em;
   }
 }
 
@@ -351,74 +435,107 @@ $typography: (
    ========================================================================== */
 
 .project-content {
-  // More padding for single column mobile layout
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(0.875rem, 2.2vw, 1.25rem);
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 2vw, 1.25rem);
-  @include center-content;
+  gap: clamp(0.625rem, 1.8vw, 0.875rem);
 
-  // Adjust padding for two-column layout
-  @media (min-width: map-get($breakpoints, tablet)) {
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-    gap: clamp(0.75rem, 1.5vw, 1rem);
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    padding: clamp(0.75rem, 1.8vw, 1rem);
+    gap: clamp(0.5rem, 1.2vw, 0.75rem);
   }
 
   @media (min-width: map-get($breakpoints, desktop)) {
-    padding: clamp(1.25rem, 2.5vw, 1.75rem);
-    gap: clamp(1rem, 1.5vw, 1.25rem);
+    padding: clamp(0.875rem, 2vw, 1.125rem);
+    gap: clamp(0.625rem, 1.4vw, 0.875rem);
   }
+}
 
-  @media (min-width: map-get($breakpoints, large)) {
-    padding: clamp(1.5rem, 2.5vw, 2rem);
-    gap: clamp(1.25rem, 1.5vw, 1.5rem);
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: clamp(0.25rem, 0.8vw, 0.375rem);
+
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    gap: 0.625rem;
+    margin-bottom: clamp(0.3rem, 0.9vw, 0.4rem);
   }
+}
 
-  h3 {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(
-      #{map-get($typography, xl)},
-      3vw + 0.5rem,
-      #{map-get($typography, xxl)}
-    ); // 20px - 24px for mobile
-    font-weight: 600;
-    line-height: 1.3;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: -0.01em;
+.project-title {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(
+    #{map-get($typography, lg)},
+    2.2vw + 0.2rem,
+    #{map-get($typography, xl)}
+  );
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.015em;
+  flex: 1;
 
-    // Smaller for two-column layout
-    @media (min-width: map-get($breakpoints, tablet)) {
-      font-size: clamp(
-        #{map-get($typography, lg)},
-        2vw + 0.5rem,
-        #{map-get($typography, xl)}
-      ); // 18px - 20px
-    }
-  }
-
-  p {
-    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  @media (min-width: map-get($breakpoints, ipadair5)) {
     font-size: clamp(
       #{map-get($typography, base)},
-      2.5vw + 0.25rem,
+      1.5vw + 0.2rem,
       #{map-get($typography, lg)}
-    ); // 16px - 18px for mobile
-    font-weight: 400;
-    line-height: 1.6;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.8);
-    flex: 1;
+    );
+  }
+}
 
-    // Smaller for two-column layout
-    @media (min-width: map-get($breakpoints, tablet)) {
-      font-size: clamp(
-        #{map-get($typography, sm)},
-        1.5vw + 0.25rem,
-        #{map-get($typography, base)}
-      ); // 14px - 16px
-    }
+.project-status {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(
+    #{map-get($typography, xs)},
+    0.8vw,
+    #{map-get($typography, sm)}
+  );
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    gap: 0.3rem;
+    font-size: clamp(
+      #{map-get($typography, xs)},
+      0.7vw,
+      #{map-get($typography, sm)}
+    );
+  }
+
+  i {
+    font-size: 0.55em;
+    @include status-indicator(currentColor);
+  }
+}
+
+.project-description {
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(
+    #{map-get($typography, sm)},
+    1.6vw + 0.15rem,
+    #{map-get($typography, base)}
+  );
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  flex: 1;
+
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    font-size: clamp(
+      #{map-get($typography, xs)},
+      1.1vw + 0.1rem,
+      #{map-get($typography, sm)}
+    );
   }
 }
 
@@ -429,49 +546,131 @@ $typography: (
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
-  justify-content: center;
-  margin: clamp(1rem, 2vw, 1.5rem) 0;
+  gap: clamp(0.25rem, 0.8vw, 0.375rem);
+  margin: clamp(0.5rem, 1.5vw, 0.75rem) 0;
 
-  // Smaller gaps for two-column layout
-  @media (min-width: map-get($breakpoints, tablet)) {
-    gap: clamp(0.375rem, 1vw, 0.5rem);
-    margin: clamp(0.75rem, 1.5vw, 1rem) 0;
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    gap: clamp(0.2rem, 0.6vw, 0.3rem);
+    margin: clamp(0.4rem, 1.2vw, 0.6rem) 0;
   }
 
   .tech-tag {
-    padding: clamp(0.375rem, 1vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    @include glass-effect(map-get($glassmorphism, blur-subtle), 0.04, 0.15);
+    padding: clamp(0.2rem, 0.6vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
+    border-radius: map-get($glassmorphism, border-radius-button);
     font-family: "DM Sans", sans-serif;
     font-size: clamp(
-      #{map-get($typography, sm)},
-      1.8vw,
-      #{map-get($typography, base)}
-    ); // 14px - 16px for mobile
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(map-get($glassmorphism, blur-subtle));
-    -webkit-backdrop-filter: blur(map-get($glassmorphism, blur-subtle));
-    transition: all 0.3s ease;
+      #{map-get($typography, xs)},
+      1vw,
+      #{map-get($typography, sm)}
+    );
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 
-    // Smaller for two-column layout
-    @media (min-width: map-get($breakpoints, tablet)) {
-      padding: clamp(0.25rem, 0.8vw, 0.375rem) clamp(0.5rem, 1.2vw, 0.75rem);
-      border-radius: 10px;
+    @media (min-width: map-get($breakpoints, ipadair5)) {
+      padding: clamp(0.15rem, 0.5vw, 0.25rem) clamp(0.35rem, 0.8vw, 0.5rem);
       font-size: clamp(
-        calc(#{map-get($typography, sm)} - 0.125rem),
-        1.2vw,
+        #{map-get($typography, xs)},
+        0.7vw,
         #{map-get($typography, sm)}
-      ); // 12px - 14px
+      );
+      gap: 0.2rem;
+    }
+
+    i {
+      font-size: 1em;
+      opacity: 0.75;
+    }
+
+    &.primary {
+      background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.15) 0%,
+        rgba(118, 75, 162, 0.15) 100%
+      );
+      border-color: rgba(102, 126, 234, 0.25);
+      color: rgba(255, 255, 255, 0.9);
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-1px);
-      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px) scale(1.03);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+/* =============================================================================
+   PROJECT STATISTICS
+   ========================================================================== */
+
+.project-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(0.375rem, 1.2vw, 0.5rem);
+  padding: clamp(0.375rem, 1.2vw, 0.5rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin: clamp(0.375rem, 1.2vw, 0.5rem) 0;
+
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    gap: clamp(0.3rem, 1vw, 0.4rem);
+    padding: clamp(0.3rem, 1vw, 0.4rem) 0;
+    margin: clamp(0.3rem, 1vw, 0.4rem) 0;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    flex: 1;
+
+    @media (min-width: map-get($breakpoints, ipadair5)) {
+      gap: 0.1rem;
+    }
+
+    i {
+      font-size: clamp(
+        #{map-get($typography, xs)},
+        0.9vw,
+        #{map-get($typography, sm)}
+      );
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 0.05rem;
+
+      @media (min-width: map-get($breakpoints, ipadair5)) {
+        font-size: clamp(
+          #{map-get($typography, xs)},
+          0.7vw,
+          #{map-get($typography, sm)}
+        );
+      }
+    }
+
+    span {
+      font-family: "Inter", sans-serif;
+      font-size: clamp(
+        #{map-get($typography, xs)},
+        0.8vw,
+        #{map-get($typography, sm)}
+      );
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+
+      @media (min-width: map-get($breakpoints, ipadair5)) {
+        font-size: clamp(
+          #{map-get($typography, xs)},
+          0.6vw,
+          #{map-get($typography, sm)}
+        );
+      }
     }
   }
 }
@@ -482,52 +681,60 @@ $typography: (
 
 .project-links {
   display: flex;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  justify-content: center;
+  gap: clamp(0.375rem, 1.2vw, 0.5rem);
   margin-top: auto;
 
-  // Smaller gaps for two-column layout
-  @media (min-width: map-get($breakpoints, tablet)) {
-    gap: clamp(0.625rem, 1.5vw, 1rem);
+  @media (min-width: map-get($breakpoints, ipadair5)) {
+    gap: clamp(0.3rem, 1vw, 0.4rem);
   }
 
   .project-button {
-    @include glass-effect(map-get($glassmorphism, blur-subtle), 0.05);
-    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.25rem, 2.5vw, 1.75rem);
-    border-radius: map-get($glassmorphism, border-radius);
+    @include glass-effect(map-get($glassmorphism, blur-subtle), 0.03, 0.12);
+    padding: clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.6rem, 1.6vw, 0.8rem);
+    border-radius: map-get($glassmorphism, border-radius-button);
     font-family: "Inter", sans-serif;
     font-size: clamp(
-      #{map-get($typography, sm)},
-      2vw,
-      #{map-get($typography, base)}
-    ); // 14px - 16px for mobile
+      #{map-get($typography, xs)},
+      1vw,
+      #{map-get($typography, sm)}
+    );
     font-weight: 600;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
     border: none;
     outline: none;
     position: relative;
     overflow: hidden;
-    min-width: clamp(90px, 18vw, 120px);
-    text-align: center;
     flex: 1;
-    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    min-height: 32px;
 
-    // Smaller for two-column layout
-    @media (min-width: map-get($breakpoints, tablet)) {
-      padding: clamp(0.5rem, 1.2vw, 0.75rem) clamp(0.875rem, 2vw, 1.25rem);
+    @media (min-width: map-get($breakpoints, ipadair5)) {
+      padding: clamp(0.35rem, 0.9vw, 0.5rem) clamp(0.5rem, 1.2vw, 0.7rem);
       font-size: clamp(
-        calc(#{map-get($typography, sm)} - 0.125rem),
-        1.3vw,
+        #{map-get($typography, xs)},
+        0.8vw,
         #{map-get($typography, sm)}
-      ); // 12px - 14px
-      min-width: clamp(60px, 12vw, 80px);
-      max-width: 120px;
+      );
+      min-height: 28px;
+      gap: 0.25rem;
     }
 
-    // Enhanced hover shimmer effect
+    i {
+      font-size: 1em;
+      transition: transform 0.25s ease;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+
+    // Enhanced shimmer effect
     &::before {
       content: "";
       position: absolute;
@@ -538,50 +745,63 @@ $typography: (
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.15) 50%,
         transparent 100%
       );
       transition: left 0.6s ease;
     }
 
-    &:hover::before {
-      left: 100%;
-    }
-
     &:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px) scale(1.01);
+
+      &::before {
+        left: 100%;
+      }
+
+      i {
+        transform: scale(1.05);
+      }
     }
 
     &:focus-visible {
-      outline: 2px solid #667eea;
-      outline-offset: 2px;
+      outline: 2px solid map-get($colors, primary);
+      outline-offset: 1px;
     }
 
     &:active {
-      transform: translateY(0) scale(0.98);
+      transform: translateY(-1px) scale(0.99);
     }
 
     &.primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border: none;
+      background: linear-gradient(
+        135deg,
+        map-get($colors, primary) 0%,
+        map-get($colors, secondary) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: white;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.25),
+        0 1px 4px rgba(0, 0, 0, 0.08);
 
       &:hover {
-        background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4),
-          0 3px 6px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, map-get($colors, primary) 85%, white) 0%,
+          color-mix(in srgb, map-get($colors, secondary) 85%, white) 100%
+        );
+        box-shadow: 0 3px 12px rgba(102, 126, 234, 0.3),
+          0 2px 6px rgba(0, 0, 0, 0.1);
       }
     }
 
     &.secondary {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.08);
 
       &:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
     }
   }
@@ -596,18 +816,21 @@ $typography: (
   100% {
     background-position: 0% 50%;
   }
-  33% {
+  25% {
     background-position: 100% 50%;
   }
-  66% {
+  50% {
     background-position: 200% 50%;
+  }
+  75% {
+    background-position: 300% 50%;
   }
 }
 
 @keyframes float-in {
   0% {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(20px) scale(0.95);
     filter: blur(2px);
   }
   100% {
@@ -620,12 +843,12 @@ $typography: (
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   50% {
-    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
 }
 
@@ -633,49 +856,49 @@ $typography: (
   animation: float-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 
   &:nth-child(1) {
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
   }
   &:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
   }
   &:nth-child(3) {
-    animation-delay: 0.3s;
+    animation-delay: 0.15s;
   }
   &:nth-child(4) {
-    animation-delay: 0.4s;
+    animation-delay: 0.2s;
   }
   &:nth-child(5) {
-    animation-delay: 0.5s;
+    animation-delay: 0.25s;
   }
   &:nth-child(6) {
-    animation-delay: 0.6s;
+    animation-delay: 0.3s;
   }
 
   &:hover {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 2.5s ease-in-out infinite;
   }
 }
 
 /* =============================================================================
-   ACCESSIBILITY ENHANCEMENTS
+   ACCESSIBILITY & RESPONSIVE ENHANCEMENTS
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.15s !important;
   }
 
   .project-card:hover {
-    transform: none;
+    transform: translateY(-2px);
   }
 
   .project-image:hover img {
     transform: none;
   }
 
-  .project-image::after {
+  .project-button::before {
     display: none;
   }
 }
@@ -683,7 +906,7 @@ $typography: (
 @media (prefers-contrast: high) {
   .project-card {
     background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #ffffff;
+    border: 1px solid #ffffff;
   }
 
   .projects-title {
@@ -692,36 +915,36 @@ $typography: (
     -webkit-text-fill-color: #ffffff;
   }
 
-  .project-content h3,
-  .project-content p {
+  .project-title,
+  .project-description,
+  .tech-tag {
     color: #ffffff;
   }
 
   .tech-tag {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
   }
 }
 
 // Enhanced focus management
 .project-card:focus-within {
   @include glass-hover-effect;
-  outline: 2px solid #667eea;
+  outline: 2px solid map-get($colors, primary);
   outline-offset: 2px;
 }
 
 // Touch device optimizations
 @media (hover: none) and (pointer: coarse) {
   .project-button {
-    min-height: 44px;
-    min-width: 88px;
-    padding: 0.75rem 1rem;
+    min-height: 40px;
+    padding: 0.625rem 1rem;
     font-size: #{map-get($typography, sm)};
   }
 
   .tech-tag {
-    padding: 0.375rem 0.75rem;
-    font-size: #{map-get($typography, sm)};
+    padding: 0.375rem 0.625rem;
+    font-size: #{map-get($typography, xs)};
   }
 
   .project-card:hover {
@@ -740,7 +963,7 @@ $typography: (
 
 @media print {
   .projects-container {
-    padding: 1rem;
+    padding: 0.5rem;
     min-height: auto;
     max-width: 100%;
   }
@@ -753,25 +976,26 @@ $typography: (
   .project-card {
     break-inside: avoid;
     page-break-inside: avoid;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background: #ffffff;
     border: 1px solid #000000;
     box-shadow: none;
-    border-radius: 8px;
+    border-radius: 6px;
   }
 
   .projects-title,
-  .project-content h3,
-  .project-content p,
+  .project-title,
+  .project-description,
   .tech-tag {
     color: #000000;
   }
 
   .project-image {
-    height: 150px;
+    height: 100px;
   }
 
-  .project-button {
+  .project-button,
+  .project-stats {
     display: none;
   }
 }
