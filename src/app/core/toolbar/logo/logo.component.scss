@@ -10,7 +10,7 @@
   // padding: 10px 15px;
 
   &.light {
-    background: linear-gradient(90deg, #90a4ae, #546e7a, #263238, #90a4ae);
+    background: linear-gradient(90deg, #b39ddb, #673ab7, #311b92, #b39ddb);
 
     background-size: 300% 100%;
     -webkit-background-clip: text;
@@ -26,7 +26,7 @@
   }
 
   &.dark {
-    background: linear-gradient(90deg, #1e88e5, #3f51b5, #673ab7, #1e88e5);
+    background: linear-gradient(90deg, #bdbdbd, #757575, #424242, #bdbdbd);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

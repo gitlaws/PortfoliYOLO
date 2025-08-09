@@ -147,7 +147,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -603,11 +603,11 @@ $breakpoints: (
   // Enhanced gradient text implementation
   background: linear-gradient(
     270deg,
-    #424242 0%,
-    #616161 25%,
-    #757575 50%,
-    #9e9e9e 75%,
-    #bdbdbd 100%
+    #212121 0%,
+    #37474f 25%,
+    #546e7a 50%,
+    #607d8b 75%,
+    #78909c 100%
   );
   background-size: 400% 400%;
   background-clip: text;
@@ -621,11 +621,11 @@ $breakpoints: (
   .dark & {
     background: linear-gradient(
       270deg,
-      #78909c 0%,
-      #90a4ae 25%,
-      #b0bec5 50%,
-      #cfd8dc 75%,
-      #eceff1 100%
+      #424242 0%,
+      #546e63 25%,
+      #757575 50%,
+      #9e9e9e 75%,
+      #bdbdbd 100%
     );
     background-size: 400% 400%;
     background-clip: text;
