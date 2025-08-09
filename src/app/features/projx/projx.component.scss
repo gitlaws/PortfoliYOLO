@@ -36,7 +36,7 @@ $spacing: (
   // 48px
   xxxl: 4rem,
   // 64px
-  xxxxl: 6rem // 96px,
+  xxxxl: 6rem // 96px,,,,
 );
 
 $toolbar-heights: (
@@ -76,7 +76,7 @@ $typography: (
   // 32px
   display: 2.5rem,
   // 40px
-  hero: 3rem // 48px,
+  hero: 3rem // 48px,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -90,25 +90,71 @@ $colors: (
   info: #3b82f6,
 );
 
+// Theme-specific color palettes
+$dark-theme: (
+  background-primary: rgba(255, 255, 255, 0.06),
+  background-secondary: rgba(255, 255, 255, 0.03),
+  background-hover: rgba(255, 255, 255, 0.08),
+  background-pattern: rgba(102, 126, 234, 0.02),
+  border-primary: rgba(255, 255, 255, 0.15),
+  border-secondary: rgba(255, 255, 255, 0.08),
+  text-primary: rgba(255, 255, 255, 0.95),
+  text-secondary: rgba(255, 255, 255, 0.78),
+  text-tertiary: rgba(255, 255, 255, 0.6),
+  overlay-color: rgba(0, 0, 0, 0.08),
+  shadow-color: rgba(0, 0, 0, 0.12),
+);
+
+$light-theme: (
+  background-primary: rgba(0, 0, 0, 0.04),
+  background-secondary: rgba(0, 0, 0, 0.02),
+  background-hover: rgba(0, 0, 0, 0.06),
+  background-pattern: rgba(102, 126, 234, 0.05),
+  border-primary: rgba(0, 0, 0, 0.12),
+  border-secondary: rgba(0, 0, 0, 0.08),
+  text-primary: rgba(0, 0, 0, 0.87),
+  text-secondary: rgba(0, 0, 0, 0.65),
+  text-tertiary: rgba(0, 0, 0, 0.45),
+  overlay-color: rgba(255, 255, 255, 0.6),
+  shadow-color: rgba(0, 0, 0, 0.08),
+);
+
 /* =============================================================================
-   MIXINS
+   THEME-AWARE MIXINS
    ========================================================================== */
 
-@mixin glass-effect($blur: 16px, $opacity: 0.06, $border-opacity: 0.15) {
-  background: rgba(255, 255, 255, $opacity);
+@mixin glass-effect-themed($blur: 16px, $theme: "dark") {
+  $theme-colors: if($theme == "light", $light-theme, $dark-theme);
+
+  background: map-get($theme-colors, background-primary);
   backdrop-filter: blur($blur) saturate(150%) brightness(110%);
   -webkit-backdrop-filter: blur($blur) saturate(150%) brightness(110%);
-  border: 1px solid rgba(255, 255, 255, $border-opacity);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid map-get($theme-colors, border-primary);
+
+  @if $theme == "light" {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+  } @else {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  }
 }
 
-@mixin glass-hover-effect {
+@mixin glass-hover-effect-themed($theme: "dark") {
+  $theme-colors: if($theme == "light", $light-theme, $dark-theme);
+
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.08),
-    0 3px 6px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+
+  @if $theme == "light" {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.04),
+      0 3px 6px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  } @else {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.08),
+      0 3px 6px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
 }
 
 @mixin center-content {
@@ -159,7 +205,7 @@ $colors: (
 }
 
 /* =============================================================================
-   MAIN CONTAINER
+   MAIN CONTAINER WITH THEME SUPPORT
    ========================================================================== */
 
 .projects-container {
@@ -175,7 +221,7 @@ $colors: (
   gap: clamp(1.5rem, 4vw, 2.5rem);
   position: relative;
 
-  // Subtle background pattern
+  // Default dark theme background pattern
   &::before {
     content: "";
     position: absolute;
@@ -202,6 +248,48 @@ $colors: (
     z-index: -1;
   }
 
+  // Light theme styling
+  &.light {
+    &::before {
+      background: radial-gradient(
+          circle at 20% 50%,
+          rgba(102, 126, 234, 0.06) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(118, 75, 162, 0.04) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 40% 80%,
+          rgba(240, 147, 251, 0.05) 0%,
+          transparent 50%
+        );
+    }
+  }
+
+  // Dark theme styling (explicit)
+  &.dark {
+    &::before {
+      background: radial-gradient(
+          circle at 20% 50%,
+          rgba(102, 126, 234, 0.02) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(118, 75, 162, 0.02) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 40% 80%,
+          rgba(240, 147, 251, 0.02) 0%,
+          transparent 50%
+        );
+    }
+  }
+
   @media (min-width: map-get($breakpoints, tablet)) {
     min-height: calc(100vh - #{map-get($toolbar-heights, tablet)});
     gap: clamp(2rem, 4vw, 3rem);
@@ -214,31 +302,236 @@ $colors: (
 }
 
 /* =============================================================================
-   PROJECTS HEADER
+   PROJECTS HEADER WITH THEME SUPPORT
    ========================================================================== */
 
 .projects-header {
   @include center-content;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+
+  // Default dark theme background effect
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 80vw, 600px);
+    height: clamp(150px, 25vw, 250px);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(102, 126, 234, 0.08) 0%,
+      rgba(118, 75, 162, 0.06) 35%,
+      rgba(240, 147, 251, 0.04) 70%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+    animation: gentle-pulse 4s ease-in-out infinite alternate;
+  }
+
+  // Default dark theme particles
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        rgba(255, 255, 255, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 40px 70px,
+        rgba(102, 126, 234, 0.2),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 90px 40px,
+        rgba(240, 147, 251, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 130px 80px,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 160px 30px,
+        rgba(118, 75, 162, 0.15),
+        transparent
+      );
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: float-particles 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  // Light theme header styling
+  .projects-container.light & {
+    &::before {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(102, 126, 234, 0.12) 0%,
+        rgba(118, 75, 162, 0.08) 35%,
+        rgba(240, 147, 251, 0.06) 70%,
+        transparent 100%
+      );
+    }
+
+    &::after {
+      background-image: radial-gradient(
+          2px 2px at 20px 30px,
+          rgba(0, 0, 0, 0.08),
+          transparent
+        ),
+        radial-gradient(
+          2px 2px at 40px 70px,
+          rgba(102, 126, 234, 0.15),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 90px 40px,
+          rgba(240, 147, 251, 0.12),
+          transparent
+        ),
+        radial-gradient(1px 1px at 130px 80px, rgba(0, 0, 0, 0.06), transparent),
+        radial-gradient(
+          2px 2px at 160px 30px,
+          rgba(118, 75, 162, 0.12),
+          transparent
+        );
+    }
+  }
 
   .projects-title {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(
-      calc(#{map-get($typography, xxxl)} + 0.25rem),
-      3.5vw + 1rem,
-      calc(#{map-get($typography, display)} + 0.5rem)
-    ); // 28px - 48px
+      calc(#{map-get($typography, xxxl)} + 0.5rem),
+      4vw + 1rem,
+      calc(#{map-get($typography, display)} + 0.75rem)
+    );
     font-weight: 800;
-    letter-spacing: clamp(-0.02em, 0.05vw, -0.01em);
+    letter-spacing: clamp(-0.025em, 0.05vw, -0.015em);
     line-height: 1.1;
     margin: 0;
-    @include gradient-text(135deg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 1.2vw, 0.75rem);
+
+    // Default gradient text
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      map-get($colors, primary) 25%,
+      map-get($colors, accent) 50%,
+      map-get($colors, secondary) 75%,
+      #ffffff 100%
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-text 6s ease-in-out infinite;
+
+    // Default glow effect
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.3) 0%,
+        rgba(240, 147, 251, 0.3) 50%,
+        rgba(118, 75, 162, 0.3) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(1px);
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    // Light theme title
+    .projects-container.light & {
+      background: linear-gradient(
+        135deg,
+        #1a1a1a 0%,
+        map-get($colors, primary) 25%,
+        map-get($colors, accent) 50%,
+        map-get($colors, secondary) 75%,
+        #1a1a1a 100%
+      );
+
+      &::before {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.4) 0%,
+          rgba(240, 147, 251, 0.4) 50%,
+          rgba(118, 75, 162, 0.4) 100%
+        );
+        opacity: 0.8;
+      }
+    }
 
     .projects-icon {
-      margin-right: clamp(0.4rem, 1vw, 0.6rem);
-      font-size: 0.85em;
-      opacity: 0.8;
+      font-size: 0.8em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.2em;
+      height: 1.2em;
+      position: relative;
+
+      // Default icon styling
+      color: rgba(255, 255, 255, 0.9);
+      filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.4));
+      animation: icon-float 4s ease-in-out infinite;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.8em;
+        height: 1.8em;
+        background: linear-gradient(
+          45deg,
+          rgba(102, 126, 234, 0.15) 0%,
+          rgba(240, 147, 251, 0.15) 100%
+        );
+        border-radius: 50%;
+        z-index: -1;
+        animation: icon-glow 3s ease-in-out infinite;
+      }
+
+      // Light theme icon
+      .projects-container.light & {
+        color: rgba(0, 0, 0, 0.8);
+        filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.3));
+
+        &::before {
+          background: linear-gradient(
+            45deg,
+            rgba(102, 126, 234, 0.2) 0%,
+            rgba(240, 147, 251, 0.2) 100%
+          );
+        }
+      }
     }
 
     // Fallback for browsers that don't support background-clip
@@ -246,6 +539,15 @@ $colors: (
       background: none;
       color: #ffffff;
       -webkit-text-fill-color: #ffffff;
+
+      .projects-container.light & {
+        color: #1a1a1a;
+        -webkit-text-fill-color: #1a1a1a;
+      }
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -253,13 +555,43 @@ $colors: (
     font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(
       #{map-get($typography, base)},
-      1.5vw + 0.3rem,
-      #{map-get($typography, lg)}
-    ); // 14px - 16px
+      1.8vw + 0.2rem,
+      #{map-get($typography, xl)}
+    );
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
     margin: 0;
-    letter-spacing: 0.005em;
+    letter-spacing: 0.01em;
+    position: relative;
+
+    // Default dark theme
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    // Light theme subtitle
+    .projects-container.light & {
+      color: rgba(0, 0, 0, 0.7);
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(60px, 15vw, 120px);
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(102, 126, 234, 0.4) 20%,
+        rgba(240, 147, 251, 0.6) 50%,
+        rgba(118, 75, 162, 0.4) 80%,
+        transparent 100%
+      );
+      animation: underline-glow 3s ease-in-out infinite alternate;
+    }
   }
 }
 
@@ -300,11 +632,11 @@ $colors: (
 }
 
 /* =============================================================================
-   PROJECT CARDS
+   PROJECT CARDS WITH THEME SUPPORT
    ========================================================================== */
 
 .project-card {
-  @include glass-effect(map-get($glassmorphism, blur), 0.05, 0.12);
+  @include glass-effect-themed(map-get($glassmorphism, blur), "dark");
   border-radius: map-get($glassmorphism, border-radius-xl);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -314,6 +646,11 @@ $colors: (
   flex-direction: column;
   position: relative;
 
+  // Light theme card
+  .projects-container.light & {
+    @include glass-effect-themed(map-get($glassmorphism, blur), "light");
+  }
+
   // Enhanced focus styles
   &:focus-visible {
     outline: 2px solid map-get($colors, primary);
@@ -321,7 +658,11 @@ $colors: (
   }
 
   &:hover {
-    @include glass-hover-effect;
+    @include glass-hover-effect-themed("dark");
+
+    .projects-container.light & {
+      @include glass-hover-effect-themed("light");
+    }
 
     .project-image img {
       transform: scale(1.05);
@@ -337,7 +678,14 @@ $colors: (
   }
 
   @media (max-width: map-get($breakpoints, ipadair5)) {
-    @include glass-effect(map-get($glassmorphism, blur-mobile), 0.06, 0.15);
+    @include glass-effect-themed(map-get($glassmorphism, blur-mobile), "dark");
+
+    .projects-container.light & {
+      @include glass-effect-themed(
+        map-get($glassmorphism, blur-mobile),
+        "light"
+      );
+    }
   }
 }
 
@@ -374,6 +722,11 @@ $colors: (
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     filter: brightness(0.85) contrast(1.05) saturate(1.1);
+
+    // Light theme image adjustments
+    .projects-container.light & {
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+    }
   }
 }
 
@@ -395,13 +748,23 @@ $colors: (
   align-items: flex-end;
   padding: clamp(0.5rem, 1.5vw, 0.75rem);
 
+  // Light theme overlay
+  .projects-container.light & {
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.12) 0%,
+      rgba(118, 75, 162, 0.08) 50%,
+      rgba(240, 147, 251, 0.12) 100%
+    );
+  }
+
   @media (min-width: map-get($breakpoints, ipadair5)) {
     padding: clamp(0.625rem, 1.8vw, 0.875rem);
   }
 }
 
 .project-category {
-  @include glass-effect(map-get($glassmorphism, blur-subtle), 0.08, 0.25);
+  @include glass-effect-themed(map-get($glassmorphism, blur-subtle), "dark");
   padding: clamp(0.25rem, 0.8vw, 0.375rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: map-get($glassmorphism, border-radius-button);
   font-family: "DM Sans", sans-serif;
@@ -414,6 +777,12 @@ $colors: (
   color: rgba(255, 255, 255, 0.95);
   transform: translateY(8px);
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  // Light theme category
+  .projects-container.light & {
+    @include glass-effect-themed(map-get($glassmorphism, blur-subtle), "light");
+    color: rgba(0, 0, 0, 0.85);
+  }
 
   @media (min-width: map-get($breakpoints, ipadair5)) {
     padding: clamp(0.3rem, 0.9vw, 0.4rem) clamp(0.5rem, 1.1vw, 0.7rem);
@@ -431,7 +800,7 @@ $colors: (
 }
 
 /* =============================================================================
-   PROJECT CONTENT
+   PROJECT CONTENT WITH THEME SUPPORT
    ========================================================================== */
 
 .project-content {
@@ -479,6 +848,11 @@ $colors: (
   letter-spacing: -0.015em;
   flex: 1;
 
+  // Light theme title
+  .projects-container.light & {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
   @media (min-width: map-get($breakpoints, ipadair5)) {
     font-size: clamp(
       #{map-get($typography, base)},
@@ -501,6 +875,11 @@ $colors: (
   font-weight: 600;
   color: rgba(255, 255, 255, 0.75);
   white-space: nowrap;
+
+  // Light theme status
+  .projects-container.light & {
+    color: rgba(0, 0, 0, 0.65);
+  }
 
   @media (min-width: map-get($breakpoints, ipadair5)) {
     gap: 0.3rem;
@@ -530,6 +909,11 @@ $colors: (
   color: rgba(255, 255, 255, 0.78);
   flex: 1;
 
+  // Light theme description
+  .projects-container.light & {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
   @media (min-width: map-get($breakpoints, ipadair5)) {
     font-size: clamp(
       #{map-get($typography, xs)},
@@ -540,7 +924,7 @@ $colors: (
 }
 
 /* =============================================================================
-   TECHNOLOGY TAGS
+   TECHNOLOGY TAGS WITH THEME SUPPORT
    ========================================================================== */
 
 .project-technologies {
@@ -555,7 +939,7 @@ $colors: (
   }
 
   .tech-tag {
-    @include glass-effect(map-get($glassmorphism, blur-subtle), 0.04, 0.15);
+    @include glass-effect-themed(map-get($glassmorphism, blur-subtle), "dark");
     padding: clamp(0.2rem, 0.6vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
     border-radius: map-get($glassmorphism, border-radius-button);
     font-family: "DM Sans", sans-serif;
@@ -571,6 +955,15 @@ $colors: (
     display: flex;
     align-items: center;
     gap: 0.25rem;
+
+    // Light theme tech tag
+    .projects-container.light & {
+      @include glass-effect-themed(
+        map-get($glassmorphism, blur-subtle),
+        "light"
+      );
+      color: rgba(0, 0, 0, 0.75);
+    }
 
     @media (min-width: map-get($breakpoints, ipadair5)) {
       padding: clamp(0.15rem, 0.5vw, 0.25rem) clamp(0.35rem, 0.8vw, 0.5rem);
@@ -595,19 +988,39 @@ $colors: (
       );
       border-color: rgba(102, 126, 234, 0.25);
       color: rgba(255, 255, 255, 0.9);
+
+      // Light theme primary tag
+      .projects-container.light & {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.2) 0%,
+          rgba(118, 75, 162, 0.2) 100%
+        );
+        border-color: rgba(102, 126, 234, 0.3);
+        color: rgba(0, 0, 0, 0.8);
+      }
     }
 
     &:hover {
       transform: translateY(-1px) scale(1.03);
+
+      // Dark theme hover
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.2);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      // Light theme hover
+      .projects-container.light & {
+        background: rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
     }
   }
 }
 
 /* =============================================================================
-   PROJECT STATISTICS
+   PROJECT STATISTICS WITH THEME SUPPORT
    ========================================================================== */
 
 .project-stats {
@@ -618,6 +1031,12 @@ $colors: (
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin: clamp(0.375rem, 1.2vw, 0.5rem) 0;
+
+  // Light theme stats borders
+  .projects-container.light & {
+    border-top-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
 
   @media (min-width: map-get($breakpoints, ipadair5)) {
     gap: clamp(0.3rem, 1vw, 0.4rem);
@@ -645,6 +1064,11 @@ $colors: (
       color: rgba(255, 255, 255, 0.55);
       margin-bottom: 0.05rem;
 
+      // Light theme stat icon
+      .projects-container.light & {
+        color: rgba(0, 0, 0, 0.45);
+      }
+
       @media (min-width: map-get($breakpoints, ipadair5)) {
         font-size: clamp(
           #{map-get($typography, xs)},
@@ -664,6 +1088,11 @@ $colors: (
       font-weight: 600;
       color: rgba(255, 255, 255, 0.85);
 
+      // Light theme stat text
+      .projects-container.light & {
+        color: rgba(0, 0, 0, 0.75);
+      }
+
       @media (min-width: map-get($breakpoints, ipadair5)) {
         font-size: clamp(
           #{map-get($typography, xs)},
@@ -676,7 +1105,7 @@ $colors: (
 }
 
 /* =============================================================================
-   PROJECT LINKS/BUTTONS
+   PROJECT BUTTONS WITH THEME SUPPORT
    ========================================================================== */
 
 .project-links {
@@ -689,7 +1118,7 @@ $colors: (
   }
 
   .project-button {
-    @include glass-effect(map-get($glassmorphism, blur-subtle), 0.03, 0.12);
+    @include glass-effect-themed(map-get($glassmorphism, blur-subtle), "dark");
     padding: clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.6rem, 1.6vw, 0.8rem);
     border-radius: map-get($glassmorphism, border-radius-button);
     font-family: "Inter", sans-serif;
@@ -714,6 +1143,15 @@ $colors: (
     gap: 0.3rem;
     min-height: 32px;
 
+    // Light theme button
+    .projects-container.light & {
+      @include glass-effect-themed(
+        map-get($glassmorphism, blur-subtle),
+        "light"
+      );
+      color: rgba(0, 0, 0, 0.75);
+    }
+
     @media (min-width: map-get($breakpoints, ipadair5)) {
       padding: clamp(0.35rem, 0.9vw, 0.5rem) clamp(0.5rem, 1.2vw, 0.7rem);
       font-size: clamp(
@@ -734,7 +1172,7 @@ $colors: (
       white-space: nowrap;
     }
 
-    // Enhanced shimmer effect
+    // Shimmer effect
     &::before {
       content: "";
       position: absolute;
@@ -749,6 +1187,16 @@ $colors: (
         transparent 100%
       );
       transition: left 0.6s ease;
+
+      // Light theme shimmer
+      .projects-container.light & {
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.1) 50%,
+          transparent 100%
+        );
+      }
     }
 
     &:hover {
@@ -798,12 +1246,98 @@ $colors: (
       background: rgba(255, 255, 255, 0.015);
       border: 1px solid rgba(255, 255, 255, 0.08);
 
+      // Light theme secondary button
+      .projects-container.light & {
+        background: rgba(0, 0, 0, 0.02);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+
       &:hover {
         background: rgba(255, 255, 255, 0.04);
         border-color: rgba(255, 255, 255, 0.15);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        // Light theme secondary hover
+        .projects-container.light & {
+          background: rgba(0, 0, 0, 0.05);
+          border-color: rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
       }
     }
+  }
+}
+
+/* =============================================================================
+   ENHANCED ANIMATIONS FOR HEADER
+   ========================================================================== */
+
+@keyframes gentle-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes float-particles {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes shimmer-text {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  75% {
+    background-position: 300% 75%;
+  }
+}
+
+@keyframes icon-glow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes underline-glow {
+  0% {
+    opacity: 0.6;
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.1);
   }
 }
 
@@ -880,6 +1414,33 @@ $colors: (
 }
 
 /* =============================================================================
+   RESPONSIVE ADJUSTMENTS FOR HEADER
+   ========================================================================== */
+
+@media (min-width: map-get($breakpoints, ipadair5)) {
+  .projects-header {
+    gap: clamp(0.875rem, 2vw, 1.125rem);
+    margin-bottom: clamp(1.75rem, 3vw, 2.25rem);
+
+    .projects-title {
+      font-size: clamp(
+        calc(#{map-get($typography, xxxl)} + 0.25rem),
+        3.2vw + 0.7rem,
+        calc(#{map-get($typography, display)} + 0.25rem)
+      );
+    }
+
+    .projects-subtitle {
+      font-size: clamp(
+        #{map-get($typography, base)},
+        1.4vw + 0.2rem,
+        #{map-get($typography, lg)}
+      );
+    }
+  }
+}
+
+/* =============================================================================
    ACCESSIBILITY & RESPONSIVE ENHANCEMENTS
    ========================================================================== */
 
@@ -901,37 +1462,73 @@ $colors: (
   .project-button::before {
     display: none;
   }
+
+  .projects-header {
+    &::before,
+    &::after {
+      animation: none;
+    }
+
+    .projects-title,
+    .projects-icon,
+    .projects-subtitle {
+      animation: none;
+    }
+  }
 }
 
 @media (prefers-contrast: high) {
   .project-card {
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid #ffffff;
+
+    .projects-container.light & {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #000000;
+    }
   }
 
   .projects-title {
     background: none;
     color: #ffffff;
     -webkit-text-fill-color: #ffffff;
+
+    .projects-container.light & {
+      color: #000000;
+      -webkit-text-fill-color: #000000;
+    }
   }
 
   .project-title,
   .project-description,
   .tech-tag {
     color: #ffffff;
+
+    .projects-container.light & {
+      color: #000000;
+    }
   }
 
   .tech-tag {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.25);
+
+    .projects-container.light & {
+      background: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.25);
+    }
   }
 }
 
 // Enhanced focus management
 .project-card:focus-within {
-  @include glass-hover-effect;
+  @include glass-hover-effect-themed("dark");
   outline: 2px solid map-get($colors, primary);
   outline-offset: 2px;
+
+  .projects-container.light & {
+    @include glass-hover-effect-themed("light");
+  }
 }
 
 // Touch device optimizations
@@ -953,7 +1550,11 @@ $colors: (
   }
 
   .project-card:active {
-    @include glass-hover-effect;
+    @include glass-hover-effect-themed("dark");
+
+    .projects-container.light & {
+      @include glass-hover-effect-themed("light");
+    }
   }
 }
 
