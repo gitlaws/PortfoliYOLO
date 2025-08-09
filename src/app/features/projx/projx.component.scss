@@ -36,7 +36,7 @@ $spacing: (
   // 48px
   xxxl: 4rem,
   // 64px
-  xxxxl: 6rem // 96px,,,,,,,,
+  xxxxl: 6rem // 96px,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -76,7 +76,7 @@ $typography: (
   // 32px
   display: 2.5rem,
   // 40px
-  hero: 3rem // 48px,,,,,,,,
+  hero: 3rem // 48px,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -1409,9 +1409,9 @@ $light-theme: (
     animation-delay: 0.3s;
   }
 
-  &:hover {
-    animation: pulse-glow 2.5s ease-in-out infinite;
-  }
+  // &:hover {
+  //   animation: pulse-glow 2.5s ease-in-out infinite;
+  // }
 }
 
 /* =============================================================================
