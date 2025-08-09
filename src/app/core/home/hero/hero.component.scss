@@ -62,7 +62,9 @@ $hero-glass-themes: (
     border-accent: rgba(100, 181, 246, 0.4),
     // Text colors
     text-primary: rgba(255, 255, 255, 0.95),
-    text-secondary: rgba(0, 255, 184, 0.9),
+    // Night vision green for military stealth mode
+    text-secondary: #00b300,
+
     text-muted: rgba(255, 255, 255, 0.65),
     // Shadows and effects
     shadow-primary: rgba(0, 0, 0, 0.35),
@@ -149,7 +151,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -612,9 +614,9 @@ $breakpoints: (
     #5a5f66 100%
   );
   background-size: 400% 400%;
-  background-clip: text;
-  -webkit-background-clip: text;
   -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
@@ -623,17 +625,24 @@ $breakpoints: (
   .dark & {
     background: linear-gradient(
       270deg,
-      #232b23 0%,
-      #3a4a36 20%,
-      #556b4a 40%,
-      #6e8a66 60%,
-      #8baf8a 80%,
-      #bfcfbc 100%
+      #00b300 0%,
+      // Night vision green
+      #3a5f0b 18%,
+      // Olive green (classic military)
+      #556b2f 36%,
+      // Dark olive drab
+      #7c8b5a 54%,
+      // Faded camo green
+      #8b8c7a 72%,
+      // Urban camo gray
+      #b0b7b1 90%,
+      // Light steel gray
+      #e5e5e5 100% // Silver/metal highlight
     );
     background-size: 400% 400%;
-    background-clip: text;
-    -webkit-background-clip: text;
     -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
