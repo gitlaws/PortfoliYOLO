@@ -18,71 +18,76 @@
 // =============================================================================
 $hero-glass-themes: (
   light: (
-    // Primary glass surface - Enhanced for better visibility
-    glass-primary: rgba(255, 255, 255, 0.15),
-    glass-secondary: rgba(255, 255, 255, 0.1),
-    glass-accent: rgba(255, 255, 255, 0.2),
+    // Primary glass surface - Futuristic stealth with subtle blue/green undertones
+    glass-primary: rgba(245, 250, 248, 0.16),
+    glass-secondary: rgba(230, 240, 238, 0.1),
+    glass-accent: rgba(200, 230, 220, 0.22),
     // Borders and edges
-    border-primary: rgba(255, 255, 255, 0.25),
-    border-glow: rgba(107, 142, 35, 0.5),
-    // olive drab
-    // blends with #2196f3 (text-secondary: rgba(80, 80, 80, 0.85))
-    border-accent: rgba(156, 39, 176, 0.3),
+    border-primary: rgba(120, 180, 170, 0.22),
+    border-glow: rgba(76, 175, 80, 0.38),
+    // soft tactical green
+    border-accent: rgba(33, 150, 243, 0.22),
+    // stealth blue accent
     // Text colors
-    text-primary: rgba(46, 46, 46, 0.95),
-    text-secondary: rgba(80, 80, 80, 0.85),
-    // Stealth mode: try #5a5f66 for a subtle, modern gray
-    text-muted: rgba(66, 66, 66, 0.8),
+    text-primary: rgba(40, 50, 48, 0.96),
+    // deep slate green
+    text-secondary: rgba(80, 110, 100, 0.85),
+    // muted teal
+    text-muted: rgba(100, 120, 110, 0.7),
+    // soft camo gray-green
     // Shadows and effects
-    shadow-primary: rgba(0, 0, 0, 0.12),
-    shadow-elevated: rgba(0, 0, 0, 0.18),
-    shadow-inset: rgba(255, 255, 255, 0.3),
+    shadow-primary: rgba(0, 0, 0, 0.1),
+    shadow-elevated: rgba(0, 0, 0, 0.16),
+    shadow-inset: rgba(255, 255, 255, 0.22),
     // Gradient overlays
     gradient-overlay:
       linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.08) 100%
+        rgba(200, 230, 220, 0.12) 0%,
+        rgba(245, 250, 248, 0.06) 100%
       ),
     gradient-text:
-      linear-gradient(270deg, #1976d2, #1e88e5, #2196f3, #42a5f5, #64b5f6),
+      linear-gradient(270deg, #2196f3, #4caf50, #b2c248, #8bc34a, #00bfae),
     // Interactive elements
-    button-glass: rgba(255, 255, 255, 0.18),
-    button-hover: rgba(255, 255, 255, 0.28),
-    button-glow: rgba(33, 150, 243, 0.5),
+    button-glass: rgba(200, 230, 220, 0.15),
+    button-hover: rgba(33, 150, 243, 0.1),
+    button-glow: rgba(33, 150, 243, 0.32),
   ),
   dark: (
-    // Primary glass surface - Enhanced for better visibility
-    glass-primary: rgba(16, 16, 20, 0.3),
-    glass-secondary: rgba(20, 20, 30, 0.25),
-    glass-accent: rgba(25, 25, 35, 0.4),
+    // Primary glass surface - Stealth black/green with blue undertones
+    glass-primary: rgba(18, 24, 22, 0.34),
+    glass-secondary: rgba(28, 36, 32, 0.22),
+    glass-accent: rgba(44, 54, 50, 0.32),
     // Borders and edges
-    border-primary: rgba(255, 255, 255, 0.12),
-    border-glow: rgba(0, 255, 184, 0.5),
-    border-accent: rgba(100, 181, 246, 0.4),
+    border-primary: rgba(120, 180, 170, 0.18),
+    border-glow: rgba(0, 255, 184, 0.32),
+    // neon stealth green
+    border-accent: rgba(33, 150, 243, 0.22),
+    // stealth blue accent
     // Text colors
-    text-primary: rgba(255, 255, 255, 0.95),
-    // Night vision green for military stealth mode
-    text-secondary: #00b300,
-
-    text-muted: rgba(255, 255, 255, 0.65),
+    text-primary: rgba(220, 240, 230, 0.96),
+    // light camo sand
+    text-secondary: #00ffb8,
+    // neon green
+    text-muted: rgba(120, 180, 170, 0.7),
+    // muted teal
     // Shadows and effects
-    shadow-primary: rgba(0, 0, 0, 0.35),
-    shadow-elevated: rgba(0, 0, 0, 0.45),
-    shadow-inset: rgba(255, 255, 255, 0.12),
+    shadow-primary: rgba(0, 0, 0, 0.38),
+    shadow-elevated: rgba(0, 0, 0, 0.48),
+    shadow-inset: rgba(255, 255, 255, 0.1),
     // Gradient overlays
     gradient-overlay:
       linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.03) 100%
+        rgba(0, 255, 184, 0.08) 0%,
+        rgba(44, 54, 50, 0.14) 100%
       ),
     gradient-text:
-      linear-gradient(270deg, #00ffb8, #00e5ff, #2196f3, #3f51b5, #673ab7),
+      linear-gradient(270deg, #00ffb8, #2196f3, #4caf50, #b2c248, #8bc34a),
     // Interactive elements
-    button-glass: rgba(255, 255, 255, 0.1),
-    button-hover: rgba(255, 255, 255, 0.18),
-    button-glow: rgba(0, 255, 184, 0.6),
+    button-glass: rgba(0, 255, 184, 0.13),
+    button-hover: rgba(33, 150, 243, 0.13),
+    button-glow: rgba(0, 255, 184, 0.32),
   ),
 );
 
@@ -151,7 +156,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -625,19 +630,12 @@ $breakpoints: (
   .dark & {
     background: linear-gradient(
       270deg,
-      #00b300 0%,
-      // Night Vision Green (Stealth)
-      #23272b 18%,
-      // Stealth Charcoal (Modern Tech)
-      #4b5320 36%,
-      // Olive Drab (Field Command)
-      #5a5f66 54%,
-      // Stealth Gray (Modern)
-      #1976d2 72%,
-      // Tactical Blue (Tech)
-      #00ffb8 88%,
-      // Neon Green (Futuristic Stealth)
-      #ffffff 100% // White (Honor/Integrity)
+      #bfc1bd 0%,
+      #a5a7a2 20%,
+      #8d8f89 40%,
+      #6e706b 60%,
+      #4d4e4a 80%,
+      #23272b 100%
     );
     background-size: 400% 400%;
     -moz-background-clip: text;
