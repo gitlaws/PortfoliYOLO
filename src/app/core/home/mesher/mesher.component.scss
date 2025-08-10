@@ -1,8 +1,10 @@
 // mesher.component.scss
 
+// =======================
 // Color Variables
-// Cyber Menu & Stroke Color Pairings
-// Option 2: Cyberpunk Purple & Orange Theme
+// =======================
+
+// Cyberpunk Purple & Orange Theme (Option 2)
 $primary-light: #4b5c6b; // Stealthy Blue-Gray (Primary)
 $secondary-light: #7a8c99; // Muted Slate (Accent)
 $accent-light: #bfc9d1; // Soft Silver (Highlight)
@@ -20,35 +22,54 @@ $stroke-dark: #23272b; // Deep Charcoal Stroke
 
 $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
 
+// =======================
+// Mixins
+// =======================
+
+@mixin mesh-bg($primary, $secondary, $accent) {
+  background: linear-gradient(
+    120deg,
+    $primary 0%,
+    $secondary 60%,
+    $accent 100%
+  );
+  background-size: 200% 200%;
+  animation: meshGradientMove 8s ease-in-out infinite;
+}
+
+@mixin shape-base($size, $radius: 0) {
+  width: $size;
+  height: $size;
+  border-radius: $radius;
+  position: absolute;
+  opacity: 0.7;
+  filter: blur(0.5px);
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+}
+
+// =======================
 // Gradient Backgrounds
+// =======================
+
 .mesh-background {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+
   &.light {
-    background: linear-gradient(
-      120deg,
-      $primary-light 0%,
-      $secondary-light 60%,
-      $accent-light 100%
-    );
-    background-size: 200% 200%;
-    animation: meshGradientMove 8s ease-in-out infinite;
+    @include mesh-bg($primary-light, $secondary-light, $accent-light);
   }
   &.dark {
-    background: linear-gradient(
-      120deg,
-      $primary-dark 0%,
-      $secondary-dark 60%,
-      $accent-dark 100%
-    );
-    background-size: 200% 200%;
-    animation: meshGradientMove 8s ease-in-out infinite;
+    @include mesh-bg($primary-dark, $secondary-dark, $accent-dark);
   }
 }
 
+// =======================
 // Overlay for extra effect
+// =======================
+
 .mesh-overlay {
   position: absolute;
   inset: 0;
@@ -62,25 +83,32 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
   mix-blend-mode: lighten;
 }
 
+// =======================
 // Floating Shapes
+// =======================
+
 .floating-shapes {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
+
   .float-shape {
     position: absolute;
     opacity: 0.7;
     filter: blur(0.5px);
     animation-timing-function: ease-in-out;
     will-change: transform;
+    transition: background 0.3s;
   }
+
   // Triangles
   .triangle {
     width: 60px;
     height: 52px;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     background: $primary-light;
+
     &.triangle-1 {
       left: 10%;
       top: 20%;
@@ -94,11 +122,13 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
       animation: floatShapeMove2 9s infinite alternate;
     }
   }
+
   // Circles
   .circle {
     border-radius: 50%;
     width: 48px;
     height: 48px;
+
     &.circle-1 {
       left: 70%;
       top: 10%;
@@ -112,6 +142,7 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
       animation: floatShapeMove4 10s infinite alternate;
     }
   }
+
   // Square
   .square {
     width: 44px;
@@ -122,6 +153,7 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
     background: $primary-light;
     animation: floatShapeMove5 11s infinite alternate;
   }
+
   // Hexagon
   .hexagon {
     width: 54px;
@@ -132,8 +164,9 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
     top: 35%;
     animation: floatShapeMove6 13s infinite alternate;
   }
+
   // Dark mode overrides
-  .dark & {
+  :host-context(.dark) & {
     .triangle-1 {
       background: $primary-dark;
     }
@@ -155,7 +188,10 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
   }
 }
 
+// =======================
 // Floating Shape Animations
+// =======================
+
 @keyframes floatShapeMove1 {
   0% {
     transform: translateY(0) scale(1) rotate(0deg);
@@ -205,12 +241,16 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
   }
 }
 
+// =======================
 // Morphing Blobs
+// =======================
+
 .morphing-blobs {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
+
   .blob {
     position: absolute;
     opacity: 0.22;
@@ -218,6 +258,8 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
     mix-blend-mode: lighten;
     border-radius: 50%;
     animation: blobMorph 14s infinite alternate;
+    transition: background 0.3s;
+
     &.blob-1 {
       width: 180px;
       height: 140px;
@@ -242,18 +284,22 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
       background: $secondary-light;
       animation-delay: 4s;
     }
-    // Dark mode overrides
-    .dark &.blob-1 {
+  }
+
+  // Dark mode overrides
+  :host-context(.dark) & {
+    .blob-1 {
       background: $primary-dark;
     }
-    .dark &.blob-2 {
+    .blob-2 {
       background: $accent-dark;
     }
-    .dark &.blob-3 {
+    .blob-3 {
       background: $secondary-dark;
     }
   }
 }
+
 @keyframes blobMorph {
   0% {
     border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
@@ -269,7 +315,10 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
   }
 }
 
+// =======================
 // Gradient Animation
+// =======================
+
 @keyframes meshGradientMove {
   0% {
     background-position: 0% 50%;
@@ -282,12 +331,15 @@ $shadow: rgba(75, 92, 107, 0.18); // Subtle stealthy shadow
   }
 }
 
+// =======================
 // Responsive
+// =======================
+
 @media (max-width: 600px) {
   .mesh-background,
   .mesh-overlay,
   .floating-shapes,
   .morphing-blobs {
-    display: none;
+    display: none !important;
   }
 }

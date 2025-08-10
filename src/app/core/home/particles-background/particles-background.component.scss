@@ -1,0 +1,73 @@
+// Theme Color Maps
+$light-theme: (
+  // Background gradients (keeping your current ones)
+  bg-gradient:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f1f3f4 25%,
+      #e8eaf6 50%,
+      #c5cae9 75%,
+      #9fa8da 100%
+    ),
+  // Shape colors (military stealth palette for light theme)
+  triangle-1: rgba(95, 102, 117, 0.4), // Charcoal Gray
+  triangle-2: rgba(78, 84, 102, 0.4),  // Gunmetal
+  circle-1: rgba(76, 175, 80, 0.4),    // Keep existing green (military friendly)
+  circle-2: rgba(139, 149, 165, 0.4),  // Steel Blue Gray
+  square-1: rgba(102, 108, 120, 0.4),  // Tactical Gray
+  hexagon-1: rgba(85, 95, 109, 0.4),   // Storm Gray
+  // Cube logo colors (stealth)
+  cube-logo: rgba(75, 85, 99, 0.5),    // Slate Gray
+  // Blob colors
+  blob-1: radial-gradient(circle, rgba(95, 102, 117, 0.08) 0%, transparent 70%),
+  blob-2: radial-gradient(circle, rgba(78, 84, 102, 0.08) 0%, transparent 70%),
+  blob-3: radial-gradient(circle, rgba(85, 95, 109, 0.08) 0%, transparent 70%),
+  // Star colors
+  star-bg: rgba(95, 102, 117, 0.6),
+  star-shadow: rgba(95, 102, 117, 0.4),
+  star-glow: radial-gradient(circle, rgba(95, 102, 117, 0.2) 0%, transparent 70%),
+  // Trail colors
+  trail-bg: rgba(95, 102, 117, 0.6),
+  trail-shadow: rgba(95, 102, 117, 0.3)
+);
+
+$dark-theme: (
+  // Background gradients (keeping your current ones)
+  bg-gradient:
+    linear-gradient(
+      135deg,
+      #0c0c0c 0%,
+      #1a1a2e 25%,
+      #16213e 50%,
+      #0f3460 75%,
+      #1a1a2e 100%
+    ),
+  // Shape colors (military stealth palette for dark theme)
+  triangle-1: rgba(156, 163, 175, 0.4), // Light Gray (NATO standard)
+  triangle-2: rgba(107, 114, 128, 0.4), // Cool Gray
+  circle-1: rgba(129, 199, 132, 0.4),   // Keep existing green
+  circle-2: rgba(148, 163, 184, 0.4),   // Zinc Gray
+  square-1: rgba(120, 113, 108, 0.4),   // Desert Sand (subtle)
+  hexagon-1: rgba(134, 142, 150, 0.4),  // Pewter Gray
+  // Cube logo colors (stealth)
+  cube-logo: rgba(156, 163, 175, 0.6),  // Light Tactical Gray
+  // Blob colors
+  blob-1: radial-gradient(
+      circle,
+      rgba(156, 163, 175, 0.12) 0%,
+      transparent 70%
+    ),
+  blob-2: radial-gradient(circle, rgba(107, 114, 128, 0.12) 0%, transparent 70%),
+  blob-3: radial-gradient(circle, rgba(134, 142, 150, 0.12) 0%, transparent 70%),
+  // Star colors
+  star-bg: rgba(203, 213, 225, 0.8),    // Light Steel
+  star-shadow: rgba(203, 213, 225, 0.5),
+  star-glow:
+    radial-gradient(circle, rgba(203, 213, 225, 0.3) 0%, transparent 70%),
+  // Trail colors
+  trail-bg: rgba(156, 163, 175, 0.8),
+  trail-shadow: rgba(156, 163, 175, 0.4)
+);
+
+// ...rest of your existing code remains the same...
