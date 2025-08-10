@@ -13,6 +13,7 @@ import { ThemeService } from '../../../shared/services/theme/theme.service';
 import { Theme } from '../../../shared/models/theme.enum';
 import { loadAll } from '@tsparticles/all';
 import type { Container, ISourceOptions } from '@tsparticles/engine';
+import { CubeLogoComponent } from '../../toolbar/cube-logo/cube-logo.component';
 
 interface ResponsiveConfig {
   particleCount: number;
@@ -38,7 +39,7 @@ interface TrailDot {
 @Component({
   selector: 'app-particles-background',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CubeLogoComponent],
   templateUrl: './particles-background.component.html',
   styleUrls: ['./particles-background.component.scss'],
 })
