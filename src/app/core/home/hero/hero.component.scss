@@ -156,7 +156,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -371,9 +371,8 @@ $breakpoints: (
 // =============================================================================
 // TYPEWRITER
 // =============================================================================
-.typerwriter {
-  margin-top: clamp(5.5rem, 1vw, 1rem);
-  margin-bottom: clamp(5.5rem, 1vw, 1rem);
+.typerwrite {
+  margin-top: 30px;
 }
 
 // =============================================================================
@@ -711,7 +710,7 @@ $breakpoints: (
   font-family: "Inter", sans-serif;
   font-size: map-get($hero-typography, hero-subtitle);
   font-weight: 500;
-  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: clamp(1.75rem, 2vw, 1.25rem);
   letter-spacing: clamp(0.015em, 0.3vw, 0.08em);
   text-align: center;
   width: 100%;
@@ -736,7 +735,8 @@ $breakpoints: (
   font-family: "Roboto", sans-serif;
   font-size: map-get($hero-typography, hero-description);
   font-weight: 400;
-  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
+  margin-top: clamp(3rem, 2vw, 1.5rem);
+  margin-bottom: clamp(3.5rem, 3.5vw, 2.5rem);
   line-height: 1.6;
   text-align: center;
   width: 100%;
