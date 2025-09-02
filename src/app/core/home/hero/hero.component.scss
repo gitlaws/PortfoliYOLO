@@ -156,7 +156,7 @@ $breakpoints: (
   // Tablets
   lg: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // =============================================================================
@@ -717,15 +717,15 @@ $breakpoints: (
   line-height: 1.4;
 
   .light & {
-    color: map-get(map-get($hero-glass-themes, light), text-secondary);
-    text-shadow: 0 0 15px
-      map-get(map-get($hero-glass-themes, light), border-glow);
+    // Recon-inspired light theme: cool slate blue text, soft cyan glow
+    color: #2e4a62; // Slate blue
+    text-shadow: 0 0 14px #7fd8e6; // Soft cyan glow
   }
 
   .dark & {
-    color: map-get(map-get($hero-glass-themes, dark), text-secondary);
-    text-shadow: 0 0 15px
-      map-get(map-get($hero-glass-themes, dark), border-glow);
+    // Recon-inspired dark theme: pale blue text, neon blue glow
+    color: #b3eaff; // Pale blue
+    text-shadow: 0 0 14px #00bfff; // Neon blue glow
   }
 }
 
@@ -745,11 +745,11 @@ $breakpoints: (
   margin-right: auto;
 
   .light & {
-    color: map-get(map-get($hero-glass-themes, light), text-muted);
+    color: #23272b;
   }
 
   .dark & {
-    color: map-get(map-get($hero-glass-themes, dark), text-muted);
+    color: #f5f7f6;
   }
 }
 
