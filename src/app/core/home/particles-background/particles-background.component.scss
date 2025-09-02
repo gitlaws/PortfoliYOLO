@@ -10,15 +10,52 @@ $light-theme: (
       #c5cae9 75%,
       #9fa8da 100%
     ),
-  // Shape colors (military stealth palette for light theme)
-  triangle-1: rgba(95, 102, 117, 0.4), // Charcoal Gray
-  triangle-2: rgba(78, 84, 102, 0.4),  // Gunmetal
-  circle-1: rgba(76, 175, 80, 0.4),    // Keep existing green (military friendly)
-  circle-2: rgba(139, 149, 165, 0.4),  // Steel Blue Gray
-  square-1: rgba(102, 108, 120, 0.4),  // Tactical Gray
-  hexagon-1: rgba(85, 95, 109, 0.4),   // Storm Gray
+  // Morphic shape colors (military stealth palette for light theme)
+  morphic-drop:
+    linear-gradient(135deg, rgba(95, 102, 117, 0.15), rgba(78, 84, 102, 0.1)),
+  morphic-bubble:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(102, 108, 120, 0.2),
+      rgba(95, 102, 117, 0.05)
+    ),
+  morphic-wave:
+    linear-gradient(90deg, transparent, rgba(78, 84, 102, 0.15), transparent),
+  morphic-pod:
+    linear-gradient(45deg, rgba(95, 102, 117, 0.12), rgba(102, 108, 120, 0.08)),
+  morphic-cell:
+    radial-gradient(
+      ellipse at center,
+      rgba(78, 84, 102, 0.18),
+      rgba(95, 102, 117, 0.05)
+    ),
+  morphic-amoeba:
+    conic-gradient(
+      from 45deg,
+      rgba(102, 108, 120, 0.1),
+      rgba(95, 102, 117, 0.15),
+      rgba(78, 84, 102, 0.1)
+    ),
+  // Organic frame for cube logos
+  organic-frame:
+    linear-gradient(135deg, rgba(95, 102, 117, 0.1), rgba(102, 108, 120, 0.05)),
+  organic-frame-border: rgba(95, 102, 117, 0.2),
+  // Legacy shape colors (keeping for compatibility)
+  triangle-1: rgba(95, 102, 117, 0.4),
+  // Charcoal Gray
+  triangle-2: rgba(78, 84, 102, 0.4),
+  // Gunmetal
+  circle-1: rgba(76, 175, 80, 0.4),
+  // Keep existing green (military friendly)
+  circle-2: rgba(139, 149, 165, 0.4),
+  // Steel Blue Gray
+  square-1: rgba(102, 108, 120, 0.4),
+  // Tactical Gray
+  hexagon-1: rgba(85, 95, 109, 0.4),
+  // Storm Gray
   // Cube logo colors (stealth)
-  cube-logo: rgba(75, 85, 99, 0.5),    // Slate Gray
+  cube-logo: rgba(75, 85, 99, 0.5),
+  // Slate Gray
   // Blob colors
   blob-1: radial-gradient(circle, rgba(95, 102, 117, 0.08) 0%, transparent 70%),
   blob-2: radial-gradient(circle, rgba(78, 84, 102, 0.08) 0%, transparent 70%),
@@ -26,7 +63,8 @@ $light-theme: (
   // Star colors
   star-bg: rgba(95, 102, 117, 0.6),
   star-shadow: rgba(95, 102, 117, 0.4),
-  star-glow: radial-gradient(circle, rgba(95, 102, 117, 0.2) 0%, transparent 70%),
+  star-glow:
+    radial-gradient(circle, rgba(95, 102, 117, 0.2) 0%, transparent 70%),
   // Trail colors
   trail-bg: rgba(95, 102, 117, 0.6),
   trail-shadow: rgba(95, 102, 117, 0.3)
@@ -43,15 +81,60 @@ $dark-theme: (
       #0f3460 75%,
       #1a1a2e 100%
     ),
-  // Shape colors (military stealth palette for dark theme)
-  triangle-1: rgba(156, 163, 175, 0.4), // Light Gray (NATO standard)
-  triangle-2: rgba(107, 114, 128, 0.4), // Cool Gray
-  circle-1: rgba(129, 199, 132, 0.4),   // Keep existing green
-  circle-2: rgba(148, 163, 184, 0.4),   // Zinc Gray
-  square-1: rgba(120, 113, 108, 0.4),   // Desert Sand (subtle)
-  hexagon-1: rgba(134, 142, 150, 0.4),  // Pewter Gray
+  // Morphic shape colors (military stealth palette for dark theme)
+  morphic-drop:
+    linear-gradient(
+      135deg,
+      rgba(156, 163, 175, 0.15),
+      rgba(107, 114, 128, 0.1)
+    ),
+  morphic-bubble:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(148, 163, 184, 0.2),
+      rgba(156, 163, 175, 0.05)
+    ),
+  morphic-wave:
+    linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.15), transparent),
+  morphic-pod:
+    linear-gradient(45deg, rgba(156, 163, 175, 0.12), rgba(148, 163, 184, 0.08)),
+  morphic-cell:
+    radial-gradient(
+      ellipse at center,
+      rgba(107, 114, 128, 0.18),
+      rgba(156, 163, 175, 0.05)
+    ),
+  morphic-amoeba:
+    conic-gradient(
+      from 45deg,
+      rgba(148, 163, 184, 0.1),
+      rgba(156, 163, 175, 0.15),
+      rgba(107, 114, 128, 0.1)
+    ),
+  // Organic frame for cube logos
+  organic-frame:
+    linear-gradient(
+      135deg,
+      rgba(156, 163, 175, 0.1),
+      rgba(148, 163, 184, 0.05)
+    ),
+  organic-frame-border: rgba(156, 163, 175, 0.2),
+  // Legacy shape colors (military stealth palette for dark theme)
+  triangle-1: rgba(156, 163, 175, 0.4),
+  // Light Gray (NATO standard)
+  triangle-2: rgba(107, 114, 128, 0.4),
+  // Cool Gray
+  circle-1: rgba(129, 199, 132, 0.4),
+  // Keep existing green
+  circle-2: rgba(148, 163, 184, 0.4),
+  // Zinc Gray
+  square-1: rgba(120, 113, 108, 0.4),
+  // Desert Sand (subtle)
+  hexagon-1: rgba(134, 142, 150, 0.4),
+  // Pewter Gray
   // Cube logo colors (stealth)
-  cube-logo: rgba(156, 163, 175, 0.6),  // Light Tactical Gray
+  cube-logo: rgba(156, 163, 175, 0.6),
+  // Light Tactical Gray
   // Blob colors
   blob-1: radial-gradient(
       circle,
@@ -61,7 +144,8 @@ $dark-theme: (
   blob-2: radial-gradient(circle, rgba(107, 114, 128, 0.12) 0%, transparent 70%),
   blob-3: radial-gradient(circle, rgba(134, 142, 150, 0.12) 0%, transparent 70%),
   // Star colors
-  star-bg: rgba(203, 213, 225, 0.8),    // Light Steel
+  star-bg: rgba(203, 213, 225, 0.8),
+  // Light Steel
   star-shadow: rgba(203, 213, 225, 0.5),
   star-glow:
     radial-gradient(circle, rgba(203, 213, 225, 0.3) 0%, transparent 70%),
@@ -69,5 +153,374 @@ $dark-theme: (
   trail-bg: rgba(156, 163, 175, 0.8),
   trail-shadow: rgba(156, 163, 175, 0.4)
 );
+
+// Helper function to get theme colors
+@function theme-color($theme, $key) {
+  @return map-get($theme, $key);
+}
+
+// Morphic Shapes Styles
+.particles-canvas {
+  // Base morphic shape styles
+  .float-shape {
+    position: absolute;
+    filter: blur(0.5px) drop-shadow(0 0 20px rgba(95, 102, 117, 0.3));
+    animation: float 8s ease-in-out infinite;
+  }
+
+  // Morphic Drop - Teardrop shape
+  .morphic-drop {
+    width: 60px;
+    height: 80px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    animation: morphDrop 12s ease-in-out infinite;
+  }
+
+  // Morphic Bubble - Irregular circle
+  .morphic-bubble {
+    width: 70px;
+    height: 70px;
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    animation: morphBubble 10s ease-in-out infinite;
+  }
+
+  // Morphic Wave - Flowing shape
+  .morphic-wave {
+    width: 90px;
+    height: 40px;
+    border-radius: 50px 20px 50px 20px;
+    clip-path: polygon(
+      0% 50%,
+      15% 0%,
+      35% 50%,
+      50% 20%,
+      70% 80%,
+      85% 40%,
+      100% 60%,
+      85% 100%,
+      15% 100%
+    );
+    animation: morphWave 14s ease-in-out infinite;
+  }
+
+  // Morphic Pod - Organic capsule
+  .morphic-pod {
+    width: 45px;
+    height: 85px;
+    border-radius: 45px 45px 20px 45px;
+    animation: morphPod 11s ease-in-out infinite;
+  }
+
+  // Morphic Cell - Amoeba-like
+  .morphic-cell {
+    width: 65px;
+    height: 55px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morphCell 13s ease-in-out infinite;
+  }
+
+  // Morphic Amoeba - Complex organic shape
+  .morphic-amoeba {
+    width: 80px;
+    height: 65px;
+    clip-path: polygon(
+      30% 0%,
+      70% 0%,
+      100% 30%,
+      85% 65%,
+      60% 100%,
+      20% 90%,
+      0% 60%,
+      15% 20%
+    );
+    border-radius: 20px;
+    animation: morphAmoeba 15s ease-in-out infinite;
+  }
+
+  // Organic frame for cube logos
+  .cube-container {
+    width: 100px;
+    height: 100px;
+    animation: floatCube 9s ease-in-out infinite;
+  }
+
+  .organic-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+    animation: organicPulse 8s ease-in-out infinite;
+  }
+
+  // Positioning for each shape
+  .drop-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: -2s;
+  }
+  .bubble-1 {
+    top: 65%;
+    left: 85%;
+    animation-delay: -5s;
+  }
+  .wave-1 {
+    top: 40%;
+    left: 20%;
+    animation-delay: -1s;
+  }
+  .pod-1 {
+    top: 80%;
+    left: 60%;
+    animation-delay: -3s;
+  }
+  .cell-1 {
+    top: 25%;
+    left: 75%;
+    animation-delay: -4s;
+  }
+  .amoeba-1 {
+    top: 55%;
+    left: 5%;
+    animation-delay: -6s;
+  }
+  .container-1 {
+    top: 30%;
+    left: 45%;
+    animation-delay: -1.5s;
+  }
+  .container-2 {
+    top: 70%;
+    left: 25%;
+    animation-delay: -4.5s;
+  }
+
+  // Light theme styles
+  &.light {
+    .morphic-drop {
+      background: theme-color($light-theme, morphic-drop);
+    }
+    .morphic-bubble {
+      background: theme-color($light-theme, morphic-bubble);
+    }
+    .morphic-wave {
+      background: theme-color($light-theme, morphic-wave);
+    }
+    .morphic-pod {
+      background: theme-color($light-theme, morphic-pod);
+    }
+    .morphic-cell {
+      background: theme-color($light-theme, morphic-cell);
+    }
+    .morphic-amoeba {
+      background: theme-color($light-theme, morphic-amoeba);
+    }
+    .organic-frame {
+      background: theme-color($light-theme, organic-frame);
+      border-color: theme-color($light-theme, organic-frame-border);
+    }
+    .float-shape {
+      filter: blur(0.5px) drop-shadow(0 0 20px rgba(95, 102, 117, 0.3));
+    }
+  }
+
+  // Dark theme styles
+  &.dark {
+    .morphic-drop {
+      background: theme-color($dark-theme, morphic-drop);
+    }
+    .morphic-bubble {
+      background: theme-color($dark-theme, morphic-bubble);
+    }
+    .morphic-wave {
+      background: theme-color($dark-theme, morphic-wave);
+    }
+    .morphic-pod {
+      background: theme-color($dark-theme, morphic-pod);
+    }
+    .morphic-cell {
+      background: theme-color($dark-theme, morphic-cell);
+    }
+    .morphic-amoeba {
+      background: theme-color($dark-theme, morphic-amoeba);
+    }
+    .organic-frame {
+      background: theme-color($dark-theme, organic-frame);
+      border-color: theme-color($dark-theme, organic-frame-border);
+    }
+    .float-shape {
+      filter: blur(0.5px) drop-shadow(0 0 20px rgba(156, 163, 175, 0.3));
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes morphDrop {
+  0%,
+  100% {
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg) scale(1);
+  }
+  25% {
+    border-radius: 60% 40% 60% 20%;
+    transform: rotate(-30deg) scale(1.1);
+  }
+  50% {
+    border-radius: 40% 60% 40% 40%;
+    transform: rotate(-60deg) scale(0.9);
+  }
+  75% {
+    border-radius: 55% 45% 35% 15%;
+    transform: rotate(-15deg) scale(1.05);
+  }
+}
+
+@keyframes morphBubble {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  }
+  33% {
+    border-radius: 45% 55% 70% 30% / 40% 60% 30% 70%;
+  }
+  66% {
+    border-radius: 80% 20% 40% 60% / 65% 35% 55% 45%;
+  }
+}
+
+@keyframes morphWave {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 50%,
+      15% 0%,
+      35% 50%,
+      50% 20%,
+      70% 80%,
+      85% 40%,
+      100% 60%,
+      85% 100%,
+      15% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 20%,
+      20% 80%,
+      40% 30%,
+      60% 70%,
+      80% 20%,
+      100% 90%,
+      90% 10%,
+      70% 90%,
+      20% 10%
+    );
+  }
+}
+
+@keyframes morphPod {
+  0%,
+  100% {
+    border-radius: 45px 45px 20px 45px;
+  }
+  50% {
+    border-radius: 20px 45px 45px 20px;
+  }
+}
+
+@keyframes morphCell {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  25% {
+    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+  }
+  50% {
+    border-radius: 30% 70% 60% 40% / 70% 30% 50% 60%;
+  }
+  75% {
+    border-radius: 70% 30% 40% 60% / 30% 70% 60% 40%;
+  }
+}
+
+@keyframes morphAmoeba {
+  0%,
+  100% {
+    clip-path: polygon(
+      30% 0%,
+      70% 0%,
+      100% 30%,
+      85% 65%,
+      60% 100%,
+      20% 90%,
+      0% 60%,
+      15% 20%
+    );
+  }
+  33% {
+    clip-path: polygon(
+      20% 10%,
+      80% 5%,
+      90% 40%,
+      75% 70%,
+      50% 95%,
+      15% 85%,
+      5% 50%,
+      25% 15%
+    );
+  }
+  66% {
+    clip-path: polygon(
+      40% 5%,
+      75% 15%,
+      95% 35%,
+      80% 75%,
+      45% 90%,
+      10% 80%,
+      15% 45%,
+      35% 10%
+    );
+  }
+}
+
+@keyframes organicPulse {
+  0%,
+  100% {
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+    transform: scale(1);
+  }
+  50% {
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatCube {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 // ...rest of your existing code remains the same...
