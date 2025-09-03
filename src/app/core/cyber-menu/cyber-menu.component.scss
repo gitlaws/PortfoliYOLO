@@ -331,7 +331,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       font-size: 1em;
 
       &.light {
-        color: #212121;
+        color: #212121; // Matches dropdown-item-social-links i.light
 
         &:hover {
           color: #424242;
@@ -341,7 +341,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: #e0e0e0;
+        color: #e0e0e0; // Matches dropdown-item-social-links i.dark
 
         &:hover {
           color: #ffffff;
