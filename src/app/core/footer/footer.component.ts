@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Theme } from '../../shared/models/theme.enum';
 import { ThemeService } from '../../shared/services/theme/theme.service';
+import { CubeLogoComponent } from '../toolbar/cube-logo/cube-logo.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CubeLogoComponent],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
