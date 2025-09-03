@@ -20,25 +20,16 @@ $hero-glass-themes: (
   light: (
     // Military white glass surfaces
     glass-primary: rgba(248, 250, 251, 0.18),
-    // military white
     glass-secondary: rgba(232, 236, 236, 0.12),
-    // light gray
     glass-accent: rgba(220, 230, 225, 0.22),
-    // accent white-gray
     // Borders and edges
     border-primary: rgba(191, 193, 189, 0.22),
-    // camo gray
     border-glow: rgba(33, 150, 243, 0.22),
-    // blue accent
     border-accent: rgba(120, 180, 170, 0.22),
-    // tactical green
     // Text colors
     text-primary: #23272b,
-    // deep slate (military white text)
     text-secondary: #6e706b,
-    // muted gray
     text-muted: #bfc1bd,
-    // camo gray
     // Shadows and effects
     shadow-primary: rgba(0, 0, 0, 0.08),
     shadow-elevated: rgba(0, 0, 0, 0.12),
@@ -60,25 +51,16 @@ $hero-glass-themes: (
   dark: (
     // Military dark glass surfaces
     glass-primary: rgba(35, 39, 43, 0.34),
-    // deep slate
     glass-secondary: rgba(49, 54, 59, 0.22),
-    // dark gray
     glass-accent: rgba(110, 112, 107, 0.32),
-    // accent gray-green
     // Borders and edges
     border-primary: rgba(110, 112, 107, 0.18),
-    // camo dark
     border-glow: rgba(0, 255, 184, 0.32),
-    // neon green
     border-accent: rgba(33, 150, 243, 0.22),
-    // blue accent
     // Text colors
     text-primary: #e0eaff,
-    // military sand (pale blue/white)
     text-secondary: #b3eaff,
-    // pale blue
     text-muted: #6e706b,
-    // muted gray
     // Shadows and effects
     shadow-primary: rgba(0, 0, 0, 0.38),
     shadow-elevated: rgba(0, 0, 0, 0.48),
@@ -100,33 +82,76 @@ $hero-glass-themes: (
 );
 
 // =============================================================================
-// ENHANCED DESIGN TOKENS - OPTIMIZED FOR MAX-WIDTH 1200PX
+// ENHANCED DESIGN TOKENS - PROPORTIONATE SIZING SYSTEM
 // =============================================================================
 $hero-spacing: (
+  // Base spacing units with mathematical progression
   xs: 0.25rem,
+  // 4px
   sm: 0.5rem,
-  md: 1rem,
-  lg: 1.5rem,
-  xl: 2rem,
-  xxl: 3rem,
-  xxxl: 4rem,
-  toolbar-offset: 5rem,
-  // Device-specific offsets for contained design
+  // 8px
+  md: 0.75rem,
+  // 12px
+  lg: 1rem,
+  // 16px
+  xl: 1.5rem,
+  // 24px
+  xxl: 2.25rem,
+  // 36px
+  xxxl: 3.375rem,
+  // 54px
+  xxxxl: 5rem,
+
+  // 80px
+  // Device-specific toolbar offsets
   mobile-toolbar: 3.5rem,
+  // 56px
   pro-toolbar: 4rem,
+  // 64px
   tablet-toolbar: 4.5rem,
+  // 72px
+  desktop-toolbar: 5rem,
+
+  // 80px
+  // Content spacing ratios
+  content-micro: clamp(0.5rem, 1.2vw, 0.75rem),
+  content-small: clamp(0.75rem, 1.8vw, 1.125rem),
+  content-medium: clamp(1rem, 2.4vw, 1.5rem),
+  content-large: clamp(1.5rem, 3.6vw, 2.25rem),
+  content-xlarge: clamp(2rem, 4.8vw, 3rem)
 );
 
 $hero-typography: (
-  // Optimized for 1200px max container
-  hero-title: clamp(2.25rem, 4vw + 1rem, 3.75rem),
-  hero-subtitle: clamp(1rem, 2.5vw + 0.25rem, 1.45rem),
-  hero-description: clamp(1.125rem, 2.2vw + 0.3rem, 1.375rem),
-  button: clamp(0.9rem, 1.8vw + 0.15rem, 1.1rem),
-  // Mobile-specific
-  mobile-title: clamp(1.85rem, 7vw, 2.75rem),
-  mobile-subtitle: clamp(0.95rem, 3.5vw, 1.2rem),
-  mobile-description: clamp(1.05rem, 4vw, 1.25rem)
+  // Improved proportional scaling with better mathematical progression
+  hero-title: clamp(1.875rem, 2.4vw + 1.2rem, 3.5rem),
+  // 30px → 56px
+  hero-subtitle: clamp(1rem, 1.2vw + 0.4rem, 1.375rem),
+  // 16px → 22px
+  hero-description: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem),
+  // 17px → 20px
+  button: clamp(0.875rem, 0.8vw + 0.4rem, 1rem),
+  // 14px → 16px
+  // Device-specific optimizations
+  mobile-title: clamp(1.75rem, 5.5vw, 2.5rem),
+  // 28px → 40px
+  mobile-subtitle: clamp(0.9375rem, 3vw, 1.125rem),
+  // 15px → 18px
+  mobile-description: clamp(1rem, 3.5vw, 1.1875rem),
+  // 16px → 19px
+  // Pro devices (393px+)
+  pro-title: clamp(2rem, 3.8vw + 0.8rem, 3.25rem),
+  // 32px → 52px
+  pro-subtitle: clamp(1rem, 1.4vw + 0.3rem, 1.3125rem),
+  // 16px → 21px
+  pro-description: clamp(1.0625rem, 1.1vw + 0.4rem, 1.25rem),
+  // 17px → 20px
+  // Tablet optimizations (768px+)
+  tablet-title: clamp(2.25rem, 2.8vw + 1rem, 3.5rem),
+  // 36px → 56px
+  tablet-subtitle: clamp(1.0625rem, 1.1vw + 0.4rem, 1.375rem),
+  // 17px → 22px
+  tablet-description: clamp(1.0625rem, 0.9vw + 0.5rem, 1.25rem),
+  // 17px → 20px
 );
 
 $hero-animations: (
@@ -139,32 +164,41 @@ $hero-animations: (
 );
 
 $glass-effects: (
-  blur-primary: 28px,
-  blur-secondary: 18px,
-  blur-subtle: 10px,
-  border-radius: 28px,
-  border-radius-large: 36px,
-  // Mobile-optimized
-  mobile-blur: 12px,
-  mobile-radius: 20px,
+  // Proportional glass effects
+  blur-primary: clamp(16px, 3vw, 28px),
+  blur-secondary: clamp(12px, 2.4vw, 20px),
+  blur-subtle: clamp(8px, 1.6vw, 12px),
+  // Border radius progression
+  border-radius: clamp(16px, 3.2vw, 24px),
+  border-radius-large: clamp(20px, 4vw, 32px),
+  border-radius-small: clamp(12px, 2.4vw, 18px),
+  // Mobile-specific
+  mobile-blur: 10px,
+  mobile-radius: 16px,
+  mobile-radius-large: 20px
 );
 
 // Current active alignment - CENTERED for optimal toolbar compatibility
 $active-alignment: centered;
 
 // =============================================================================
-// SIMPLIFIED RESPONSIVE BREAKPOINTS - WITHIN 1200PX CONSTRAINT
+// REFINED RESPONSIVE BREAKPOINTS
 // =============================================================================
 $breakpoints: (
-  xs: 375px,
+  xs: 320px,
   // Small phones
-  sm: 393px,
+  sm: 375px,
+  // iPhone SE, older devices
+  md: 393px,
   // iPhone 14 Pro / Pixel 7 Pro
-  md: 768px,
+  lg: 430px,
+  // iPhone 14 Pro Max
+  xl: 768px,
   // Tablets
-  lg: 1024px,
+  xxl: 1024px,
   // Large tablets/small laptops
-  // No xl needed since max-width is 1200px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  xxxl: 1200px,
+  // Desktop constraint
 );
 
 // =============================================================================
@@ -272,7 +306,8 @@ $breakpoints: (
   @include glass-surface(secondary, map-get($glass-effects, blur-secondary));
   @include glass-glow-border(subtle);
 
-  padding: clamp(0.875rem, 2.2vw, 1.125rem) clamp(1.75rem, 4vw, 2.25rem);
+  padding: map-get($hero-spacing, content-small)
+    map-get($hero-spacing, content-large);
   border-radius: map-get($glass-effects, border-radius);
   font-family: "DM Sans", sans-serif;
   font-size: map-get($hero-typography, button);
@@ -280,7 +315,8 @@ $breakpoints: (
   text-decoration: none;
   cursor: pointer;
   text-align: center;
-  min-width: 8rem;
+  min-width: 7rem;
+  min-height: 2.75rem; // 44px touch target
   position: relative;
   overflow: hidden;
   display: inline-flex;
@@ -316,39 +352,41 @@ $breakpoints: (
 }
 
 // =============================================================================
-// HERO LAYOUT - CENTERED WITHIN 1200PX CONSTRAINT
+// HERO LAYOUT - PROPORTIONAL CONTAINER SYSTEM
 // =============================================================================
 
-// Hero wrapper that sits above particles with proper toolbar spacing
+// Hero wrapper with improved proportional spacing
 .hero-content-wrapper {
   position: relative;
-  z-index: 10; // Above particles (z-index: 2)
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1200px; // Container constraint
-  margin: 0 auto; // Center the container
-  min-height: calc(100vh - map-get($hero-spacing, toolbar-offset));
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
-  margin-top: map-get($hero-spacing, toolbar-offset);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - map-get($hero-spacing, desktop-toolbar));
+  padding: map-get($hero-spacing, content-xlarge)
+    map-get($hero-spacing, content-medium);
+  margin-top: map-get($hero-spacing, desktop-toolbar);
 }
 
-// Main glassmorphism hero container - CENTERED DESIGN
+// Main glassmorphism hero container with proportional sizing
 .futuristic-glass-hero {
   @include glass-surface(primary);
   @include glass-glow-border;
 
   position: relative;
-  max-width: min(700px, 90vw); // Smaller since contained in 1200px
+  max-width: min(42rem, 92vw); // 672px max, proportional to container
   width: 100%;
   border-radius: map-get($glass-effects, border-radius-large);
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  padding: map-get($hero-spacing, content-xlarge)
+    map-get($hero-spacing, content-large);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(1.25rem, 3.5vw, 2.25rem);
+  gap: map-get($hero-spacing, content-large);
 
   // Enhanced gradient overlay for better depth
   &::before {
@@ -380,18 +418,18 @@ $breakpoints: (
 // TYPEWRITER
 // =============================================================================
 .typerwrite {
-  margin-top: 30px;
+  margin-top: map-get($hero-spacing, content-large);
 }
 
 // =============================================================================
-// FLOATING ACCENT ELEMENTS - CENTERED
+// FLOATING ACCENT ELEMENTS - PROPORTIONAL
 // =============================================================================
 
 .glass-accent-line {
   width: clamp(3.5rem, 8vw, 5rem);
   height: clamp(3px, 0.8vw, 4px);
   border-radius: 3px;
-  margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+  margin-bottom: map-get($hero-spacing, content-medium);
   position: relative;
   overflow: hidden;
   align-self: center;
@@ -435,26 +473,26 @@ $breakpoints: (
   }
 }
 
-// Enhanced floating decorative elements - Scaled for container
+// Enhanced floating decorative elements - Proportional scaling
 .glass-decoration {
   position: absolute;
   pointer-events: none;
 
   &.deco-1 {
-    top: -20px;
-    right: -15px;
-    width: clamp(30px, 6vw, 40px);
-    height: clamp(30px, 6vw, 40px);
+    top: -1.25rem;
+    right: -0.9375rem;
+    width: clamp(1.875rem, 4vw, 2.5rem);
+    height: clamp(1.875rem, 4vw, 2.5rem);
     @include glass-surface(accent, map-get($glass-effects, blur-subtle));
     border-radius: 50%;
     animation: floatDecoration 5s ease-in-out infinite;
   }
 
   &.deco-2 {
-    bottom: -25px;
-    left: -20px;
-    width: clamp(40px, 8vw, 55px);
-    height: clamp(18px, 4vw, 25px);
+    bottom: -1.5625rem;
+    left: -1.25rem;
+    width: clamp(2.5rem, 5vw, 3.4375rem);
+    height: clamp(1.125rem, 2.5vw, 1.5625rem);
     @include glass-surface(secondary, map-get($glass-effects, blur-subtle));
     border-radius: 35px;
     animation: floatDecoration 4s ease-in-out infinite reverse;
@@ -462,9 +500,9 @@ $breakpoints: (
 
   &.deco-3 {
     top: 50%;
-    right: -30px;
-    width: clamp(22px, 5vw, 30px);
-    height: clamp(22px, 5vw, 30px);
+    right: -1.875rem;
+    width: clamp(1.375rem, 3vw, 1.875rem);
+    height: clamp(1.375rem, 3vw, 1.875rem);
     @include glass-surface(accent, map-get($glass-effects, blur-subtle));
     border-radius: 8px;
     transform: rotate(45deg);
@@ -473,7 +511,7 @@ $breakpoints: (
 }
 
 // =============================================================================
-// CUBE LOGO STYLING - OPTIMIZED FOR CONTAINER
+// CUBE LOGO STYLING - PROPORTIONAL SIZING
 // =============================================================================
 
 .cube-logo-bottom-container {
@@ -481,8 +519,8 @@ $breakpoints: (
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: clamp(8rem, 6vw, 2.5rem);
-  margin-bottom: clamp(2rem, 6vw, 4rem);
+  margin-top: clamp(3rem, 8vw, 5rem);
+  margin-bottom: map-get($hero-spacing, content-xlarge);
   position: relative;
 }
 
@@ -491,7 +529,7 @@ $breakpoints: (
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: map-get($hero-spacing, content-large);
   position: relative;
 
   // Enhanced glow effect for the logo container
@@ -501,8 +539,8 @@ $breakpoints: (
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: clamp(80px, 12vw, 120px);
-    height: clamp(80px, 12vw, 120px);
+    width: clamp(5rem, 10vw, 7.5rem);
+    height: clamp(5rem, 10vw, 7.5rem);
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
@@ -532,8 +570,8 @@ $breakpoints: (
 }
 
 .cube-logo {
-  width: clamp(65px, 10vw, 100px);
-  height: clamp(65px, 10vw, 100px);
+  width: clamp(4rem, 8vw, 6.25rem); // 64px → 100px
+  height: clamp(4rem, 8vw, 6.25rem); // 64px → 100px
   display: block;
   position: relative;
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.15));
@@ -585,7 +623,7 @@ $breakpoints: (
 }
 
 // =============================================================================
-// ENHANCED TYPOGRAPHY - OPTIMIZED FOR CONTAINER
+// ENHANCED TYPOGRAPHY - PROPORTIONAL SYSTEM
 // =============================================================================
 
 .floating-element {
@@ -621,7 +659,7 @@ $breakpoints: (
   width: 100%;
   display: block;
   line-height: 0.9;
-  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: map-get($hero-spacing, content-medium);
   margin-top: 0;
 
   // Enhanced gradient text implementation
@@ -718,22 +756,20 @@ $breakpoints: (
   font-family: "Inter", sans-serif;
   font-size: map-get($hero-typography, hero-subtitle);
   font-weight: 500;
-  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
+  margin-bottom: map-get($hero-spacing, content-medium);
   letter-spacing: clamp(0.015em, 0.3vw, 0.08em);
   text-align: center;
   width: 100%;
   line-height: 1.4;
 
   .light & {
-    // Recon-inspired light theme: cool slate blue text, soft cyan glow
-    color: #2e4a62; // Slate blue
-    text-shadow: 0 0 14px #7fd8e6; // Soft cyan glow
+    color: #2e4a62;
+    text-shadow: 0 0 14px #7fd8e6;
   }
 
   .dark & {
-    // Recon-inspired dark theme: pale blue text, neon blue glow
-    color: #b3eaff; // Pale blue
-    text-shadow: 0 0 14px #00bfff; // Neon blue glow
+    color: #b3eaff;
+    text-shadow: 0 0 14px #00bfff;
   }
 }
 
@@ -743,8 +779,8 @@ $breakpoints: (
   font-family: "Roboto", sans-serif;
   font-size: map-get($hero-typography, hero-description);
   font-weight: 400;
-  margin-top: clamp(1.25rem, 2vw, 2rem);
-  margin-bottom: clamp(2rem, 3vw, 2.25rem);
+  margin-top: map-get($hero-spacing, content-medium);
+  margin-bottom: map-get($hero-spacing, content-large);
   line-height: 1.6;
   text-align: center;
   width: 100%;
@@ -762,14 +798,14 @@ $breakpoints: (
 }
 
 // =============================================================================
-// GLASS BUTTONS - OPTIMIZED FOR CONTAINER
+// GLASS BUTTONS - PROPORTIONAL SIZING
 // =============================================================================
 
 .glass-buttons-container,
 .buttons-element {
   display: flex;
-  gap: clamp(1rem, 3vw, 1.75rem);
-  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+  gap: map-get($hero-spacing, content-medium);
+  margin-top: map-get($hero-spacing, content-medium);
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -783,24 +819,16 @@ $breakpoints: (
   @include glass-button-base;
 
   .light & {
-    color: #23272b; // Military white text (deep slate)
-    background: linear-gradient(
-      90deg,
-      #f8fafb 0%,
-      #e8ecec 100%
-    ); // Military white/gray
-    border-color: #bfc1bd; // Camouflage gray border
+    color: #23272b;
+    background: linear-gradient(90deg, #f8fafb 0%, #e8ecec 100%);
+    border-color: #bfc1bd;
     box-shadow: 0 0 0 0 transparent;
   }
 
   .dark & {
-    color: #e0eaff; // Military sand (pale blue/white)
-    background: linear-gradient(
-      90deg,
-      #23272b 0%,
-      #31363b 100%
-    ); // Military dark
-    border-color: #6e706b; // Camouflage dark border
+    color: #e0eaff;
+    background: linear-gradient(90deg, #23272b 0%, #31363b 100%);
+    border-color: #6e706b;
     box-shadow: 0 0 0 0 transparent;
   }
 
@@ -919,7 +947,7 @@ $breakpoints: (
 }
 
 // =============================================================================
-// STREAMLINED RESPONSIVE DESIGN - OPTIMIZED FOR 1200PX MAX CONTAINER
+// IMPROVED RESPONSIVE DESIGN - PROPORTIONAL MOBILE SPACING
 // =============================================================================
 
 // Extra small phones (iPhone SE, older devices)
@@ -927,21 +955,23 @@ $breakpoints: (
   .hero-content-wrapper {
     min-height: calc(100vh - map-get($hero-spacing, mobile-toolbar));
     margin-top: map-get($hero-spacing, mobile-toolbar);
-    padding: clamp(1.5rem, 4vw, 1.75rem) clamp(0.75rem, 2.5vw, 1rem);
+    padding: map-get($hero-spacing, content-medium)
+      map-get($hero-spacing, content-small);
   }
 
   .futuristic-glass-hero {
     max-width: 96vw;
     border-radius: map-get($glass-effects, mobile-radius);
-    padding: clamp(1.5rem, 5vw, 1.75rem) clamp(1rem, 3.5vw, 1.25rem);
-    gap: clamp(1rem, 2.5vw, 1.25rem);
+    padding: map-get($hero-spacing, content-medium)
+      map-get($hero-spacing, content-small);
+    gap: map-get($hero-spacing, content-small);
     backdrop-filter: blur(map-get($glass-effects, mobile-blur));
     -webkit-backdrop-filter: blur(map-get($glass-effects, mobile-blur));
   }
 
   .cube-logo {
-    width: clamp(50px, 10vw, 60px);
-    height: clamp(50px, 10vw, 60px);
+    width: clamp(3.125rem, 12vw, 3.75rem); // 50px → 60px
+    height: clamp(3.125rem, 12vw, 3.75rem); // 50px → 60px
   }
 
   .glass-title,
@@ -969,114 +999,205 @@ $breakpoints: (
   }
 }
 
-// iPhone 14 Pro (393px) and similar devices
+// iPhone 14 Pro (393px) and similar devices - ENHANCED PROPORTIONAL SPACING
 @media (min-width: 375px) and (max-width: 430px) {
   .hero-content-wrapper {
     min-height: calc(100vh - map-get($hero-spacing, pro-toolbar));
     margin-top: map-get($hero-spacing, pro-toolbar);
-    padding: clamp(1.75rem, 4vw, 2rem) clamp(1rem, 3vw, 1.25rem);
+    padding: clamp(1.75rem, 4.5vw, 2.25rem) clamp(1.125rem, 3vw, 1.5rem);
   }
 
   .futuristic-glass-hero {
-    max-width: 94vw;
+    max-width: clamp(22rem, 92vw, 26rem); // 352px → 416px
     border-radius: map-get($glass-effects, border-radius);
-    padding: clamp(1.75rem, 5.5vw, 2.25rem) clamp(1.25rem, 4vw, 1.75rem);
-    gap: clamp(1.25rem, 3vw, 1.75rem);
+    padding: clamp(2rem, 5vw, 2.5rem) clamp(1.5rem, 4vw, 2rem);
+    gap: clamp(1.375rem, 3.2vw, 1.75rem);
   }
 
   .cube-logo-container {
-    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(1.125rem, 2.8vw, 1.5rem);
   }
 
   .cube-logo {
-    width: clamp(60px, 12vw, 75px);
-    height: clamp(60px, 12vw, 75px);
+    width: clamp(3.75rem, 10vw, 4.6875rem); // 60px → 75px
+    height: clamp(3.75rem, 10vw, 4.6875rem); // 60px → 75px
+  }
+
+  .glass-title,
+  .hero-card__title,
+  .gradient-text {
+    font-size: map-get($hero-typography, pro-title);
+    margin-bottom: clamp(0.875rem, 2.2vw, 1.125rem);
+  }
+
+  .glass-subtitle,
+  .hero-card__subtitle,
+  .subtitle {
+    font-size: map-get($hero-typography, pro-subtitle);
+    margin-bottom: clamp(1.125rem, 2.8vw, 1.5rem);
+  }
+
+  .glass-description,
+  .hero-card__description,
+  .description {
+    font-size: map-get($hero-typography, pro-description);
+    margin-top: clamp(1.125rem, 2.8vw, 1.5rem);
+    margin-bottom: clamp(1.75rem, 4.2vw, 2.25rem);
   }
 
   .glass-buttons-container,
   .buttons-element {
     flex-direction: column;
     align-items: center;
-    gap: 1.125rem;
+    gap: clamp(1rem, 2.6vw, 1.375rem);
 
     .glass-button,
     .min-button,
     .min-button-fill {
       width: 100%;
-      max-width: 260px;
+      max-width: clamp(15rem, 80vw, 18rem); // 240px → 288px
       min-width: auto;
-      padding: clamp(0.875rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 1.75rem);
+      padding: clamp(0.875rem, 2.2vw, 1.125rem) clamp(1.5rem, 3.8vw, 2rem);
+      min-height: 2.75rem; // 44px touch target
     }
   }
 }
 
-// Large phones and small tablets (Pixel 7 Pro and up)
+// Large phones and small tablets (430px+) - IMPROVED SPACING
 @media (min-width: 431px) and (max-width: 767px) {
   .hero-content-wrapper {
     min-height: calc(100vh - map-get($hero-spacing, pro-toolbar));
     margin-top: map-get($hero-spacing, pro-toolbar);
-    padding: clamp(2rem, 4.5vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
+    padding: clamp(2.25rem, 4.5vw, 2.75rem) clamp(1.375rem, 3vw, 1.875rem);
   }
 
   .futuristic-glass-hero {
-    max-width: 92vw;
-    padding: clamp(2rem, 5.5vw, 2.75rem) clamp(1.5rem, 4vw, 2.25rem);
-    gap: clamp(1.5rem, 3.5vw, 2rem);
+    max-width: clamp(26rem, 88vw, 32rem); // 416px → 512px
+    padding: clamp(2.25rem, 4.8vw, 3rem) clamp(1.75rem, 3.8vw, 2.5rem);
+    gap: clamp(1.5rem, 3.4vw, 2rem);
   }
 
   .cube-logo {
-    width: clamp(70px, 13vw, 85px);
-    height: clamp(70px, 13vw, 85px);
+    width: clamp(4.375rem, 9vw, 5.3125rem); // 70px → 85px
+    height: clamp(4.375rem, 9vw, 5.3125rem); // 70px → 85px
+  }
+
+  .glass-title,
+  .hero-card__title,
+  .gradient-text {
+    font-size: clamp(2.125rem, 3.6vw + 0.6rem, 3rem); // 34px → 48px
+  }
+
+  .glass-subtitle,
+  .hero-card__subtitle,
+  .subtitle {
+    font-size: clamp(1.0625rem, 1.2vw + 0.4rem, 1.25rem); // 17px → 20px
+  }
+
+  .glass-description,
+  .hero-card__description,
+  .description {
+    font-size: clamp(1.0625rem, 1vw + 0.5rem, 1.1875rem); // 17px → 19px
   }
 
   .glass-buttons-container,
   .buttons-element {
     flex-direction: row;
-    gap: clamp(1.125rem, 3vw, 1.5rem);
+    gap: clamp(1.25rem, 2.8vw, 1.75rem);
 
     .glass-button,
     .min-button,
     .min-button-fill {
       width: auto;
-      min-width: clamp(110px, 22vw, 140px);
-      max-width: 180px;
+      min-width: clamp(7.5rem, 18vw, 10rem); // 120px → 160px
+      max-width: 11.25rem; // 180px
+      padding: clamp(0.875rem, 2vw, 1.125rem) clamp(1.375rem, 3.2vw, 1.875rem);
     }
   }
 }
 
-// Tablets (768px and up)
+// Tablets (768px+) - REFINED PROPORTIONS
 @media (min-width: 768px) {
   .hero-content-wrapper {
     min-height: calc(100vh - map-get($hero-spacing, tablet-toolbar));
     margin-top: map-get($hero-spacing, tablet-toolbar);
-    padding: clamp(2.5rem, 4vw, 3.25rem) clamp(1.5rem, 2.5vw, 2rem);
+    padding: clamp(2.75rem, 3.8vw, 3.5rem) clamp(1.75rem, 2.4vw, 2.25rem);
   }
 
   .futuristic-glass-hero {
-    max-width: min(650px, 85vw);
-    padding: clamp(2.5rem, 4.5vw, 3.25rem) clamp(2rem, 3.5vw, 2.75rem);
-    gap: clamp(1.75rem, 3vw, 2.25rem);
+    max-width: clamp(32rem, 82vw, 40rem); // 512px → 640px
+    padding: clamp(2.75rem, 3.6vw, 3.5rem) clamp(2.25rem, 3vw, 3rem);
+    gap: clamp(1.875rem, 2.6vw, 2.5rem);
   }
 
   .cube-logo-container {
-    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(1.75rem, 2.4vw, 2.25rem);
   }
 
   .cube-logo {
-    width: clamp(80px, 12vw, 95px);
-    height: clamp(80px, 12vw, 95px);
+    width: clamp(5rem, 8vw, 5.9375rem); // 80px → 95px
+    height: clamp(5rem, 8vw, 5.9375rem); // 80px → 95px
+  }
+
+  .glass-title,
+  .hero-card__title,
+  .gradient-text {
+    font-size: map-get($hero-typography, tablet-title);
+  }
+
+  .glass-subtitle,
+  .hero-card__subtitle,
+  .subtitle {
+    font-size: map-get($hero-typography, tablet-subtitle);
+  }
+
+  .glass-description,
+  .hero-card__description,
+  .description {
+    font-size: map-get($hero-typography, tablet-description);
   }
 
   .glass-buttons-container,
   .buttons-element {
     flex-direction: row;
-    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    gap: clamp(1.5rem, 2.2vw, 2rem);
 
     .glass-button,
     .min-button,
     .min-button-fill {
       width: auto;
-      min-width: clamp(130px, 18vw, 160px);
+      min-width: clamp(8.75rem, 16vw, 11.25rem); // 140px → 180px
+      padding: clamp(1rem, 1.4vw, 1.25rem) clamp(1.75rem, 2.6vw, 2.25rem);
+    }
+  }
+}
+
+// Large tablets/Desktop (1024px+) - OPTIMIZED FOR CONTAINER
+@media (min-width: 1024px) {
+  .hero-content-wrapper {
+    padding: clamp(3.25rem, 3.2vw, 4rem) clamp(2rem, 2vw, 2.5rem);
+  }
+
+  .futuristic-glass-hero {
+    max-width: clamp(38rem, 75vw, 42rem); // 608px → 672px (golden ratio)
+    padding: clamp(3.25rem, 3.2vw, 4rem) clamp(2.75rem, 2.8vw, 3.5rem);
+    gap: clamp(2rem, 2.2vw, 2.75rem);
+  }
+
+  .cube-logo {
+    width: clamp(5.625rem, 6vw, 6.25rem); // 90px → 100px
+    height: clamp(5.625rem, 6vw, 6.25rem); // 90px → 100px
+  }
+
+  .glass-buttons-container,
+  .buttons-element {
+    gap: clamp(1.75rem, 1.8vw, 2.25rem);
+
+    .glass-button,
+    .min-button,
+    .min-button-fill {
+      min-width: clamp(10rem, 14vw, 12rem); // 160px → 192px
+      padding: clamp(1.125rem, 1.2vw, 1.375rem) clamp(2rem, 2.2vw, 2.5rem);
     }
   }
 }
@@ -1155,14 +1276,14 @@ $breakpoints: (
   }
 }
 
-// Touch-specific optimizations
+// Touch-specific optimizations - IMPROVED TOUCH TARGETS
 @media (hover: none) and (pointer: coarse) {
   .glass-button,
   .min-button,
   .min-button-fill {
-    min-height: 44px;
-    min-width: 44px;
-    padding: clamp(0.875rem, 3vw, 1.125rem) clamp(1.5rem, 4.5vw, 2rem);
+    min-height: 2.75rem; // 44px minimum
+    min-width: 2.75rem; // 44px minimum
+    padding: clamp(0.875rem, 2.8vw, 1.25rem) clamp(1.5rem, 4vw, 2.25rem);
   }
 
   .cube-logo {
@@ -1178,29 +1299,29 @@ $breakpoints: (
   .hero-content-wrapper {
     min-height: calc(100vh - 3rem);
     margin-top: 3rem;
-    padding: clamp(1rem, 2.5vh, 1.75rem) clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(1rem, 2vh, 1.5rem) clamp(1rem, 2.5vw, 1.75rem);
   }
 
   .futuristic-glass-hero {
-    padding: clamp(1.25rem, 3vh, 2rem) clamp(1.25rem, 3vw, 1.75rem);
-    gap: clamp(0.875rem, 2.5vh, 1.25rem);
+    padding: clamp(1.25rem, 2.5vh, 1.75rem) clamp(1.25rem, 2.8vw, 2rem);
+    gap: clamp(0.875rem, 2vh, 1.25rem);
   }
 
   .cube-logo {
-    width: clamp(45px, 6vh, 70px);
-    height: clamp(45px, 6vh, 70px);
+    width: clamp(2.8125rem, 5vh, 4.375rem); // 45px → 70px
+    height: clamp(2.8125rem, 5vh, 4.375rem); // 45px → 70px
   }
 
   .glass-buttons-container,
   .buttons-element {
     flex-direction: row;
-    gap: clamp(0.875rem, 2.5vw, 1.25rem);
+    gap: clamp(0.875rem, 2vw, 1.5rem);
 
     .glass-button,
     .min-button,
     .min-button-fill {
-      padding: clamp(0.625rem, 1.5vh, 0.875rem) clamp(1.125rem, 3vw, 1.5rem);
-      min-width: clamp(90px, 18vw, 120px);
+      padding: clamp(0.625rem, 1.2vh, 0.875rem) clamp(1.125rem, 2.5vw, 1.75rem);
+      min-width: clamp(6rem, 16vw, 8.75rem); // 96px → 140px
     }
   }
 }
