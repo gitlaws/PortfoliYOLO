@@ -15,21 +15,25 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   bottom: 0;
   width: 100%;
   @include theme-mode-transition;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // color: transparent;
+  // margin-top: 16px;
+  // margin-bottom: 8px;
+  // &.light {
+  //   background-color: $lm-toolbar-background-color;
+  // }
 
-  &.light {
-    background-color: $lm-toolbar-background-color;
-  }
-
-  &.dark {
-    background-color: $dm-toolbar-background-color;
-  }
+  // &.dark {
+  //   background-color: $dm-toolbar-background-color;
+  // }
 }
 
 .footer-content {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
 }
 
 .footer-icon {

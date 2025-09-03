@@ -14,7 +14,7 @@ import { CubeLogoComponent } from '../toolbar/cube-logo/cube-logo.component';
 export class FooterComponent implements OnInit {
   theme!: 'light' | 'dark';
   isDarkMode: boolean = false;
-  isFooterHidden: boolean = true; // Initially hidden
+  isFooterHidden: boolean = false; // Initially hidden
   scrollTimeout: any; // Timeout to hide the footer after scrolling stops
   isMouseOver: boolean = false; // Track mouse hover state
 
