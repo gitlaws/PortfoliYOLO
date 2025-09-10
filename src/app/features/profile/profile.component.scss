@@ -23,7 +23,7 @@ $color-surface-dark: #0f0f0f; // Rich charcoal, deeper than bg
 $color-shadow: #000000;
 
 // Refined primary colors with better variations
-$color-primary: #bb2a8b; // Refined dark blue-grey for a modern, less saturated look
+$color-primary: #4b5563; // Refined dark blue-grey for a modern, less saturated look
 $color-headline-dark: #22223b; // Dark color for headlines in light mode
 $color-primary-light: #ebe7e5; // Light grey instead of blue
 $color-primary-dark: #374151; // Dark grey instead of blue
@@ -328,11 +328,28 @@ $transition-interactive: background-color 0.2s ease-out,
     object-fit: cover;
     margin-bottom: 1.5rem;
     border: 3px solid transparent;
-    background: linear-gradient($color-surface-light, $color-surface-light)
-        padding-box,
-      linear-gradient(135deg, $color-primary, $color-primary-light) border-box;
-    transition: $transition-smooth;
-    box-shadow: $shadow-elevated, 0 0 0 1px rgba($color-primary, 0.1);
+    // Light mode
+    &.light {
+      // Option 1: Military olive green shade
+      background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
+        linear-gradient(135deg, #3a3a4d, #6b6e4a) border-box;
+
+      // Option 2: Military muted khaki shade
+      // background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
+      //   linear-gradient(135deg, #b3b38c, #ebe7e5) border-box;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+        0 4px 6px -2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(187, 42, 139, 0.1);
+    }
+
+    // Dark mode
+    &.dark {
+      background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
+        linear-gradient(135deg, #6b7280, #374151) border-box;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+        0 4px 6px -2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(107, 114, 128, 0.1);
+    }
 
     // &:hover {
     //   transform: scale(1.02);

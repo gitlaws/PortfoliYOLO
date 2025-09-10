@@ -23,10 +23,11 @@
           class="profile-photo"
           src="assets/profile.jpg"
           alt="Profile Photo"
+          [ngClass]="theme"
         />
-        <h2 class="profile-name">Stanisław Wasilewski</h2>
-        <p class="profile-title">Full Stack Developer</p>
-        <div class="profile-details">
+        <h2 class="profile-name" [ngClass]="theme">Stanisław Wasilewski</h2>
+        <p class="profile-title" [ngClass]="theme">Full Stack Developer</p>
+        <div class="profile-details" [ngClass]="theme">
           <div class="profile-detail location" [ngClass]="theme">
             <i class="fas fa-map-marker-alt"></i>
             <span>East Lansing, MI</span>
