@@ -668,16 +668,16 @@ $transition-interactive: background-color 0.2s ease-out,
       color: #b3b8b8;
     }
     .about-text {
-      color: $color-text-dark;
+      color: #b3b8b8; // Military tone, light and readable for dark mode
     }
     .timeline-content h3 {
-      color: $color-text-dark;
+      color: #b3b8b8;
     }
     .timeline-subtitle {
-      color: $color-text-dark-muted;
+      color: #b3b8b8;
     }
     .timeline-content p {
-      color: $color-text-dark-muted;
+      color: #b3b8b8;
     }
   }
 
