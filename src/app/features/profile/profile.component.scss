@@ -585,19 +585,19 @@ $transition-interactive: background-color 0.2s ease-out,
         font-size: 0.75rem; // 12px
         font-weight: 700;
         margin-bottom: 0.75rem;
-        color: $color-text; // Default light mode
+        // color: red; // Default light mode
         text-transform: uppercase;
         letter-spacing: 0.1em;
         opacity: 0.8;
 
         // Light mode styling
         &.light {
-          color: $color-text;
+          color: #3a3a4d;
         }
 
         // Dark mode styling
         &.dark {
-          color: $color-text-dark;
+          color: #6b7280; // Military gray, good for dark mode text headers
         }
       }
 
@@ -665,7 +665,7 @@ $transition-interactive: background-color 0.2s ease-out,
 
   &.dark {
     .section-title {
-      color: $color-primary-muted;
+      color: #b3b8b8;
     }
     .about-text {
       color: $color-text-dark;
