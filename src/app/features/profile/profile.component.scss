@@ -574,25 +574,12 @@ $transition-interactive: background-color 0.2s ease-out,
   padding: 2rem 1.5rem;
   transition: $transition-smooth;
 
-  // Remove the duplicate .skill-category h4 block from the &.dark section
-  // &.light {
-  //   .skills-title {
-  //     color: #3a3a4d;
-  //   }
-  // }
-
-  // &.dark {
-  //   .skills-title {
-  //     color: #b3b8b8; // Soft military gray for dark mode
-  //   }
-  // }
-
   .skills-title {
     font-family: "Roboto";
     font-size: 1.125rem; // 18px
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: $color-primary;
+    // color: $color-primary;
     text-align: center;
     letter-spacing: -0.025em;
 
@@ -620,18 +607,15 @@ $transition-interactive: background-color 0.2s ease-out,
         text-transform: uppercase;
         letter-spacing: 0.1em;
         opacity: 0.8;
-
-        // Light mode styling
-        &.light {
-          color: #3a3a4d;
-        }
-
-        // Dark mode styling
-        &.dark {
-          color: #6b7280; // Military gray, good for dark mode text headers
-        }
       }
 
+      &.light h4 {
+        color: #3a3a4d;
+      }
+
+      &.dark h4 {
+        color: #b3b8b8;
+      }
       .skill-tag {
         display: inline-block;
         margin: 0.25rem 0.375rem 0.25rem 0;
@@ -645,32 +629,36 @@ $transition-interactive: background-color 0.2s ease-out,
         border: 1px solid transparent;
         letter-spacing: 0.025em;
 
+        // Skill tag colors for light mode
+        &.light {
+          background: linear-gradient(135deg, #f6f7f9 0%, #e3e6ee 100%);
+          color: #2d3142;
+          border-color: #d1d5db;
+          box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+        }
+
+        // Skill tag colors for dark mode
+        &.dark {
+          background: linear-gradient(135deg, #23243a 0%, #35365c 100%);
+          color: #e0e3ea;
+          border-color: #3a3a4d;
+          box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+        }
+
         &.level-5 {
-          background: linear-gradient(
-            135deg,
-            $color-primary,
-            lighten($color-primary, 5%)
-          );
-          color: white;
+          background: linear-gradient(135deg, #4b5563, #6b7280);
+          color: #fff;
           box-shadow: $shadow-subtle, inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         &.level-4 {
-          background: linear-gradient(
-            135deg,
-            $color-primary-light,
-            lighten($color-primary-light, 3%)
-          );
-          color: $color-primary-dark;
-          border-color: rgba($color-primary, 0.2);
+          background: linear-gradient(135deg, #e0e7ef, #cfd8e3);
+          color: #374151;
+          border-color: #9ca3af;
         }
         &.level-3 {
-          background: linear-gradient(
-            135deg,
-            $color-bg-light,
-            lighten($color-bg-light, 2%)
-          );
-          color: $color-primary;
-          border-color: rgba($color-primary, 0.15);
+          background: linear-gradient(135deg, #f8fafc, #e5e7eb);
+          color: #4b5563;
+          border-color: #d1d5db;
         }
       }
     }
