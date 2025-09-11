@@ -137,7 +137,7 @@
           <div class="timeline-item">
             <div class="timeline-marker" [ngClass]="theme"></div>
             <div class="timeline-content" [ngClass]="theme">
-              <h3>Senior Developer</h3>
+              <h3 [ngClass]="theme">Senior Developer</h3>
               <p class="timeline-subtitle" [ngClass]="theme">
                 TechCorp &mdash; 2021–Present
               </p>
@@ -150,8 +150,10 @@
           <div class="timeline-item" [ngClass]="theme">
             <div class="timeline-marker" [ngClass]="theme"></div>
             <div class="timeline-content" [ngClass]="theme">
-              <h3>Frontend Developer</h3>
-              <p class="timeline-subtitle">WebWorks &mdash; 2018–2021</p>
+              <h3 [ngClass]="theme">Frontend Developer</h3>
+              <p class="timeline-subtitle" [ngClass]="theme">
+                WebWorks &mdash; 2018–2021
+              </p>
               <p>
                 Built responsive React interfaces and collaborated closely with
                 designers to deliver seamless user experiences.
@@ -163,13 +165,13 @@
 
       <!-- Education Section -->
       <section class="about-section" id="education" [ngClass]="theme">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title" [ngClass]="theme">Education</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>ABA Business Administration</h3>
-              <p class="timeline-subtitle">
+            <div class="timeline-content" [ngClass]="theme">
+              <h3 [ngClass]="theme">ABA Business Administration</h3>
+              <p class="timeline-subtitle" [ngClass]="theme">
                 Lansing Community College &mdash; 2013
               </p>
               <p>

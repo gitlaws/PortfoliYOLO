@@ -629,36 +629,28 @@ $transition-interactive: background-color 0.2s ease-out,
         border: 1px solid transparent;
         letter-spacing: 0.025em;
 
-        // Skill tag colors for light mode
-        &.light {
-          background: linear-gradient(135deg, #f6f7f9 0%, #e3e6ee 100%);
-          color: #2d3142;
-          border-color: #d1d5db;
-          box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
-        }
-
-        // Skill tag colors for dark mode
-        &.dark {
-          background: linear-gradient(135deg, #23243a 0%, #35365c 100%);
-          color: #e0e3ea;
-          border-color: #3a3a4d;
-          box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
-        }
-
         &.level-5 {
-          background: linear-gradient(135deg, #4b5563, #6b7280);
-          color: #fff;
+          background: linear-gradient(135deg, #3a3a4d, #424259);
+          color: white;
           box-shadow: $shadow-subtle, inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         &.level-4 {
-          background: linear-gradient(135deg, #e0e7ef, #cfd8e3);
-          color: #374151;
-          border-color: #9ca3af;
+          background: linear-gradient(
+            135deg,
+            $color-primary-light,
+            lighten($color-primary-light, 3%)
+          );
+          color: $color-primary-dark;
+          border-color: rgba($color-primary, 0.2);
         }
         &.level-3 {
-          background: linear-gradient(135deg, #f8fafc, #e5e7eb);
-          color: #4b5563;
-          border-color: #d1d5db;
+          background: linear-gradient(
+            135deg,
+            $color-bg-light,
+            lighten($color-bg-light, 2%)
+          );
+          color: $color-primary;
+          border-color: rgba($color-primary, 0.15);
         }
       }
     }
@@ -792,11 +784,19 @@ $transition-interactive: background-color 0.2s ease-out,
         color: $color-text;
         letter-spacing: -0.025em;
         line-height: 1.2;
+
+        &.light {
+          color: #22223b; // Deep blue-grey for light mode headline
+        }
+
+        &.dark {
+          color: #b3b8b8; // Light military grey for dark mode headline
+        }
       }
 
       .timeline-subtitle {
         font-size: 1rem; // 16px
-        color: #b3b8b8; // Soft military gray for dark mode subtitle
+        // color: red; // Soft military gray for dark mode subtitle
         margin-bottom: 0.75rem;
         font-weight: 600;
         font-family: "Roboto";
@@ -806,10 +806,16 @@ $transition-interactive: background-color 0.2s ease-out,
       p {
         font-family: "Roboto";
         font-size: 0.9375rem; // 15px
-        color: $color-text-light; // Fixed - was using dark color in light mode
         margin-bottom: 0.5rem;
         line-height: 1.6;
         letter-spacing: 0.005em;
+
+        &.light {
+          color: #22223b; // Deep blue-grey, readable on light backgrounds
+        }
+        &.dark {
+          color: #e5e7eb; // Very light grey, readable on dark backgrounds
+        }
 
         &:last-child {
           margin-bottom: 0;
