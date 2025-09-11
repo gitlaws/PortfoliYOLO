@@ -575,11 +575,17 @@ $transition-interactive: background-color 0.2s ease-out,
   transition: $transition-smooth;
 
   // Remove the duplicate .skill-category h4 block from the &.dark section
-  &.dark {
-    .skills-title {
-      color: $color-primary-muted;
-    }
-  }
+  // &.light {
+  //   .skills-title {
+  //     color: #3a3a4d;
+  //   }
+  // }
+
+  // &.dark {
+  //   .skills-title {
+  //     color: #b3b8b8; // Soft military gray for dark mode
+  //   }
+  // }
 
   .skills-title {
     font-family: "Roboto";
@@ -589,6 +595,14 @@ $transition-interactive: background-color 0.2s ease-out,
     color: $color-primary;
     text-align: center;
     letter-spacing: -0.025em;
+
+    &.light {
+      color: #3a3a4d;
+    }
+
+    &.dark {
+      color: #b3b8b8;
+    }
   }
 
   .skills-cloud {
