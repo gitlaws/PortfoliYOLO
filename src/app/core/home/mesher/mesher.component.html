@@ -1,95 +1,81 @@
 <div
-  class="blob-mesher-container"
+  class="animated-mesh-container"
   [class.active]="isActive"
   [attr.data-theme]="currentTheme"
   [attr.data-performance]="performanceMode"
+  [attr.data-intensity]="intensityLevel"
   #mesherContainer
 >
-  <!-- Main Canvas Layer for Blob Connections -->
+  <!-- Main Canvas for Mesh Gradient -->
   <canvas
-    #mesherCanvas
-    class="blob-canvas"
+    #meshCanvas
+    class="mesh-canvas"
     [width]="canvasWidth"
     [height]="canvasHeight"
     [attr.aria-hidden]="true"
     (mouseenter)="onMouseEnter($event)"
-    (mouseleave)="onMouseLeave($event)"
+    (mouseleave)="onMouseLeave()"
     (mousemove)="onMouseMove($event)"
   >
-    <p>Interactive blob morphism background visualization</p>
+    <p>Animated mesh gradient background with pastel colors</p>
   </canvas>
 
-  <!-- Blob Layers -->
-  <div class="blob-layers" [attr.aria-hidden]="true">
-    <!-- Primary Blobs -->
+  <!-- Color Points Visualization (for development) -->
+  <div
+    class="color-points-debug"
+    *ngIf="showDebugInfo && !isProduction"
+    [attr.aria-hidden]="true"
+  >
     <div
-      class="blob primary-blob"
-      *ngFor="let blob of primaryBlobs; trackBy: trackBlob; index as i"
-      [style.left.px]="blob.x"
-      [style.top.px]="blob.y"
-      [style.width.px]="blob.size"
-      [style.height.px]="blob.size"
-      [style.transform]="getBlobTransform(blob)"
-      [style.animation-delay]="blob.delay + 's'"
-      [style.animation-duration]="blob.duration + 's'"
-      [style.opacity]="blob.opacity"
-      [attr.data-blob-id]="blob.id"
-    ></div>
-
-    <!-- Secondary Blobs -->
-    <div
-      class="blob secondary-blob"
-      *ngFor="let blob of secondaryBlobs; trackBy: trackBlob; index as i"
-      [style.left.px]="blob.x"
-      [style.top.px]="blob.y"
-      [style.width.px]="blob.size"
-      [style.height.px]="blob.size"
-      [style.transform]="getBlobTransform(blob)"
-      [style.animation-delay]="blob.delay + 's'"
-      [style.animation-duration]="blob.duration + 's'"
-      [style.opacity]="blob.opacity"
-      [attr.data-blob-id]="blob.id"
-    ></div>
-
-    <!-- Accent Blobs -->
-    <div
-      class="blob accent-blob"
-      *ngFor="let blob of accentBlobs; trackBy: trackBlob; index as i"
-      [style.left.px]="blob.x"
-      [style.top.px]="blob.y"
-      [style.width.px]="blob.size"
-      [style.height.px]="blob.size"
-      [style.transform]="getBlobTransform(blob)"
-      [style.animation-delay]="blob.delay + 's'"
-      [style.animation-duration]="blob.duration + 's'"
-      [style.opacity]="blob.opacity"
-      [attr.data-blob-id]="blob.id"
-    ></div>
+      class="color-point-debug"
+      *ngFor="let point of colorPoints; trackBy: trackColorPoint"
+      [style.left.px]="point.x"
+      [style.top.px]="point.y"
+      [style.background]="point.color"
+      [attr.data-point-id]="point.id"
+    >
+      {{ point.id }}
+    </div>
   </div>
 
-  <!-- Gradient Overlays -->
-  <div class="gradient-overlays" [attr.aria-hidden]="true">
-    <div class="gradient-primary"></div>
-    <div class="gradient-secondary"></div>
-    <div class="gradient-accent"></div>
+  <!-- Gradient Overlay Layers -->
+  <div class="gradient-layers" [attr.aria-hidden]="true">
+    <div class="gradient-layer primary-layer"></div>
+    <div class="gradient-layer secondary-layer"></div>
+    <div class="gradient-layer accent-layer"></div>
   </div>
 
   <!-- Loading State -->
   <div
-    class="mesher-loading"
+    class="mesh-loading"
     *ngIf="isLoading"
-    [attr.aria-label]="'Loading blob morphism background'"
+    [attr.aria-label]="'Loading animated mesh gradient'"
   >
-    <div class="loading-blob"></div>
+    <div class="loading-gradient">
+      <div class="loading-point" *ngFor="let i of [1, 2, 3, 4, 5, 6]"></div>
+    </div>
   </div>
 
-  <!-- Debug Info -->
-  <div class="mesher-debug" *ngIf="showDebugInfo && !isProduction">
-    <div class="debug-stats">
-      <span>FPS: {{ currentFPS }}</span>
-      <span>Blobs: {{ totalBlobCount }}</span>
-      <span>Morphs: {{ activeMorphCount }}</span>
-      <span>Performance: {{ performanceMode }}</span>
+  <!-- Enhanced Debug Panel -->
+  <div class="mesh-debug" *ngIf="showDebugInfo && !isProduction">
+    <div class="debug-panel">
+      <div class="debug-section">
+        <h4>Performance</h4>
+        <span>FPS: {{ currentFPS }}</span>
+        <span>Frame Time: {{ averageFrameTime.toFixed(1) }}ms</span>
+        <span>Render Time: {{ lastRenderTime.toFixed(1) }}ms</span>
+      </div>
+      <div class="debug-section">
+        <h4>Mesh Gradient</h4>
+        <span>Color Points: {{ colorPoints.length }}</span>
+        <span>Animation Speed: {{ animationSpeed.toFixed(2) }}</span>
+        <span>Morph Intensity: {{ morphIntensity.toFixed(2) }}</span>
+      </div>
+      <div class="debug-section">
+        <h4>Mouse Interaction</h4>
+        <span>Mouse Active: {{ isMouseActive }}</span>
+        <span>Influence: {{ mouseInfluenceStrength.toFixed(2) }}</span>
+      </div>
     </div>
   </div>
 </div>

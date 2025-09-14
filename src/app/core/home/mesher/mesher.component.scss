@@ -1,337 +1,342 @@
-// ===== VARIABLES =====
-// Colors
-$primary-color: #6366f1;
-$primary-light: #818cf8;
-$primary-dark: #4f46e5;
-$secondary-color: #8b5cf6;
-$secondary-light: #a78bfa;
-$secondary-dark: #7c3aed;
-$accent-color: #3b82f6;
-$accent-light: #60a5fa;
-$accent-dark: #2563eb;
+// ===== PASTEL COLOR PALETTE =====
+$pastel-colors: (
+  lavender: #e6e6ff,
+  peach: #ffd7d7,
+  mint: #d7ffd7,
+  sky: #d7f3ff,
+  rose: #ffcce5,
+  cream: #fff7d7,
+  lilac: #f0d7ff,
+  coral: #ffd7cc,
+  sage: #d7ffcc,
+  powder: #cce5ff,
+  blush: #ffccdb,
+  pearl: #f5f5dc,
+);
 
-// Blob-specific colors
-$blob-primary: rgba($primary-color, 0.15);
-$blob-secondary: rgba($secondary-color, 0.12);
-$blob-accent: rgba($accent-color, 0.08);
-$blob-glow: rgba($primary-light, 0.3);
+// Enhanced pastel gradients for smooth transitions
+$pastel-gradients: (
+  sunset:
+    linear-gradient(
+      135deg,
+      #ffd7d7 0%,
+      #ffcce5 25%,
+      #f0d7ff 50%,
+      #e6e6ff 75%,
+      #d7f3ff 100%
+    ),
+  spring:
+    linear-gradient(
+      135deg,
+      #d7ffd7 0%,
+      #d7ffcc 25%,
+      #fff7d7 50%,
+      #ffd7cc 75%,
+      #ffccdb 100%
+    ),
+  ocean:
+    linear-gradient(
+      135deg,
+      #d7f3ff 0%,
+      #cce5ff 25%,
+      #d7ffd7 50%,
+      #d7ffcc 75%,
+      #f5f5dc 100%
+    ),
+  dream:
+    linear-gradient(
+      135deg,
+      #e6e6ff 0%,
+      #f0d7ff 20%,
+      #ffcce5 40%,
+      #ffd7d7 60%,
+      #fff7d7 80%,
+      #d7f3ff 100%
+    ),
+);
 
-// Opacity levels
-$opacity-subtle: 0.03;
-$opacity-light: 0.08;
-$opacity-medium: 0.15;
-$opacity-strong: 0.25;
-$opacity-visible: 0.4;
-$opacity-prominent: 0.6;
+// Mesh-specific variables
+$mesh-opacity: 0.8;
+$mesh-blur: 60px;
+$point-size: 200px;
+$animation-duration: 20s;
+$morph-duration: 15s;
 
-// Breakpoints
-$mobile: 480px;
-$tablet: 768px;
-$laptop: 1024px;
-$desktop: 1200px;
+// Performance variables
+$high-performance-blur: 80px;
+$medium-performance-blur: 60px;
+$low-performance-blur: 40px;
 
-// Timing
-$transition-fast: 0.15s;
-$transition-normal: 0.3s;
-$transition-slow: 0.8s;
-$morph-slow: 8s;
-$morph-medium: 12s;
-$morph-fast: 6s;
-
-// Blob sizes
-$blob-size-sm: 80px;
-$blob-size-md: 120px;
-$blob-size-lg: 180px;
-$blob-size-xl: 240px;
-
-// Blur levels
-$blur-subtle: 20px;
-$blur-medium: 40px;
-$blur-strong: 60px;
-
-// Z-index
-$z-background: -1;
+// Responsive breakpoints
+$breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1200px,
+  ultrawide: 1600px,
+);
 
 // ===== MIXINS =====
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == mobile {
-    @media (max-width: $mobile) {
-      @content;
-    }
-  } @else if $breakpoint == tablet {
-    @media (max-width: $tablet) {
-      @content;
-    }
-  } @else if $breakpoint == laptop {
-    @media (max-width: $laptop) {
-      @content;
-    }
-  } @else if $breakpoint == desktop {
-    @media (max-width: $desktop) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }
 }
 
-@mixin blob-base($size: $blob-size-md, $blur: $blur-medium) {
-  position: absolute;
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  filter: blur($blur);
-  will-change: transform, opacity;
-  transform-origin: center center;
+@mixin pastel-gradient($name: dream) {
+  background: map-get($pastel-gradients, $name);
 }
 
-@mixin blob-morph-animation($duration: $morph-medium) {
-  animation: blobMorph $duration ease-in-out infinite;
+@mixin mesh-blur($level: medium) {
+  @if $level == high {
+    filter: blur($high-performance-blur);
+  } @else if $level == medium {
+    filter: blur($medium-performance-blur);
+  } @else {
+    filter: blur($low-performance-blur);
+  }
 }
 
-@mixin gradient-overlay($color1, $color2, $opacity1: 0.1, $opacity2: 0.05) {
-  background: radial-gradient(
-    circle at center,
-    rgba($color1, $opacity1) 0%,
-    rgba($color2, $opacity2) 50%,
-    transparent 100%
-  );
+@mixin seamless-animation($duration: $animation-duration) {
+  animation-duration: $duration;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
 
-@mixin glass-effect($opacity: 0.1) {
-  background: rgba(255, 255, 255, $opacity);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-}
-
-// ===== MAIN STYLES =====
-.blob-mesher-container {
+// ===== MAIN CONTAINER =====
+.animated-mesh-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: $z-background;
+  z-index: -1;
   overflow: hidden;
   pointer-events: none;
   opacity: 0;
-  transition: opacity $transition-slow cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   contain: layout style paint;
+  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
 
   &.active {
     opacity: 1;
     pointer-events: auto;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .blob,
-    .gradient-overlays > div {
-      animation: none !important;
-    }
+  // Intensity levels
+  &[data-intensity="low"] {
+    --mesh-opacity: 0.3;
+    --animation-speed: 0.5;
+  }
+  &[data-intensity="medium"] {
+    --mesh-opacity: 0.6;
+    --animation-speed: 1;
+  }
+  &[data-intensity="high"] {
+    --mesh-opacity: 0.8;
+    --animation-speed: 1.5;
+  }
+  &[data-intensity="ultra"] {
+    --mesh-opacity: 1;
+    --animation-speed: 2;
   }
 }
 
-.blob-canvas {
+// ===== MESH CANVAS =====
+.mesh-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: block;
-  opacity: 0.6;
-  mix-blend-mode: multiply;
+  opacity: var(--mesh-opacity, 0.8);
+  mix-blend-mode: normal;
+  @include mesh-blur(medium);
+
+  @include respond-to(laptop) {
+    @include mesh-blur(medium);
+  }
 
   @include respond-to(tablet) {
-    opacity: 0.4;
+    @include mesh-blur(low);
+    opacity: calc(var(--mesh-opacity, 0.8) * 0.8);
   }
 
   @include respond-to(mobile) {
-    opacity: 0.3;
+    @include mesh-blur(low);
+    opacity: calc(var(--mesh-opacity, 0.8) * 0.6);
   }
 }
 
-.blob-layers {
+// ===== COLOR POINTS DEBUG =====
+.color-points-debug {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  mix-blend-mode: normal;
+  z-index: 10;
 }
 
-.blob {
-  @include blob-base();
-  @include blob-morph-animation();
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    border-radius: 50%;
-    opacity: 0.3;
-    filter: blur($blur-subtle);
-    animation: blobGlow 4s ease-in-out infinite alternate;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    opacity: 0.8;
-    filter: blur($blur-subtle / 2);
-    mix-blend-mode: overlay;
-  }
-
-  // Performance optimization for mobile
-  @include respond-to(mobile) {
-    &::before,
-    &::after {
-      display: none;
-    }
-  }
+.color-point-debug {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: monospace;
+  z-index: 100;
 }
 
-.primary-blob {
-  background: $blob-primary;
-  @include blob-morph-animation($morph-slow);
-
-  &::before {
-    background: $blob-glow;
-  }
-
-  &::after {
-    background: rgba($primary-light, 0.2);
-  }
-
-  &:nth-child(odd) {
-    animation-direction: reverse;
-  }
-
-  &:nth-child(3n) {
-    @include blob-base($blob-size-lg, $blur-strong);
-    animation-duration: #{$morph-slow + 2s};
-  }
-}
-
-.secondary-blob {
-  background: $blob-secondary;
-  @include blob-morph-animation($morph-medium);
-
-  &::before {
-    background: rgba($secondary-light, 0.3);
-  }
-
-  &::after {
-    background: rgba($secondary-color, 0.15);
-  }
-
-  &:nth-child(even) {
-    animation-direction: reverse;
-    animation-timing-function: ease-out;
-  }
-
-  &:nth-child(2n) {
-    @include blob-base($blob-size-sm, $blur-medium);
-  }
-}
-
-.accent-blob {
-  background: $blob-accent;
-  @include blob-morph-animation($morph-fast);
-
-  &::before {
-    background: rgba($accent-light, 0.25);
-  }
-
-  &::after {
-    background: rgba($accent-color, 0.1);
-  }
-
-  &:nth-child(4n) {
-    @include blob-base($blob-size-xl, $blur-strong);
-    animation-duration: #{$morph-fast + 4s};
-  }
-}
-
-.gradient-overlays {
+// ===== GRADIENT OVERLAY LAYERS =====
+.gradient-layers {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  mix-blend-mode: soft-light;
+  z-index: 1;
+}
 
-  .gradient-primary {
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    @include gradient-overlay($primary-color, $secondary-color);
-    animation: gradientFloat 15s ease-in-out infinite;
+.gradient-layer {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  opacity: 0.15;
+
+  &.primary-layer {
+    top: -10%;
+    left: -10%;
+    @include pastel-gradient(sunset);
+    @include seamless-animation(25s);
+    animation-name: gradientDrift1;
   }
 
-  .gradient-secondary {
-    position: absolute;
-    bottom: -20%;
-    right: -20%;
-    width: 120%;
-    height: 120%;
-    @include gradient-overlay($accent-color, $primary-color, 0.08, 0.03);
-    animation: gradientFloat 18s ease-in-out infinite reverse;
+  &.secondary-layer {
+    bottom: -10%;
+    right: -10%;
+    @include pastel-gradient(spring);
+    @include seamless-animation(30s);
+    animation-name: gradientDrift2;
   }
 
-  .gradient-accent {
-    position: absolute;
-    top: 30%;
-    left: 30%;
+  &.accent-layer {
+    top: 20%;
+    left: 20%;
     width: 80%;
     height: 80%;
-    @include gradient-overlay($secondary-color, $accent-color, 0.06, 0.02);
-    animation: gradientPulse 20s ease-in-out infinite;
+    @include pastel-gradient(ocean);
+    @include seamless-animation(35s);
+    animation-name: gradientPulse;
   }
 }
 
-.mesher-loading {
+// ===== LOADING STATE =====
+.mesh-loading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
 
-  .loading-blob {
-    @include blob-base($blob-size-md, $blur-medium);
-    background: $blob-primary;
-    animation: loadingMorph 2s ease-in-out infinite;
+  .loading-gradient {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 100px;
+  }
+
+  .loading-point {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    opacity: 0.7;
+    @include seamless-animation(2s);
+    animation-name: loadingPulse;
+
+    &:nth-child(1) {
+      background: map-get($pastel-colors, lavender);
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      background: map-get($pastel-colors, peach);
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      background: map-get($pastel-colors, mint);
+      animation-delay: 0.4s;
+    }
+    &:nth-child(4) {
+      background: map-get($pastel-colors, sky);
+      animation-delay: 0.6s;
+    }
+    &:nth-child(5) {
+      background: map-get($pastel-colors, rose);
+      animation-delay: 0.8s;
+    }
+    &:nth-child(6) {
+      background: map-get($pastel-colors, cream);
+      animation-delay: 1s;
+    }
   }
 }
 
-.mesher-debug {
+// ===== ENHANCED DEBUG PANEL =====
+.mesh-debug {
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 12px 16px;
-  @include glass-effect(0.15);
-  border-radius: 8px;
-  font-family: "Courier New", monospace;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: "SF Mono", "Monaco", "Cascadia Code", monospace;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-  .debug-stats {
+  .debug-panel {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 12px;
+  }
+
+  .debug-section {
+    h4 {
+      color: rgba(139, 92, 246, 0.9);
+      margin: 0 0 6px 0;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
 
     span {
-      white-space: nowrap;
+      display: block;
+      margin-bottom: 3px;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 10px;
     }
   }
 
@@ -340,192 +345,223 @@ $z-background: -1;
   }
 }
 
-// ===== ANIMATIONS =====
-@keyframes blobMorph {
+// ===== SEAMLESS ANIMATIONS =====
+@keyframes gradientDrift1 {
   0%,
   100% {
-    border-radius: 50% 45% 55% 40% / 45% 50% 40% 55%;
-    transform: rotate(0deg) scale(1);
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.15;
   }
   25% {
-    border-radius: 40% 60% 45% 55% / 50% 45% 60% 40%;
-    transform: rotate(90deg) scale(1.1);
+    transform: translate(50px, -30px) rotate(90deg) scale(1.1);
+    opacity: 0.12;
   }
   50% {
-    border-radius: 55% 40% 50% 45% / 55% 40% 45% 60%;
-    transform: rotate(180deg) scale(0.9);
+    transform: translate(-30px, -60px) rotate(180deg) scale(0.9);
+    opacity: 0.18;
   }
   75% {
-    border-radius: 45% 55% 40% 50% / 40% 55% 50% 45%;
-    transform: rotate(270deg) scale(1.05);
+    transform: translate(-60px, 40px) rotate(270deg) scale(1.05);
+    opacity: 0.1;
   }
 }
 
-@keyframes blobGlow {
-  0% {
-    opacity: 0.2;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.2);
-  }
-  100% {
-    opacity: 0.2;
-    transform: scale(0.8);
-  }
-}
-
-@keyframes gradientFloat {
+@keyframes gradientDrift2 {
   0%,
   100% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0.8;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.15;
   }
   33% {
-    transform: translate(30px, -20px) rotate(120deg);
-    opacity: 0.6;
+    transform: translate(-40px, 50px) rotate(120deg) scale(1.15);
+    opacity: 0.12;
   }
   66% {
-    transform: translate(-20px, 30px) rotate(240deg);
-    opacity: 0.9;
+    transform: translate(60px, -20px) rotate(240deg) scale(0.85);
+    opacity: 0.2;
   }
 }
 
 @keyframes gradientPulse {
   0%,
   100% {
-    transform: scale(1);
-    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.15;
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.3) rotate(180deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes loadingPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.3);
     opacity: 0.3;
   }
 }
 
-@keyframes loadingMorph {
-  0%,
-  100% {
-    border-radius: 50%;
-    transform: rotate(0deg) scale(1);
+@keyframes meshColorFlow {
+  0% {
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 0.6;
   }
   50% {
-    border-radius: 30% 70% 40% 60% / 50% 30% 70% 50%;
-    transform: rotate(180deg) scale(1.2);
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes dreamyFloat {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -15px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-10px, -25px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-25px, 10px) rotate(1deg);
   }
 }
 
 // ===== RESPONSIVE OPTIMIZATIONS =====
+@include respond-to(ultrawide) {
+  .animated-mesh-container[data-performance="high"] {
+    .mesh-canvas {
+      @include mesh-blur(high);
+    }
+  }
+}
+
 @include respond-to(laptop) {
-  .blob:nth-child(n + 8) {
-    display: none;
+  .gradient-layer {
+    animation-duration: 20s !important;
   }
 }
 
 @include respond-to(tablet) {
-  .blob:nth-child(n + 6) {
-    display: none;
+  .gradient-layer {
+    animation-duration: 15s !important;
+    opacity: 0.12 !important;
+
+    &.accent-layer {
+      display: none;
+    }
   }
 
-  .blob {
-    filter: blur($blur-medium);
+  .mesh-canvas {
+    filter: blur(40px);
   }
 }
 
 @include respond-to(mobile) {
-  .blob:nth-child(n + 4) {
-    display: none;
+  .gradient-layer {
+    animation-duration: 10s !important;
+    opacity: 0.08 !important;
+
+    &.secondary-layer,
+    &.accent-layer {
+      display: none;
+    }
   }
 
-  .blob {
-    filter: blur($blur-subtle);
-    animation-duration: 8s !important;
-  }
-
-  .gradient-overlays {
-    opacity: 0.5;
+  .mesh-canvas {
+    filter: blur(30px);
+    opacity: 0.4;
   }
 }
 
 // ===== ACCESSIBILITY & PERFORMANCE =====
-@media (prefers-contrast: high) {
-  .blob-mesher-container {
-    .blob {
-      opacity: 0.8;
-      filter: contrast(1.5) blur($blur-subtle);
-    }
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .blob {
+  .gradient-layer,
+  .loading-point {
     animation: none !important;
     transform: none !important;
   }
 
-  .gradient-overlays > div {
-    animation: none !important;
+  .mesh-canvas {
+    filter: blur(20px);
   }
 }
 
-// Dark mode enhancements
-@media (prefers-color-scheme: dark) {
-  .blob-mesher-container {
-    .primary-blob {
-      background: rgba($primary-light, 0.2);
-    }
-
-    .secondary-blob {
-      background: rgba($secondary-light, 0.18);
-    }
-
-    .accent-blob {
-      background: rgba($accent-light, 0.15);
+@media (prefers-contrast: high) {
+  .animated-mesh-container {
+    .mesh-canvas {
+      opacity: 0.2 !important;
+      filter: contrast(150%) blur(30px);
     }
   }
 }
 
-// Performance mode variants
-.blob-mesher-container {
-  &[data-performance="low"] {
-    .blob:nth-child(n + 3) {
-      display: none;
-    }
-
-    .blob {
-      animation-duration: 10s !important;
-      filter: blur($blur-subtle);
-
-      &::before,
-      &::after {
-        display: none;
-      }
-    }
-
-    .gradient-overlays {
-      opacity: 0.3;
-    }
-  }
-
+// ===== THEME VARIANTS =====
+.animated-mesh-container {
   &[data-theme="minimal"] {
-    .blob {
-      opacity: 0.3;
+    .mesh-canvas {
+      opacity: 0.3 !important;
+      filter: blur(80px);
     }
-
-    .gradient-overlays {
-      opacity: 0.2;
+    .gradient-layer {
+      opacity: 0.05 !important;
     }
   }
 
   &[data-theme="vibrant"] {
-    .blob {
-      opacity: 0.8;
-      filter: blur($blur-medium) saturate(150%);
+    .mesh-canvas {
+      opacity: 1 !important;
+      filter: blur(40px) saturate(150%);
+    }
+    .gradient-layer {
+      opacity: 0.25 !important;
+    }
+  }
+
+  &[data-theme="dark"] {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+
+    .gradient-layer {
+      mix-blend-mode: screen;
+      opacity: 0.08 !important;
+    }
+  }
+}
+
+// ===== PERFORMANCE MODE OPTIMIZATIONS =====
+.animated-mesh-container {
+  &[data-performance="low"] {
+    .gradient-layer:not(.primary-layer) {
+      display: none;
     }
 
-    .gradient-overlays {
-      opacity: 0.9;
+    .mesh-canvas {
+      filter: blur(20px);
+    }
+  }
+
+  &[data-performance="medium"] {
+    .gradient-layer.accent-layer {
+      display: none;
+    }
+  }
+
+  &[data-performance="high"] {
+    .mesh-canvas {
+      @include mesh-blur(high);
     }
   }
 }
