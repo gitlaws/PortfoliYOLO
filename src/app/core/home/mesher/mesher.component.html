@@ -1,26 +1,95 @@
 <div
-  class="mesher-canvas"
-  [ngClass]="theme"
-  [attr.data-reduced-motion]="prefersReducedMotion"
+  class="blob-mesher-container"
+  [class.active]="isActive"
+  [attr.data-theme]="currentTheme"
+  [attr.data-performance]="performanceMode"
+  #mesherContainer
 >
-  <!-- Base mesh gradient background -->
-  <div class="mesh-background"></div>
-  <div class="mesh-overlay" aria-hidden="true"></div>
+  <!-- Main Canvas Layer for Blob Connections -->
+  <canvas
+    #mesherCanvas
+    class="blob-canvas"
+    [width]="canvasWidth"
+    [height]="canvasHeight"
+    [attr.aria-hidden]="true"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)"
+    (mousemove)="onMouseMove($event)"
+  >
+    <p>Interactive blob morphism background visualization</p>
+  </canvas>
 
-  <!-- Floating Geometric Shapes -->
-  <!-- <div class="floating-shapes" aria-hidden="true">
-    <div class="float-shape triangle triangle-1"></div>
-    <div class="float-shape triangle triangle-2"></div>
-    <div class="float-shape circle circle-1"></div>
-    <div class="float-shape circle circle-2"></div>
-    <div class="float-shape square square-1"></div>
-    <div class="float-shape hexagon hexagon-1"></div>
-  </div> -->
+  <!-- Blob Layers -->
+  <div class="blob-layers" [attr.aria-hidden]="true">
+    <!-- Primary Blobs -->
+    <div
+      class="blob primary-blob"
+      *ngFor="let blob of primaryBlobs; trackBy: trackBlob; index as i"
+      [style.left.px]="blob.x"
+      [style.top.px]="blob.y"
+      [style.width.px]="blob.size"
+      [style.height.px]="blob.size"
+      [style.transform]="getBlobTransform(blob)"
+      [style.animation-delay]="blob.delay + 's'"
+      [style.animation-duration]="blob.duration + 's'"
+      [style.opacity]="blob.opacity"
+      [attr.data-blob-id]="blob.id"
+    ></div>
 
-  <!-- Morphing Blobs -->
-  <div class="morphing-blobs" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+    <!-- Secondary Blobs -->
+    <div
+      class="blob secondary-blob"
+      *ngFor="let blob of secondaryBlobs; trackBy: trackBlob; index as i"
+      [style.left.px]="blob.x"
+      [style.top.px]="blob.y"
+      [style.width.px]="blob.size"
+      [style.height.px]="blob.size"
+      [style.transform]="getBlobTransform(blob)"
+      [style.animation-delay]="blob.delay + 's'"
+      [style.animation-duration]="blob.duration + 's'"
+      [style.opacity]="blob.opacity"
+      [attr.data-blob-id]="blob.id"
+    ></div>
+
+    <!-- Accent Blobs -->
+    <div
+      class="blob accent-blob"
+      *ngFor="let blob of accentBlobs; trackBy: trackBlob; index as i"
+      [style.left.px]="blob.x"
+      [style.top.px]="blob.y"
+      [style.width.px]="blob.size"
+      [style.height.px]="blob.size"
+      [style.transform]="getBlobTransform(blob)"
+      [style.animation-delay]="blob.delay + 's'"
+      [style.animation-duration]="blob.duration + 's'"
+      [style.opacity]="blob.opacity"
+      [attr.data-blob-id]="blob.id"
+    ></div>
+  </div>
+
+  <!-- Gradient Overlays -->
+  <div class="gradient-overlays" [attr.aria-hidden]="true">
+    <div class="gradient-primary"></div>
+    <div class="gradient-secondary"></div>
+    <div class="gradient-accent"></div>
+  </div>
+
+  <!-- Loading State -->
+  <div
+    class="mesher-loading"
+    *ngIf="isLoading"
+    [attr.aria-label]="'Loading blob morphism background'"
+  >
+    <div class="loading-blob"></div>
+  </div>
+
+  <!-- Debug Info -->
+  <div class="mesher-debug" *ngIf="showDebugInfo && !isProduction">
+    <div class="debug-stats">
+      <span>FPS: {{ currentFPS }}</span>
+      <span>Blobs: {{ totalBlobCount }}</span>
+      <span>Morphs: {{ activeMorphCount }}</span>
+      <span>Performance: {{ performanceMode }}</span>
+    </div>
   </div>
 </div>

@@ -1,345 +1,531 @@
-// mesher.component.scss
+// ===== VARIABLES =====
+// Colors
+$primary-color: #6366f1;
+$primary-light: #818cf8;
+$primary-dark: #4f46e5;
+$secondary-color: #8b5cf6;
+$secondary-light: #a78bfa;
+$secondary-dark: #7c3aed;
+$accent-color: #3b82f6;
+$accent-light: #60a5fa;
+$accent-dark: #2563eb;
 
-// =======================
-// Color Variables
-// =======================
+// Blob-specific colors
+$blob-primary: rgba($primary-color, 0.15);
+$blob-secondary: rgba($secondary-color, 0.12);
+$blob-accent: rgba($accent-color, 0.08);
+$blob-glow: rgba($primary-light, 0.3);
 
-// Cyberpunk Purple & Orange Theme (Option 2)
-$primary-light: #2a3642; // Military Blue (Primary)
-$secondary-light: #4b5c6b; // Recon Stealth Gray (Accent)
-$accent-light: #7a8c99; // Muted Slate (Highlight)
-$background-light: #181c20; // Charcoal (Background)
-$text-light: #e0e3e6; // Light Gray Text
+// Opacity levels
+$opacity-subtle: 0.03;
+$opacity-light: 0.08;
+$opacity-medium: 0.15;
+$opacity-strong: 0.25;
+$opacity-visible: 0.4;
+$opacity-prominent: 0.6;
 
-$primary-dark: #1a2026; // Deep Military Blue (Primary Dark)
-$secondary-dark: #23272b; // Stealth Charcoal (Accent Dark)
-$accent-dark: #3a4046; // Muted Stealth Gray (Highlight Dark)
-$background-dark: #101214; // Almost Black (Dark Background)
-$text-dark: #b0b6bb; // Muted Silver Text
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1200px;
 
-$stroke-light: #2a3642; // Military Blue Stroke
-$stroke-dark: #1a2026; // Deep Military Blue Stroke
+// Timing
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+$transition-slow: 0.8s;
+$morph-slow: 8s;
+$morph-medium: 12s;
+$morph-fast: 6s;
 
-$shadow: rgba(42, 54, 66, 0.18); // Subtle military blue shadow
+// Blob sizes
+$blob-size-sm: 80px;
+$blob-size-md: 120px;
+$blob-size-lg: 180px;
+$blob-size-xl: 240px;
 
-// =======================
-// Mixins
-// =======================
+// Blur levels
+$blur-subtle: 20px;
+$blur-medium: 40px;
+$blur-strong: 60px;
 
-@mixin mesh-bg($primary, $secondary, $accent) {
-  background: linear-gradient(
-    120deg,
-    $primary 0%,
-    $secondary 60%,
-    $accent 100%
-  );
-  background-size: 200% 200%;
-  animation: meshGradientMove 8s ease-in-out infinite;
+// Z-index
+$z-background: -1;
+
+// ===== MIXINS =====
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  } @else if $breakpoint == laptop {
+    @media (max-width: $laptop) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
 }
 
-@mixin shape-base($size, $radius: 0) {
+@mixin blob-base($size: $blob-size-md, $blur: $blur-medium) {
+  position: absolute;
   width: $size;
   height: $size;
-  border-radius: $radius;
-  position: absolute;
-  opacity: 0.7;
-  filter: blur(0.5px);
-  animation-timing-function: ease-in-out;
-  will-change: transform;
+  border-radius: 50%;
+  filter: blur($blur);
+  will-change: transform, opacity;
+  transform-origin: center center;
 }
 
-// =======================
-// Gradient Backgrounds
-// =======================
-
-.mesh-background {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  &.light {
-    @include mesh-bg($primary-light, $secondary-light, $accent-light);
-  }
-  &.dark {
-    @include mesh-bg($primary-dark, $secondary-dark, $accent-dark);
-  }
+@mixin blob-morph-animation($duration: $morph-medium) {
+  animation: blobMorph $duration ease-in-out infinite;
 }
 
-// =======================
-// Overlay for extra effect
-// =======================
-
-.mesh-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
+@mixin gradient-overlay($color1, $color2, $opacity1: 0.1, $opacity2: 0.05) {
   background: radial-gradient(
-    circle at 60% 40%,
-    rgba(255, 255, 255, 0.08) 0%,
-    transparent 80%
+    circle at center,
+    rgba($color1, $opacity1) 0%,
+    rgba($color2, $opacity2) 50%,
+    transparent 100%
   );
-  mix-blend-mode: lighten;
 }
 
-// =======================
-// Floating Shapes
-// =======================
+@mixin glass-effect($opacity: 0.1) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
 
-.floating-shapes {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+// ===== MAIN STYLES =====
+.blob-mesher-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-background;
+  overflow: hidden;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity $transition-slow cubic-bezier(0.4, 0, 0.2, 1);
+  contain: layout style paint;
 
-  .float-shape {
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blob,
+    .gradient-overlays > div {
+      animation: none !important;
+    }
+  }
+}
+
+.blob-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+
+  @include respond-to(tablet) {
+    opacity: 0.4;
+  }
+
+  @include respond-to(mobile) {
+    opacity: 0.3;
+  }
+}
+
+.blob-layers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+
+.blob {
+  @include blob-base();
+  @include blob-morph-animation();
+
+  &::before {
+    content: "";
     position: absolute;
-    opacity: 0.7;
-    filter: blur(0.5px);
-    animation-timing-function: ease-in-out;
-    will-change: transform;
-    transition: background 0.3s;
-  }
-
-  // Triangles
-  .triangle {
-    width: 60px;
-    height: 52px;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background: $primary-light;
-
-    &.triangle-1 {
-      left: 10%;
-      top: 20%;
-      background: $primary-light;
-      animation: floatShapeMove1 7s infinite alternate;
-    }
-    &.triangle-2 {
-      right: 15%;
-      top: 60%;
-      background: $secondary-light;
-      animation: floatShapeMove2 9s infinite alternate;
-    }
-  }
-
-  // Circles
-  .circle {
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
-
-    &.circle-1 {
-      left: 70%;
-      top: 10%;
-      background: $accent-light;
-      animation: floatShapeMove3 8s infinite alternate;
-    }
-    &.circle-2 {
-      left: 30%;
-      bottom: 15%;
-      background: $secondary-light;
-      animation: floatShapeMove4 10s infinite alternate;
-    }
+    opacity: 0.3;
+    filter: blur($blur-subtle);
+    animation: blobGlow 4s ease-in-out infinite alternate;
   }
 
-  // Square
-  .square {
-    width: 44px;
-    height: 44px;
-    border-radius: 0.5rem;
-    left: 80%;
-    bottom: 25%;
-    background: $primary-light;
-    animation: floatShapeMove5 11s infinite alternate;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur($blur-subtle / 2);
+    mix-blend-mode: overlay;
   }
 
-  // Hexagon
-  .hexagon {
-    width: 54px;
-    height: 46px;
-    background: $accent-light;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    right: 8%;
-    top: 35%;
-    animation: floatShapeMove6 13s infinite alternate;
-  }
-
-  // Dark mode overrides
-  :host-context(.dark) & {
-    .triangle-1 {
-      background: $primary-dark;
-    }
-    .triangle-2 {
-      background: $secondary-dark;
-    }
-    .circle-1 {
-      background: $accent-dark;
-    }
-    .circle-2 {
-      background: $secondary-dark;
-    }
-    .square {
-      background: $primary-dark;
-    }
-    .hexagon {
-      background: $accent-dark;
+  // Performance optimization for mobile
+  @include respond-to(mobile) {
+    &::before,
+    &::after {
+      display: none;
     }
   }
 }
 
-// =======================
-// Floating Shape Animations
-// =======================
+.primary-blob {
+  background: $blob-primary;
+  @include blob-morph-animation($morph-slow);
 
-@keyframes floatShapeMove1 {
-  0% {
-    transform: translateY(0) scale(1) rotate(0deg);
+  &::before {
+    background: $blob-glow;
   }
-  100% {
-    transform: translateY(-40px) scale(1.1) rotate(12deg);
+
+  &::after {
+    background: rgba($primary-light, 0.2);
   }
-}
-@keyframes floatShapeMove2 {
-  0% {
-    transform: translateY(0) scale(1);
+
+  &:nth-child(odd) {
+    animation-direction: reverse;
   }
-  100% {
-    transform: translateY(-60px) scale(1.15);
-  }
-}
-@keyframes floatShapeMove3 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(30px) scale(0.95);
-  }
-}
-@keyframes floatShapeMove4 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(-25px) scale(1.08);
-  }
-}
-@keyframes floatShapeMove5 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(40px) scale(1.12);
-  }
-}
-@keyframes floatShapeMove6 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(-35px) scale(1.05);
+
+  &:nth-child(3n) {
+    @include blob-base($blob-size-lg, $blur-strong);
+    animation-duration: #{$morph-slow + 2s};
   }
 }
 
-// =======================
-// Morphing Blobs
-// =======================
+.secondary-blob {
+  background: $blob-secondary;
+  @include blob-morph-animation($morph-medium);
 
-.morphing-blobs {
+  &::before {
+    background: rgba($secondary-light, 0.3);
+  }
+
+  &::after {
+    background: rgba($secondary-color, 0.15);
+  }
+
+  &:nth-child(even) {
+    animation-direction: reverse;
+    animation-timing-function: ease-out;
+  }
+
+  &:nth-child(2n) {
+    @include blob-base($blob-size-sm, $blur-medium);
+  }
+}
+
+.accent-blob {
+  background: $blob-accent;
+  @include blob-morph-animation($morph-fast);
+
+  &::before {
+    background: rgba($accent-light, 0.25);
+  }
+
+  &::after {
+    background: rgba($accent-color, 0.1);
+  }
+
+  &:nth-child(4n) {
+    @include blob-base($blob-size-xl, $blur-strong);
+    animation-duration: #{$morph-fast + 4s};
+  }
+}
+
+.gradient-overlays {
   position: absolute;
-  inset: 0;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  mix-blend-mode: soft-light;
+
+  .gradient-primary {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    @include gradient-overlay($primary-color, $secondary-color);
+    animation: gradientFloat 15s ease-in-out infinite;
+  }
+
+  .gradient-secondary {
+    position: absolute;
+    bottom: -20%;
+    right: -20%;
+    width: 120%;
+    height: 120%;
+    @include gradient-overlay($accent-color, $primary-color, 0.08, 0.03);
+    animation: gradientFloat 18s ease-in-out infinite reverse;
+  }
+
+  .gradient-accent {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 80%;
+    height: 80%;
+    @include gradient-overlay($secondary-color, $accent-color, 0.06, 0.02);
+    animation: gradientPulse 20s ease-in-out infinite;
+  }
+}
+
+.mesher-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  .loading-blob {
+    @include blob-base($blob-size-md, $blur-medium);
+    background: $blob-primary;
+    animation: loadingMorph 2s ease-in-out infinite;
+  }
+}
+
+.mesher-debug {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  @include glass-effect(0.15);
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+
+  .debug-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+// ===== ANIMATIONS =====
+@keyframes blobMorph {
+  0%,
+  100% {
+    border-radius: 50% 45% 55% 40% / 45% 50% 40% 55%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 40% 60% 45% 55% / 50% 45% 60% 40%;
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    border-radius: 55% 40% 50% 45% / 55% 40% 45% 60%;
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    border-radius: 45% 55% 40% 50% / 40% 55% 50% 45%;
+    transform: rotate(270deg) scale(1.05);
+  }
+}
+
+@keyframes blobGlow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes gradientFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(30px, -20px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-20px, 30px) rotate(240deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes gradientPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+@keyframes loadingMorph {
+  0%,
+  100% {
+    border-radius: 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 30% 70% 40% 60% / 50% 30% 70% 50%;
+    transform: rotate(180deg) scale(1.2);
+  }
+}
+
+// ===== RESPONSIVE OPTIMIZATIONS =====
+@include respond-to(laptop) {
+  .blob:nth-child(n + 8) {
+    display: none;
+  }
+}
+
+@include respond-to(tablet) {
+  .blob:nth-child(n + 6) {
+    display: none;
+  }
 
   .blob {
-    position: absolute;
-    opacity: 0.22;
-    filter: blur(8px);
-    mix-blend-mode: lighten;
-    border-radius: 50%;
-    animation: blobMorph 14s infinite alternate;
-    transition: background 0.3s;
+    filter: blur($blur-medium);
+  }
+}
 
-    &.blob-1 {
-      width: 180px;
-      height: 140px;
-      left: 12%;
-      top: 60%;
-      background: $primary-light;
-      animation-delay: 0s;
-    }
-    &.blob-2 {
-      width: 120px;
-      height: 120px;
-      left: 65%;
-      top: 20%;
-      background: $accent-light;
-      animation-delay: 2s;
-    }
-    &.blob-3 {
-      width: 140px;
-      height: 100px;
-      left: 40%;
-      top: 70%;
-      background: $secondary-light;
-      animation-delay: 4s;
-    }
+@include respond-to(mobile) {
+  .blob:nth-child(n + 4) {
+    display: none;
   }
 
-  // Dark mode overrides
-  :host-context(.dark) & {
-    .blob-1 {
-      background: $primary-dark;
-    }
-    .blob-2 {
-      background: $accent-dark;
-    }
-    .blob-3 {
-      background: $secondary-dark;
+  .blob {
+    filter: blur($blur-subtle);
+    animation-duration: 8s !important;
+  }
+
+  .gradient-overlays {
+    opacity: 0.5;
+  }
+}
+
+// ===== ACCESSIBILITY & PERFORMANCE =====
+@media (prefers-contrast: high) {
+  .blob-mesher-container {
+    .blob {
+      opacity: 0.8;
+      filter: contrast(1.5) blur($blur-subtle);
     }
   }
 }
 
-@keyframes blobMorph {
-  0% {
-    border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
-    transform: scale(1);
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+    transform: none !important;
   }
-  50% {
-    border-radius: 60% 50% 40% 60% / 60% 40% 50% 60%;
-    transform: scale(1.08);
-  }
-  100% {
-    border-radius: 50% 60% 50% 40% / 40% 50% 60% 50%;
-    transform: scale(1);
+
+  .gradient-overlays > div {
+    animation: none !important;
   }
 }
 
-// =======================
-// Gradient Animation
-// =======================
+// Dark mode enhancements
+@media (prefers-color-scheme: dark) {
+  .blob-mesher-container {
+    .primary-blob {
+      background: rgba($primary-light, 0.2);
+    }
 
-@keyframes meshGradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    .secondary-blob {
+      background: rgba($secondary-light, 0.18);
+    }
+
+    .accent-blob {
+      background: rgba($accent-light, 0.15);
+    }
   }
 }
 
-// =======================
-// Responsive
-// =======================
+// Performance mode variants
+.blob-mesher-container {
+  &[data-performance="low"] {
+    .blob:nth-child(n + 3) {
+      display: none;
+    }
 
-@media (max-width: 600px) {
-  .mesh-background,
-  .mesh-overlay,
-  .floating-shapes,
-  .morphing-blobs {
-    display: none !important;
+    .blob {
+      animation-duration: 10s !important;
+      filter: blur($blur-subtle);
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    .gradient-overlays {
+      opacity: 0.3;
+    }
+  }
+
+  &[data-theme="minimal"] {
+    .blob {
+      opacity: 0.3;
+    }
+
+    .gradient-overlays {
+      opacity: 0.2;
+    }
+  }
+
+  &[data-theme="vibrant"] {
+    .blob {
+      opacity: 0.8;
+      filter: blur($blur-medium) saturate(150%);
+    }
+
+    .gradient-overlays {
+      opacity: 0.9;
+    }
   }
 }
