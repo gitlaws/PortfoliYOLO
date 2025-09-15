@@ -10,7 +10,7 @@ import { CubeLogoComponent } from '../../toolbar/cube-logo/cube-logo.component';
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, TypewriterComponent, RouterLink, CubeLogoComponent],
+  imports: [CommonModule, TypewriterComponent, RouterLink],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })

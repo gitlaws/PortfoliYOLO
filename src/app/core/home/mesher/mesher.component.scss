@@ -1,607 +1,118 @@
-// ===== VARIABLES =====
-$light-colors: (#e6e6ff, #ffd7d7, #d7ffd7, #d7f3ff, #ffcce5, #fff7d7);
-$dark-colors: (#4a4a7a, #7a4a4a, #4a7a4a, #4a5a7a, #7a4a5a, #7a5a4a);
+$light-bg: #f0f0f3;
+$dark-bg: #1a1a2e;
+$neuro-bg: #e6e7ee;
+$light-shadow: rgba(255, 255, 255, 0.7);
+$dark-shadow: rgba(0, 0, 0, 0.3);
+$blob-size: clamp(280px, 50vw, 500px);
+$blur: 60px;
 
-$animation-duration: 20s;
-$breath-duration: 8s;
-$orb-float-duration: 12s;
-
-// Theme-aware color maps
-$theme-colors: (
-  light: (
-    primary: #e6e6ff,
-    secondary: #ffd7d7,
-    tertiary: #d7ffd7,
-    accent: #d7f3ff,
-    highlight: #ffcce5,
-    complement: #fff7d7,
-  ),
-  dark: (
-    primary: #4a4a7a,
-    secondary: #7a4a4a,
-    tertiary: #4a7a4a,
-    accent: #4a5a7a,
-    highlight: #7a4a5a,
-    complement: #7a5a4a,
-  ),
-);
-
-// Responsive breakpoints
-$breakpoints: (
-  iphone14pro: 393px,
-  mobile: 480px,
-  tablet: 768px,
-  desktop: 1200px,
-);
-
-// ===== MIXINS =====
-@mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
-      @content;
-    }
-  }
-}
-
-@mixin theme-colors($theme) {
-  $colors: map-get($theme-colors, $theme);
-  --color-primary: #{map-get($colors, primary)};
-  --color-secondary: #{map-get($colors, secondary)};
-  --color-tertiary: #{map-get($colors, tertiary)};
-  --color-accent: #{map-get($colors, accent)};
-  --color-highlight: #{map-get($colors, highlight)};
-  --color-complement: #{map-get($colors, complement)};
-
-  // RGB values for rgba() usage
-  --color-primary-rgb: #{red(map-get($colors, primary))},
-    #{green(map-get($colors, primary))}, #{blue(map-get($colors, primary))};
-  --color-secondary-rgb: #{red(map-get($colors, secondary))},
-    #{green(map-get($colors, secondary))}, #{blue(map-get($colors, secondary))};
-  --color-tertiary-rgb: #{red(map-get($colors, tertiary))},
-    #{green(map-get($colors, tertiary))}, #{blue(map-get($colors, tertiary))};
-  --color-accent-rgb: #{red(map-get($colors, accent))},
-    #{green(map-get($colors, accent))}, #{blue(map-get($colors, accent))};
-  --color-highlight-rgb: #{red(map-get($colors, highlight))},
-    #{green(map-get($colors, highlight))}, #{blue(map-get($colors, highlight))};
-  --color-complement-rgb: #{red(map-get($colors, complement))},
-    #{green(map-get($colors, complement))},
-    #{blue(map-get($colors, complement))};
-}
-
-@mixin ethereal-blur($intensity: medium) {
-  @if $intensity == high {
-    filter: blur(60px) saturate(110%);
-  } @else if $intensity == medium {
-    filter: blur(40px) saturate(105%);
-  } @else {
-    filter: blur(20px);
-  }
-  backdrop-filter: blur(10px);
-}
-
-@mixin floating-animation($duration: 12s, $distance: 20px) {
-  animation: floatGentle $duration ease-in-out infinite;
-
-  @keyframes floatGentle {
-    0%,
-    100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-#{$distance * 0.7}) rotate(1deg);
-    }
-    50% {
-      transform: translateY(-#{$distance}) rotate(0deg);
-    }
-    75% {
-      transform: translateY(-#{$distance * 0.3}) rotate(-0.5deg);
-    }
-  }
-}
-
-// ===== MAIN CONTAINER =====
-.animated-mesh-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+.mesher-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
   overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  contain: layout style paint;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $neuro-bg 0%, darken($neuro-bg, 5%) 100%);
 
-  // Default/fallback theme
-  @include theme-colors(light);
-  background: linear-gradient(135deg, #fafafa 0%, #f8f9ff 100%);
-  --mesh-opacity: 0.6;
-  --effect-intensity: 0.7;
-  --orb-opacity: 0.3;
-  --text-color: rgba(0, 0, 0, 0.8);
-  --debug-bg: rgba(255, 255, 255, 0.9);
-  --orb-blend-mode: overlay;
-  --mesh-blend-mode: multiply;
-  --cursor-glow-color: rgba(255, 255, 255, 0.08);
-  --loading-star-gradient: linear-gradient(
-    45deg,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-
-  &.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  // Light theme styles
   &.light {
-    @include theme-colors(light);
-    background: radial-gradient(
-        circle at 20% 30%,
-        rgba(230, 230, 255, 0.02) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(255, 215, 215, 0.015) 0%,
-        transparent 50%
-      ),
-      linear-gradient(135deg, #fafafa 0%, #f8f9ff 100%);
-
-    --mesh-opacity: 0.6;
-    --effect-intensity: 0.7;
-    --orb-opacity: 0.3;
-    --text-color: rgba(0, 0, 0, 0.8);
-    --debug-bg: rgba(255, 255, 255, 0.9);
-    --orb-blend-mode: overlay;
-    --mesh-blend-mode: multiply;
-    --cursor-glow-color: rgba(255, 255, 255, 0.08);
-    --loading-star-gradient: linear-gradient(
-      45deg,
-      var(--color-primary),
-      var(--color-secondary)
+    background: linear-gradient(
+      135deg,
+      $light-bg 0%,
+      darken($light-bg, 3%) 100%
     );
+
+    .neumorphic-blob {
+      background: linear-gradient(
+        145deg,
+        lighten($light-bg, 2%),
+        darken($light-bg, 3%)
+      );
+      box-shadow: 20px 20px $blur rgba(163, 177, 198, 0.4),
+        -20px -20px $blur $light-shadow,
+        inset 10px 10px 20px rgba(163, 177, 198, 0.2),
+        inset -10px -10px 20px $light-shadow;
+    }
   }
 
-  // Dark theme styles
   &.dark {
-    @include theme-colors(dark);
-    background: radial-gradient(
-        circle at 20% 30%,
-        rgba(100, 100, 150, 0.05) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(120, 80, 120, 0.04) 0%,
-        transparent 50%
-      ),
-      linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-
-    --mesh-opacity: 0.8;
-    --effect-intensity: 0.9;
-    --orb-opacity: 0.4;
-    --text-color: rgba(255, 255, 255, 0.8);
-    --debug-bg: rgba(20, 20, 30, 0.9);
-    --orb-blend-mode: screen;
-    --mesh-blend-mode: screen;
-    --cursor-glow-color: rgba(200, 200, 255, 0.12);
-    --loading-star-gradient: linear-gradient(
-      45deg,
-      var(--color-primary),
-      var(--color-secondary)
+    background: linear-gradient(
+      135deg,
+      $dark-bg 0%,
+      lighten($dark-bg, 5%) 100%
     );
-  }
 
-  // Minimal theme
-  &.minimal {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-    --mesh-opacity: 0.3;
-    --effect-intensity: 0.4;
-  }
-
-  // Vibrant theme
-  &.vibrant {
-    --mesh-opacity: 1;
-    --effect-intensity: 1;
-  }
-
-  // Intensity levels
-  &[data-intensity="low"] {
-    --mesh-opacity: 0.3;
-    --effect-intensity: 0.4;
-  }
-  &[data-intensity="medium"] {
-    --mesh-opacity: 0.6;
-    --effect-intensity: 0.7;
-  }
-  &[data-intensity="high"] {
-    --mesh-opacity: 0.8;
-    --effect-intensity: 0.9;
-  }
-  &[data-intensity="ultra"] {
-    --mesh-opacity: 1;
-    --effect-intensity: 1;
-  }
-
-  // iPhone 14 Pro optimizations
-  @media (max-width: 393px) {
-    --mesh-opacity: 0.4;
-    --effect-intensity: 0.5;
-  }
-}
-
-// ===== FLOATING ORBS =====
-.floating-orbs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    opacity: calc(var(--orb-opacity, 0.3) * var(--effect-intensity, 0.7));
-    @include ethereal-blur(high);
-    mix-blend-mode: var(--orb-blend-mode, overlay);
-
-    // Theme-aware orb colors using RGB values
-    &.orb-1 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-primary-rgb), 0.2) 0%,
-        transparent 70%
+    .neumorphic-blob {
+      background: linear-gradient(
+        145deg,
+        lighten($dark-bg, 8%),
+        darken($dark-bg, 5%)
       );
-    }
-    &.orb-2 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-secondary-rgb), 0.25) 0%,
-        transparent 70%
-      );
-    }
-    &.orb-3 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-tertiary-rgb), 0.2) 0%,
-        transparent 70%
-      );
-    }
-    &.orb-4 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-accent-rgb), 0.22) 0%,
-        transparent 70%
-      );
-    }
-    &.orb-5 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-highlight-rgb), 0.18) 0%,
-        transparent 70%
-      );
-    }
-    &.orb-6 {
-      background: radial-gradient(
-        circle,
-        rgba(var(--color-complement-rgb), 0.24) 0%,
-        transparent 70%
-      );
-    }
-
-    &.orb-large {
-      width: 200px;
-      height: 200px;
-      @media (max-width: 393px) {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    &.orb-medium {
-      width: 120px;
-      height: 120px;
-      @media (max-width: 393px) {
-        width: 90px;
-        height: 90px;
-      }
-    }
-
-    &.orb-small {
-      width: 80px;
-      height: 80px;
-      @media (max-width: 393px) {
-        width: 60px;
-        height: 60px;
-      }
-    }
-
-    // Positioning and animations
-    &.orb-1 {
-      top: 10%;
-      left: 15%;
-      @include floating-animation(14s, 25px);
-    }
-
-    &.orb-2 {
-      top: 60%;
-      right: 20%;
-      @include floating-animation(18s, 20px);
-      animation-delay: -3s;
-    }
-
-    &.orb-3 {
-      bottom: 20%;
-      left: 25%;
-      @include floating-animation(12s, 15px);
-      animation-delay: -7s;
-    }
-
-    &.orb-4 {
-      top: 30%;
-      right: 10%;
-      @include floating-animation(16s, 30px);
-      animation-delay: -2s;
-    }
-
-    &.orb-5 {
-      bottom: 40%;
-      right: 40%;
-      @include floating-animation(20s, 22px);
-      animation-delay: -5s;
-    }
-
-    &.orb-6 {
-      top: 70%;
-      left: 60%;
-      @include floating-animation(13s, 18px);
-      animation-delay: -8s;
+      box-shadow: 20px 20px $blur $dark-shadow,
+        -20px -20px $blur rgba(255, 255, 255, 0.1),
+        inset 10px 10px 20px $dark-shadow,
+        inset -10px -10px 20px rgba(255, 255, 255, 0.05);
     }
   }
 }
 
-// ===== MESH CANVAS =====
-.mesh-canvas {
+.neumorphic-blob {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  opacity: var(--mesh-opacity, 0.6);
-  mix-blend-mode: var(--mesh-blend-mode, multiply);
-  z-index: 3;
-  pointer-events: auto;
-
-  @media (max-width: 768px) {
-    @include ethereal-blur(low);
-    opacity: calc(var(--mesh-opacity, 0.6) * 0.8);
-  }
-
-  @media (max-width: 393px) {
-    @include ethereal-blur(low);
-    opacity: calc(var(--mesh-opacity, 0.6) * 0.7);
-  }
-}
-
-// ===== LOADING STATE =====
-.mesh-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 50;
-  background: var(--debug-bg, rgba(255, 255, 255, 0.9));
-  backdrop-filter: blur(15px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  padding: 20px 30px;
-  text-align: center;
-
-  .loading-constellation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 15px;
-
-    .loading-star {
-      width: 6px;
-      height: 6px;
-      background: var(--loading-star-gradient);
-      border-radius: 50%;
-      animation: starTwinkle 1.5s ease-in-out infinite;
-
-      @for $i from 1 through 8 {
-        &:nth-child(#{$i}) {
-          animation-delay: #{($i - 1) * 0.2}s;
-        }
-      }
-    }
-  }
-
-  .loading-text {
-    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-color, rgba(100, 100, 120, 0.7));
-    letter-spacing: 1.5px;
-
-    .loading-letter {
-      display: inline-block;
-      animation: letterFloat 2s ease-in-out infinite;
-    }
-  }
-}
-
-// ===== DEBUG PANEL =====
-.mesh-debug {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: var(--debug-bg, rgba(255, 255, 255, 0.9));
-  backdrop-filter: blur(15px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 15px;
-  font-family: "SF Mono", "Cascadia Code", monospace;
-  font-size: 10px;
-  color: var(--text-color, rgba(0, 0, 0, 0.8));
-  z-index: 1000;
-  min-width: 200px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-
-  .debug-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    .debug-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      h3 {
-        margin: 0;
-        font-size: 11px;
-        font-weight: 600;
-      }
-
-      .debug-indicator {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #ef4444;
-
-        &.active {
-          background: #22c55e;
-          animation: debugPulse 2s ease-in-out infinite;
-        }
-      }
-    }
-
-    .debug-section {
-      h4 {
-        margin: 0 0 6px 0;
-        font-size: 9px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-weight: 600;
-        opacity: 0.7;
-      }
-
-      .metric {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 3px;
-
-        .metric-label {
-          opacity: 0.6;
-          font-size: 9px;
-        }
-
-        .metric-value {
-          font-weight: 600;
-          font-size: 9px;
-
-          &.warning {
-            color: #f59e0b;
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-// ===== CURSOR GLOW =====
-.cursor-glow {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    var(--cursor-glow-color) 0%,
-    transparent 70%
+  width: $blob-size;
+  height: $blob-size;
+  background: linear-gradient(
+    145deg,
+    lighten($neuro-bg, 2%),
+    darken($neuro-bg, 3%)
   );
-  pointer-events: none;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  box-shadow: 20px 20px $blur rgba(163, 177, 198, 0.6),
+    -20px -20px $blur $light-shadow,
+    inset 10px 10px 20px rgba(163, 177, 198, 0.2),
+    inset -10px -10px 20px rgba(255, 255, 255, 0.3);
+  animation: morph 5s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    box-shadow: 30px 30px #{$blur + 20px} rgba(163, 177, 198, 0.6),
+      -30px -30px #{$blur + 20px} $light-shadow,
+      inset 15px 15px 30px rgba(163, 177, 198, 0.2),
+      inset -15px -15px 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.content-overlay {
+  position: relative;
   z-index: 10;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: overlay;
-  animation: cursorPulse 2s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-// ===== ANIMATIONS =====
-@keyframes starTwinkle {
+@keyframes morph {
   0%,
   100% {
-    opacity: 0.3;
-    transform: scale(1);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg);
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
+  20% {
+    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
+    transform: rotate(72deg);
   }
-}
-
-@keyframes letterFloat {
-  0%,
-  100% {
-    transform: translateY(0px);
+  40% {
+    border-radius: 70% 30% 50% 60% / 30% 50% 80% 60%;
+    transform: rotate(144deg);
   }
-  50% {
-    transform: translateY(-2px);
+  60% {
+    border-radius: 30% 70% 60% 40% / 70% 40% 50% 80%;
+    transform: rotate(216deg);
   }
-}
-
-@keyframes debugPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes cursorPulse {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-}
-
-// ===== RESPONSIVE OPTIMIZATIONS =====
-@include respond-to(mobile) {
-  .floating-orbs {
-    .orb {
-      &.orb-large {
-        width: 120px;
-        height: 120px;
-      }
-      &.orb-medium {
-        width: 80px;
-        height: 80px;
-      }
-      &.orb-small {
-        width: 50px;
-        height: 50px;
-      }
-    }
+  80% {
+    border-radius: 50% 80% 40% 60% / 60% 70% 40% 50%;
+    transform: rotate(288deg);
   }
 }
