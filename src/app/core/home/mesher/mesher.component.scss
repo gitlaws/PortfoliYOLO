@@ -1,118 +1,153 @@
-$light-bg: #f0f0f3;
-$dark-bg: #1a1a2e;
-$neuro-bg: #e6e7ee;
-$light-shadow: rgba(255, 255, 255, 0.7);
-$dark-shadow: rgba(0, 0, 0, 0.3);
-$blob-size: clamp(280px, 50vw, 500px);
-$blur: 60px;
-
-.mesher-container {
-  position: relative;
+.mesher-background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, $neuro-bg 0%, darken($neuro-bg, 5%) 100%);
+  z-index: -1;
+  filter: blur(80px);
 
-  &.light {
-    background: linear-gradient(
-      135deg,
-      $light-bg 0%,
-      darken($light-bg, 3%) 100%
+  // Multiple radial gradient layers for mesh effect
+  background: radial-gradient(
+      circle at 20% 80%,
+      hsla(310, 85%, 67%, 0.8) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      hsla(260, 90%, 72%, 0.7) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      hsla(330, 80%, 60%, 0.6) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 60% 90%,
+      hsla(290, 75%, 65%, 0.5) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 90% 60%,
+      hsla(320, 88%, 70%, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 10% 10%,
+      hsla(270, 85%, 75%, 0.3) 0%,
+      transparent 50%
     );
 
-    .neumorphic-blob {
-      background: linear-gradient(
-        145deg,
-        lighten($light-bg, 2%),
-        darken($light-bg, 3%)
-      );
-      box-shadow: 20px 20px $blur rgba(163, 177, 198, 0.4),
-        -20px -20px $blur $light-shadow,
-        inset 10px 10px 20px rgba(163, 177, 198, 0.2),
-        inset -10px -10px 20px $light-shadow;
-    }
-  }
-
-  &.dark {
-    background: linear-gradient(
-      135deg,
-      $dark-bg 0%,
-      lighten($dark-bg, 5%) 100%
-    );
-
-    .neumorphic-blob {
-      background: linear-gradient(
-        145deg,
-        lighten($dark-bg, 8%),
-        darken($dark-bg, 5%)
-      );
-      box-shadow: 20px 20px $blur $dark-shadow,
-        -20px -20px $blur rgba(255, 255, 255, 0.1),
-        inset 10px 10px 20px $dark-shadow,
-        inset -10px -10px 20px rgba(255, 255, 255, 0.05);
-    }
-  }
+  background-size: 100% 100%;
+  animation: meshMove 10s ease-in-out infinite alternate;
 }
 
-.neumorphic-blob {
-  position: absolute;
-  width: $blob-size;
-  height: $blob-size;
-  background: linear-gradient(
-    145deg,
-    lighten($neuro-bg, 2%),
-    darken($neuro-bg, 3%)
-  );
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  box-shadow: 20px 20px $blur rgba(163, 177, 198, 0.6),
-    -20px -20px $blur $light-shadow,
-    inset 10px 10px 20px rgba(163, 177, 198, 0.2),
-    inset -10px -10px 20px rgba(255, 255, 255, 0.3);
-  animation: morph 5s ease-in-out infinite;
-
-  @media (min-width: 768px) {
-    box-shadow: 30px 30px #{$blur + 20px} rgba(163, 177, 198, 0.6),
-      -30px -30px #{$blur + 20px} $light-shadow,
-      inset 15px 15px 30px rgba(163, 177, 198, 0.2),
-      inset -15px -15px 30px rgba(255, 255, 255, 0.3);
+@keyframes meshMove {
+  0% {
+    background-size: 100% 100%, 120% 120%, 110% 110%, 130% 130%, 115% 115%,
+      105% 105%;
   }
-}
 
-.content-overlay {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
+  25% {
+    background-size: 140% 140%, 100% 100%, 160% 160%, 110% 110%, 180% 180%,
+      125% 125%;
+  }
 
-@keyframes morph {
-  0%,
+  50% {
+    background-size: 180% 180%, 160% 160%, 100% 100%, 200% 200%, 120% 120%,
+      140% 140%;
+  }
+
+  75% {
+    background-size: 220% 220%, 140% 140%, 190% 190%, 100% 100%, 170% 170%,
+      160% 160%;
+  }
+
   100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(0deg);
+    background-size: 150% 150%, 200% 200%, 130% 130%, 180% 180%, 100% 100%,
+      220% 220%;
   }
-  20% {
-    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
-    transform: rotate(72deg);
+}
+
+// Mobile-first approach (iPhone 14 Pro: 393x852)
+@media (min-width: 393px) {
+  .mesher-background {
+    filter: blur(70px);
   }
-  40% {
-    border-radius: 70% 30% 50% 60% / 30% 50% 80% 60%;
-    transform: rotate(144deg);
+}
+
+// Tablet styles
+@media (min-width: 768px) {
+  .mesher-background {
+    filter: blur(90px);
   }
-  60% {
-    border-radius: 30% 70% 60% 40% / 70% 40% 50% 80%;
-    transform: rotate(216deg);
+
+  @keyframes meshMove {
+    0% {
+      background-size: 120% 120%, 140% 140%, 130% 130%, 150% 150%, 135% 135%,
+        125% 125%;
+    }
+
+    25% {
+      background-size: 160% 160%, 120% 120%, 180% 180%, 130% 130%, 200% 200%,
+        145% 145%;
+    }
+
+    50% {
+      background-size: 200% 200%, 180% 180%, 120% 120%, 220% 220%, 140% 140%,
+        160% 160%;
+    }
+
+    75% {
+      background-size: 240% 240%, 160% 160%, 210% 210%, 120% 120%, 190% 190%,
+        180% 180%;
+    }
+
+    100% {
+      background-size: 170% 170%, 220% 220%, 150% 150%, 200% 200%, 120% 120%,
+        240% 240%;
+    }
   }
-  80% {
-    border-radius: 50% 80% 40% 60% / 60% 70% 40% 50%;
-    transform: rotate(288deg);
+}
+
+// Desktop styles
+@media (min-width: 1024px) {
+  .mesher-background {
+    filter: blur(100px);
+  }
+
+  @keyframes meshMove {
+    0% {
+      background-size: 140% 140%, 160% 160%, 150% 150%, 170% 170%, 155% 155%,
+        145% 145%;
+    }
+
+    25% {
+      background-size: 180% 180%, 140% 140%, 200% 200%, 150% 150%, 220% 220%,
+        165% 165%;
+    }
+
+    50% {
+      background-size: 220% 220%, 200% 200%, 140% 140%, 240% 240%, 160% 160%,
+        180% 180%;
+    }
+
+    75% {
+      background-size: 260% 260%, 180% 180%, 230% 230%, 140% 140%, 210% 210%,
+        200% 200%;
+    }
+
+    100% {
+      background-size: 190% 190%, 240% 240%, 170% 170%, 220% 220%, 140% 140%,
+        260% 260%;
+    }
+  }
+}
+
+// Large desktop styles
+@media (min-width: 1440px) {
+  .mesher-background {
+    filter: blur(120px);
   }
 }

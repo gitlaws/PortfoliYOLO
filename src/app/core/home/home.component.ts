@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
 import { HeroComponent } from './hero/hero.component';
-import { MesherComponent, ThemeType } from './mesher/mesher.component';
+import { MesherComponent } from './mesher/mesher.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ import { MesherComponent, ThemeType } from './mesher/mesher.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  currentTheme!: ThemeType;
+  currentTheme!: 'light' | 'dark';
   title: string;
   theme!: 'light' | 'dark';
 

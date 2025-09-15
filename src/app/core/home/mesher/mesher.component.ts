@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-export type ThemeType = 'light' | 'dark' | 'neumorphic';
+export type ThemeType = 'light' | 'dark';
 
 @Component({
   selector: 'app-mesher',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './mesher.component.html',
   styleUrls: ['./mesher.component.scss'],
+  standalone: true,
 })
 export class MesherComponent {
-  theme: ThemeType = 'neumorphic';
+  constructor() {}
 }
