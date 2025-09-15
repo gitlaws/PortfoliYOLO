@@ -1,20 +1,12 @@
 <div
   class="animated-mesh-container"
-  [class.active]="isActive"
+  [ngClass]="themeClasses"
   [attr.data-theme]="currentTheme"
+  [attr.data-resolved-theme]="resolvedTheme"
   [attr.data-performance]="performanceMode"
   [attr.data-intensity]="intensityLevel"
   #mesherContainer
 >
-  <!-- Ethereal Base Layer -->
-  <div class="ethereal-base" [attr.aria-hidden]="true">
-    <div class="aurora-bands">
-      <div class="aurora-band aurora-primary"></div>
-      <div class="aurora-band aurora-secondary"></div>
-      <div class="aurora-band aurora-tertiary"></div>
-    </div>
-  </div>
-
   <!-- Floating Orbs Background -->
   <div class="floating-orbs" [attr.aria-hidden]="true">
     <div class="orb orb-large orb-1"></div>
@@ -25,48 +17,10 @@
     <div class="orb orb-small orb-6"></div>
   </div>
 
-  <!-- Subtle Grid Pattern -->
-  <div class="geometric-grid" [attr.aria-hidden]="true">
-    <svg
-      class="grid-pattern"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path
-            d="M 10 0 L 0 0 0 10"
-            fill="none"
-            stroke="rgba(255,255,255,0.05)"
-            stroke-width="0.5"
-          />
-        </pattern>
-        <linearGradient id="gridFade" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop
-            offset="0%"
-            style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 1"
-          />
-          <stop
-            offset="50%"
-            style="stop-color: rgba(255, 255, 255, 0.02); stop-opacity: 1"
-          />
-          <stop
-            offset="100%"
-            style="stop-color: rgba(255, 255, 255, 0); stop-opacity: 0"
-          />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" fill="url(#grid)" opacity="0.3" />
-      <rect width="100" height="100" fill="url(#gridFade)" />
-    </svg>
-  </div>
-
   <!-- Main Canvas for Mesh Gradient -->
   <canvas
     #meshCanvas
     class="mesh-canvas"
-    [width]="canvasWidth"
-    [height]="canvasHeight"
     [attr.aria-hidden]="true"
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave()"
@@ -75,78 +29,7 @@
     <p>Animated mesh gradient background with pastel colors</p>
   </canvas>
 
-  <!-- Crystalline Fragments -->
-  <div class="crystal-fragments" [attr.aria-hidden]="true">
-    <div class="crystal-shard shard-1"></div>
-    <div class="crystal-shard shard-2"></div>
-    <div class="crystal-shard shard-3"></div>
-    <div class="crystal-shard shard-4"></div>
-    <div class="crystal-shard shard-5"></div>
-  </div>
-
-  <!-- Breath Effect Overlay -->
-  <div class="breath-overlay" [attr.aria-hidden]="true">
-    <div class="breath-layer breath-primary"></div>
-    <div class="breath-layer breath-secondary"></div>
-  </div>
-
-  <!-- Subtle Noise Texture -->
-  <div class="noise-texture" [attr.aria-hidden]="true">
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <filter id="noiseFilter">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.9"
-          numOctaves="1"
-          seed="5"
-          result="noise"
-        />
-        <feColorMatrix in="noise" type="saturate" values="0" />
-        <feComponentTransfer>
-          <feFuncA type="discrete" tableValues="0.02 0.05 0.02 0.08 0.02" />
-        </feComponentTransfer>
-      </filter>
-      <rect
-        width="100%"
-        height="100%"
-        filter="url(#noiseFilter)"
-        opacity="0.4"
-      />
-    </svg>
-  </div>
-
-  <!-- Color Points Visualization (for development) -->
-  <div
-    class="color-points-debug"
-    *ngIf="showDebugInfo && !isProduction"
-    [attr.aria-hidden]="true"
-  >
-    <div
-      class="color-point-debug"
-      *ngFor="let point of colorPoints; trackBy: trackColorPoint"
-      [style.left.px]="point.x"
-      [style.top.px]="point.y"
-      [style.background]="point.color"
-      [attr.data-point-id]="point.id"
-    >
-      {{ point.id }}
-    </div>
-  </div>
-
-  <!-- Gradient Overlay Layers (Enhanced) -->
-  <div class="gradient-layers" [attr.aria-hidden]="true">
-    <div class="gradient-layer primary-layer"></div>
-    <div class="gradient-layer secondary-layer"></div>
-    <div class="gradient-layer accent-layer"></div>
-    <div class="gradient-layer ambient-layer"></div>
-  </div>
-
-  <!-- Elegant Loading State -->
+  <!-- Loading State -->
   <div
     class="mesh-loading"
     *ngIf="isLoading"
@@ -168,7 +51,7 @@
     </div>
   </div>
 
-  <!-- Enhanced Debug Panel -->
+  <!-- Debug Panel -->
   <div class="mesh-debug" *ngIf="showDebugInfo && !isProduction">
     <div class="debug-panel">
       <div class="debug-header">
@@ -176,49 +59,22 @@
         <div class="debug-indicator" [class.active]="isActive"></div>
       </div>
       <div class="debug-section">
+        <h4>Theme</h4>
+        <div class="metric">
+          <span class="metric-label">Current:</span>
+          <span class="metric-value">{{ currentTheme }}</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Resolved:</span>
+          <span class="metric-value">{{ resolvedTheme }}</span>
+        </div>
+      </div>
+      <div class="debug-section">
         <h4>Performance</h4>
         <div class="metric">
           <span class="metric-label">FPS:</span>
           <span class="metric-value" [class.warning]="currentFPS < 30">{{
             currentFPS
-          }}</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Frame Time:</span>
-          <span class="metric-value">{{ averageFrameTime.toFixed(1) }}ms</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Render Time:</span>
-          <span class="metric-value">{{ lastRenderTime.toFixed(1) }}ms</span>
-        </div>
-      </div>
-      <div class="debug-section">
-        <h4>Mesh Gradient</h4>
-        <div class="metric">
-          <span class="metric-label">Color Points:</span>
-          <span class="metric-value">{{ colorPoints.length }}</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Animation Speed:</span>
-          <span class="metric-value">{{ animationSpeed.toFixed(2) }}</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Morph Intensity:</span>
-          <span class="metric-value">{{ morphIntensity.toFixed(2) }}</span>
-        </div>
-      </div>
-      <div class="debug-section">
-        <h4>Interaction</h4>
-        <div class="metric">
-          <span class="metric-label">Mouse Active:</span>
-          <span class="metric-value" [class.active]="isMouseActive">{{
-            isMouseActive ? "YES" : "NO"
-          }}</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Influence:</span>
-          <span class="metric-value">{{
-            mouseInfluenceStrength.toFixed(2)
           }}</span>
         </div>
       </div>
