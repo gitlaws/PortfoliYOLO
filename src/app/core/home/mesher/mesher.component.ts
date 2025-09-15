@@ -113,6 +113,10 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // Mouse interaction - PUBLIC for template access
   isMouseActive: boolean = false;
+  mousePosition: { x: number; y: number } | null = null;
+
+  // Loading text for enhanced loading animation
+  loadingText: string[] = ['L', 'O', 'A', 'D', 'I', 'N', 'G'];
 
   // Private Properties
   private destroy$ = new Subject<void>();
@@ -122,9 +126,6 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
   private frameCount: number = 0;
   private frameTimes: number[] = [];
   private isBrowser: boolean;
-
-  // Mouse position - keep private as it's not used in template
-  private mousePosition = { x: 0, y: 0 };
 
   // Mesh Data
   private meshGradient: MeshGradient = {
@@ -143,7 +144,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     colorPoints: 0,
   };
 
-  // Pastel Color Palette
+  // Enhanced Pastel Color Palette
   private readonly pastelColors = [
     '#e6e6ff', // lavender
     '#ffd7d7', // peach
@@ -163,10 +164,10 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
   private readonly config = {
     mesh: {
       pointCount: { high: 12, medium: 10, low: 6 },
-      animationSpeed: { high: 1, medium: 0.8, low: 0.5 },
-      morphDuration: 8000, // milliseconds
-      driftSpeed: 0.3,
-      mouseInfluenceRadius: 200,
+      animationSpeed: { high: 1.2, medium: 1, low: 0.7 },
+      morphDuration: 10000, // milliseconds
+      driftSpeed: 0.4,
+      mouseInfluenceRadius: 250,
     },
     performance: {
       targetFPS: 60,
@@ -174,7 +175,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
       maxFrameTimeHistory: 60,
     },
     canvas: {
-      resolution: { high: 1, medium: 0.75, low: 0.5 },
+      resolution: { high: 1, medium: 0.8, low: 0.6 },
     },
   };
 
@@ -281,8 +282,10 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.isMouseActive = true;
     const rect = this.canvasRef.nativeElement.getBoundingClientRect();
-    this.mousePosition.x = event.clientX - rect.left;
-    this.mousePosition.y = event.clientY - rect.top;
+    this.mousePosition = {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    };
 
     this.interactionStart.emit({
       x: this.mousePosition.x,
@@ -293,6 +296,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
   onMouseLeave(): void {
     this.isMouseActive = false;
     this.mouseInfluenceStrength = 0;
+    this.mousePosition = null;
     this.interactionEnd.emit();
   }
 
@@ -303,14 +307,16 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     const newX = event.clientX - rect.left;
     const newY = event.clientY - rect.top;
 
-    // Calculate mouse movement energy
-    const dx = newX - this.mousePosition.x;
-    const dy = newY - this.mousePosition.y;
-    const mouseSpeed = Math.sqrt(dx * dx + dy * dy);
-    this.mouseInfluenceStrength = Math.min(1, mouseSpeed / 100);
+    if (this.mousePosition) {
+      // Calculate mouse movement energy
+      const dx = newX - this.mousePosition.x;
+      const dy = newY - this.mousePosition.y;
+      const mouseSpeed = Math.sqrt(dx * dx + dy * dy);
+      this.mouseInfluenceStrength = Math.min(1, mouseSpeed / 150);
 
-    this.mousePosition.x = newX;
-    this.mousePosition.y = newY;
+      this.mousePosition.x = newX;
+      this.mousePosition.y = newY;
+    }
   }
 
   // Template Helper Methods
@@ -445,9 +451,9 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
       targetColor: color,
       targetColorRGB: colorRGB,
       morphProgress: 0,
-      size: 200 + Math.random() * 100,
+      size: 180 + Math.random() * 120,
       life: 0,
-      energy: Math.random() * 0.5,
+      energy: Math.random() * 0.4,
     };
   }
 
@@ -564,7 +570,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     const deltaTime = currentTime - this.meshGradient.lastUpdateTime;
 
     this.meshGradient.animationPhase += deltaTime * 0.001 * this.animationSpeed;
-    this.meshGradient.morphPhase += deltaTime * 0.0005 * this.morphIntensity;
+    this.meshGradient.morphPhase += deltaTime * 0.0008 * this.morphIntensity;
 
     this.colorPoints.forEach((point, index) => {
       this.updateColorPoint(point, index, deltaTime);
@@ -580,7 +586,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // Decay mouse influence
-    this.mouseInfluenceStrength *= 0.95;
+    this.mouseInfluenceStrength *= 0.92;
   }
 
   private updateColorPoint(
@@ -591,23 +597,25 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     // Update life
     point.life += deltaTime;
 
-    // Organic movement with sine waves for smooth drifting
-    const organicX =
-      Math.sin(this.meshGradient.animationPhase + index * 0.5) * 50;
-    const organicY =
-      Math.cos(this.meshGradient.animationPhase * 1.1 + index * 0.7) * 50;
+    // Enhanced organic movement with multiple sine waves
+    const phase1 = this.meshGradient.animationPhase + index * 0.7;
+    const phase2 = this.meshGradient.animationPhase * 1.3 + index * 0.5;
 
-    // Update position with drift
-    point.x += point.vx * this.animationSpeed + organicX * 0.01;
-    point.y += point.vy * this.animationSpeed + organicY * 0.01;
+    const organicX = Math.sin(phase1) * 40 + Math.cos(phase2) * 20;
+    const organicY = Math.cos(phase1 * 1.1) * 35 + Math.sin(phase2 * 0.8) * 25;
 
-    // Boundary wrapping for seamless loop
-    if (point.x < -100) point.x = this.canvasWidth + 100;
-    if (point.x > this.canvasWidth + 100) point.x = -100;
-    if (point.y < -100) point.y = this.canvasHeight + 100;
-    if (point.y > this.canvasHeight + 100) point.y = -100;
+    // Update position with enhanced drift
+    point.x += point.vx * this.animationSpeed + organicX * 0.008;
+    point.y += point.vy * this.animationSpeed + organicY * 0.008;
 
-    // Color morphing
+    // Enhanced boundary wrapping with smoother transitions
+    const margin = point.size;
+    if (point.x < -margin) point.x = this.canvasWidth + margin;
+    if (point.x > this.canvasWidth + margin) point.x = -margin;
+    if (point.y < -margin) point.y = this.canvasHeight + margin;
+    if (point.y > this.canvasHeight + margin) point.y = -margin;
+
+    // Enhanced color morphing with smoother transitions
     if (point.morphProgress < 1) {
       point.morphProgress += deltaTime / this.config.mesh.morphDuration;
       point.morphProgress = Math.min(1, point.morphProgress);
@@ -615,24 +623,25 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
       const interpolated = this.interpolateColor(
         point.colorRGB,
         point.targetColorRGB,
-        this.easeInOutCubic(point.morphProgress)
+        this.easeInOutQuart(point.morphProgress)
       );
 
       point.colorRGB = interpolated;
       point.color = this.rgbToString(interpolated);
-    } else if (Math.random() < 0.001) {
-      // Randomly trigger new color target
+    } else if (Math.random() < 0.0008) {
+      // Randomly trigger new color target with lower frequency
       point.targetColor = this.getRandomPastelColor();
       point.targetColorRGB = this.hexToRgb(point.targetColor);
       point.morphProgress = 0;
     }
 
-    // Energy decay
-    point.energy *= 0.99;
+    // Enhanced energy decay
+    point.energy *= 0.985;
+    point.energy = Math.max(0, point.energy);
   }
 
   private handleMouseInteraction(point: ColorPoint): void {
-    if (!this.isMouseActive || !this.interactive) return;
+    if (!this.isMouseActive || !this.interactive || !this.mousePosition) return;
 
     const dx = this.mousePosition.x - point.x;
     const dy = this.mousePosition.y - point.y;
@@ -645,15 +654,18 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
       const force =
         (this.config.mesh.mouseInfluenceRadius - distance) /
         this.config.mesh.mouseInfluenceRadius;
-      const mouseForce = 0.01 * force * this.mouseInfluence;
+      const mouseForce = 0.012 * force * this.mouseInfluence;
 
-      // Apply gentle attraction to mouse
-      point.vx += (dx / distance) * mouseForce * this.mouseInfluenceStrength;
-      point.vy += (dy / distance) * mouseForce * this.mouseInfluenceStrength;
-      point.energy = Math.min(1, point.energy + force * 0.1);
+      // Apply enhanced attraction/repulsion to mouse
+      const normalizedDx = dx / distance;
+      const normalizedDy = dy / distance;
 
-      // Trigger color change on strong interaction
-      if (force > 0.7 && point.morphProgress >= 1) {
+      point.vx += normalizedDx * mouseForce * this.mouseInfluenceStrength;
+      point.vy += normalizedDy * mouseForce * this.mouseInfluenceStrength;
+      point.energy = Math.min(1, point.energy + force * 0.15);
+
+      // Trigger color change on strong interaction with smoother threshold
+      if (force > 0.6 && point.morphProgress >= 1 && Math.random() < 0.3) {
         point.targetColor = this.getRandomPastelColor();
         point.targetColorRGB = this.hexToRgb(point.targetColor);
         point.morphProgress = 0;
@@ -661,8 +673,8 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  private easeInOutCubic(t: number): number {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  private easeInOutQuart(t: number): number {
+    return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
   }
 
   private render(): void {
@@ -673,38 +685,48 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
     // Clear canvas
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
-    // Create mesh gradient
-    this.renderMeshGradient();
+    // Create enhanced mesh gradient
+    this.renderEnhancedMeshGradient();
 
     this.lastRenderTime = performance.now() - renderStart;
     this.performanceMetrics.renderTime = this.lastRenderTime;
   }
 
-  private renderMeshGradient(): void {
-    // Create radial gradients at each color point
-    this.colorPoints.forEach((point) => {
+  private renderEnhancedMeshGradient(): void {
+    // Enhanced rendering with multiple blend modes and improved gradients
+    this.colorPoints.forEach((point, index) => {
       const gradient = this.ctx.createRadialGradient(
         point.x,
         point.y,
         0,
         point.x,
         point.y,
-        point.size
+        point.size * (1 + point.energy * 0.3)
       );
 
-      const alpha = 0.6 * this.intensity * (1 + point.energy * 0.5);
+      const baseAlpha = 0.45 * this.intensity * (1 + point.energy * 0.4);
       const color = point.color
         .replace('rgb', 'rgba')
-        .replace(')', `, ${alpha})`);
+        .replace(')', `, ${baseAlpha})`);
 
+      // Enhanced gradient stops for smoother blending
       gradient.addColorStop(0, color);
       gradient.addColorStop(
-        0.6,
-        color.replace(`, ${alpha})`, `, ${alpha * 0.3})`)
+        0.3,
+        color.replace(`, ${baseAlpha})`, `, ${baseAlpha * 0.7})`)
+      );
+      gradient.addColorStop(
+        0.7,
+        color.replace(`, ${baseAlpha})`, `, ${baseAlpha * 0.3})`)
       );
       gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
-      this.ctx.globalCompositeOperation = 'multiply';
+      // Use different blend modes for variety
+      const blendModes = ['multiply', 'overlay', 'soft-light'];
+      this.ctx.globalCompositeOperation = blendModes[
+        index % blendModes.length
+      ] as GlobalCompositeOperation;
+
       this.ctx.fillStyle = gradient;
       this.ctx.fillRect(
         point.x - point.size,
@@ -724,7 +746,7 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private adaptPerformance(metrics: PerformanceMetrics): void {
     if (metrics.fps < this.config.performance.minFPS) {
-      const newCount = Math.max(6, Math.floor(this.colorPointCount * 0.8));
+      const newCount = Math.max(6, Math.floor(this.colorPointCount * 0.85));
       if (newCount < this.colorPointCount) {
         this.colorPointCount = newCount;
         this.initializeMeshGradient();
@@ -738,6 +760,6 @@ export class MesherComponent implements OnInit, OnDestroy, AfterViewInit {
       this.isActive = true;
       this.meshReady.emit();
       this.cdr.markForCheck();
-    }, 500);
+    }, 800);
   }
 }

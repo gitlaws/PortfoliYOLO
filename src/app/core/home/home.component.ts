@@ -24,6 +24,9 @@ import { MesherComponent } from './mesher/mesher.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  onMeshReady() {
+    throw new Error('Method not implemented.');
+  }
   title: string;
   theme!: 'light' | 'dark';
 

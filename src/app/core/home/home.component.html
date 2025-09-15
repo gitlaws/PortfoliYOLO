@@ -1,6 +1,17 @@
 <div class="intro-section" [ngClass]="theme">
   <!-- <app-particles-background></app-particles-background> -->
-  <app-mesher></app-mesher>
+
+  <app-mesher
+    [intensity]="0.8"
+    [colorPointCount]="12"
+    [animationSpeed]="1.2"
+    [interactive]="true"
+    [showDebugInfo]="false"
+    theme="auto"
+    performance="auto"
+    (meshReady)="onMeshReady()"
+  >
+  </app-mesher>
   <div class="intro-content">
     <app-hero></app-hero>
   </div>
