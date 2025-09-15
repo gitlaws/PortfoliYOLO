@@ -1,25 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, NgClass } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from '../../shared/services/theme/theme.service';
 import { Theme } from '../../shared/models/theme.enum';
-import { TypewriterComponent } from './typewriter/typewriter.component';
-import { ParticlesBackgroundComponent } from './particles-background/particles-background.component';
-import { CubeLogoComponent } from '../toolbar/cube-logo/cube-logo.component';
 import { HeroComponent } from './hero/hero.component';
-import { MesherComponent } from './mesher/mesher.component';
+import { MesherComponent, ThemeType } from './mesher/mesher.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeroComponent, MesherComponent],
+  imports: [CommonModule, NgClass, HeroComponent, MesherComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  onMeshReady() {
-    throw new Error('Method not implemented.');
-  }
+export class HomeComponent implements OnInit {
+  currentTheme!: ThemeType;
   title: string;
   theme!: 'light' | 'dark';
 
@@ -33,7 +28,16 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.themeService.currentTheme.subscribe((theme) => {
+      this.currentTheme = theme === Theme.Light ? 'light' : 'dark';
       this.theme = theme === Theme.Light ? 'light' : 'dark';
     });
+  }
+
+  onThemeToggle(): void {
+    this.themeService.toggleTheme();
+  }
+
+  onMeshReady(): void {
+    console.log('Mesh component is ready');
   }
 }

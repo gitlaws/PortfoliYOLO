@@ -6,6 +6,26 @@ $animation-duration: 20s;
 $breath-duration: 8s;
 $orb-float-duration: 12s;
 
+// Theme-aware color maps
+$theme-colors: (
+  light: (
+    primary: #e6e6ff,
+    secondary: #ffd7d7,
+    tertiary: #d7ffd7,
+    accent: #d7f3ff,
+    highlight: #ffcce5,
+    complement: #fff7d7,
+  ),
+  dark: (
+    primary: #4a4a7a,
+    secondary: #7a4a4a,
+    tertiary: #4a7a4a,
+    accent: #4a5a7a,
+    highlight: #7a4a5a,
+    complement: #7a5a4a,
+  ),
+);
+
 // Responsive breakpoints
 $breakpoints: (
   iphone14pro: 393px,
@@ -21,6 +41,31 @@ $breakpoints: (
       @content;
     }
   }
+}
+
+@mixin theme-colors($theme) {
+  $colors: map-get($theme-colors, $theme);
+  --color-primary: #{map-get($colors, primary)};
+  --color-secondary: #{map-get($colors, secondary)};
+  --color-tertiary: #{map-get($colors, tertiary)};
+  --color-accent: #{map-get($colors, accent)};
+  --color-highlight: #{map-get($colors, highlight)};
+  --color-complement: #{map-get($colors, complement)};
+
+  // RGB values for rgba() usage
+  --color-primary-rgb: #{red(map-get($colors, primary))},
+    #{green(map-get($colors, primary))}, #{blue(map-get($colors, primary))};
+  --color-secondary-rgb: #{red(map-get($colors, secondary))},
+    #{green(map-get($colors, secondary))}, #{blue(map-get($colors, secondary))};
+  --color-tertiary-rgb: #{red(map-get($colors, tertiary))},
+    #{green(map-get($colors, tertiary))}, #{blue(map-get($colors, tertiary))};
+  --color-accent-rgb: #{red(map-get($colors, accent))},
+    #{green(map-get($colors, accent))}, #{blue(map-get($colors, accent))};
+  --color-highlight-rgb: #{red(map-get($colors, highlight))},
+    #{green(map-get($colors, highlight))}, #{blue(map-get($colors, highlight))};
+  --color-complement-rgb: #{red(map-get($colors, complement))},
+    #{green(map-get($colors, complement))},
+    #{blue(map-get($colors, complement))};
 }
 
 @mixin ethereal-blur($intensity: medium) {
@@ -68,8 +113,22 @@ $breakpoints: (
   transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   contain: layout style paint;
 
-  // Base light theme
+  // Default/fallback theme
+  @include theme-colors(light);
   background: linear-gradient(135deg, #fafafa 0%, #f8f9ff 100%);
+  --mesh-opacity: 0.6;
+  --effect-intensity: 0.7;
+  --orb-opacity: 0.3;
+  --text-color: rgba(0, 0, 0, 0.8);
+  --debug-bg: rgba(255, 255, 255, 0.9);
+  --orb-blend-mode: overlay;
+  --mesh-blend-mode: multiply;
+  --cursor-glow-color: rgba(255, 255, 255, 0.08);
+  --loading-star-gradient: linear-gradient(
+    45deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
 
   &.active {
     opacity: 1;
@@ -78,6 +137,7 @@ $breakpoints: (
 
   // Light theme styles
   &.light {
+    @include theme-colors(light);
     background: radial-gradient(
         circle at 20% 30%,
         rgba(230, 230, 255, 0.02) 0%,
@@ -95,10 +155,19 @@ $breakpoints: (
     --orb-opacity: 0.3;
     --text-color: rgba(0, 0, 0, 0.8);
     --debug-bg: rgba(255, 255, 255, 0.9);
+    --orb-blend-mode: overlay;
+    --mesh-blend-mode: multiply;
+    --cursor-glow-color: rgba(255, 255, 255, 0.08);
+    --loading-star-gradient: linear-gradient(
+      45deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
   }
 
   // Dark theme styles
   &.dark {
+    @include theme-colors(dark);
     background: radial-gradient(
         circle at 20% 30%,
         rgba(100, 100, 150, 0.05) 0%,
@@ -116,6 +185,14 @@ $breakpoints: (
     --orb-opacity: 0.4;
     --text-color: rgba(255, 255, 255, 0.8);
     --debug-bg: rgba(20, 20, 30, 0.9);
+    --orb-blend-mode: screen;
+    --mesh-blend-mode: screen;
+    --cursor-glow-color: rgba(200, 200, 255, 0.12);
+    --loading-star-gradient: linear-gradient(
+      45deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
   }
 
   // Minimal theme
@@ -171,20 +248,48 @@ $breakpoints: (
     border-radius: 50%;
     opacity: calc(var(--orb-opacity, 0.3) * var(--effect-intensity, 0.7));
     @include ethereal-blur(high);
-    mix-blend-mode: overlay;
+    mix-blend-mode: var(--orb-blend-mode, overlay);
 
-    .light & {
+    // Theme-aware orb colors using RGB values
+    &.orb-1 {
       background: radial-gradient(
         circle,
-        rgba(230, 230, 255, 0.2) 0%,
+        rgba(var(--color-primary-rgb), 0.2) 0%,
         transparent 70%
       );
     }
-
-    .dark & {
+    &.orb-2 {
       background: radial-gradient(
         circle,
-        rgba(150, 150, 200, 0.3) 0%,
+        rgba(var(--color-secondary-rgb), 0.25) 0%,
+        transparent 70%
+      );
+    }
+    &.orb-3 {
+      background: radial-gradient(
+        circle,
+        rgba(var(--color-tertiary-rgb), 0.2) 0%,
+        transparent 70%
+      );
+    }
+    &.orb-4 {
+      background: radial-gradient(
+        circle,
+        rgba(var(--color-accent-rgb), 0.22) 0%,
+        transparent 70%
+      );
+    }
+    &.orb-5 {
+      background: radial-gradient(
+        circle,
+        rgba(var(--color-highlight-rgb), 0.18) 0%,
+        transparent 70%
+      );
+    }
+    &.orb-6 {
+      background: radial-gradient(
+        circle,
+        rgba(var(--color-complement-rgb), 0.24) 0%,
         transparent 70%
       );
     }
@@ -192,7 +297,6 @@ $breakpoints: (
     &.orb-large {
       width: 200px;
       height: 200px;
-
       @media (max-width: 393px) {
         width: 150px;
         height: 150px;
@@ -202,7 +306,6 @@ $breakpoints: (
     &.orb-medium {
       width: 120px;
       height: 120px;
-
       @media (max-width: 393px) {
         width: 90px;
         height: 90px;
@@ -212,7 +315,6 @@ $breakpoints: (
     &.orb-small {
       width: 80px;
       height: 80px;
-
       @media (max-width: 393px) {
         width: 60px;
         height: 60px;
@@ -272,14 +374,9 @@ $breakpoints: (
   height: 100%;
   display: block;
   opacity: var(--mesh-opacity, 0.6);
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--mesh-blend-mode, multiply);
   z-index: 3;
   pointer-events: auto;
-
-  .dark & {
-    mix-blend-mode: screen;
-    opacity: calc(var(--mesh-opacity, 0.6) * 1.2);
-  }
 
   @media (max-width: 768px) {
     @include ethereal-blur(low);
@@ -316,13 +413,9 @@ $breakpoints: (
     .loading-star {
       width: 6px;
       height: 6px;
-      background: linear-gradient(45deg, #e6e6ff, #ffd7d7);
+      background: var(--loading-star-gradient);
       border-radius: 50%;
       animation: starTwinkle 1.5s ease-in-out infinite;
-
-      .dark & {
-        background: linear-gradient(45deg, #4a4a7a, #7a4a4a);
-      }
 
       @for $i from 1 through 8 {
         &:nth-child(#{$i}) {
@@ -438,7 +531,7 @@ $breakpoints: (
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.08) 0%,
+    var(--cursor-glow-color) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -446,14 +539,6 @@ $breakpoints: (
   transform: translate(-50%, -50%);
   mix-blend-mode: overlay;
   animation: cursorPulse 2s ease-in-out infinite;
-
-  .dark & {
-    background: radial-gradient(
-      circle,
-      rgba(200, 200, 255, 0.12) 0%,
-      transparent 70%
-    );
-  }
 }
 
 // ===== ANIMATIONS =====

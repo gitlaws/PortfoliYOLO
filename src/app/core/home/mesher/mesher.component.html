@@ -1,6 +1,7 @@
 <div
   class="animated-mesh-container"
   [ngClass]="themeClasses"
+  [class.active]="isActive"
   [attr.data-theme]="currentTheme"
   [attr.data-resolved-theme]="resolvedTheme"
   [attr.data-performance]="performanceMode"
@@ -68,6 +69,10 @@
           <span class="metric-label">Resolved:</span>
           <span class="metric-value">{{ resolvedTheme }}</span>
         </div>
+        <div class="metric">
+          <span class="metric-label">Classes:</span>
+          <span class="metric-value">{{ themeClasses.join(" ") }}</span>
+        </div>
       </div>
       <div class="debug-section">
         <h4>Performance</h4>
@@ -76,6 +81,23 @@
           <span class="metric-value" [class.warning]="currentFPS < 30">{{
             currentFPS
           }}</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Intensity:</span>
+          <span class="metric-value">{{ intensityLevel }}</span>
+        </div>
+      </div>
+      <div class="debug-section">
+        <h4>Interactive</h4>
+        <div class="metric">
+          <span class="metric-label">Mouse Active:</span>
+          <span class="metric-value">{{ isMouseActive ? "Yes" : "No" }}</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Position:</span>
+          <span class="metric-value"
+            >{{ mousePosition?.x || 0 }}, {{ mousePosition?.y || 0 }}</span
+          >
         </div>
       </div>
     </div>
