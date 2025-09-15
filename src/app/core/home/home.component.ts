@@ -12,14 +12,7 @@ import { MesherComponent } from './mesher/mesher.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    TypewriterComponent,
-    ParticlesBackgroundComponent,
-    CubeLogoComponent,
-    HeroComponent,
-    MesherComponent,
-  ],
+  imports: [CommonModule, HeroComponent, MesherComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
