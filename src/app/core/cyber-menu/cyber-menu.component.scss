@@ -57,12 +57,12 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     background-image: conic-gradient(
       transparent 0deg,
       transparent 270deg,
-      rgba(54, 65, 48, 0.18) 280deg,
-      rgba(102, 112, 72, 0.35) 300deg,
-      rgba(168, 160, 112, 0.55) 320deg,
-      rgba(110, 120, 100, 0.75) 340deg,
-      #6b705c 350deg,
-      rgba(110, 120, 100, 0.75) 360deg,
+      rgba(36, 54, 89, 0.18) 280deg,
+      rgba(44, 68, 112, 0.35) 300deg,
+      rgba(52, 82, 135, 0.55) 320deg,
+      rgba(60, 96, 158, 0.75) 340deg,
+      #24446e 350deg,
+      rgba(60, 96, 158, 0.75) 360deg,
       transparent 10deg,
       transparent 270deg
     );
@@ -147,13 +147,13 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   // Light theme - gradient inspired
   &.light {
     &:nth-child(1) {
-      stroke: #3a4d3f; // Recon Green (deep olive)
+      stroke: #5a6473; // Recon Blue (muted blue-grey)
     }
     &:nth-child(2) {
-      stroke: #7b8c5a; // Recon Olive (muted olive)
+      stroke: #8a929b; // Soft Grey-Blue
     }
     &:nth-child(3) {
-      stroke: #b2b49a; // Recon Sand (dusty tan)
+      stroke: #b0b6bc; // Light Grey with blue undertone
     }
   }
 
@@ -174,15 +174,15 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 .dropdown-toggle:hover svg line {
   &.light {
     &:nth-child(1) {
-      stroke: #556b2f; // Olive Drab (military green)
+      stroke: #3a5ba0; // Deep Blue
       animation: lightPulse1 1.5s ease-in-out infinite;
     }
     &:nth-child(2) {
-      stroke: #c0b283; // Sand (desert tan)
+      stroke: #5e81c5; // Soft Steel Blue
       animation: lightPulse2 1.5s ease-in-out infinite 0.2s;
     }
     &:nth-child(3) {
-      stroke: #708090; // Slate Gray (urban camo)
+      stroke: #8bb7f0; // Light Sky Blue
       animation: lightPulse3 1.5s ease-in-out infinite 0.4s;
     }
   }
