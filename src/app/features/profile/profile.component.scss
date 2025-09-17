@@ -505,10 +505,17 @@ $transition-interactive: background-color 0.2s ease-out,
 
       i {
         font-size: 18px;
-        color: $color-primary;
         transition: $transition-smooth;
         position: relative;
         z-index: 2;
+
+        &.light {
+          color: #374151; // deep blue-grey, readable on light backgrounds
+        }
+
+        &.dark {
+          color: #e5e7eb; // very light grey, readable on dark backgrounds
+        }
       }
 
       &:hover {
@@ -548,10 +555,10 @@ $transition-interactive: background-color 0.2s ease-out,
         }
         i {
           &.light {
-            color: #24292f; // Dark grey for light mode
+            color: #8b5cf6; // Purple for light mode (violet-500)
           }
           &.dark {
-            color: #f3f4f6; // Light grey for dark mode
+            color: #8b5cf6; // Lighter purple for dark mode (violet-300)
           }
         }
       }
@@ -565,7 +572,7 @@ $transition-interactive: background-color 0.2s ease-out,
             color: #0a66c2; // LinkedIn blue for light mode
           }
           &.dark {
-            color: #b3d3ea; // Softer blue for dark mode, more readable than pure white
+            color: #0a66c2; // Brighter blue for dark mode, more vibrant and readable
           }
         }
       }
