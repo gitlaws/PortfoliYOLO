@@ -370,10 +370,17 @@ $transition-interactive: background-color 0.2s ease-out,
   .profile-title {
     font-family: "Roboto";
     font-size: 1rem; // 16px
-    color: $color-primary;
     margin-bottom: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.015em;
+
+    &.light {
+      color: #4b5563; // matches $color-primary, readable on light bg
+    }
+
+    &.dark {
+      color: #b3b8b8; // soft military grey, readable on dark bg
+    }
   }
 
   .profile-details {
@@ -397,7 +404,8 @@ $transition-interactive: background-color 0.2s ease-out,
       position: relative;
 
       i {
-        color: $color-primary;
+        // color: #2d3748;
+        // background: #e2e8f0;
         width: 20px;
         height: 20px;
         font-size: 16px;
@@ -405,14 +413,31 @@ $transition-interactive: background-color 0.2s ease-out,
         align-items: center;
         justify-content: center;
         border-radius: 6px;
-        background: rgba($color-primary, 0.1);
         flex-shrink: 0;
+
+        &.light {
+          color: #2d3748;
+          background: #e2e8f0;
+        }
+
+        &.dark {
+          color: #f3f4f6;
+          background: #374151;
+        }
       }
 
       span {
         font-family: "Roboto";
         font-weight: 500;
         letter-spacing: 0.025em;
+
+        &.light {
+          color: $color-text;
+        }
+
+        &.dark {
+          color: $color-text-dark;
+        }
       }
     }
   }
