@@ -36,7 +36,8 @@ $spacing: (
   // 48px
   xxxl: 4rem,
   // 64px
-  xxxxl: 6rem // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  xxxxl: 6rem
+    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -76,7 +77,8 @@ $typography: (
   // 32px
   display: 2.5rem,
   // 40px
-  hero: 3rem // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  hero: 3rem
+    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -671,10 +673,12 @@ $light-theme: (
 
     .project-overlay {
       opacity: 1;
+      // color: white;
     }
 
     .project-category {
       transform: translateY(0);
+      // color: rgba(255, 255, 255, 0.9);
     }
   }
 
@@ -775,7 +779,7 @@ $light-theme: (
     #{map-get($typography, sm)}
   );
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.9);
   transform: translateY(8px);
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -797,6 +801,15 @@ $light-theme: (
   i {
     margin-right: 0.3rem;
     font-size: 1em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  // Light theme
+  &.light {
+    color: white;
+    i {
+      color: white;
+    }
   }
 }
 
