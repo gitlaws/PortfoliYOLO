@@ -34,6 +34,7 @@ $breakpoint-xxl: 1400px;
     margin-bottom: 2rem;
     color: $primary-color;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
     hyphens: auto;
   }
 
