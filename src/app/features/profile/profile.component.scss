@@ -331,8 +331,8 @@ $transition-interactive: background-color 0.2s ease-out,
     // Light mode
     &.light {
       // Option 1: Military olive green shade
-      background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
-        linear-gradient(135deg, #3a3a4d, #6b6e4a) border-box;
+      // background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
+      //   linear-gradient(135deg, #3a3a4d, #6b6e4a) border-box;
 
       // Option 2: Military muted khaki shade
       // background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
@@ -344,17 +344,13 @@ $transition-interactive: background-color 0.2s ease-out,
 
     // Dark mode
     &.dark {
-      background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
-        linear-gradient(135deg, #6b7280, #374151) border-box;
+      // background: linear-gradient(#0f0f0f, #0f0f0f) padding-box,
+      //   linear-gradient(135deg, #6b7280, #374151) border-box;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
         0 4px 6px -2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(107, 114, 128, 0.1);
     }
 
-    // &:hover {
-    //   transform: scale(1.02);
-    //   box-shadow: $shadow-floating, 0 0 0 2px rgba($color-primary, 0.2);
-    // }
   }
 
   .profile-name {
