@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Theme } from '../../../shared/models/theme.enum';
 import { ThemeService } from '../../../shared/services/theme/theme.service';
@@ -29,11 +22,29 @@ interface Certification {
 export class CertificationsComponent
   implements OnInit, OnDestroy, AfterViewInit
 {
-  @ViewChild('carouselContainer', { static: true })
-  carouselContainer!: ElementRef;
-
   theme!: 'light' | 'dark';
-  private isPaused = false;
+
+  // Pagination (fixed 4 per page, 2x2)
+  currentPage = 0;
+  itemsPerPage = 4;
+  totalPages = 1;
+
+  // Auto-advance
+  private autoAdvanceInterval?: ReturnType<typeof setInterval>;
+  private resumeTimeout?: ReturnType<typeof setTimeout>;
+  private readonly STORAGE_KEY = 'certifications-current-page';
+  private readonly AUTO_ADVANCE_DELAY = 8000; // 8s
+  private readonly RESUME_DELAY = 10000; // 10s after interaction
+
+  // Bound key handler for cleanup
+  private keydownHandler = (event: KeyboardEvent) => {
+    if (event.key === 'ArrowLeft') this.prevPage();
+    if (event.key === 'ArrowRight') this.nextPage();
+    if (event.key >= '1' && event.key <= '9') {
+      const pageIndex = parseInt(event.key, 10) - 1;
+      if (pageIndex < this.totalPages) this.goToPage(pageIndex);
+    }
+  };
 
   certifications: Certification[] = [
     {
@@ -100,6 +111,22 @@ export class CertificationsComponent
       link: '#',
       status: 'planned',
     },
+    {
+      title: 'Vue.js Essentials',
+      organization: 'Vue.js',
+      date: 'Aug 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+      link: '#',
+      status: 'completed',
+    },
+    {
+      title: 'Python for Beginners',
+      organization: 'Python Software Foundation',
+      date: 'Jul 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      link: '#',
+      status: 'planned',
+    },
   ];
 
   constructor(private themeService: ThemeService) {}
@@ -108,26 +135,95 @@ export class CertificationsComponent
     this.themeService.currentTheme.subscribe((theme) => {
       this.theme = theme === Theme.Light ? 'light' : 'dark';
     });
+
+    const savedPage = localStorage.getItem(this.STORAGE_KEY);
+    if (savedPage) this.currentPage = parseInt(savedPage, 10) || 0;
+
+    this.updatePagination();
+    document.addEventListener('keydown', this.keydownHandler);
   }
 
   ngAfterViewInit(): void {
-    // Animation is handled via CSS
+    this.startAutoAdvance();
   }
 
   ngOnDestroy(): void {
-    // Cleanup if needed
+    this.stopAutoAdvance();
+    if (this.resumeTimeout) clearTimeout(this.resumeTimeout);
+    document.removeEventListener('keydown', this.keydownHandler);
   }
 
-  pauseAutoScroll(): void {
-    this.isPaused = true;
+  // Pagination
+  private updatePagination(): void {
+    this.totalPages = Math.ceil(this.certifications.length / this.itemsPerPage);
+    if (this.currentPage >= this.totalPages) this.currentPage = 0;
+    this.saveCurrentPage();
   }
 
-  resumeAutoScroll(): void {
-    this.isPaused = false;
+  private saveCurrentPage(): void {
+    localStorage.setItem(this.STORAGE_KEY, this.currentPage.toString());
   }
 
-  onDragStart(event: DragEvent, index: number): void {
-    event.preventDefault();
+  nextPage(pauseAuto = true): void {
+    if (pauseAuto) this.pauseAutoAdvance();
+    this.currentPage = (this.currentPage + 1) % this.totalPages;
+    this.saveCurrentPage();
+  }
+
+  prevPage(): void {
+    this.pauseAutoAdvance();
+    this.currentPage =
+      (this.currentPage - 1 + this.totalPages) % this.totalPages;
+    this.saveCurrentPage();
+  }
+
+  goToPage(pageIndex: number): void {
+    if (pageIndex >= 0 && pageIndex < this.totalPages) {
+      this.pauseAutoAdvance();
+      this.currentPage = pageIndex;
+      this.saveCurrentPage();
+    }
+  }
+
+  // Auto-advance
+  private startAutoAdvance(): void {
+    this.stopAutoAdvance();
+    this.autoAdvanceInterval = setInterval(
+      () => this.nextPage(false),
+      this.AUTO_ADVANCE_DELAY
+    );
+  }
+
+  private stopAutoAdvance(): void {
+    if (this.autoAdvanceInterval) {
+      clearInterval(this.autoAdvanceInterval);
+      this.autoAdvanceInterval = undefined;
+    }
+  }
+
+  private pauseAutoAdvance(): void {
+    this.stopAutoAdvance();
+    if (this.resumeTimeout) clearTimeout(this.resumeTimeout);
+    this.resumeTimeout = setTimeout(
+      () => this.startAutoAdvance(),
+      this.RESUME_DELAY
+    );
+  }
+
+  // Data helpers
+  getSlicedCerts(): Certification[] {
+    const start = this.currentPage * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.certifications.slice(start, end);
+  }
+
+  getPageNumbers(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i);
+  }
+
+  // Always two columns (2x2 per page across all breakpoints)
+  getGridColumns(): string {
+    return 'repeat(2, minmax(0, 1fr))';
   }
 
   getStatusClass(status: string): string {
