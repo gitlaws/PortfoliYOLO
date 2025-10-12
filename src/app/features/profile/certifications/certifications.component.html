@@ -1,5 +1,238 @@
-<div class="notification">
-  <span title="Under Construction" style="font-size: 2rem; color: #007bff">
-    &#9888;
-  </span>
+<div class="certifications-container" [ngClass]="theme">
+  <h2>Critical Full-Stack Development Certifications</h2>
+
+  <!-- Featured Course -->
+  <div class="featured-course" [ngClass]="theme">
+    <div class="course-header">
+      <span class="status-badge enrolled">Currently Enrolled</span>
+      <h3>The Complete JavaScript Course 2024</h3>
+      <p class="instructor">Jonas Schmedtmann • Udemy</p>
+    </div>
+    <div class="course-content">
+      <p class="description">
+        From Zero to Expert! Master modern JavaScript with ES6+, async
+        programming, and real-world projects.
+      </p>
+      <a
+        href="https://www.udemy.com/share/103sMm3@nEx3JQmCDpKa1LHaeohRZ6EVT4nHRUQmnDNPv1ruHDdhK6epgELeefdKVaNFadbsfg==/"
+        target="_blank"
+        class="course-link"
+      >
+        View Progress →
+      </a>
+    </div>
+  </div>
+
+  <!-- Certification Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-header">
+      <h3>Industry-Critical Certifications</h3>
+      <div class="carousel-controls">
+        <button
+          class="carousel-btn prev"
+          (click)="previousSlide()"
+          [disabled]="currentSlide === 0"
+        >
+          ‹
+        </button>
+        <span class="slide-indicator"
+          >{{ currentSlide + 1 }} / {{ totalSlides }}</span
+        >
+        <button
+          class="carousel-btn next"
+          (click)="nextSlide()"
+          [disabled]="currentSlide === totalSlides - 1"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+    >
+      <!-- Frontend Certifications -->
+      <div class="carousel-slide frontend">
+        <div class="slide-header">
+          <h4>Frontend Mastery</h4>
+          <span class="category-badge frontend">UI/UX</span>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon react"></div>
+            <h5>React Developer Certification</h5>
+            <p class="provider">Meta (Facebook)</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon angular"></div>
+            <h5>Angular Certified Developer</h5>
+            <p class="provider">Google</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon vue"></div>
+            <h5>Vue.js Certification</h5>
+            <p class="provider">Vue School</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon typescript"></div>
+            <h5>TypeScript Expert</h5>
+            <p class="provider">Microsoft</p>
+            <span class="priority">High</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend Certifications -->
+      <div class="carousel-slide backend">
+        <div class="slide-header">
+          <h4>Backend Excellence</h4>
+          <span class="category-badge backend">Server-Side</span>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon nodejs"></div>
+            <h5>Node.js Certified Developer</h5>
+            <p class="provider">OpenJS Foundation</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon express"></div>
+            <h5>Express.js Mastery</h5>
+            <p class="provider">StrongLoop</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon python"></div>
+            <h5>Python Web Developer</h5>
+            <p class="provider">Python Institute</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon graphql"></div>
+            <h5>GraphQL Certified</h5>
+            <p class="provider">The Guild</p>
+            <span class="priority">High</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database Certifications -->
+      <div class="carousel-slide database">
+        <div class="slide-header">
+          <h4>Database Management</h4>
+          <span class="category-badge database">Data</span>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon mongodb"></div>
+            <h5>MongoDB Certified Developer</h5>
+            <p class="provider">MongoDB University</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon postgres"></div>
+            <h5>PostgreSQL Expert</h5>
+            <p class="provider">PostgreSQL Global Development Group</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon redis"></div>
+            <h5>Redis Certified Developer</h5>
+            <p class="provider">Redis Labs</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-low" [ngClass]="theme">
+            <div class="cert-icon mysql"></div>
+            <h5>MySQL Database Administrator</h5>
+            <p class="provider">Oracle</p>
+            <span class="priority">Medium</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud & DevOps Certifications -->
+      <div class="carousel-slide cloud">
+        <div class="slide-header">
+          <h4>Cloud & DevOps</h4>
+          <span class="category-badge cloud">Infrastructure</span>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon aws"></div>
+            <h5>AWS Certified Developer</h5>
+            <p class="provider">Amazon Web Services</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-high" [ngClass]="theme">
+            <div class="cert-icon docker"></div>
+            <h5>Docker Certified Associate</h5>
+            <p class="provider">Docker Inc.</p>
+            <span class="priority">Critical</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon kubernetes"></div>
+            <h5>Kubernetes Administrator</h5>
+            <p class="provider">Cloud Native Computing Foundation</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon terraform"></div>
+            <h5>Terraform Associate</h5>
+            <p class="provider">HashiCorp</p>
+            <span class="priority">High</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testing & Quality Certifications -->
+      <div class="carousel-slide testing">
+        <div class="slide-header">
+          <h4>Testing & Quality Assurance</h4>
+          <span class="category-badge testing">QA</span>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon jest"></div>
+            <h5>Jest Testing Framework</h5>
+            <p class="provider">Facebook Open Source</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-medium" [ngClass]="theme">
+            <div class="cert-icon cypress"></div>
+            <h5>Cypress E2E Testing</h5>
+            <p class="provider">Cypress.io</p>
+            <span class="priority">High</span>
+          </div>
+          <div class="cert-item priority-low" [ngClass]="theme">
+            <div class="cert-icon selenium"></div>
+            <h5>Selenium WebDriver</h5>
+            <p class="provider">Selenium Project</p>
+            <span class="priority">Medium</span>
+          </div>
+          <div class="cert-item priority-low" [ngClass]="theme">
+            <div class="cert-icon playwright"></div>
+            <h5>Playwright Testing</h5>
+            <p class="provider">Microsoft</p>
+            <span class="priority">Medium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Dots -->
+    <div class="carousel-dots">
+      <button
+        *ngFor="let slide of slides; let i = index"
+        class="dot"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)"
+      >
+        {{ slide.name }}
+      </button>
+    </div>
+  </div>
 </div>
