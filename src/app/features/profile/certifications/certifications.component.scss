@@ -1,675 +1,273 @@
-// Variables
-$primary-color: #2d3748;
-$accent-color: #3b82f6;
-$success-color: #10b981;
-$warning-color: #f59e0b;
-$danger-color: #ef4444;
-$bg-light: #ffffff;
-$bg-dark: #1f2937;
-$border-light: #e5e7eb;
-$border-dark: #374151;
-$text-light: #6b7280;
-$text-dark: #d1d5db;
+// Minimal Variables
+$white: #ffffff;
+$black: #000000;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
 
-// Responsive Breakpoints
-$breakpoint-xs: 576px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-$breakpoint-xxl: 1400px;
+$blue: #3b82f6;
+$green: #10b981;
+$amber: #f59e0b;
 
 .certifications-container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  padding: 4rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  h2 {
+  .header {
     text-align: center;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: $primary-color;
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
+    margin-bottom: 4rem;
 
-  &.dark {
     h2 {
-      color: #f9fafb;
-    }
-  }
-}
-
-// Featured Course
-.featured-course {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  box-sizing: border-box;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: clamp(50px, 8vw, 100px);
-    height: clamp(50px, 8vw, 100px);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(30px, -30px);
-  }
-
-  .course-header {
-    margin-bottom: 1rem;
-
-    .status-badge {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: clamp(0.65rem, 2vw, 0.75rem);
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-
-      &.enrolled {
-        background: rgba(16, 185, 129, 0.2);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-      }
+      color: $gray-900;
+      margin: 0;
+      letter-spacing: -0.02em;
     }
 
-    h3 {
-      font-size: clamp(1.25rem, 3vw, 1.5rem);
-      font-weight: 600;
-      margin: 0.5rem 0;
-      line-height: 1.3;
-    }
-
-    .instructor {
-      opacity: 0.9;
-      font-size: clamp(0.8rem, 2vw, 0.9rem);
-    }
-  }
-
-  .course-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 2rem;
-    flex-wrap: wrap;
-
-    .description {
-      flex: 1;
-      line-height: 1.6;
-      opacity: 0.95;
-      font-size: clamp(0.875rem, 2vw, 1rem);
-      min-width: 200px;
-    }
-
-    .course-link {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      white-space: nowrap;
-      font-size: clamp(0.8rem, 2vw, 0.9rem);
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px);
-      }
-    }
-  }
-}
-
-// Carousel Container
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-
-  .carousel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    h3 {
-      font-size: clamp(1.125rem, 3vw, 1.375rem);
-      font-weight: 600;
-      color: $primary-color;
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-shrink: 0;
-
-      .carousel-btn {
-        width: clamp(35px, 6vw, 40px);
-        height: clamp(35px, 6vw, 40px);
-        border: 2px solid $accent-color;
-        background: transparent;
-        color: $accent-color;
-        border-radius: 50%;
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.2s ease;
-
-        &:hover:not(:disabled) {
-          background: $accent-color;
-          color: white;
-        }
-
-        &:disabled {
-          opacity: 0.3;
-          cursor: not-allowed;
-        }
-      }
-
-      .slide-indicator {
-        font-size: clamp(0.75rem, 2vw, 0.875rem);
-        color: $text-light;
-        font-weight: 500;
-        white-space: nowrap;
-      }
+    .subtitle {
+      font-size: 1.125rem;
+      color: $gray-500;
+      margin: 0.5rem 0 0 0;
+      font-weight: 400;
     }
   }
 
   .carousel-wrapper {
-    width: 100%;
-    overflow: hidden;
     position: relative;
-  }
+    overflow: hidden;
 
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    width: 500%; // 5 slides × 100%
-  }
-
-  .carousel-slide {
-    width: 20%; // 100% / 5 slides
-    flex-shrink: 0;
-    padding: 1.5rem;
-    border: 2px solid $border-light;
-    border-radius: 12px;
-    margin-right: 1rem;
-    box-sizing: border-box;
-    min-height: 400px;
-
-    &:last-child {
-      margin-right: 0;
+    // Subtle fade edges
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      z-index: 2;
+      pointer-events: none;
     }
 
-    .slide-header {
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $white, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $white, transparent);
+    }
+
+    .carousel-track {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      gap: 1rem;
-      flex-wrap: wrap;
-
-      h4 {
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
-        font-weight: 600;
-        color: $primary-color;
-        flex: 1;
-        line-height: 1.2;
-      }
-
-      .category-badge {
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: clamp(0.65rem, 1.5vw, 0.75rem);
-        font-weight: 600;
-        text-transform: uppercase;
-        white-space: nowrap;
-        flex-shrink: 0;
-
-        &.frontend {
-          background: #e0f2fe;
-          color: #0277bd;
-        }
-        &.backend {
-          background: #f3e5f5;
-          color: #7b1fa2;
-        }
-        &.database {
-          background: #e8f5e8;
-          color: #2e7d32;
-        }
-        &.cloud {
-          background: #fff3e0;
-          color: #f57c00;
-        }
-        &.testing {
-          background: #fce4ec;
-          color: #c2185b;
-        }
-      }
-    }
-
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .cert-item {
-      background: $bg-light;
-      border: 1px solid $border-light;
-      border-radius: 8px;
-      padding: 1rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      word-wrap: break-word;
-      min-height: 140px;
-      display: flex;
-      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      animation: scroll 60s linear infinite;
 
       &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation-play-state: paused;
       }
 
-      .cert-icon {
-        width: clamp(30px, 6vw, 40px);
-        height: clamp(30px, 6vw, 40px);
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100% - 1.5rem));
+        }
+      }
+    }
+  }
+
+  .cert-card {
+    flex: 0 0 280px;
+    background: $white;
+    border: 1px solid $gray-200;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-color: $gray-300;
+    }
+
+    .cert-icon {
+      position: relative;
+      margin-bottom: 1rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
         border-radius: 8px;
-        margin-bottom: 0.75rem;
-        display: flex;
+      }
+
+      .icon-fallback {
+        display: none;
+        width: 48px;
+        height: 48px;
+        background: $blue;
+        color: $white;
+        border-radius: 8px;
         align-items: center;
         justify-content: center;
-        font-size: clamp(1rem, 2.5vw, 1.5rem);
-        color: white;
-        flex-shrink: 0;
-
-        // Create colored squares with letters for icons
-        &.react {
-          background: #61dafb;
-          color: #000;
-          &::after {
-            content: "R";
-          }
-        }
-        &.angular {
-          background: #dd0031;
-          &::after {
-            content: "A";
-          }
-        }
-        &.vue {
-          background: #4fc08d;
-          &::after {
-            content: "V";
-          }
-        }
-        &.typescript {
-          background: #3178c6;
-          &::after {
-            content: "TS";
-          }
-        }
-        &.nodejs {
-          background: #339933;
-          &::after {
-            content: "N";
-          }
-        }
-        &.express {
-          background: #000000;
-          &::after {
-            content: "E";
-          }
-        }
-        &.python {
-          background: #3776ab;
-          &::after {
-            content: "P";
-          }
-        }
-        &.graphql {
-          background: #e10098;
-          &::after {
-            content: "G";
-          }
-        }
-        &.mongodb {
-          background: #47a248;
-          &::after {
-            content: "M";
-          }
-        }
-        &.postgres {
-          background: #336791;
-          &::after {
-            content: "P";
-          }
-        }
-        &.redis {
-          background: #dc382d;
-          &::after {
-            content: "R";
-          }
-        }
-        &.mysql {
-          background: #4479a1;
-          &::after {
-            content: "M";
-          }
-        }
-        &.aws {
-          background: #ff9900;
-          &::after {
-            content: "A";
-          }
-        }
-        &.docker {
-          background: #2496ed;
-          &::after {
-            content: "D";
-          }
-        }
-        &.kubernetes {
-          background: #326ce5;
-          &::after {
-            content: "K";
-          }
-        }
-        &.terraform {
-          background: #623ce4;
-          &::after {
-            content: "T";
-          }
-        }
-        &.jest {
-          background: #c21325;
-          &::after {
-            content: "J";
-          }
-        }
-        &.cypress {
-          background: #17202c;
-          &::after {
-            content: "C";
-          }
-        }
-        &.selenium {
-          background: #43b02a;
-          &::after {
-            content: "S";
-          }
-        }
-        &.playwright {
-          background: #2eac4a;
-          &::after {
-            content: "P";
-          }
-        }
-
-        &::after {
-          font-weight: bold;
-          font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-        }
-      }
-
-      h5 {
-        font-size: clamp(0.85rem, 2vw, 0.95rem);
         font-weight: 600;
-        margin-bottom: 0.25rem;
-        color: $primary-color;
-        line-height: 1.3;
-        flex-grow: 1;
+        font-size: 1.25rem;
       }
+    }
 
-      .provider {
-        font-size: clamp(0.7rem, 1.5vw, 0.75rem);
-        color: $text-light;
-        margin-bottom: 0.75rem;
-        line-height: 1.3;
-      }
-
-      .priority {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        padding: 0.125rem 0.4rem;
-        border-radius: 12px;
-        font-size: clamp(0.55rem, 1.2vw, 0.6rem);
+    .cert-content {
+      h3 {
+        font-size: 1.125rem;
         font-weight: 600;
-        text-transform: uppercase;
-        white-space: nowrap;
+        color: $gray-900;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.4;
       }
 
-      &.priority-critical .priority {
-        background: #fee2e2;
-        color: #dc2626;
+      .org {
+        font-size: 0.875rem;
+        color: $gray-600;
+        margin: 0 0 1rem 0;
+        font-weight: 500;
       }
-      &.priority-high .priority {
-        background: #fef3c7;
-        color: #d97706;
+
+      .date {
+        font-size: 0.8rem;
+        color: $gray-400;
+        font-weight: 500;
       }
-      &.priority-medium .priority {
-        background: #f0f9ff;
-        color: #0284c7;
+    }
+
+    .status-indicator {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &.status-completed {
+        background: $green;
       }
+
+      &.status-in-progress {
+        background: $amber;
+        animation: pulse 2s infinite;
+      }
+
+      &.status-planned {
+        background: $gray-400;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    // Status variants
+    &.status-completed {
+      border-left: 3px solid $green;
+    }
+
+    &.status-in-progress {
+      border-left: 3px solid $amber;
+    }
+
+    &.status-planned {
+      border-left: 3px solid $gray-400;
     }
   }
 
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+  // Dark theme
+  &.dark {
+    .header h2 {
+      color: $gray-100;
+    }
 
-    .dot {
-      padding: 0.5rem 1rem;
-      border: 1px solid $border-light;
-      background: transparent;
-      border-radius: 20px;
-      font-size: clamp(0.65rem, 1.5vw, 0.75rem);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      color: $text-light;
+    .header .subtitle {
+      color: $gray-400;
+    }
 
-      &.active {
-        background: $accent-color;
-        color: white;
-        border-color: $accent-color;
+    .carousel-wrapper {
+      &::before {
+        background: linear-gradient(to right, $gray-900, transparent);
       }
 
-      &:hover:not(.active) {
-        border-color: $accent-color;
-        color: $accent-color;
+      &::after {
+        background: linear-gradient(to left, $gray-900, transparent);
+      }
+    }
+
+    .cert-card {
+      background: $gray-800;
+      border-color: $gray-700;
+
+      &:hover {
+        border-color: $gray-600;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .cert-content {
+        h3 {
+          color: $gray-100;
+        }
+
+        .org {
+          color: $gray-300;
+        }
+
+        .date {
+          color: $gray-500;
+        }
       }
     }
   }
 }
 
-// Dark theme support
-.certifications-container.dark {
-  .carousel-container .carousel-header h3 {
-    color: #f9fafb;
-  }
-
-  .carousel-container .carousel-controls .slide-indicator {
-    color: $text-dark;
-  }
-
-  .carousel-slide {
-    border-color: $border-dark;
-
-    .slide-header h4 {
-      color: #f9fafb;
-    }
-
-    .cert-item {
-      background: $bg-dark;
-      border-color: $border-dark;
-
-      h5 {
-        color: #f9fafb;
-      }
-
-      .provider {
-        color: $text-dark;
-      }
-    }
-  }
-
-  .carousel-container .carousel-dots .dot {
-    border-color: $border-dark;
-    color: $text-dark;
-
-    &.active {
-      background: $accent-color;
-      color: white;
-      border-color: $accent-color;
-    }
-  }
-}
-
-// Responsive Breakpoints
-// Extra Small (≤576px) - Mobile Portrait
-@media (max-width: #{$breakpoint-xs}) {
+// Responsive
+@media (max-width: 768px) {
   .certifications-container {
-    padding: 1rem 0.5rem;
-  }
+    padding: 3rem 1rem;
 
-  .featured-course {
-    padding: 1rem;
-    margin-bottom: 2rem;
-
-    .course-content {
-      flex-direction: column;
+    .carousel-wrapper .carousel-track {
       gap: 1rem;
-      align-items: stretch;
-
-      .course-link {
-        align-self: center;
-      }
-    }
-  }
-
-  .carousel-container {
-    .carousel-header {
-      flex-direction: column;
-      align-items: stretch;
-      text-align: center;
     }
 
-    .carousel-slide {
-      padding: 1rem;
-
-      .certs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .slide-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-      }
-    }
-
-    .carousel-dots {
-      gap: 0.25rem;
-
-      .dot {
-        padding: 0.375rem 0.75rem;
-        font-size: 0.6rem;
-      }
+    .cert-card {
+      flex: 0 0 250px;
+      padding: 1.25rem;
     }
   }
 }
 
-// Small (576px) - Large Mobile/Small Tablet
-@media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-md - 1px}) {
-  .certifications-container {
-    padding: 1.5rem 0.75rem;
-  }
-
-  .carousel-container .carousel-slide .certs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-
-// Medium (768px) - Tablet Portrait
-@media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
-  .certifications-container {
-    padding: 1.75rem 1rem;
-  }
-
-  .carousel-container .carousel-slide .certs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
-// Large (992px) - Desktop
-@media (min-width: #{$breakpoint-lg}) and (max-width: #{$breakpoint-xl - 1px}) {
+@media (max-width: 480px) {
   .certifications-container {
     padding: 2rem 1rem;
+
+    .cert-card {
+      flex: 0 0 220px;
+      padding: 1rem;
+    }
   }
-
-  .carousel-container .carousel-slide .certs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-}
-
-// Extra Large (1200px) - Large Desktop
-@media (min-width: #{$breakpoint-xl}) and (max-width: #{$breakpoint-xxl - 1px}) {
-  .certifications-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .carousel-container .carousel-slide .certs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-}
-
-// Extra-Extra Large (≥1400px) - Wide/4K Screens
-@media (min-width: #{$breakpoint-xxl}) {
-  .certifications-container {
-    padding: 2.5rem 2rem;
-    max-width: 1400px;
-  }
-
-  .carousel-container .carousel-slide .certs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-}
-
-// Ensure no horizontal overflow at any screen size
-* {
-  box-sizing: border-box;
-}
-
-.certifications-container * {
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }

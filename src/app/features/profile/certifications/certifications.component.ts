@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Theme } from '../../../shared/models/theme.enum';
 import { ThemeService } from '../../../shared/services/theme/theme.service';
 
-interface CertificationSlide {
-  name: string;
-  id: string;
-  category: string;
-  certifications: Certification[];
-}
-
 interface Certification {
-  name: string;
-  provider: string;
-  priority: 'Critical' | 'High' | 'Medium';
+  title: string;
+  organization: string;
+  date: string;
   icon: string;
+  link: string;
+  status: 'completed' | 'in-progress' | 'planned';
 }
 
 @Component({
@@ -24,166 +26,79 @@ interface Certification {
   templateUrl: './certifications.component.html',
   styleUrl: './certifications.component.scss',
 })
-export class CertificationsComponent implements OnInit {
-  theme!: 'light' | 'dark';
-  currentSlide = 0;
-  totalSlides = 5;
+export class CertificationsComponent
+  implements OnInit, OnDestroy, AfterViewInit
+{
+  @ViewChild('carouselContainer', { static: true })
+  carouselContainer!: ElementRef;
 
-  slides: CertificationSlide[] = [
+  theme!: 'light' | 'dark';
+  private isPaused = false;
+
+  certifications: Certification[] = [
     {
-      name: 'Frontend',
-      id: 'frontend',
-      category: 'UI/UX',
-      certifications: [
-        {
-          name: 'React Developer Certification',
-          provider: 'Meta (Facebook)',
-          priority: 'Critical',
-          icon: 'react',
-        },
-        {
-          name: 'Angular Certified Developer',
-          provider: 'Google',
-          priority: 'Critical',
-          icon: 'angular',
-        },
-        {
-          name: 'Vue.js Certification',
-          provider: 'Vue School',
-          priority: 'High',
-          icon: 'vue',
-        },
-        {
-          name: 'TypeScript Expert',
-          provider: 'Microsoft',
-          priority: 'High',
-          icon: 'typescript',
-        },
-      ],
+      title: 'Angular Developer Certification',
+      organization: 'Google',
+      date: 'May 2024',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+      link: '#',
+      status: 'completed',
     },
     {
-      name: 'Backend',
-      id: 'backend',
-      category: 'Server-Side',
-      certifications: [
-        {
-          name: 'Node.js Certified Developer',
-          provider: 'OpenJS Foundation',
-          priority: 'Critical',
-          icon: 'nodejs',
-        },
-        {
-          name: 'Express.js Mastery',
-          provider: 'StrongLoop',
-          priority: 'Critical',
-          icon: 'express',
-        },
-        {
-          name: 'Python Web Developer',
-          provider: 'Python Institute',
-          priority: 'High',
-          icon: 'python',
-        },
-        {
-          name: 'GraphQL Certified',
-          provider: 'The Guild',
-          priority: 'High',
-          icon: 'graphql',
-        },
-      ],
+      title: 'Modern JavaScript Course',
+      organization: 'Mozilla Developer Network',
+      date: 'Jan 2024',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      link: '#',
+      status: 'in-progress',
     },
     {
-      name: 'Database',
-      id: 'database',
-      category: 'Data',
-      certifications: [
-        {
-          name: 'MongoDB Certified Developer',
-          provider: 'MongoDB University',
-          priority: 'Critical',
-          icon: 'mongodb',
-        },
-        {
-          name: 'PostgreSQL Expert',
-          provider: 'PostgreSQL Global Development Group',
-          priority: 'Critical',
-          icon: 'postgres',
-        },
-        {
-          name: 'Redis Certified Developer',
-          provider: 'Redis Labs',
-          priority: 'High',
-          icon: 'redis',
-        },
-        {
-          name: 'MySQL Database Administrator',
-          provider: 'Oracle',
-          priority: 'Medium',
-          icon: 'mysql',
-        },
-      ],
+      title: 'React Developer Certification',
+      organization: 'Meta',
+      date: 'Mar 2024',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      link: '#',
+      status: 'completed',
     },
     {
-      name: 'Cloud/DevOps',
-      id: 'cloud',
-      category: 'Infrastructure',
-      certifications: [
-        {
-          name: 'AWS Certified Developer',
-          provider: 'Amazon Web Services',
-          priority: 'Critical',
-          icon: 'aws',
-        },
-        {
-          name: 'Docker Certified Associate',
-          provider: 'Docker Inc.',
-          priority: 'Critical',
-          icon: 'docker',
-        },
-        {
-          name: 'Kubernetes Administrator',
-          provider: 'Cloud Native Computing Foundation',
-          priority: 'High',
-          icon: 'kubernetes',
-        },
-        {
-          name: 'Terraform Associate',
-          provider: 'HashiCorp',
-          priority: 'High',
-          icon: 'terraform',
-        },
-      ],
+      title: 'AWS Cloud Practitioner',
+      organization: 'Amazon Web Services',
+      date: 'Feb 2024',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+      link: '#',
+      status: 'planned',
     },
     {
-      name: 'Testing',
-      id: 'testing',
-      category: 'QA',
-      certifications: [
-        {
-          name: 'Jest Testing Framework',
-          provider: 'Facebook Open Source',
-          priority: 'High',
-          icon: 'jest',
-        },
-        {
-          name: 'Cypress E2E Testing',
-          provider: 'Cypress.io',
-          priority: 'High',
-          icon: 'cypress',
-        },
-        {
-          name: 'Selenium WebDriver',
-          provider: 'Selenium Project',
-          priority: 'Medium',
-          icon: 'selenium',
-        },
-        {
-          name: 'Playwright Testing',
-          provider: 'Microsoft',
-          priority: 'Medium',
-          icon: 'playwright',
-        },
-      ],
+      title: 'Node.js Backend Development',
+      organization: 'Node.js Foundation',
+      date: 'Dec 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      link: '#',
+      status: 'completed',
+    },
+    {
+      title: 'Docker Containerization',
+      organization: 'Docker Inc.',
+      date: 'Nov 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      link: '#',
+      status: 'in-progress',
+    },
+    {
+      title: 'TypeScript Advanced',
+      organization: 'Microsoft',
+      date: 'Oct 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      link: '#',
+      status: 'completed',
+    },
+    {
+      title: 'MongoDB Developer',
+      organization: 'MongoDB University',
+      date: 'Sep 2023',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      link: '#',
+      status: 'planned',
     },
   ];
 
@@ -195,32 +110,33 @@ export class CertificationsComponent implements OnInit {
     });
   }
 
-  nextSlide(): void {
-    if (this.currentSlide < this.totalSlides - 1) {
-      this.currentSlide++;
-    }
+  ngAfterViewInit(): void {
+    // Animation is handled via CSS
   }
 
-  previousSlide(): void {
-    if (this.currentSlide > 0) {
-      this.currentSlide--;
-    }
+  ngOnDestroy(): void {
+    // Cleanup if needed
   }
 
-  goToSlide(index: number): void {
-    this.currentSlide = index;
+  pauseAutoScroll(): void {
+    this.isPaused = true;
   }
 
-  getPriorityClass(priority: string): string {
-    switch (priority) {
-      case 'Critical':
-        return 'priority-critical';
-      case 'High':
-        return 'priority-high';
-      case 'Medium':
-        return 'priority-medium';
-      default:
-        return 'priority-medium';
+  resumeAutoScroll(): void {
+    this.isPaused = false;
+  }
+
+  onDragStart(event: DragEvent, index: number): void {
+    event.preventDefault();
+  }
+
+  getStatusClass(status: string): string {
+    return `status-${status}`;
+  }
+
+  onCertificateClick(cert: Certification): void {
+    if (cert.link && cert.link !== '#') {
+      window.open(cert.link, '_blank', 'noopener,noreferrer');
     }
   }
 }
