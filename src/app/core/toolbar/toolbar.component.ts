@@ -8,6 +8,7 @@ import { CyberMenuComponent } from '../cyber-menu/cyber-menu.component';
 import { ThemeToggleComponent } from '../../shared/common/theme-toggle/theme-toggle.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MenubarComponent } from '../menubar/menubar.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,6 +21,7 @@ import { RouterLink } from '@angular/router';
     CubeLogoComponent,
     LogoComponent,
     CyberMenuComponent,
+    MenubarComponent,
     ThemeToggleComponent,
   ],
   // providers: [ThemeService], //todo!
