@@ -42,6 +42,153 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
+.dots-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  isolation: isolate; // keep pseudo-elements behind content
+
+  // default (dark-ish) accent; overridden by .light/.dark below
+  color: #e0e0e0;
+
+  // Animated neon ring
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(from 0deg, #00ffff, #ff0080, #8000ff, #00ffff);
+    animation: cyberDotsRingSpin 6s linear infinite;
+
+    // create a ring (hole inside)
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Inner glass layer
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.03)
+    );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: translateY(-1px) scale(1.03);
+
+    &::before {
+      animation-duration: 2s;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6))
+        drop-shadow(0 0 12px rgba(128, 0, 255, 0.4));
+    }
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor; // follows animated color
+    opacity: 0.9;
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+
+    animation: cyberDotPulse 1.8s ease-in-out infinite,
+      cyberDotColor 6s linear infinite;
+  }
+
+  &:hover .dot {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  // offset animations for each dot
+  .dot:nth-child(2) {
+    animation-delay: 0.15s, 0.2s;
+  }
+  .dot:nth-child(3) {
+    animation-delay: 0.3s, 0.4s;
+  }
+
+  // optional theme variants
+  &.light {
+    color: #212121;
+
+    &::before {
+      background: conic-gradient(from 0deg, #24446e, #5e81c5, #8bb7f0, #24446e);
+    }
+
+    &::after {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.15)
+      );
+    }
+  }
+
+  &.dark {
+    color: #e0e0e0;
+
+    &::before {
+      background: conic-gradient(from 0deg, #00ffff, #ff0080, #8000ff, #00ffff);
+    }
+  }
+}
+
+// Animations
+@keyframes cyberDotsRingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cyberDotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes cyberDotColor {
+  0% {
+    color: #00ffff;
+  }
+  33% {
+    color: #ff0080;
+  }
+  66% {
+    color: #8000ff;
+  }
+  100% {
+    color: #00ffff;
+  }
+}
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
