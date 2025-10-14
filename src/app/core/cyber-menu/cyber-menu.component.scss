@@ -4,16 +4,12 @@
 
 /* Roboto (for body text and buttons - primary recommendation) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-
 /* Inter (for UI elements like buttons - excellent alternative) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
 /* DM Sans (for UI elements like buttons - clean and legible at small sizes) */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-
 /* Optional: Open Sans */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
-
 /* Optional: Roboto Slab (if you want a slab-serif for body/subheadings) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
@@ -22,6 +18,30 @@ $social-links-bg-color-dark: #333;
 $social-links-border-color: #ccc;
 $social-link-hover-color: #0056b3;
 $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
+
+// Theme keyframes for dot color animation
+@keyframes cyberDotColor-light {
+  0% {
+    color: #3498db; // Bright blue for light theme
+  }
+  50% {
+    color: #f39c12; // Vibrant orange for light theme
+  }
+  100% {
+    color: #3498db;
+  }
+}
+@keyframes cyberDotColor-dark {
+  0% {
+    color: #9b59b6; // Purple for dark theme
+  }
+  50% {
+    color: #2ecc71; // Green for dark theme
+  }
+  100% {
+    color: #9b59b6;
+  }
+}
 
 .dropdown-container {
   position: relative;
@@ -56,9 +76,6 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   isolation: isolate; // keep pseudo-elements behind content
 
-  // default (dark-ish) accent; overridden by .light/.dark below
-  // color: #e0e0e0;
-
   // Animated neon ring
   &::before {
     content: "";
@@ -66,18 +83,28 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     inset: 0;
     border-radius: inherit;
     padding: 2px;
-    background: conic-gradient(from 0deg, #00ffff, #ff0080, #8000ff, #00ffff);
+    background: conic-gradient(
+      from 0deg,
+      #4fc3f7,
+      // Light blue
+      #ffd54f,
+      // Soft yellow
+      #81c784,
+      // Light green
+      #ba68c8,
+      // Lavender
+      #4fc3f7
+    );
     animation: cyberDotsRingSpin 6s linear infinite;
-
-    // create a ring (hole inside)
     -webkit-mask: linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-
     pointer-events: none;
     z-index: 0;
+    filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
+      drop-shadow(0 0 12px rgba(129, 199, 132, 0.3));
   }
 
   // Inner glass layer
@@ -88,11 +115,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.03)
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.05)
     );
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
     pointer-events: none;
     z-index: -1;
   }
@@ -102,8 +129,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
     &::before {
       animation-duration: 2s;
-      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6))
-        drop-shadow(0 0 12px rgba(128, 0, 255, 0.4));
+      filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
+        drop-shadow(0 0 12px rgba(129, 199, 132, 0.3));
     }
   }
 
@@ -111,12 +138,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: currentColor; // follows animated color
+    background-color: currentColor;
     opacity: 0.9;
     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
-
     animation: cyberDotPulse 1.8s ease-in-out infinite,
-      cyberDotColor 6s linear infinite;
+      cyberDotColor-dark 6s linear infinite;
   }
 
   &:hover .dot {
@@ -124,7 +150,6 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     filter: drop-shadow(0 0 4px currentColor);
   }
 
-  // offset animations for each dot
   .dot:nth-child(2) {
     animation-delay: 0.15s, 0.2s;
   }
@@ -132,28 +157,53 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     animation-delay: 0.3s, 0.4s;
   }
 
-  // optional theme variants
   &.light {
-    color: #1a2636;
+    color: #4fc3f7; // Light blue
 
     &::before {
-      background: conic-gradient(from 0deg, #00eaff, #ff5eae, #7c4dff, #00eaff);
+      background: conic-gradient(from 0deg, #4fc3f7, #ffd54f, #81c784, #4fc3f7);
+      filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
+        drop-shadow(0 0 12px rgba(255, 213, 79, 0.3));
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.45),
-        rgba(200, 240, 255, 0.18)
+        rgba(255, 213, 79, 0.45),
+        rgba(129, 199, 132, 0.18)
       );
+      -webkit-backdrop-filter: blur(9px);
+      backdrop-filter: blur(9px);
+    }
+
+    .dot {
+      animation: cyberDotPulse 1.8s ease-in-out infinite,
+        cyberDotColor-light 6s linear infinite;
     }
   }
 
   &.dark {
-    color: #e6e6fa;
+    color: #ba68c8; // Lavender
 
     &::before {
-      background: conic-gradient(from 0deg, #00eaff, #ff5eae, #7c4dff, #00eaff);
+      background: conic-gradient(from 0deg, #81c784, #ba68c8, #ffd54f, #81c784);
+      filter: drop-shadow(0 0 8px rgba(186, 104, 200, 0.5))
+        drop-shadow(0 0 12px rgba(255, 213, 79, 0.3));
+    }
+
+    &::after {
+      background: linear-gradient(
+        135deg,
+        rgba(186, 104, 200, 0.1),
+        rgba(255, 255, 255, 0.03)
+      );
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+    }
+
+    .dot {
+      animation: cyberDotPulse 1.8s ease-in-out infinite,
+        cyberDotColor-dark 6s linear infinite;
     }
   }
 }
@@ -172,24 +222,6 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   }
   50% {
     transform: scale(1.25);
-  }
-}
-
-@keyframes cyberDotColor {
-  0% {
-    color: #00ffff; // Neon Cyan
-  }
-  25% {
-    color: #ff0080; // Neon Pink
-  }
-  50% {
-    color: #8000ff; // Neon Purple
-  }
-  75% {
-    color: #00eaff; // Electric Blue
-  }
-  100% {
-    color: #00ffff; // Neon Cyan
   }
 }
 
@@ -234,7 +266,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       font-size: 1em;
 
       &.light {
-        color: #212121; // Matches dropdown-item-social-links i.light
+        color: #212121;
 
         &:hover {
           color: #424242;
@@ -244,7 +276,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: #e0e0e0; // Matches dropdown-item-social-links i.dark
+        color: #e0e0e0;
 
         &:hover {
           color: #ffffff;
@@ -267,7 +299,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       margin: 0 5px;
 
       &.light {
-        color: #212121; // Matches dropdown-item a.light
+        color: #212121;
 
         &:hover {
           color: #424242;
@@ -276,7 +308,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       }
 
       &.dark {
-        color: #e0e0e0; // Matches dropdown-item a.dark
+        color: #e0e0e0;
 
         &:hover {
           color: #ffffff;
