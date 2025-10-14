@@ -57,7 +57,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   isolation: isolate; // keep pseudo-elements behind content
 
   // default (dark-ish) accent; overridden by .light/.dark below
-  color: #e0e0e0;
+  // color: #e0e0e0;
 
   // Animated neon ring
   &::before {
@@ -134,26 +134,26 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
   // optional theme variants
   &.light {
-    color: #212121;
+    color: #1a2636;
 
     &::before {
-      background: conic-gradient(from 0deg, #24446e, #5e81c5, #8bb7f0, #24446e);
+      background: conic-gradient(from 0deg, #00eaff, #ff5eae, #7c4dff, #00eaff);
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.35),
-        rgba(255, 255, 255, 0.15)
+        rgba(255, 255, 255, 0.45),
+        rgba(200, 240, 255, 0.18)
       );
     }
   }
 
   &.dark {
-    color: #e0e0e0;
+    color: #e6e6fa;
 
     &::before {
-      background: conic-gradient(from 0deg, #00ffff, #ff0080, #8000ff, #00ffff);
+      background: conic-gradient(from 0deg, #00eaff, #ff5eae, #7c4dff, #00eaff);
     }
   }
 }
@@ -177,16 +177,16 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 @keyframes cyberDotColor {
   0% {
-    color: #00ffff;
+    color: #24446e; // Deep Recon Blue
   }
   33% {
-    color: #ff0080;
+    color: #5e81c5; // Steel Blue
   }
   66% {
-    color: #8000ff;
+    color: #8bb7f0; // Sky Blue
   }
   100% {
-    color: #00ffff;
+    color: #24446e; // Deep Recon Blue
   }
 }
 
