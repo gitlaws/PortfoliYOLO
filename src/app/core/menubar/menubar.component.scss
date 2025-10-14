@@ -1,33 +1,117 @@
+// Timing and easing
+$t-fast: 120ms;
+$t-med: 160ms;
+$t-slow: 200ms;
+$e-std: ease;
+$e-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Shadows
+$shadow-s: 0 4px 12px rgba(0, 0, 0, 0.2);
+$shadow-m: 0 6px 16px rgba(0, 0, 0, 0.25);
+$shadow-menu: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+// Theme tokens
+$theme-light: (
+  btn-bg: #ffffff,
+  btn-border: #d0d7de,
+  btn-hover-bg: #f3f4f6,
+  btn-hover-border: #9aa3af,
+  dot-color: #111827,
+
+  menu-bg: #ffffff,
+  menu-border: #d0d7de,
+  menu-item-hover-bg: #f3f4f6,
+
+  link-color: #111827,
+  link-hover-color: #0a84ff,
+  accent: #0a84ff,
+
+  backdrop: rgba(0, 0, 0, 0.35),
+);
+
+$theme-dark: (
+  btn-bg: #1a1a1a,
+  btn-border: #333333,
+  btn-hover-bg: #2d2d2d,
+  btn-hover-border: #555555,
+  dot-color: #ffffff,
+
+  menu-bg: #1a1a1a,
+  menu-border: #333333,
+  menu-item-hover-bg: #2d2d2d,
+
+  link-color: #ffffff,
+  link-hover-color: #007acc,
+  accent: #007acc,
+
+  backdrop: rgba(0, 0, 0, 0.5),
+);
+
+// Emit CSS custom properties from a theme map
+@mixin emit-theme($t) {
+  --btn-bg: #{map-get($t, btn-bg)};
+  --btn-border: #{map-get($t, btn-border)};
+  --btn-hover-bg: #{map-get($t, btn-hover-bg)};
+  --btn-hover-border: #{map-get($t, btn-hover-border)};
+  --dot-color: #{map-get($t, dot-color)};
+
+  --menu-bg: #{map-get($t, menu-bg)};
+  --menu-border: #{map-get($t, menu-border)};
+  --menu-item-hover-bg: #{map-get($t, menu-item-hover-bg)};
+
+  --link-color: #{map-get($t, link-color)};
+  --link-hover-color: #{map-get($t, link-hover-color)};
+  --accent: #{map-get($t, accent)};
+
+  --backdrop: #{map-get($t, backdrop)};
+}
+
 .menubar-container {
   position: relative;
+  @include emit-theme($theme-light); // default
+
+  &.theme-light {
+    @include emit-theme($theme-light);
+  }
+  &.theme-dark {
+    @include emit-theme($theme-dark);
+  }
+}
+
+/* Respect OS theme when no explicit theme class is set */
+@media (prefers-color-scheme: dark) {
+  .menubar-container:not(.theme-light):not(.theme-dark) {
+    @include emit-theme($theme-dark);
+  }
 }
 
 .menu-toggle-btn {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #333;
-  background-color: #1a1a1a;
+  border: 2px solid var(--btn-border);
+  background-color: var(--btn-bg);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color $t-med $e-std, border-color $t-med $e-std,
+    box-shadow $t-slow $e-std, transform $t-fast $e-std;
+  box-shadow: $shadow-s;
   position: relative;
   z-index: 1;
 
   &:hover {
-    background-color: #2d2d2d;
-    border-color: #555;
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border);
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: $shadow-m;
   }
 
   &:focus {
     outline: none;
-    border-color: #007acc;
-    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.3);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
   }
 
   &:active {
@@ -37,8 +121,9 @@
 
 .dots-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; // horizontal dots
   align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 
@@ -46,11 +131,11 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
+  background-color: var(--dot-color);
+  transition: background-color $t-med $e-std, transform $t-med $e-std;
 
   .menu-toggle-btn:hover & {
-    background-color: #007acc;
+    background-color: var(--accent);
     transform: scale(1.2);
   }
 }
@@ -60,20 +145,24 @@
   top: 60px;
   right: 0;
   min-width: 200px;
-  background-color: #1a1a1a;
-  border: 2px solid #333;
+  background-color: var(--menu-bg);
+  border: 2px solid var(--menu-border);
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: $shadow-menu;
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px) scale(0.95);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity $t-med $e-std, visibility 0s linear $t-med,
+    transform $t-slow $e-spring, background-color $t-med $e-std,
+    border-color $t-med $e-std, box-shadow $t-med $e-std;
   backdrop-filter: blur(10px);
 
   &.menu-open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
+    transition-delay: 0s, 0s, 0s, 0s, 0s, 0s;
   }
 }
 
@@ -90,24 +179,25 @@
 .menu-link {
   display: block;
   padding: 12px 20px;
-  color: #ffffff;
+  color: var(--link-color);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: all 0.2s ease;
   border-left: 3px solid transparent;
+  transition: color $t-fast $e-std, background-color $t-fast $e-std,
+    border-color $t-fast $e-std, padding-left $t-fast $e-std;
 
   &:hover {
-    background-color: #2d2d2d;
-    color: #007acc;
-    border-left-color: #007acc;
+    background-color: var(--menu-item-hover-bg);
+    color: var(--link-hover-color);
+    border-left-color: var(--accent);
     padding-left: 24px;
   }
 
   &:focus {
     outline: none;
-    background-color: #2d2d2d;
-    color: #007acc;
+    background-color: var(--menu-item-hover-bg);
+    color: var(--link-hover-color);
   }
 }
 
@@ -117,24 +207,26 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--backdrop);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity $t-med $e-std, visibility 0s linear $t-med,
+    background-color $t-med $e-std;
   z-index: 999;
 
   &.backdrop-visible {
     opacity: 1;
     visibility: visible;
+    transition-delay: 0s, 0s, 0s;
   }
 }
 
-// Responsive design
+/* Responsive */
 @media (max-width: 768px) {
-  .menubar-container {
-    top: 15px;
-    right: 15px;
-  }
+  //   .menubar-container {
+  //     top: 15px;
+  //     right: 15px;
+  //   }
 
   .menu-toggle-btn {
     width: 45px;
@@ -149,27 +241,5 @@
   .menu-link {
     padding: 10px 16px;
     font-size: 13px;
-  }
-}
-
-// Dark theme enhancements
-@media (prefers-color-scheme: dark) {
-  .menu-toggle-btn {
-    border-color: #444;
-    background-color: #0d1117;
-
-    &:hover {
-      background-color: #161b22;
-      border-color: #666;
-    }
-  }
-
-  .navigation-menu {
-    background-color: #0d1117;
-    border-color: #30363d;
-  }
-
-  .menu-link:hover {
-    background-color: #161b22;
   }
 }
