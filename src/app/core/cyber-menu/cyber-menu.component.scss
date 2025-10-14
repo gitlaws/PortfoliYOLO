@@ -177,16 +177,19 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
 @keyframes cyberDotColor {
   0% {
-    color: #24446e; // Deep Recon Blue
+    color: #00ffff; // Neon Cyan
   }
-  33% {
-    color: #5e81c5; // Steel Blue
+  25% {
+    color: #ff0080; // Neon Pink
   }
-  66% {
-    color: #8bb7f0; // Sky Blue
+  50% {
+    color: #8000ff; // Neon Purple
+  }
+  75% {
+    color: #00eaff; // Electric Blue
   }
   100% {
-    color: #24446e; // Deep Recon Blue
+    color: #00ffff; // Neon Cyan
   }
 }
 
