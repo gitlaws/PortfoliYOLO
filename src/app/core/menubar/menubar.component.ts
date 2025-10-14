@@ -5,8 +5,16 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './menubar.component.html',
-  styleUrl: './menubar.component.scss'
+  styleUrl: './menubar.component.scss',
 })
 export class MenubarComponent {
+  isMenuOpen = false;
 
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
 }
