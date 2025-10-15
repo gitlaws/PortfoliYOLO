@@ -37,7 +37,7 @@ $spacing: (
   xxxl: 4rem,
   // 64px
   xxxxl: 6rem
-    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -78,7 +78,7 @@ $typography: (
   display: 2.5rem,
   // 40px
   hero: 3rem
-    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -1243,9 +1243,7 @@ $light-theme: (
       outline-offset: 1px;
     }
 
-    &:active {
-      transform: translateY(-1px) scale(0.99);
-    }
+   f
 
     &.primary {
       background: linear-gradient(
