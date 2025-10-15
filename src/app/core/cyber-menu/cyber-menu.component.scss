@@ -22,25 +22,38 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 // Theme keyframes for dot color animation
 @keyframes cyberDotColor-light {
   0% {
-    color: #3498db; // Bright blue for light theme
-  }
+    color: #2196f3;
+  } // Material Blue
+  25% {
+    color: #ff9800;
+  } // Material Orange
   50% {
-    color: #f39c12; // Vibrant orange for light theme
-  }
+    color: #4caf50;
+  } // Material Green
+  75% {
+    color: #9c27b0;
+  } // Material Purple
   100% {
-    color: #3498db;
-  }
+    color: #2196f3;
+  } // Material Blue
 }
+
 @keyframes cyberDotColor-dark {
   0% {
-    color: #9b59b6; // Purple for dark theme
-  }
+    color: #00d9ff;
+  } // Cyan
+  25% {
+    color: #ff0080;
+  } // Hot Pink
   50% {
-    color: #2ecc71; // Green for dark theme
-  }
+    color: #b388ff;
+  } // Light Purple
+  75% {
+    color: #69f0ae;
+  } // Mint Green
   100% {
-    color: #9b59b6;
-  }
+    color: #00d9ff;
+  } // Cyan
 }
 
 .dropdown-container {
@@ -85,15 +98,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     padding: 2px;
     background: conic-gradient(
       from 0deg,
-      #4fc3f7,
-      // Light blue
-      #ffd54f,
-      // Soft yellow
-      #81c784,
-      // Light green
-      #ba68c8,
-      // Lavender
-      #4fc3f7
+      #00d9ff,
+      #ff0080,
+      #b388ff,
+      #69f0ae,
+      #00d9ff
     );
     animation: cyberDotsRingSpin 6s linear infinite;
     -webkit-mask: linear-gradient(#000 0 0) content-box,
@@ -103,8 +112,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     mask-composite: exclude;
     pointer-events: none;
     z-index: 0;
-    filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
-      drop-shadow(0 0 12px rgba(129, 199, 132, 0.3));
+    filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.6))
+      drop-shadow(0 0 12px rgba(105, 240, 174, 0.4));
   }
 
   // Inner glass layer
@@ -115,8 +124,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.05)
+      rgba(0, 217, 255, 0.08),
+      rgba(105, 240, 174, 0.03)
     );
     -webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
@@ -129,8 +138,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
     &::before {
       animation-duration: 2s;
-      filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
-        drop-shadow(0 0 12px rgba(129, 199, 132, 0.3));
+      filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))
+        drop-shadow(0 0 16px rgba(105, 240, 174, 0.5));
     }
   }
 
@@ -158,22 +167,39 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   }
 
   &.light {
-    color: #4fc3f7; // Light blue
+    color: #1976d2; // Deep Blue
 
     &::before {
-      background: conic-gradient(from 0deg, #4fc3f7, #ffd54f, #81c784, #4fc3f7);
-      filter: drop-shadow(0 0 8px rgba(79, 195, 247, 0.5))
-        drop-shadow(0 0 12px rgba(255, 213, 79, 0.3));
+      background: conic-gradient(
+        from 0deg,
+        #2196f3,
+        // Material Blue
+        #ff9800,
+        // Material Orange
+        #4caf50,
+        // Material Green
+        #9c27b0,
+        // Material Purple
+        #2196f3
+      );
+      filter: drop-shadow(0 0 8px rgba(33, 150, 243, 0.6))
+        drop-shadow(0 0 12px rgba(76, 175, 80, 0.4));
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(255, 213, 79, 0.45),
-        rgba(129, 199, 132, 0.18)
+        rgba(33, 150, 243, 0.15),
+        // Blue tint
+        rgba(76, 175, 80, 0.08) // Green tint
       );
       -webkit-backdrop-filter: blur(9px);
       backdrop-filter: blur(9px);
+    }
+
+    &:hover::before {
+      filter: drop-shadow(0 0 10px rgba(33, 150, 243, 0.8))
+        drop-shadow(0 0 16px rgba(76, 175, 80, 0.5));
     }
 
     .dot {
@@ -183,22 +209,39 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   }
 
   &.dark {
-    color: #ba68c8; // Lavender
+    color: #00d9ff; // Cyan
 
     &::before {
-      background: conic-gradient(from 0deg, #81c784, #ba68c8, #ffd54f, #81c784);
-      filter: drop-shadow(0 0 8px rgba(186, 104, 200, 0.5))
-        drop-shadow(0 0 12px rgba(255, 213, 79, 0.3));
+      background: conic-gradient(
+        from 0deg,
+        #00d9ff,
+        // Cyan
+        #ff0080,
+        // Hot Pink
+        #b388ff,
+        // Light Purple
+        #69f0ae,
+        // Mint Green
+        #00d9ff
+      );
+      filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.6))
+        drop-shadow(0 0 12px rgba(255, 0, 128, 0.4));
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(186, 104, 200, 0.1),
-        rgba(255, 255, 255, 0.03)
+        rgba(0, 217, 255, 0.1),
+        // Cyan tint
+        rgba(179, 136, 255, 0.05) // Purple tint
       );
       -webkit-backdrop-filter: blur(7px);
       backdrop-filter: blur(7px);
+    }
+
+    &:hover::before {
+      filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.8))
+        drop-shadow(0 0 16px rgba(255, 0, 128, 0.5));
     }
 
     .dot {
