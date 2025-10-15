@@ -37,7 +37,7 @@ $spacing: (
   xxxl: 4rem,
   // 64px
   xxxxl: 6rem
-    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -78,7 +78,7 @@ $typography: (
   display: 2.5rem,
   // 40px
   hero: 3rem
-    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -1029,21 +1029,21 @@ $light-theme: (
       }
     }
 
-    &:hover {
-      // transform: translateY(-1px) scale(1.03);
+    // &:hover {
+    //   // transform: translateY(-1px) scale(1.03);
 
-      // Dark theme hover
-      // background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    //   // Dark theme hover
+    //   // background: rgba(255, 255, 255, 0.08);
+    //   border-color: rgba(255, 255, 255, 0.2);
+    //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-      // Light theme hover
-      .projects-container.light & {
-        background: rgba(0, 0, 0, 0.06);
-        border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      }
-    }
+    //   // Light theme hover
+    //   .projects-container.light & {
+    //     background: rgba(0, 0, 0, 0.06);
+    //     border-color: rgba(0, 0, 0, 0.15);
+    //     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    //   }
+    // }
   }
 }
 /* =============================================================================
