@@ -37,7 +37,7 @@ $spacing: (
   xxxl: 4rem,
   // 64px
   xxxxl: 6rem
-    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -78,7 +78,7 @@ $typography: (
   display: 2.5rem,
   // 40px
   hero: 3rem
-    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -1243,9 +1243,7 @@ $light-theme: (
       outline-offset: 1px;
     }
 
-   f
-
-    &.primary {
+    f &.primary {
       background: linear-gradient(
         135deg,
         map-get($colors, primary) 0%,
@@ -1386,18 +1384,18 @@ $light-theme: (
   }
 }
 
-@keyframes float-in {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
+// @keyframes float-in {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(20px) scale(0.95);
+//     filter: blur(2px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0) scale(1);
+//     filter: blur(0);
+//   }
+// }
 
 @keyframes pulse-glow {
   0%,
