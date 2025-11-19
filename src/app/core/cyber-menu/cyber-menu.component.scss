@@ -13,47 +13,69 @@
 /* Optional: Roboto Slab (if you want a slab-serif for body/subheadings) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
-$social-links-bg-color-light: #f0f0f0;
-$social-links-bg-color-dark: #333;
-$social-links-border-color: #ccc;
-$social-link-hover-color: #0056b3;
-$social-link-hover-shadow: rgba(0, 0, 0, 0.5);
+// Military color palette variables
+$military-light-base: #f8f7f5; // Warm off-white
+$military-light-surface: #f0efec; // Light canvas
+$military-light-border: #d4d1cc; // Muted khaki border
+$military-light-hover: #e9e7e2; // Light field grey
+$military-light-text: #2a2b22; // Deep olive-black
+$military-light-accent: #4d5047; // Sage military grey
 
-// Theme keyframes for dot color animation
+$military-dark-base: #1e201a; // Deep military charcoal
+$military-dark-surface: #2a2c25; // Dark olive surface
+$military-dark-border: #3a3b32; // Forest border
+$military-dark-hover: #2f312a; // Military hover
+$military-dark-text: #f4f3f0; // Warm off-white
+$military-dark-accent: #d0cfc8; // Light military grey
+
+// Military tactical colors for animations
+$military-tactical-olive: #6b7c32; // Tactical olive
+$military-tactical-sand: #c4b59a; // Desert sand
+$military-tactical-forest: #3a4a2a; // Forest green
+$military-tactical-steel: #5a6b5d; // Military steel
+
+// Updated social link colors
+$social-links-bg-color-light: $military-light-surface;
+$social-links-bg-color-dark: $military-dark-surface;
+$social-links-border-color: $military-light-border;
+$social-link-hover-color: $military-light-accent;
+$social-link-hover-shadow: rgba(42, 43, 34, 0.5);
+
+// Theme keyframes for dot color animation - Military palette
 @keyframes cyberDotColor-light {
   0% {
-    color: #4a5f6a;
-  } // Slate Blue-Grey
+    color: $military-light-text;
+  } // Deep olive-black
   25% {
-    color: #6b8e23;
-  } // Olive Drab
+    color: $military-tactical-olive;
+  } // Tactical olive
   50% {
-    color: #2f4f4f;
-  } // Dark Slate Grey
+    color: $military-light-accent;
+  } // Sage military grey
   75% {
-    color: #5f9ea0;
-  } // Cadet Blue
+    color: $military-tactical-steel;
+  } // Military steel
   100% {
-    color: #4a5f6a;
-  } // Slate Blue-Grey
+    color: $military-light-text;
+  } // Deep olive-black
 }
 
 @keyframes cyberDotColor-dark {
   0% {
-    color: #a8dadc;
-  } // Powder Blue
+    color: $military-dark-text;
+  } // Warm off-white
   25% {
-    color: #90ee90;
-  } // Light Green
+    color: $military-tactical-sand;
+  } // Desert sand
   50% {
-    color: #b0c4de;
-  } // Light Steel Blue
+    color: $military-dark-accent;
+  } // Light military grey
   75% {
-    color: #8fbc8f;
-  } // Dark Sea Green
+    color: $military-tactical-steel;
+  } // Military steel
   100% {
-    color: #a8dadc;
-  } // Powder Blue
+    color: $military-dark-text;
+  } // Warm off-white
 }
 
 .dropdown-container {
@@ -61,7 +83,7 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-toggle {
-  color: $white-color;
+  color: $military-dark-text;
   font-size: 1.2em;
   padding: 4px;
   transition: $transition-effect;
@@ -87,9 +109,9 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
-  isolation: isolate; // keep pseudo-elements behind content
+  isolation: isolate;
 
-  // Animated neon ring
+  // Animated military ring
   &::before {
     content: "";
     position: absolute;
@@ -98,15 +120,11 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     padding: 2px;
     background: conic-gradient(
       from 0deg,
-      #a8dadc,
-      // Powder Blue
-      #90ee90,
-      // Light Green
-      #b0c4de,
-      // Light Steel Blue
-      #8fbc8f,
-      // Dark Sea Green
-      #a8dadc
+      $military-dark-text,
+      $military-tactical-sand,
+      $military-dark-accent,
+      $military-tactical-steel,
+      $military-dark-text
     );
     animation: cyberDotsRingSpin 6s linear infinite;
     -webkit-mask: linear-gradient(#000 0 0) content-box,
@@ -116,8 +134,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     mask-composite: exclude;
     pointer-events: none;
     z-index: 0;
-    filter: drop-shadow(0 0 8px rgba(168, 218, 220, 0.5))
-      drop-shadow(0 0 12px rgba(143, 188, 143, 0.3));
+    filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
+      drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
   }
 
   // Inner glass layer
@@ -128,8 +146,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(168, 218, 220, 0.08),
-      rgba(143, 188, 143, 0.03)
+      rgba(77, 80, 71, 0.08),
+      rgba(208, 207, 200, 0.03)
     );
     -webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
@@ -142,8 +160,8 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
     &::before {
       animation-duration: 2s;
-      filter: drop-shadow(0 0 10px rgba(168, 218, 220, 0.7))
-        drop-shadow(0 0 16px rgba(143, 188, 143, 0.4));
+      filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
+        drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
     }
   }
 
@@ -172,39 +190,34 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
   // LIGHT THEME - Military Field Ops
   &.light {
-    color: #2f4f4f; // Dark Slate Grey
+    color: $military-light-text;
 
     &::before {
       background: conic-gradient(
         from 0deg,
-        #4a5f6a,
-        // Slate Blue-Grey
-        #6b8e23,
-        // Olive Drab
-        #2f4f4f,
-        // Dark Slate Grey
-        #5f9ea0,
-        // Cadet Blue
-        #4a5f6a
+        $military-light-text,
+        $military-tactical-olive,
+        $military-light-accent,
+        $military-tactical-steel,
+        $military-light-text
       );
-      filter: drop-shadow(0 0 8px rgba(74, 95, 106, 0.6))
-        drop-shadow(0 0 12px rgba(107, 142, 35, 0.4));
+      filter: drop-shadow(0 0 8px rgba(42, 43, 34, 0.6))
+        drop-shadow(0 0 12px rgba(107, 124, 50, 0.4));
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(74, 95, 106, 0.18),
-        // Slate Blue-Grey tint
-        rgba(107, 142, 35, 0.1) // Olive tint
+        rgba(42, 43, 34, 0.18),
+        rgba(107, 124, 50, 0.1)
       );
       -webkit-backdrop-filter: blur(9px);
       backdrop-filter: blur(9px);
     }
 
     &:hover::before {
-      filter: drop-shadow(0 0 10px rgba(74, 95, 106, 0.8))
-        drop-shadow(0 0 16px rgba(107, 142, 35, 0.5));
+      filter: drop-shadow(0 0 10px rgba(42, 43, 34, 0.8))
+        drop-shadow(0 0 16px rgba(107, 124, 50, 0.5));
     }
 
     .dot {
@@ -215,39 +228,34 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
   // DARK THEME - Night Vision Recon
   &.dark {
-    color: #a8dadc; // Powder Blue
+    color: $military-dark-text;
 
     &::before {
       background: conic-gradient(
         from 0deg,
-        #a8dadc,
-        // Powder Blue
-        #90ee90,
-        // Light Green
-        #b0c4de,
-        // Light Steel Blue
-        #8fbc8f,
-        // Dark Sea Green
-        #a8dadc
+        $military-dark-text,
+        $military-tactical-sand,
+        $military-dark-accent,
+        $military-tactical-steel,
+        $military-dark-text
       );
-      filter: drop-shadow(0 0 8px rgba(168, 218, 220, 0.6))
-        drop-shadow(0 0 12px rgba(144, 238, 144, 0.4));
+      filter: drop-shadow(0 0 8px rgba(244, 243, 240, 0.6))
+        drop-shadow(0 0 12px rgba(196, 181, 154, 0.4));
     }
 
     &::after {
       background: linear-gradient(
         135deg,
-        rgba(168, 218, 220, 0.12),
-        // Powder Blue tint
-        rgba(143, 188, 143, 0.05) // Sea Green tint
+        rgba(244, 243, 240, 0.12),
+        rgba(208, 207, 200, 0.05)
       );
       -webkit-backdrop-filter: blur(7px);
       backdrop-filter: blur(7px);
     }
 
     &:hover::before {
-      filter: drop-shadow(0 0 10px rgba(168, 218, 220, 0.8))
-        drop-shadow(0 0 16px rgba(144, 238, 144, 0.5));
+      filter: drop-shadow(0 0 10px rgba(244, 243, 240, 0.8))
+        drop-shadow(0 0 16px rgba(196, 181, 154, 0.5));
     }
 
     .dot {
@@ -282,9 +290,9 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
   list-style-type: none;
   transform: none;
   width: 200px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(42, 43, 34, 0.15);
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(240, 239, 236, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -309,27 +317,27 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
 
     a {
       text-decoration: none;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Roboto", sans-serif;
       font-weight: 400;
       font-style: normal;
       font-size: 1em;
 
       &.light {
-        color: #212121;
+        color: $military-light-text;
 
         &:hover {
-          color: #424242;
-          text-shadow: 0px 0px 5px #424242;
+          color: $military-light-accent;
+          text-shadow: 0px 0px 5px $military-light-accent;
           cursor: pointer;
         }
       }
 
       &.dark {
-        color: #e0e0e0;
+        color: $military-dark-text;
 
         &:hover {
-          color: #ffffff;
-          text-shadow: 0px 0px 8px #ffffff;
+          color: $military-dark-accent;
+          text-shadow: 0px 0px 8px $military-dark-accent;
           cursor: pointer;
         }
       }
@@ -348,20 +356,20 @@ $social-link-hover-shadow: rgba(0, 0, 0, 0.5);
       margin: 0 5px;
 
       &.light {
-        color: #212121;
+        color: $military-light-text;
 
         &:hover {
-          color: #424242;
-          text-shadow: 0px 0px 5px #424242;
+          color: $military-light-accent;
+          text-shadow: 0px 0px 5px $military-light-accent;
         }
       }
 
       &.dark {
-        color: #e0e0e0;
+        color: $military-dark-text;
 
         &:hover {
-          color: #ffffff;
-          text-shadow: 0px 0px 8px #ffffff;
+          color: $military-dark-accent;
+          text-shadow: 0px 0px 8px $military-dark-accent;
         }
       }
     }

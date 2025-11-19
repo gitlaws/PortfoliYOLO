@@ -5,46 +5,61 @@ $t-slow: 200ms;
 $e-std: ease;
 $e-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+// Military color palette
+$military-light-bg: #f8f7f5; // Warm off-white
+$military-light-surface: #f0efec; // Light canvas
+$military-light-border: #d4d1cc; // Muted khaki border
+$military-light-hover: #e9e7e2; // Light field grey
+$military-light-text: #2a2b22; // Deep olive-black
+$military-light-accent: #4d5047; // Sage military grey
+
+$military-dark-bg: #1e201a; // Deep military charcoal
+$military-dark-surface: #2a2c25; // Dark olive surface
+$military-dark-border: #3a3b32; // Forest border
+$military-dark-hover: #2f312a; // Military hover
+$military-dark-text: #f4f3f0; // Warm off-white
+$military-dark-accent: #d0cfc8; // Light military grey
+
 // Shadows
-$shadow-s: 0 4px 12px rgba(0, 0, 0, 0.2);
-$shadow-m: 0 6px 16px rgba(0, 0, 0, 0.25);
-$shadow-menu: 0 8px 32px rgba(0, 0, 0, 0.25);
+$shadow-s: 0 4px 12px rgba(42, 43, 34, 0.15);
+$shadow-m: 0 6px 16px rgba(42, 43, 34, 0.2);
+$shadow-menu: 0 8px 32px rgba(42, 43, 34, 0.25);
 
 // Theme tokens
 $theme-light: (
-  btn-bg: #ffffff,
-  btn-border: #d0d7de,
-  btn-hover-bg: #f3f4f6,
-  btn-hover-border: #9aa3af,
-  dot-color: #111827,
+  btn-bg: $military-light-bg,
+  btn-border: $military-light-border,
+  btn-hover-bg: $military-light-hover,
+  btn-hover-border: $military-light-accent,
+  dot-color: $military-light-text,
 
-  menu-bg: #ffffff,
-  menu-border: #d0d7de,
-  menu-item-hover-bg: #f3f4f6,
+  menu-bg: $military-light-surface,
+  menu-border: $military-light-border,
+  menu-item-hover-bg: $military-light-hover,
 
-  link-color: #111827,
-  link-hover-color: #0a84ff,
-  accent: #0a84ff,
+  link-color: $military-light-text,
+  link-hover-color: $military-light-accent,
+  accent: $military-light-accent,
 
-  backdrop: rgba(0, 0, 0, 0.35),
+  backdrop: rgba(42, 43, 34, 0.35),
 );
 
 $theme-dark: (
-  btn-bg: #1a1a1a,
-  btn-border: #333333,
-  btn-hover-bg: #2d2d2d,
-  btn-hover-border: #555555,
-  dot-color: #ffffff,
+  btn-bg: $military-dark-bg,
+  btn-border: $military-dark-border,
+  btn-hover-bg: $military-dark-hover,
+  btn-hover-border: $military-dark-accent,
+  dot-color: $military-dark-text,
 
-  menu-bg: #1a1a1a,
-  menu-border: #333333,
-  menu-item-hover-bg: #2d2d2d,
+  menu-bg: $military-dark-surface,
+  menu-border: $military-dark-border,
+  menu-item-hover-bg: $military-dark-hover,
 
-  link-color: #ffffff,
-  link-hover-color: #007acc,
-  accent: #007acc,
+  link-color: $military-dark-text,
+  link-hover-color: $military-dark-accent,
+  accent: $military-dark-accent,
 
-  backdrop: rgba(0, 0, 0, 0.5),
+  backdrop: rgba(30, 32, 26, 0.5),
 );
 
 // Emit CSS custom properties from a theme map
@@ -223,11 +238,6 @@ $theme-dark: (
 
 /* Responsive */
 @media (max-width: 768px) {
-  //   .menubar-container {
-  //     top: 15px;
-  //     right: 15px;
-  //   }
-
   .menu-toggle-btn {
     width: 45px;
     height: 45px;
