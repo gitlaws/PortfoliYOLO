@@ -276,7 +276,7 @@ $transition-interactive: background-color 0.2s ease-out,
 
 .profile-card {
   @include premium-card($color-surface-light, $color-surface-dark);
-
+  @include theme-mode-transition;
   border-radius: 1.5rem;
   box-shadow: $shadow-elevated;
   padding: 2.5rem 2rem;
@@ -602,7 +602,7 @@ $transition-interactive: background-color 0.2s ease-out,
 
 .skills-card {
   @include premium-card($color-surface-light, $color-surface-dark);
-
+  @include theme-mode-transition;
   border-radius: 1.5rem;
   box-shadow: $shadow-elevated;
   padding: 2rem 1.5rem;
@@ -723,7 +723,7 @@ $transition-interactive: background-color 0.2s ease-out,
 
 .about-section {
   @include premium-card($color-surface-light, $color-surface-dark);
-
+  @include theme-mode-transition;
   border-radius: 1.5rem;
   box-shadow: $shadow-elevated;
   padding: 2.5rem 2rem;
