@@ -39,7 +39,7 @@ $spacing: (
   xxxl: 4rem,
   // 64px
   xxxxl: 6rem
-    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 96px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $toolbar-heights: (
@@ -80,7 +80,7 @@ $typography: (
   display: 2.5rem,
   // 40px
   hero: 3rem
-    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // 48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Color system for enhanced glassmorphism
@@ -214,7 +214,6 @@ $light-theme: (
 
 .projects-container {
   @include responsive-container;
-  @include theme-mode-transition;
   margin-top: clamp(1.5rem, 5vw, 3rem);
   padding-top: clamp(
     calc(#{map-get($toolbar-heights, mobile)} + 1.5rem),
@@ -312,7 +311,6 @@ $light-theme: (
    ========================================================================== */
 
 .projects-header {
-  @include theme-mode-transition;
   @include center-content;
   gap: clamp(0.75rem, 2vw, 1rem);
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
@@ -647,7 +645,7 @@ $light-theme: (
   @include glass-effect-themed(map-get($glassmorphism, blur), "dark");
   border-radius: map-get($glassmorphism, border-radius-xl);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  // transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
   cursor: pointer;
   height: 100%;
   display: flex;
