@@ -286,7 +286,7 @@ $transition-interactive: background-color 0.2s ease-out,
   align-items: center;
   position: relative;
   overflow: hidden;
-  transition: $transition-smooth;
+  // transition: $transition-smooth;
 
   // Subtle background texture
   &::before {
@@ -727,7 +727,7 @@ $transition-interactive: background-color 0.2s ease-out,
   border-radius: 1.5rem;
   box-shadow: $shadow-elevated;
   padding: 2.5rem 2rem;
-  transition: $transition-smooth;
+  // transition: $transition-smooth;
   position: relative;
 
   &.dark {
