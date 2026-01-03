@@ -148,7 +148,7 @@ $light-theme: (
 @mixin glass-hover-effect-themed($theme: "dark") {
   $theme-colors: if($theme == "light", $light-theme, $dark-theme);
 
-  transform: translateY(-6px) scale(1.01);
+  // transform: translateY(-6px) scale(1.01);
 
   @if $theme == "light" {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.04),
