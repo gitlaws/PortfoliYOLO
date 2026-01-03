@@ -644,7 +644,7 @@ $transition-interactive: background-color 0.2s ease-out,
       }
 
       &.light h4 {
-        color: #3a4d3a;
+        color: #484d3a;
       }
 
       &.dark h4 {
@@ -667,45 +667,67 @@ $transition-interactive: background-color 0.2s ease-out,
           &.light {
             background: linear-gradient(
               135deg,
-              #e8e6e3,
-              #d4d1cc
-            ); // Warm field grey to muted khaki
-            color: #2a2b22; // Deep olive-black for contrast
-            box-shadow: 0 0 10px #e8e6e3, 0 4px 8px -2px rgba(42, 43, 34, 0.08); // Soft warm glow
+              #e8e4df,
+              #d9d4cd
+            ); // Rich warm stone to muted taupe - highest prominence
+            color: #1c1d17; // Deep charcoal for maximum contrast
+            border: 1px solid rgba(28, 29, 23, 0.14);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); // Defined shadow for depth
           }
 
           &.dark {
             background: linear-gradient(
               135deg,
-              #3a3b32,
-              #4a4d42
-            ); // Deep forest to military olive
-            color: #f4f3f0; // Warm off-white for high contrast
-            box-shadow: 0 0 16px #4a4d42, 0 2px 10px rgba(58, 59, 50, 0.14); // Subtle olive glow
+              #3d3e36,
+              #4a4c42
+            ); // Deep sage to olive graphite - richest dark tone
+            color: #fafaf8; // Bright off-white for clarity
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28); // Stronger depth
           }
         }
         &.level-4 {
           &.light {
-            background: linear-gradient(135deg, #f0efec, #e9e7e2);
-            color: #3d3e35; // Military charcoal
-            border-color: rgba(77, 80, 70, 0.18); // Muted olive border
+            background: linear-gradient(
+              135deg,
+              #efece8,
+              #e4e1dc
+            ); // Soft linen to warm grey - medium prominence
+            color: #2a2b24; // Dark grey-brown for good contrast
+            border: 1px solid rgba(42, 43, 36, 0.11);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); // Lighter shadow
           }
           &.dark {
-            background: linear-gradient(135deg, #2f312a, #424538);
-            color: #e8e6e1; // Warm light grey
-            border-color: rgba(106, 110, 96, 0.18); // Lighter olive border
+            background: linear-gradient(
+              135deg,
+              #32342d,
+              #3e403a
+            ); // Medium graphite to muted sage
+            color: #f0efec; // Soft off-white
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22); // Moderate depth
           }
         }
         &.level-3 {
           &.light {
-            background: linear-gradient(135deg, #f8f7f5, #f2f1ee);
-            color: #4d5047; // Sage military grey
-            border-color: rgba(77, 80, 71, 0.12); // Very subtle olive
+            background: linear-gradient(
+              135deg,
+              #f7f5f2,
+              #eeece8
+            ); // Pale linen to whisper grey - subtle presence
+            color: #3f4039; // Medium grey for softer contrast
+            border: 1px solid rgba(63, 64, 57, 0.09);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); // Minimal shadow
           }
           &.dark {
-            background: linear-gradient(135deg, #1e201a, #2a2c25);
-            color: #d0cfc8; // Warm light military grey
-            border-color: rgba(77, 80, 71, 0.12); // Consistent subtle border
+            background: linear-gradient(
+              135deg,
+              #262722,
+              #2f312b
+            ); // Deep charcoal to dark sage - most subtle
+            color: #d8d7d2; // Muted light grey
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18); // Lightest shadow
           }
         }
       }
