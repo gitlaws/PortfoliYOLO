@@ -1231,7 +1231,7 @@ $light-theme: (
     }
 
     &:hover {
-      transform: translateY(-2px) scale(1.01);
+      // transform: translateY(-2px) scale(1.01);
 
       &::before {
         left: 100%;
