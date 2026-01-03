@@ -789,7 +789,7 @@ $light-theme: (
   // Light theme category
   .projects-container.light & {
     @include glass-effect-themed(map-get($glassmorphism, blur-subtle), "light");
-    color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
   }
 
   @media (min-width: map-get($breakpoints, ipadair5)) {
