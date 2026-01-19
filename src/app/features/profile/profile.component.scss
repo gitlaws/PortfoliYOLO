@@ -16,27 +16,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
 // Enhanced monochromatic palette for sophistication
-$color-bg-light: #f8f8f8; // Softer light grey instead of white
-$color-bg-dark: #080808; // Pure deep black
-$color-surface-light: #fdfdfd; // Off-white for cards
-$color-surface-dark: #0f0f0f; // Rich charcoal, deeper than bg
+$color-bg-light: #fafafa; // Neutral light background
+$color-bg-dark: #0a0a0a; // Neutral deep black
+$color-surface-light: #ffffff; // Pure white for cards
+$color-surface-dark: #2a2a2a; // Neutral dark charcoal
 $color-shadow: #000000;
 
-// Refined primary colors with better variations
-$color-primary: #4b5563; // Refined dark blue-grey for a modern, less saturated look
-$color-headline-dark: #22223b; // Dark color for headlines in light mode
-$color-primary-light: #ebe7e5; // Light grey instead of blue
-$color-primary-dark: #374151; // Dark grey instead of blue
-$color-primary-muted: #6b7280; // Medium grey for dark mode
-$color-primary-desaturated: #4b5563; // Darker grey accent
-$color-primary-accent: #9ca3af; // Light grey accent for highlights
+// Neutral primary colors - pure greys
+$color-primary: #3f3f46; // Neutral dark grey
+$color-headline-dark: #27272a; // Darker neutral for headlines
+$color-primary-light: #f4f4f5; // Very light neutral grey
+$color-primary-dark: #18181b; // Very dark neutral grey
+$color-primary-muted: #71717a; // Medium neutral grey for dark mode
+$color-primary-desaturated: #52525b; // Mid-tone neutral grey
+$color-primary-accent: #a1a1aa; // Light neutral grey accent
 
-// Enhanced text colors - WCAG AA compliant with pure grey tones
-$color-text: #111111; // Pure dark grey for maximum contrast
-$color-text-light: #9ca3af; // Lighter grey for secondary text (alternative: #d1d5db)
-$color-text-muted: #6b7280; // Medium grey for muted text
-$color-text-dark: #f3f4f6; // Light grey for dark mode text
-$color-text-dark-muted: #d1d5db; // Medium light grey for dark mode muted text
+// Neutral text colors - WCAG AA compliant
+$color-text: #18181b; // Pure dark neutral for maximum contrast
+$color-text-light: #a1a1aa; // Light neutral grey for secondary text
+$color-text-muted: #71717a; // Medium neutral grey for muted text
+$color-text-dark: #fafafa; // Light neutral grey for dark mode text
+$color-text-dark-muted: #d4d4d8; // Medium light neutral grey for dark mode muted text
 
 // Interactive state colors - pure monochromatic
 $color-hover-light: #f3f4f6; // Light grey hover
@@ -52,13 +52,17 @@ $color-info: #3b82f6;
 
 // Premium shadow system with realistic depth
 $shadow-ambient: 0 1px 3px rgba($color-shadow, 0.05);
-$shadow-subtle: 0 4px 6px -1px rgba($color-shadow, 0.08),
+$shadow-subtle:
+  0 4px 6px -1px rgba($color-shadow, 0.08),
   0 2px 4px -1px rgba($color-shadow, 0.04);
-$shadow-elevated: 0 10px 15px -3px rgba($color-shadow, 0.08),
+$shadow-elevated:
+  0 10px 15px -3px rgba($color-shadow, 0.08),
   0 4px 6px -2px rgba($color-shadow, 0.04);
-$shadow-floating: 0 20px 25px -5px rgba($color-shadow, 0.12),
+$shadow-floating:
+  0 20px 25px -5px rgba($color-shadow, 0.12),
   0 10px 10px -5px rgba($color-shadow, 0.04);
-$shadow-glow: 0 0 0 1px rgba($color-primary, 0.05),
+$shadow-glow:
+  0 0 0 1px rgba($color-primary, 0.05),
   0 1px 3px rgba($color-primary, 0.1);
 
 // Refined transitions for micro-interactions
@@ -73,10 +77,14 @@ $transition-background: background-color 0.2s ease-out;
 $transition-shadow: box-shadow 0.2s ease-out;
 $transition-border: border-color 0.2s ease-out;
 $transition-color: color 0.2s ease-out;
-$transition-hover: transform 0.2s ease-out, box-shadow 0.2s ease-out,
+$transition-hover:
+  transform 0.2s ease-out,
+  box-shadow 0.2s ease-out,
   background-color 0.2s ease-out;
-$transition-interactive: background-color 0.2s ease-out,
-  border-color 0.2s ease-out, color 0.2s ease-out;
+$transition-interactive:
+  background-color 0.2s ease-out,
+  border-color 0.2s ease-out,
+  color 0.2s ease-out;
 
 // Premium theme mixin with gradients
 @mixin premium-card($light-bg, $dark-bg) {
@@ -330,7 +338,8 @@ $transition-interactive: background-color 0.2s ease-out,
     border: 0; // remove solid border
     position: relative;
     z-index: 1;
-    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+      box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
       background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -342,13 +351,16 @@ $transition-interactive: background-color 0.2s ease-out,
     // Light mode: soft, even halo only
     &.light {
       background: none;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.14),
+        0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     // Dark mode: slightly stronger halo for separation on dark bg
     &.dark {
       background: none;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45),
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.45),
         0 4px 12px rgba(0, 0, 0, 0.32);
     }
   }
@@ -618,11 +630,11 @@ $transition-interactive: background-color 0.2s ease-out,
     letter-spacing: -0.025em;
 
     &.light {
-      color: #3a3a4d;
+      color: #4a4a52; // Charcoal grey
     }
 
     &.dark {
-      color: #b3b8b8;
+      color: #d4d4d8; // Light stone grey
     }
   }
 
@@ -637,18 +649,17 @@ $transition-interactive: background-color 0.2s ease-out,
         font-size: 0.75rem; // 12px
         font-weight: 700;
         margin-bottom: 0.75rem;
-        // color: red; // Default light mode
         text-transform: uppercase;
         letter-spacing: 0.1em;
         opacity: 0.8;
       }
 
       &.light h4 {
-        color: #484d3a;
+        color: #616161; // Neutral medium gray
       }
 
       &.dark h4 {
-        color: #b3b8b8;
+        color: #9e9e9e; // Neutral dark accent
       }
       .skill-tag {
         display: inline-block;
@@ -667,67 +678,67 @@ $transition-interactive: background-color 0.2s ease-out,
           &.light {
             background: linear-gradient(
               135deg,
-              #e8e4df,
-              #d9d4cd
-            ); // Rich warm stone to muted taupe - highest prominence
-            color: #1c1d17; // Deep charcoal for maximum contrast
-            border: 1px solid rgba(28, 29, 23, 0.14);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); // Defined shadow for depth
+              #e0e0e0,
+              #d4d4d4
+            ); // Rich neutral gray - highest prominence
+            color: #212121; // Near black for maximum contrast
+            border: 1px solid rgba(33, 33, 33, 0.14);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
           }
 
           &.dark {
             background: linear-gradient(
               135deg,
-              #3d3e36,
-              #4a4c42
-            ); // Deep sage to olive graphite - richest dark tone
-            color: #fafaf8; // Bright off-white for clarity
+              #3d3d3d,
+              #4a4a4a
+            ); // Deep neutral gray - richest dark tone
+            color: #fafafa; // Near white for clarity
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28); // Stronger depth
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28);
           }
         }
         &.level-4 {
           &.light {
             background: linear-gradient(
               135deg,
-              #efece8,
-              #e4e1dc
-            ); // Soft linen to warm grey - medium prominence
-            color: #2a2b24; // Dark grey-brown for good contrast
-            border: 1px solid rgba(42, 43, 36, 0.11);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); // Lighter shadow
+              #eeeeee,
+              #e5e5e5
+            ); // Soft neutral gray - medium prominence
+            color: #2c2c2c; // Dark gray for good contrast
+            border: 1px solid rgba(44, 44, 44, 0.11);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
           }
           &.dark {
             background: linear-gradient(
               135deg,
-              #32342d,
-              #3e403a
-            ); // Medium graphite to muted sage
-            color: #f0efec; // Soft off-white
+              #323232,
+              #3e3e3e
+            ); // Medium neutral gray
+            color: #f0f0f0; // Soft off-white
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22); // Moderate depth
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
           }
         }
         &.level-3 {
           &.light {
             background: linear-gradient(
               135deg,
-              #f7f5f2,
-              #eeece8
-            ); // Pale linen to whisper grey - subtle presence
-            color: #3f4039; // Medium grey for softer contrast
-            border: 1px solid rgba(63, 64, 57, 0.09);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04); // Minimal shadow
+              #f5f5f5,
+              #eeeeee
+            ); // Pale neutral gray - subtle presence
+            color: #424242; // Medium gray for softer contrast
+            border: 1px solid rgba(66, 66, 66, 0.09);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
           }
           &.dark {
             background: linear-gradient(
               135deg,
-              #262722,
-              #2f312b
-            ); // Deep charcoal to dark sage - most subtle
-            color: #d8d7d2; // Muted light grey
+              #262626,
+              #2f2f2f
+            ); // Deep neutral charcoal - most subtle
+            color: #d4d4d4; // Muted light gray
             border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18); // Lightest shadow
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
           }
         }
       }
@@ -800,7 +811,7 @@ $transition-interactive: background-color 0.2s ease-out,
     }
   }
 }
-
+f
 .timeline {
   display: flex;
   flex-direction: column;
@@ -837,7 +848,9 @@ $transition-interactive: background-color 0.2s ease-out,
       background: linear-gradient(135deg, $color-primary, $color-primary-light);
       margin-top: 0.25rem;
       flex-shrink: 0;
-      box-shadow: 0 0 0 4px rgba($color-primary-light, 0.3), $shadow-subtle;
+      box-shadow:
+        0 0 0 4px rgba($color-primary-light, 0.3),
+        $shadow-subtle;
       z-index: 1;
       position: relative;
       transition: $transition-smooth;
