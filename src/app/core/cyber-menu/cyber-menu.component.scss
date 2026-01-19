@@ -97,173 +97,226 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   z-index: 1;
 }
 
-.dots-container {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-
-  width: 44px;
-  height: 44px;
-  padding: 8px;
-  border-radius: 50%;
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 20px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  isolation: isolate;
+  padding: 0;
+  z-index: 10;
 
-  // Animated military ring
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   border-radius: inherit;
-  //   padding: 2px;
-  //   background: conic-gradient(
-  //     from 0deg,
-  //     $military-dark-text,
-  //     $military-tactical-sand,
-  //     $military-dark-accent,
-  //     $military-tactical-steel,
-  //     $military-dark-text
-  //   );
-  //   animation: cyberDotsRingSpin 6s linear infinite;
-  //   -webkit-mask: linear-gradient(#000 0 0) content-box,
-  //     linear-gradient(#000 0 0);
-  //   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  //   -webkit-mask-composite: xor;
-  //   mask-composite: exclude;
-  //   pointer-events: none;
-  //   z-index: 0;
-  //   filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
-  //     drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
-  // }
-
-  // Inner glass layer
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(77, 80, 71, 0.08),
-      rgba(208, 207, 200, 0.03)
-    );
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    pointer-events: none;
-    z-index: -1;
+  &:focus {
+    outline: none;
   }
 
-  // &:hover {
-  //   // transform: translateY(-1px) scale(1.03);
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: $military-dark-text;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
 
-  //   &::before {
-  //     animation-duration: 2s;
-  //     filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
-  //       drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
-  //   }
-  // }
+    &.light {
+      background-color: $military-light-text;
+    }
 
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: currentColor;
-    opacity: 0.9;
-    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
-    animation: cyberDotPulse 1.8s ease-in-out infinite,
-      cyberDotColor-dark 6s linear infinite;
+    &.dark {
+      background-color: $military-dark-text;
+    }
   }
 
-  &:hover .dot {
-    opacity: 1;
+  &.open {
+    .bar:nth-child(1) {
+      transform: translateY(10.5px) rotate(45deg);
+    }
+
+    .bar:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    .bar:nth-child(3) {
+      transform: translateY(-10.5px) rotate(-45deg);
+    }
+  }
+
+  &:hover .bar {
     filter: drop-shadow(0 0 4px currentColor);
   }
-
-  .dot:nth-child(2) {
-    animation-delay: 0.15s, 0.2s;
-  }
-  .dot:nth-child(3) {
-    animation-delay: 0.3s, 0.4s;
-  }
-
-  // LIGHT THEME - Military Field Ops
-  &.light {
-    color: $military-light-text;
-
-    &::before {
-      background: conic-gradient(
-        from 0deg,
-        $military-light-text,
-        $military-tactical-olive,
-        $military-light-accent,
-        $military-tactical-steel,
-        $military-light-text
-      );
-      filter: drop-shadow(0 0 8px rgba(42, 43, 34, 0.6))
-        drop-shadow(0 0 12px rgba(107, 124, 50, 0.4));
-    }
-
-    &::after {
-      background: linear-gradient(
-        135deg,
-        rgba(42, 43, 34, 0.18),
-        rgba(107, 124, 50, 0.1)
-      );
-      -webkit-backdrop-filter: blur(9px);
-      backdrop-filter: blur(9px);
-    }
-
-    &:hover::before {
-      filter: drop-shadow(0 0 10px rgba(42, 43, 34, 0.8))
-        drop-shadow(0 0 16px rgba(107, 124, 50, 0.5));
-    }
-
-    .dot {
-      animation: cyberDotPulse 1.8s ease-in-out infinite,
-        cyberDotColor-light 6s linear infinite;
-    }
-  }
-
-  // DARK THEME - Night Vision Recon
-  &.dark {
-    color: $military-dark-text;
-
-    &::before {
-      background: conic-gradient(
-        from 0deg,
-        $military-dark-text,
-        $military-tactical-sand,
-        $military-dark-accent,
-        $military-tactical-steel,
-        $military-dark-text
-      );
-      filter: drop-shadow(0 0 8px rgba(244, 243, 240, 0.6))
-        drop-shadow(0 0 12px rgba(196, 181, 154, 0.4));
-    }
-
-    &::after {
-      background: linear-gradient(
-        135deg,
-        rgba(244, 243, 240, 0.12),
-        rgba(208, 207, 200, 0.05)
-      );
-      -webkit-backdrop-filter: blur(7px);
-      backdrop-filter: blur(7px);
-    }
-
-    &:hover::before {
-      filter: drop-shadow(0 0 10px rgba(244, 243, 240, 0.8))
-        drop-shadow(0 0 16px rgba(196, 181, 154, 0.5));
-    }
-
-    .dot {
-      animation: cyberDotPulse 1.8s ease-in-out infinite,
-        cyberDotColor-dark 6s linear infinite;
-    }
-  }
 }
+
+// .dots-container {
+//   position: relative;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 6px;
+
+//   width: 44px;
+//   height: 44px;
+//   padding: 8px;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   isolation: isolate;
+
+//   // Animated military ring
+//   // &::before {
+//   //   content: "";
+//   //   position: absolute;
+//   //   inset: 0;
+//   //   border-radius: inherit;
+//   //   padding: 2px;
+//   //   background: conic-gradient(
+//   //     from 0deg,
+//   //     $military-dark-text,
+//   //     $military-tactical-sand,
+//   //     $military-dark-accent,
+//   //     $military-tactical-steel,
+//   //     $military-dark-text
+//   //   );
+//   //   animation: cyberDotsRingSpin 6s linear infinite;
+//   //   -webkit-mask: linear-gradient(#000 0 0) content-box,
+//   //     linear-gradient(#000 0 0);
+//   //   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+//   //   -webkit-mask-composite: xor;
+//   //   mask-composite: exclude;
+//   //   pointer-events: none;
+//   //   z-index: 0;
+//   //   filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
+//   //     drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
+//   // }
+
+//   // Inner glass layer
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     inset: 2px;
+//     border-radius: inherit;
+//     background: linear-gradient(
+//       135deg,
+//       rgba(77, 80, 71, 0.08),
+//       rgba(208, 207, 200, 0.03)
+//     );
+//     -webkit-backdrop-filter: blur(7px);
+//     backdrop-filter: blur(7px);
+//     pointer-events: none;
+//     z-index: -1;
+//   }
+
+//   // &:hover {
+//   //   // transform: translateY(-1px) scale(1.03);
+
+//   //   &::before {
+//   //     animation-duration: 2s;
+//   //     filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
+//   //       drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
+//   //   }
+//   // }
+
+//   .dot {
+//     width: 6px;
+//     height: 6px;
+//     border-radius: 50%;
+//     background-color: currentColor;
+//     opacity: 0.9;
+//     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+//     animation: cyberDotPulse 1.8s ease-in-out infinite,
+//       cyberDotColor-dark 6s linear infinite;
+//   }
+
+//   &:hover .dot {
+//     opacity: 1;
+//     filter: drop-shadow(0 0 4px currentColor);
+//   }
+
+//   .dot:nth-child(2) {
+//     animation-delay: 0.15s, 0.2s;
+//   }
+//   .dot:nth-child(3) {
+//     animation-delay: 0.3s, 0.4s;
+//   }
+
+//   // LIGHT THEME - Military Field Ops
+//   &.light {
+//     color: $military-light-text;
+
+//     &::before {
+//       background: conic-gradient(
+//         from 0deg,
+//         $military-light-text,
+//         $military-tactical-olive,
+//         $military-light-accent,
+//         $military-tactical-steel,
+//         $military-light-text
+//       );
+//       filter: drop-shadow(0 0 8px rgba(42, 43, 34, 0.6))
+//         drop-shadow(0 0 12px rgba(107, 124, 50, 0.4));
+//     }
+
+//     &::after {
+//       background: linear-gradient(
+//         135deg,
+//         rgba(42, 43, 34, 0.18),
+//         rgba(107, 124, 50, 0.1)
+//       );
+//       -webkit-backdrop-filter: blur(9px);
+//       backdrop-filter: blur(9px);
+//     }
+
+//     &:hover::before {
+//       filter: drop-shadow(0 0 10px rgba(42, 43, 34, 0.8))
+//         drop-shadow(0 0 16px rgba(107, 124, 50, 0.5));
+//     }
+
+//     .dot {
+//       animation: cyberDotPulse 1.8s ease-in-out infinite,
+//         cyberDotColor-light 6s linear infinite;
+//     }
+//   }
+
+//   // DARK THEME - Night Vision Recon
+//   &.dark {
+//     color: $military-dark-text;
+
+//     &::before {
+//       background: conic-gradient(
+//         from 0deg,
+//         $military-dark-text,
+//         $military-tactical-sand,
+//         $military-dark-accent,
+//         $military-tactical-steel,
+//         $military-dark-text
+//       );
+//       filter: drop-shadow(0 0 8px rgba(244, 243, 240, 0.6))
+//         drop-shadow(0 0 12px rgba(196, 181, 154, 0.4));
+//     }
+
+//     &::after {
+//       background: linear-gradient(
+//         135deg,
+//         rgba(244, 243, 240, 0.12),
+//         rgba(208, 207, 200, 0.05)
+//       );
+//       -webkit-backdrop-filter: blur(7px);
+//       backdrop-filter: blur(7px);
+//     }
+
+//     &:hover::before {
+//       filter: drop-shadow(0 0 10px rgba(244, 243, 240, 0.8))
+//         drop-shadow(0 0 16px rgba(196, 181, 154, 0.5));
+//     }
+
+//     .dot {
+//       animation: cyberDotPulse 1.8s ease-in-out infinite,
+//         cyberDotColor-dark 6s linear infinite;
+//     }
+//   }
+// }
 
 // Animations
 // @keyframes cyberDotsRingSpin {
@@ -295,7 +348,9 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   background-color: rgba(240, 239, 236, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   opacity: 1;
   z-index: 1000;
   font-size: 1em;
