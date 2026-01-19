@@ -13,77 +13,34 @@
 /* Optional: Roboto Slab (if you want a slab-serif for body/subheadings) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 
-// Military color palette variables
-$military-light-base: #f8f7f5; // Warm off-white
-$military-light-surface: #f0efec; // Light canvas
-$military-light-border: #d4d1cc; // Muted khaki border
-$military-light-hover: #e9e7e2; // Light field grey
-$military-light-text: #2a2b22; // Deep olive-black
-$military-light-accent: #4d5047; // Sage military grey
+// Neutral color palette variables
+$neutral-light-base: #fafafa; // Near white
+$neutral-light-surface: #f5f5f5; // Light gray
+$neutral-light-border: #e0e0e0; // Soft border gray
+$neutral-light-hover: #eeeeee; // Hover gray
+$neutral-light-text: #212121; // Near black
+$neutral-light-accent: #616161; // Medium gray
 
-$military-dark-base: #1e201a; // Deep military charcoal
-$military-dark-surface: #2a2c25; // Dark olive surface
-$military-dark-border: #3a3b32; // Forest border
-$military-dark-hover: #2f312a; // Military hover
-$military-dark-text: #f4f3f0; // Warm off-white
-$military-dark-accent: #d0cfc8; // Light military grey
-
-// Military tactical colors for animations
-$military-tactical-olive: #6b7c32; // Tactical olive
-$military-tactical-sand: #c4b59a; // Desert sand
-$military-tactical-forest: #3a4a2a; // Forest green
-$military-tactical-steel: #5a6b5d; // Military steel
+$neutral-dark-base: #121212; // Almost black
+$neutral-dark-surface: #1e1e1e; // Dark gray
+$neutral-dark-border: #2c2c2c; // Border gray
+$neutral-dark-hover: #252525; // Hover gray
+$neutral-dark-text: #e0e0e0; // Light gray
+$neutral-dark-accent: #9e9e9e; // Medium-light gray
 
 // Updated social link colors
-$social-links-bg-color-light: $military-light-surface;
-$social-links-bg-color-dark: $military-dark-surface;
-$social-links-border-color: $military-light-border;
-$social-link-hover-color: $military-light-accent;
-$social-link-hover-shadow: rgba(42, 43, 34, 0.5);
-
-// Theme keyframes for dot color animation - Military palette
-// @keyframes cyberDotColor-light {
-//   0% {
-//     color: $military-light-text;
-//   } // Deep olive-black
-//   25% {
-//     color: $military-tactical-olive;
-//   } // Tactical olive
-//   50% {
-//     color: $military-light-accent;
-//   } // Sage military grey
-//   75% {
-//     color: $military-tactical-steel;
-//   } // Military steel
-//   100% {
-//     color: $military-light-text;
-//   } // Deep olive-black
-// }
-
-// @keyframes cyberDotColor-dark {
-//   0% {
-//     color: $military-dark-text;
-//   } // Warm off-white
-//   25% {
-//     color: $military-tactical-sand;
-//   } // Desert sand
-//   50% {
-//     color: $military-dark-accent;
-//   } // Light military grey
-//   75% {
-//     color: $military-tactical-steel;
-//   } // Military steel
-//   100% {
-//     color: $military-dark-text;
-//   } // Warm off-white
-// }
+$social-links-bg-color-light: $neutral-light-surface;
+$social-links-bg-color-dark: $neutral-dark-surface;
+$social-links-border-color: $neutral-light-border;
+$social-link-hover-color: $neutral-light-accent;
+$social-link-hover-shadow: rgba(33, 33, 33, 0.5);
 
 .dropdown-container {
   position: relative;
 }
 
 .dropdown-toggle {
-  color: $military-dark-text;
+  color: $neutral-dark-text;
   font-size: 1.2em;
   padding: 4px;
   transition: $transition-effect;
@@ -116,17 +73,17 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   .bar {
     width: 100%;
     height: 3px;
-    background-color: $military-dark-text;
+    background-color: $neutral-dark-text;
     border-radius: 2px;
     transition: all 0.3s ease;
     transform-origin: center;
 
     &.light {
-      background-color: $military-light-text;
+      background-color: $neutral-light-text;
     }
 
     &.dark {
-      background-color: $military-dark-text;
+      background-color: $neutral-dark-text;
     }
   }
 
@@ -150,191 +107,6 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   }
 }
 
-// .dots-container {
-//   position: relative;
-//   display: inline-flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 6px;
-
-//   width: 44px;
-//   height: 44px;
-//   padding: 8px;
-//   border-radius: 50%;
-//   cursor: pointer;
-//   isolation: isolate;
-
-//   // Animated military ring
-//   // &::before {
-//   //   content: "";
-//   //   position: absolute;
-//   //   inset: 0;
-//   //   border-radius: inherit;
-//   //   padding: 2px;
-//   //   background: conic-gradient(
-//   //     from 0deg,
-//   //     $military-dark-text,
-//   //     $military-tactical-sand,
-//   //     $military-dark-accent,
-//   //     $military-tactical-steel,
-//   //     $military-dark-text
-//   //   );
-//   //   animation: cyberDotsRingSpin 6s linear infinite;
-//   //   -webkit-mask: linear-gradient(#000 0 0) content-box,
-//   //     linear-gradient(#000 0 0);
-//   //   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-//   //   -webkit-mask-composite: xor;
-//   //   mask-composite: exclude;
-//   //   pointer-events: none;
-//   //   z-index: 0;
-//   //   filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
-//   //     drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
-//   // }
-
-//   // Inner glass layer
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     inset: 2px;
-//     border-radius: inherit;
-//     background: linear-gradient(
-//       135deg,
-//       rgba(77, 80, 71, 0.08),
-//       rgba(208, 207, 200, 0.03)
-//     );
-//     -webkit-backdrop-filter: blur(7px);
-//     backdrop-filter: blur(7px);
-//     pointer-events: none;
-//     z-index: -1;
-//   }
-
-//   // &:hover {
-//   //   // transform: translateY(-1px) scale(1.03);
-
-//   //   &::before {
-//   //     animation-duration: 2s;
-//   //     filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
-//   //       drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
-//   //   }
-//   // }
-
-//   .dot {
-//     width: 6px;
-//     height: 6px;
-//     border-radius: 50%;
-//     background-color: currentColor;
-//     opacity: 0.9;
-//     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
-//     animation: cyberDotPulse 1.8s ease-in-out infinite,
-//       cyberDotColor-dark 6s linear infinite;
-//   }
-
-//   &:hover .dot {
-//     opacity: 1;
-//     filter: drop-shadow(0 0 4px currentColor);
-//   }
-
-//   .dot:nth-child(2) {
-//     animation-delay: 0.15s, 0.2s;
-//   }
-//   .dot:nth-child(3) {
-//     animation-delay: 0.3s, 0.4s;
-//   }
-
-//   // LIGHT THEME - Military Field Ops
-//   &.light {
-//     color: $military-light-text;
-
-//     &::before {
-//       background: conic-gradient(
-//         from 0deg,
-//         $military-light-text,
-//         $military-tactical-olive,
-//         $military-light-accent,
-//         $military-tactical-steel,
-//         $military-light-text
-//       );
-//       filter: drop-shadow(0 0 8px rgba(42, 43, 34, 0.6))
-//         drop-shadow(0 0 12px rgba(107, 124, 50, 0.4));
-//     }
-
-//     &::after {
-//       background: linear-gradient(
-//         135deg,
-//         rgba(42, 43, 34, 0.18),
-//         rgba(107, 124, 50, 0.1)
-//       );
-//       -webkit-backdrop-filter: blur(9px);
-//       backdrop-filter: blur(9px);
-//     }
-
-//     &:hover::before {
-//       filter: drop-shadow(0 0 10px rgba(42, 43, 34, 0.8))
-//         drop-shadow(0 0 16px rgba(107, 124, 50, 0.5));
-//     }
-
-//     .dot {
-//       animation: cyberDotPulse 1.8s ease-in-out infinite,
-//         cyberDotColor-light 6s linear infinite;
-//     }
-//   }
-
-//   // DARK THEME - Night Vision Recon
-//   &.dark {
-//     color: $military-dark-text;
-
-//     &::before {
-//       background: conic-gradient(
-//         from 0deg,
-//         $military-dark-text,
-//         $military-tactical-sand,
-//         $military-dark-accent,
-//         $military-tactical-steel,
-//         $military-dark-text
-//       );
-//       filter: drop-shadow(0 0 8px rgba(244, 243, 240, 0.6))
-//         drop-shadow(0 0 12px rgba(196, 181, 154, 0.4));
-//     }
-
-//     &::after {
-//       background: linear-gradient(
-//         135deg,
-//         rgba(244, 243, 240, 0.12),
-//         rgba(208, 207, 200, 0.05)
-//       );
-//       -webkit-backdrop-filter: blur(7px);
-//       backdrop-filter: blur(7px);
-//     }
-
-//     &:hover::before {
-//       filter: drop-shadow(0 0 10px rgba(244, 243, 240, 0.8))
-//         drop-shadow(0 0 16px rgba(196, 181, 154, 0.5));
-//     }
-
-//     .dot {
-//       animation: cyberDotPulse 1.8s ease-in-out infinite,
-//         cyberDotColor-dark 6s linear infinite;
-//     }
-//   }
-// }
-
-// Animations
-// @keyframes cyberDotsRingSpin {
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
-
-// @keyframes cyberDotPulse {
-//   0%,
-//   100% {
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(1.25);
-//   }
-// }
-
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -343,9 +115,9 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   list-style-type: none;
   transform: none;
   width: 200px;
-  box-shadow: 0 10px 20px rgba(42, 43, 34, 0.15);
+  box-shadow: 0 10px 20px rgba(33, 33, 33, 0.15);
   border-radius: 10px;
-  background-color: rgba(240, 239, 236, 0.1);
+  background-color: rgba(245, 245, 245, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition:
@@ -378,21 +150,21 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
       font-size: 1em;
 
       &.light {
-        color: $military-light-text;
+        color: $neutral-light-text;
 
         &:hover {
-          color: $military-light-accent;
-          text-shadow: 0px 0px 5px $military-light-accent;
+          color: $neutral-light-accent;
+          text-shadow: 0px 0px 5px $neutral-light-accent;
           cursor: pointer;
         }
       }
 
       &.dark {
-        color: $military-dark-text;
+        color: $neutral-dark-text;
 
         &:hover {
-          color: $military-dark-accent;
-          text-shadow: 0px 0px 8px $military-dark-accent;
+          color: $neutral-dark-accent;
+          text-shadow: 0px 0px 8px $neutral-dark-accent;
           cursor: pointer;
         }
       }
@@ -411,20 +183,20 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
       margin: 0 5px;
 
       &.light {
-        color: $military-light-text;
+        color: $neutral-light-text;
 
         &:hover {
-          color: $military-light-accent;
-          text-shadow: 0px 0px 5px $military-light-accent;
+          color: $neutral-light-accent;
+          text-shadow: 0px 0px 5px $neutral-light-accent;
         }
       }
 
       &.dark {
-        color: $military-dark-text;
+        color: $neutral-dark-text;
 
         &:hover {
-          color: $military-dark-accent;
-          text-shadow: 0px 0px 8px $military-dark-accent;
+          color: $neutral-dark-accent;
+          text-shadow: 0px 0px 8px $neutral-dark-accent;
         }
       }
     }
