@@ -42,41 +42,41 @@ $social-link-hover-color: $military-light-accent;
 $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
 
 // Theme keyframes for dot color animation - Military palette
-@keyframes cyberDotColor-light {
-  0% {
-    color: $military-light-text;
-  } // Deep olive-black
-  25% {
-    color: $military-tactical-olive;
-  } // Tactical olive
-  50% {
-    color: $military-light-accent;
-  } // Sage military grey
-  75% {
-    color: $military-tactical-steel;
-  } // Military steel
-  100% {
-    color: $military-light-text;
-  } // Deep olive-black
-}
+// @keyframes cyberDotColor-light {
+//   0% {
+//     color: $military-light-text;
+//   } // Deep olive-black
+//   25% {
+//     color: $military-tactical-olive;
+//   } // Tactical olive
+//   50% {
+//     color: $military-light-accent;
+//   } // Sage military grey
+//   75% {
+//     color: $military-tactical-steel;
+//   } // Military steel
+//   100% {
+//     color: $military-light-text;
+//   } // Deep olive-black
+// }
 
-@keyframes cyberDotColor-dark {
-  0% {
-    color: $military-dark-text;
-  } // Warm off-white
-  25% {
-    color: $military-tactical-sand;
-  } // Desert sand
-  50% {
-    color: $military-dark-accent;
-  } // Light military grey
-  75% {
-    color: $military-tactical-steel;
-  } // Military steel
-  100% {
-    color: $military-dark-text;
-  } // Warm off-white
-}
+// @keyframes cyberDotColor-dark {
+//   0% {
+//     color: $military-dark-text;
+//   } // Warm off-white
+//   25% {
+//     color: $military-tactical-sand;
+//   } // Desert sand
+//   50% {
+//     color: $military-dark-accent;
+//   } // Light military grey
+//   75% {
+//     color: $military-tactical-steel;
+//   } // Military steel
+//   100% {
+//     color: $military-dark-text;
+//   } // Warm off-white
+// }
 
 .dropdown-container {
   position: relative;
@@ -112,31 +112,31 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
   isolation: isolate;
 
   // Animated military ring
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px;
-    background: conic-gradient(
-      from 0deg,
-      $military-dark-text,
-      $military-tactical-sand,
-      $military-dark-accent,
-      $military-tactical-steel,
-      $military-dark-text
-    );
-    animation: cyberDotsRingSpin 6s linear infinite;
-    -webkit-mask: linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 0;
-    filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
-      drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
+  //   border-radius: inherit;
+  //   padding: 2px;
+  //   background: conic-gradient(
+  //     from 0deg,
+  //     $military-dark-text,
+  //     $military-tactical-sand,
+  //     $military-dark-accent,
+  //     $military-tactical-steel,
+  //     $military-dark-text
+  //   );
+  //   animation: cyberDotsRingSpin 6s linear infinite;
+  //   -webkit-mask: linear-gradient(#000 0 0) content-box,
+  //     linear-gradient(#000 0 0);
+  //   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  //   -webkit-mask-composite: xor;
+  //   mask-composite: exclude;
+  //   pointer-events: none;
+  //   z-index: 0;
+  //   filter: drop-shadow(0 0 8px rgba(77, 80, 71, 0.5))
+  //     drop-shadow(0 0 12px rgba(208, 207, 200, 0.3));
+  // }
 
   // Inner glass layer
   &::after {
@@ -155,15 +155,15 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
     z-index: -1;
   }
 
-  &:hover {
-    transform: translateY(-1px) scale(1.03);
+  // &:hover {
+  //   // transform: translateY(-1px) scale(1.03);
 
-    &::before {
-      animation-duration: 2s;
-      filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
-        drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
-    }
-  }
+  //   &::before {
+  //     animation-duration: 2s;
+  //     filter: drop-shadow(0 0 10px rgba(77, 80, 71, 0.7))
+  //       drop-shadow(0 0 16px rgba(208, 207, 200, 0.4));
+  //   }
+  // }
 
   .dot {
     width: 6px;
@@ -266,21 +266,21 @@ $social-link-hover-shadow: rgba(42, 43, 34, 0.5);
 }
 
 // Animations
-@keyframes cyberDotsRingSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
+// @keyframes cyberDotsRingSpin {
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
 
-@keyframes cyberDotPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-}
+// @keyframes cyberDotPulse {
+//   0%,
+//   100% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.25);
+//   }
+// }
 
 .dropdown-menu {
   position: absolute;
