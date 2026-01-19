@@ -3,13 +3,13 @@ $lm-toolbar-background-color: #fafafa;
 $dm-toolbar-background-color: #121212;
 
 /* Toolbar Menu Colors */
-$menu-toggle-color: #ffffff;
-$menu-toggle-hover-color: #cccccc;
+$menu-toggle-color: #e0e0e0; // Neutral dark text
+$menu-toggle-hover-color: #9e9e9e; // Neutral dark accent
 $menu-toggle-transition: all 0.3s ease;
-$menu-bg-color: #333333;
-$menu-hover-bg-color: #555555;
-$menu-link-color: #ffffff;
-$menu-link-hover-color: #000000;
+$menu-bg-color: #2c2c2c; // Neutral dark border
+$menu-hover-bg-color: #252525; // Neutral dark hover
+$menu-link-color: #e0e0e0; // Neutral dark text
+$menu-link-hover-color: #9e9e9e; // Neutral dark accent
 
 /* Theme Button Colors */
 // $theme-btn-icon: #f6b162;
