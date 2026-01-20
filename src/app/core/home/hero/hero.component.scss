@@ -1,349 +1,157 @@
-// =============================================================================
-// IMPORTS & DEPENDENCIES
-// =============================================================================
 @import "../../../../styles/colors";
-@import "../../../../styles/mixins";
-@import "../../../../styles/variables";
 
-// =============================================================================
-// FONT OPTIMIZATION
-// =============================================================================
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 5rem auto 0;
+  min-height: calc(100vh - 5rem);
+  padding: 2rem 1.5rem;
+}
 
-// =============================================================================
-// FUTURISTIC GLASSMORPHISM THEME VARIABLES
-// =============================================================================
-$hero-glass-themes: (
-  light: (
-    // Military white glass surfaces
-    glass-primary: rgba(248, 250, 251, 0.18),
-    glass-secondary: rgba(232, 236, 236, 0.12),
-    glass-accent: rgba(220, 230, 225, 0.22),
-    // Borders and edges
-    border-primary: rgba(191, 193, 189, 0.22),
-    border-glow: rgba(33, 150, 243, 0.22),
-    border-accent: rgba(120, 180, 170, 0.22),
-    // Text colors
-    text-primary: #23272b,
-    text-secondary: #6e706b,
-    text-muted: #bfc1bd,
-    // Shadows and effects
-    shadow-primary: rgba(0, 0, 0, 0.08),
-    shadow-elevated: rgba(0, 0, 0, 0.12),
-    shadow-inset: rgba(255, 255, 255, 0.18),
-    // Gradient overlays
-    gradient-overlay:
-      linear-gradient(
-        135deg,
-        rgba(220, 230, 225, 0.1) 0%,
-        rgba(248, 250, 251, 0.06) 100%
-      ),
-    gradient-text:
-      linear-gradient(270deg, #f8fafb, #bfc1bd, #e8ecec, #6e706b, #23272b),
-    // Interactive elements
-    button-glass: rgba(220, 230, 225, 0.13),
-    button-hover: rgba(191, 193, 189, 0.1),
-    button-glow: rgba(33, 150, 243, 0.22),
-  ),
-  dark: (
-    // Military dark glass surfaces
-    glass-primary: rgba(35, 39, 43, 0.34),
-    glass-secondary: rgba(49, 54, 59, 0.22),
-    glass-accent: rgba(110, 112, 107, 0.32),
-    // Borders and edges
-    border-primary: rgba(110, 112, 107, 0.18),
-    border-glow: rgba(0, 255, 184, 0.32),
-    border-accent: rgba(33, 150, 243, 0.22),
-    // Text colors
-    text-primary: #e0eaff,
-    text-secondary: #b3eaff,
-    text-muted: #6e706b,
-    // Shadows and effects
-    shadow-primary: rgba(0, 0, 0, 0.38),
-    shadow-elevated: rgba(0, 0, 0, 0.48),
-    shadow-inset: rgba(255, 255, 255, 0.08),
-    // Gradient overlays
-    gradient-overlay:
-      linear-gradient(
-        135deg,
-        rgba(0, 255, 184, 0.08) 0%,
-        rgba(49, 54, 59, 0.14) 100%
-      ),
-    gradient-text:
-      linear-gradient(270deg, #e0eaff, #b3eaff, #6e706b, #31363b, #23272b),
-    // Interactive elements
-    button-glass: rgba(110, 112, 107, 0.13),
-    button-hover: rgba(33, 150, 243, 0.13),
-    button-glow: rgba(0, 255, 184, 0.32),
-  ),
-);
+.modern-hero {
+  position: relative;
+  max-width: 42rem;
+  width: 100%;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  animation: fadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 
-// =============================================================================
-// ENHANCED DESIGN TOKENS - PROPORTIONATE SIZING SYSTEM
-// =============================================================================
-$hero-spacing: (
-  // Base spacing units with mathematical progression
-  xs: 0.25rem,
-  // 4px
-  sm: 0.5rem,
-  // 8px
-  md: 0.75rem,
-  // 12px
-  lg: 1rem,
-  // 16px
-  xl: 1.5rem,
-  // 24px
-  xxl: 2.25rem,
-  // 36px
-  xxxl: 3.375rem,
-  // 54px
-  xxxxl: 5rem,
+  // .light & {
+  //   background: rgba(250, 250, 250, 0.65);
+  //   border: 1px solid rgba(224, 224, 224, 0.4);
+  //   box-shadow:
+  //     0 8px 32px rgba(0, 0, 0, 0.06),
+  //     0 2px 8px rgba(0, 0, 0, 0.03);
+  // }
 
-  // 80px
-  // Device-specific toolbar offsets
-  mobile-toolbar: 3.5rem,
-  // 56px
-  pro-toolbar: 4rem,
-  // 64px
-  tablet-toolbar: 4.5rem,
-  // 72px
-  desktop-toolbar: 5rem,
+  // .dark & {
+  //   background: rgba(30, 30, 30, 0.7);
+  //   border: 1px solid rgba(60, 60, 60, 0.4);
+  //   box-shadow:
+  //     0 8px 32px rgba(0, 0, 0, 0.4),
+  //     0 2px 8px rgba(0, 0, 0, 0.2);
+  // }
+}
 
-  // 80px
-  // Content spacing ratios
-  content-micro: clamp(0.5rem, 1.2vw, 0.75rem),
-  content-small: clamp(0.75rem, 1.8vw, 1.125rem),
-  content-medium: clamp(1rem, 2.4vw, 1.5rem),
-  content-large: clamp(1.5rem, 3.6vw, 2.25rem),
-  content-xlarge: clamp(2rem, 4.8vw, 3rem)
-);
+.typewrite {
+  margin-top: 1.5rem;
+}
 
-$hero-typography: (
-  // Improved proportional scaling with better mathematical progression
-  hero-title: clamp(1.875rem, 2.4vw + 1.2rem, 3.5rem),
-  // 30px → 56px
-  hero-subtitle: clamp(1rem, 1.2vw + 0.4rem, 1.375rem),
-  // 16px → 22px
-  hero-description: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem),
-  // 17px → 20px
-  button: clamp(0.875rem, 0.8vw + 0.4rem, 1rem),
-  // 14px → 16px
-  // Device-specific optimizations
-  mobile-title: clamp(1.75rem, 5.5vw, 2.5rem),
-  // 28px → 40px
-  mobile-subtitle: clamp(0.9375rem, 3vw, 1.125rem),
-  // 15px → 18px
-  mobile-description: clamp(1rem, 3.5vw, 1.1875rem),
-  // 16px → 19px
-  // Pro devices (393px+)
-  pro-title: clamp(2rem, 3.8vw + 0.8rem, 3.25rem),
-  // 32px → 52px
-  pro-subtitle: clamp(1rem, 1.4vw + 0.3rem, 1.3125rem),
-  // 16px → 21px
-  pro-description: clamp(1.0625rem, 1.1vw + 0.4rem, 1.25rem),
-  // 17px → 20px
-  // Tablet optimizations (768px+)
-  tablet-title: clamp(2.25rem, 2.8vw + 1rem, 3.5rem),
-  // 36px → 56px
-  tablet-subtitle: clamp(1.0625rem, 1.1vw + 0.4rem, 1.375rem),
-  // 17px → 22px
-  tablet-description: clamp(1.0625rem, 0.9vw + 0.5rem, 1.25rem),
-  // 17px → 20px
-);
+.floating-element {
+  opacity: 0;
+  animation: fadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 
-$hero-animations: (
-  duration-fast: 0.4s,
-  duration-normal: 0.8s,
-  duration-slow: 2.5s,
-  ease-smooth: cubic-bezier(0.23, 1, 0.32, 1),
-  ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1),
-  ease-glass: cubic-bezier(0.25, 0.46, 0.45, 0.94),
-);
+  &.subtitle-element {
+    animation-delay: 0.2s;
+  }
 
-$glass-effects: (
-  // Proportional glass effects
-  blur-primary: clamp(16px, 3vw, 28px),
-  blur-secondary: clamp(12px, 2.4vw, 20px),
-  blur-subtle: clamp(8px, 1.6vw, 12px),
-  // Border radius progression
-  border-radius: clamp(16px, 3.2vw, 24px),
-  border-radius-large: clamp(20px, 4vw, 32px),
-  border-radius-small: clamp(12px, 2.4vw, 18px),
-  // Mobile-specific
-  mobile-blur: 10px,
-  mobile-radius: 16px,
-  mobile-radius-large: 20px
-);
+  &.description-element {
+    animation-delay: 0.4s;
+  }
 
-// Current active alignment - CENTERED for optimal toolbar compatibility
-$active-alignment: centered;
+  &.buttons-element {
+    animation-delay: 0.6s;
+  }
+}
 
-// =============================================================================
-// REFINED RESPONSIVE BREAKPOINTS
-// =============================================================================
-$breakpoints: (
-  xs: 320px,
-  // Small phones
-  sm: 375px,
-  // iPhone SE, older devices
-  md: 393px,
-  // iPhone 14 Pro / Pixel 7 Pro
-  lg: 430px,
-  // iPhone 14 Pro Max
-  xl: 768px,
-  // Tablets
-  xxl: 1024px,
-  // Large tablets/small laptops
-  xxxl: 1200px,
-  // Desktop constraint
-);
-
-// =============================================================================
-// ADVANCED GLASSMORPHISM MIXINS
-// =============================================================================
-
-@mixin glass-surface($variant: primary, $blur: null) {
-  $blur-amount: if($blur, $blur, map-get($glass-effects, blur-primary));
-
-  backdrop-filter: blur($blur-amount) saturate(180%);
-  -webkit-backdrop-filter: blur($blur-amount) saturate(180%);
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
 
   .light & {
-    background: map-get(map-get($hero-glass-themes, light), glass-#{$variant});
-    border: 1px solid
-      map-get(map-get($hero-glass-themes, light), border-primary);
-    box-shadow: 0 12px 40px
-        map-get(map-get($hero-glass-themes, light), shadow-primary),
-      inset 0 1px 0 map-get(map-get($hero-glass-themes, light), shadow-inset);
+    color: #495057;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   }
 
   .dark & {
-    background: map-get(map-get($hero-glass-themes, dark), glass-#{$variant});
-    border: 1px solid map-get(map-get($hero-glass-themes, dark), border-primary);
-    box-shadow: 0 12px 40px
-        map-get(map-get($hero-glass-themes, dark), shadow-primary),
-      inset 0 1px 0 map-get(map-get($hero-glass-themes, dark), shadow-inset);
+    color: #adb5bd;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
 }
 
-@mixin glass-glow-border($intensity: normal) {
-  position: relative;
+.description {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+  line-height: 1.6;
+  max-width: 55ch;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: inherit;
-    padding: 2px;
-    opacity: 0;
-    transition: opacity map-get($hero-animations, duration-fast)
-      map-get($hero-animations, ease-glass);
-    pointer-events: none;
-    z-index: -1;
+  .light & {
+    color: #212121;
   }
 
-  &:hover::before,
-  &:focus-within::before {
-    opacity: 1;
-  }
-
-  .light &::before {
-    @if $intensity == subtle {
-      background: linear-gradient(
-        45deg,
-        map-get(map-get($hero-glass-themes, light), border-glow) 0%,
-        transparent 50%,
-        map-get(map-get($hero-glass-themes, light), border-accent) 100%
-      );
-    } @else {
-      background: linear-gradient(
-        45deg,
-        map-get(map-get($hero-glass-themes, light), border-glow) 0%,
-        map-get(map-get($hero-glass-themes, light), border-accent) 25%,
-        map-get(map-get($hero-glass-themes, light), border-glow) 50%,
-        map-get(map-get($hero-glass-themes, light), border-accent) 75%,
-        map-get(map-get($hero-glass-themes, light), border-glow) 100%
-      );
-    }
-  }
-
-  .dark &::before {
-    @if $intensity == subtle {
-      background: linear-gradient(
-        45deg,
-        map-get(map-get($hero-glass-themes, dark), border-glow) 0%,
-        transparent 50%,
-        map-get(map-get($hero-glass-themes, dark), border-accent) 100%
-      );
-    } @else {
-      background: linear-gradient(
-        45deg,
-        map-get(map-get($hero-glass-themes, dark), border-glow) 0%,
-        map-get(map-get($hero-glass-themes, dark), border-accent) 25%,
-        map-get(map-get($hero-glass-themes, dark), border-glow) 50%,
-        map-get(map-get($hero-glass-themes, dark), border-accent) 75%,
-        map-get(map-get($hero-glass-themes, dark), border-glow) 100%
-      );
-    }
+  .dark & {
+    color: #e0e0e0;
   }
 }
 
-@mixin glass-floating-animation($delay: 0s) {
-  opacity: 0;
-  transform: translateY(3rem) scale(0.95) rotateX(5deg);
-  animation: glassFloatIn map-get($hero-animations, duration-normal)
-    map-get($hero-animations, ease-bounce) forwards;
-  animation-delay: $delay;
+.buttons-element {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-@mixin glass-button-base {
-  @include glass-surface(secondary, map-get($glass-effects, blur-secondary));
-  @include glass-glow-border(subtle);
-
-  padding: map-get($hero-spacing, content-small)
-    map-get($hero-spacing, content-large);
-  border-radius: map-get($glass-effects, border-radius);
+.min-button,
+.min-button-fill {
+  padding: 0.875rem 1.5rem;
+  border-radius: 16px;
   font-family: "DM Sans", sans-serif;
-  font-size: map-get($hero-typography, button);
+  font-size: clamp(0.875rem, 0.8vw + 0.4rem, 1rem);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  text-align: center;
   min-width: 7rem;
-  min-height: 2.75rem; // 44px touch target
-  position: relative;
-  overflow: hidden;
+  min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all map-get($hero-animations, duration-fast)
-    map-get($hero-animations, ease-glass);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  // Holographic shine effect
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.25) 50%,
-      transparent 100%
-    );
-    transition: left 0.6s ease;
+  .light & {
+    color: #212121;
+    background: rgba(245, 245, 245, 0.85);
+    border: 1px solid rgba(224, 224, 224, 0.6);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      background: rgba(238, 238, 238, 0.9);
+      border-color: rgba(200, 200, 200, 0.7);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
   }
 
-  &:hover::after {
-    left: 100%;
+  .dark & {
+    color: #e0e0e0;
+    background: rgba(30, 30, 30, 0.85);
+    border: 1px solid rgba(60, 60, 60, 0.6);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      background: rgba(37, 37, 37, 0.9);
+      border-color: rgba(80, 80, 80, 0.7);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
   }
 
   &:active {
@@ -351,977 +159,44 @@ $breakpoints: (
   }
 }
 
-// =============================================================================
-// HERO LAYOUT - PROPORTIONAL CONTAINER SYSTEM
-// =============================================================================
-
-// Hero wrapper with improved proportional spacing
-.hero-content-wrapper {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: calc(100vh - map-get($hero-spacing, desktop-toolbar));
-  padding: map-get($hero-spacing, content-xlarge)
-    map-get($hero-spacing, content-medium);
-  margin-top: map-get($hero-spacing, desktop-toolbar);
-}
-
-// Main glassmorphism hero container with proportional sizing
-.futuristic-glass-hero {
-  @include glass-surface(primary);
-  @include glass-glow-border;
-
-  position: relative;
-  max-width: min(42rem, 92vw); // 672px max, proportional to container
-  width: 100%;
-  border-radius: map-get($glass-effects, border-radius-large);
-  padding: map-get($hero-spacing, content-xlarge)
-    map-get($hero-spacing, content-large);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: map-get($hero-spacing, content-large);
-
-  // Enhanced gradient overlay for better depth
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .light &::before {
-    background: map-get(map-get($hero-glass-themes, light), gradient-overlay);
-  }
-
-  .dark &::before {
-    background: map-get(map-get($hero-glass-themes, dark), gradient-overlay);
-  }
-
-  // Entrance animation
-  @include glass-floating-animation(0.2s);
-}
-
-// =============================================================================
-// TYPEWRITER
-// =============================================================================
-.typerwrite {
-  margin-top: map-get($hero-spacing, content-large);
-}
-
-// =============================================================================
-// FLOATING ACCENT ELEMENTS - PROPORTIONAL
-// =============================================================================
-
-.glass-accent-line {
-  width: clamp(3.5rem, 8vw, 5rem);
-  height: clamp(3px, 0.8vw, 4px);
-  border-radius: 3px;
-  margin-bottom: map-get($hero-spacing, content-medium);
-  position: relative;
-  overflow: hidden;
-  align-self: center;
-
-  .light & {
-    background: linear-gradient(
-      90deg,
-      map-get(map-get($hero-glass-themes, light), border-glow),
-      map-get(map-get($hero-glass-themes, light), border-accent),
-      map-get(map-get($hero-glass-themes, light), border-glow)
-    );
-    box-shadow: 0 0 20px
-      map-get(map-get($hero-glass-themes, light), border-glow);
-  }
-
-  .dark & {
-    background: linear-gradient(
-      90deg,
-      map-get(map-get($hero-glass-themes, dark), border-glow),
-      map-get(map-get($hero-glass-themes, dark), border-accent),
-      map-get(map-get($hero-glass-themes, dark), border-glow)
-    );
-    box-shadow: 0 0 20px map-get(map-get($hero-glass-themes, dark), border-glow);
-  }
-
-  // Animated shimmer effect
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.7) 50%,
-      transparent 100%
-    );
-    animation: shimmer 2.5s ease-in-out infinite;
-  }
-}
-
-// Enhanced floating decorative elements - Proportional scaling
-.glass-decoration {
-  position: absolute;
-  pointer-events: none;
-
-  &.deco-1 {
-    top: -1.25rem;
-    right: -0.9375rem;
-    width: clamp(1.875rem, 4vw, 2.5rem);
-    height: clamp(1.875rem, 4vw, 2.5rem);
-    @include glass-surface(accent, map-get($glass-effects, blur-subtle));
-    border-radius: 50%;
-    animation: floatDecoration 5s ease-in-out infinite;
-  }
-
-  &.deco-2 {
-    bottom: -1.5625rem;
-    left: -1.25rem;
-    width: clamp(2.5rem, 5vw, 3.4375rem);
-    height: clamp(1.125rem, 2.5vw, 1.5625rem);
-    @include glass-surface(secondary, map-get($glass-effects, blur-subtle));
-    border-radius: 35px;
-    animation: floatDecoration 4s ease-in-out infinite reverse;
-  }
-
-  &.deco-3 {
-    top: 50%;
-    right: -1.875rem;
-    width: clamp(1.375rem, 3vw, 1.875rem);
-    height: clamp(1.375rem, 3vw, 1.875rem);
-    @include glass-surface(accent, map-get($glass-effects, blur-subtle));
-    border-radius: 8px;
-    transform: rotate(45deg);
-    animation: floatDecoration 6s ease-in-out infinite;
-  }
-}
-
-// =============================================================================
-// CUBE LOGO STYLING - PROPORTIONAL SIZING
-// =============================================================================
-
-.cube-logo-bottom-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: clamp(3rem, 8vw, 5rem);
-  margin-bottom: map-get($hero-spacing, content-xlarge);
-  position: relative;
-}
-
-.cube-logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: map-get($hero-spacing, content-large);
-  position: relative;
-
-  // Enhanced glow effect for the logo container
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: clamp(5rem, 10vw, 7.5rem);
-    height: clamp(5rem, 10vw, 7.5rem);
-    border-radius: 50%;
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    pointer-events: none;
-    transition: opacity map-get($hero-animations, duration-slow) ease-in-out;
-    z-index: -1;
+    transform: translateY(20px);
   }
-
-  &:hover::before {
-    opacity: 0.3;
-  }
-
-  .light &::before {
-    background: radial-gradient(
-      circle,
-      map-get(map-get($hero-glass-themes, light), border-glow) 0%,
-      transparent 70%
-    );
-  }
-
-  .dark &::before {
-    background: radial-gradient(
-      circle,
-      map-get(map-get($hero-glass-themes, dark), border-glow) 0%,
-      transparent 70%
-    );
-  }
-}
-
-.cube-logo {
-  width: clamp(4rem, 8vw, 6.25rem); // 64px → 100px
-  height: clamp(4rem, 8vw, 6.25rem); // 64px → 100px
-  display: block;
-  position: relative;
-  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.15));
-  transition: all map-get($hero-animations, duration-normal)
-    map-get($hero-animations, ease-glass);
-
-  // Enhanced breathing animation
-  animation: logoBreathing 4s ease-in-out infinite;
-
-  &:hover {
-    transform: scale(1.05) rotateY(12deg);
-    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.2));
-  }
-
-  .light & {
-    filter: drop-shadow(0 6px 20px rgba(33, 150, 243, 0.2))
-      drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
-
-    &:hover {
-      filter: drop-shadow(0 10px 28px rgba(33, 150, 243, 0.3))
-        drop-shadow(0 6px 14px rgba(0, 0, 0, 0.15));
-    }
-  }
-
-  .dark & {
-    filter: drop-shadow(0 6px 20px rgba(0, 255, 184, 0.25))
-      drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
-
-    &:hover {
-      filter: drop-shadow(0 10px 28px rgba(0, 255, 184, 0.4))
-        drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
-    }
-  }
-
-  // SVG styling
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  // If using img tag
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-}
-
-// =============================================================================
-// ENHANCED TYPOGRAPHY - PROPORTIONAL SYSTEM
-// =============================================================================
-
-.floating-element {
-  &.logo-element {
-    @include glass-floating-animation(0.2s);
-  }
-
-  &.title-element {
-    @include glass-floating-animation(0.4s);
-  }
-
-  &.subtitle-element {
-    @include glass-floating-animation(0.6s);
-  }
-
-  &.description-element {
-    @include glass-floating-animation(0.8s);
-  }
-
-  &.buttons-element {
-    @include glass-floating-animation(1s);
-  }
-}
-
-.glass-title,
-.hero-card__title,
-.gradient-text {
-  font-size: map-get($hero-typography, hero-title);
-  font-weight: 900;
-  font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
-  letter-spacing: clamp(-0.015em, 0.4vw, 0.04em);
-  text-align: center;
-  width: 100%;
-  display: block;
-  line-height: 0.9;
-  margin-bottom: map-get($hero-spacing, content-medium);
-  margin-top: 0;
-
-  // Enhanced gradient text implementation
-  background: linear-gradient(
-    270deg,
-    #0f1113 0%,
-    #23272b 25%,
-    #31363b 50%,
-    #43484e 75%,
-    #5a5f66 100%
-  );
-  background-size: 400% 400%;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  animation: glassGradientFlow 8s ease-in-out infinite;
-
-  .dark & {
-    background: linear-gradient(
-      270deg,
-      #bfc1bd 0%,
-      #a5a7a2 20%,
-      #8d8f89 40%,
-      #6e706b 60%,
-      #4d4e4a 80%,
-      #23272b 100%
-    );
-    background-size: 400% 400%;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-  }
-
-  // Fallback for browsers that don't support background-clip: text
-  @supports not (background-clip: text) {
-    background: none !important;
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
-
-    .light & {
-      color: map-get(
-        map-get($hero-glass-themes, light),
-        text-primary
-      ) !important;
-      -webkit-text-fill-color: map-get(
-        map-get($hero-glass-themes, light),
-        text-primary
-      ) !important;
-    }
-
-    .dark & {
-      color: map-get(
-        map-get($hero-glass-themes, dark),
-        text-primary
-      ) !important;
-      -webkit-text-fill-color: map-get(
-        map-get($hero-glass-themes, dark),
-        text-primary
-      ) !important;
-    }
-  }
-
-  // Additional fallback for webkit
-  @supports not (-webkit-background-clip: text) {
-    background: none !important;
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
-
-    .light & {
-      color: map-get(
-        map-get($hero-glass-themes, light),
-        text-primary
-      ) !important;
-    }
-
-    .dark & {
-      color: map-get(
-        map-get($hero-glass-themes, dark),
-        text-primary
-      ) !important;
-    }
-  }
-}
-
-.glass-subtitle,
-.hero-card__subtitle,
-.subtitle {
-  font-family: "Inter", sans-serif;
-  font-size: map-get($hero-typography, hero-subtitle);
-  font-weight: 500;
-  margin-bottom: map-get($hero-spacing, content-medium);
-  letter-spacing: clamp(0.015em, 0.3vw, 0.08em);
-  text-align: center;
-  width: 100%;
-  line-height: 1.4;
-
-  .light & {
-    color: #2e4a62;
-    text-shadow: 0 0 14px #7fd8e6;
-  }
-
-  .dark & {
-    color: #b3eaff;
-    text-shadow: 0 0 14px #00bfff;
-  }
-}
-
-.glass-description,
-.hero-card__description,
-.description {
-  font-family: "Roboto", sans-serif;
-  font-size: map-get($hero-typography, hero-description);
-  font-weight: 400;
-  margin-top: map-get($hero-spacing, content-medium);
-  margin-bottom: map-get($hero-spacing, content-large);
-  line-height: 1.6;
-  text-align: center;
-  width: 100%;
-  max-width: clamp(45ch, 75vw, 55ch);
-  margin-left: auto;
-  margin-right: auto;
-
-  .light & {
-    color: #23272b;
-  }
-
-  .dark & {
-    color: #f5f7f6;
-  }
-}
-
-// =============================================================================
-// GLASS BUTTONS - PROPORTIONAL SIZING
-// =============================================================================
-
-.glass-buttons-container,
-.buttons-element {
-  display: flex;
-  gap: map-get($hero-spacing, content-medium);
-  margin-top: map-get($hero-spacing, content-medium);
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-// Military-inspired glass button colors for light and dark mode
-.glass-button,
-.min-button,
-.min-button-fill {
-  @include glass-button-base;
-
-  .light & {
-    color: #23272b;
-    background: linear-gradient(90deg, #f8fafb 0%, #e8ecec 100%);
-    border-color: #bfc1bd;
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  .dark & {
-    color: #e0eaff;
-    background: linear-gradient(90deg, #23272b 0%, #31363b 100%);
-    border-color: #6e706b;
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px) scale(1.02);
-
-    .light & {
-      box-shadow: 0 12px 40px #bfc1bd66, 0 0 25px #e8ecec99;
-      background: linear-gradient(90deg, #e8ecec 0%, #f8fafb 100%);
-    }
-
-    .dark & {
-      box-shadow: 0 12px 40px #6e706b88, 0 0 25px #31363b99;
-      background: linear-gradient(90deg, #31363b 0%, #23272b 100%);
-    }
-  }
-
-  &:focus-visible {
-    outline: none;
-
-    .light & {
-      box-shadow: 0 12px 40px #bfc1bd66, 0 0 0 2px #bfc1bd;
-    }
-
-    .dark & {
-      box-shadow: 0 12px 40px #6e706b88, 0 0 0 2px #6e706b;
-    }
-  }
-}
-
-.glass-button-primary,
-.min-button-fill {
-  .light & {
-    background: linear-gradient(90deg, #f8fafb 0%, #e8ecec 100%);
-    border-color: #bfc1bd;
-  }
-
-  .dark & {
-    background: linear-gradient(90deg, #23272b 0%, #31363b 100%);
-    border-color: #6e706b;
-  }
-}
-
-// =============================================================================
-// ADVANCED ANIMATIONS
-// =============================================================================
-
-@keyframes glassFloatIn {
-  0% {
-    opacity: 0;
-    transform: translateY(2.5rem) scale(0.96) rotateX(3deg);
-  }
-  100% {
+  to {
     opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
+    transform: translateY(0);
   }
 }
 
-@keyframes glassGradientFlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 200% 50%;
-  }
-  75% {
-    background-position: 300% 50%;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes floatDecoration {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-}
-
-@keyframes pulseGlow {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-}
-
-// Enhanced logo breathing animation
-@keyframes logoBreathing {
-  0%,
-  100% {
-    transform: scale(1) rotateY(0deg);
-  }
-  50% {
-    transform: scale(1.02) rotateY(3deg);
-  }
-}
-
-// =============================================================================
-// IMPROVED RESPONSIVE DESIGN - PROPORTIONAL MOBILE SPACING
-// =============================================================================
-
-// Extra small phones (iPhone SE, older devices)
-@media (max-width: 374px) {
+@media (max-width: 768px) {
   .hero-content-wrapper {
-    min-height: calc(100vh - map-get($hero-spacing, mobile-toolbar));
-    margin-top: map-get($hero-spacing, mobile-toolbar);
-    padding: map-get($hero-spacing, content-medium)
-      map-get($hero-spacing, content-small);
+    margin-top: 4rem;
+    min-height: calc(100vh - 4rem);
+    padding: 1.5rem 1rem;
   }
 
-  .futuristic-glass-hero {
-    max-width: 96vw;
-    border-radius: map-get($glass-effects, mobile-radius);
-    padding: map-get($hero-spacing, content-medium)
-      map-get($hero-spacing, content-small);
-    gap: map-get($hero-spacing, content-small);
-    backdrop-filter: blur(map-get($glass-effects, mobile-blur));
-    -webkit-backdrop-filter: blur(map-get($glass-effects, mobile-blur));
+  .modern-hero {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
   }
 
-  .cube-logo {
-    width: clamp(3.125rem, 12vw, 3.75rem); // 50px → 60px
-    height: clamp(3.125rem, 12vw, 3.75rem); // 50px → 60px
-  }
-
-  .glass-title,
-  .hero-card__title,
-  .gradient-text {
-    font-size: map-get($hero-typography, mobile-title);
-    line-height: 0.9;
-  }
-
-  .glass-subtitle,
-  .hero-card__subtitle,
-  .subtitle {
-    font-size: map-get($hero-typography, mobile-subtitle);
-  }
-
-  .glass-description,
-  .hero-card__description,
-  .description {
-    font-size: map-get($hero-typography, mobile-description);
-    max-width: 90vw;
-  }
-
-  .glass-decoration {
-    display: none;
-  }
-}
-
-// iPhone 14 Pro (393px) and similar devices - ENHANCED PROPORTIONAL SPACING
-@media (min-width: 375px) and (max-width: 430px) {
-  .hero-content-wrapper {
-    min-height: calc(100vh - map-get($hero-spacing, pro-toolbar));
-    margin-top: map-get($hero-spacing, pro-toolbar);
-    padding: clamp(1.75rem, 4.5vw, 2.25rem) clamp(1.125rem, 3vw, 1.5rem);
-  }
-
-  .futuristic-glass-hero {
-    max-width: clamp(22rem, 92vw, 26rem); // 352px → 416px
-    border-radius: map-get($glass-effects, border-radius);
-    padding: clamp(2rem, 5vw, 2.5rem) clamp(1.5rem, 4vw, 2rem);
-    gap: clamp(1.375rem, 3.2vw, 1.75rem);
-  }
-
-  .cube-logo-container {
-    margin-bottom: clamp(1.125rem, 2.8vw, 1.5rem);
-  }
-
-  .cube-logo {
-    width: clamp(3.75rem, 10vw, 4.6875rem); // 60px → 75px
-    height: clamp(3.75rem, 10vw, 4.6875rem); // 60px → 75px
-  }
-
-  .glass-title,
-  .hero-card__title,
-  .gradient-text {
-    font-size: map-get($hero-typography, pro-title);
-    margin-bottom: clamp(0.875rem, 2.2vw, 1.125rem);
-  }
-
-  .glass-subtitle,
-  .hero-card__subtitle,
-  .subtitle {
-    font-size: map-get($hero-typography, pro-subtitle);
-    margin-bottom: clamp(1.125rem, 2.8vw, 1.5rem);
-  }
-
-  .glass-description,
-  .hero-card__description,
-  .description {
-    font-size: map-get($hero-typography, pro-description);
-    margin-top: clamp(1.125rem, 2.8vw, 1.5rem);
-    margin-bottom: clamp(1.75rem, 4.2vw, 2.25rem);
-  }
-
-  .glass-buttons-container,
   .buttons-element {
     flex-direction: column;
-    align-items: center;
-    gap: clamp(1rem, 2.6vw, 1.375rem);
+    width: 100%;
 
-    .glass-button,
     .min-button,
     .min-button-fill {
       width: 100%;
-      max-width: clamp(15rem, 80vw, 18rem); // 240px → 288px
-      min-width: auto;
-      padding: clamp(0.875rem, 2.2vw, 1.125rem) clamp(1.5rem, 3.8vw, 2rem);
-      min-height: 2.75rem; // 44px touch target
+      max-width: 18rem;
     }
   }
 }
-
-// Large phones and small tablets (430px+) - IMPROVED SPACING
-@media (min-width: 431px) and (max-width: 767px) {
-  .hero-content-wrapper {
-    min-height: calc(100vh - map-get($hero-spacing, pro-toolbar));
-    margin-top: map-get($hero-spacing, pro-toolbar);
-    padding: clamp(2.25rem, 4.5vw, 2.75rem) clamp(1.375rem, 3vw, 1.875rem);
-  }
-
-  .futuristic-glass-hero {
-    max-width: clamp(26rem, 88vw, 32rem); // 416px → 512px
-    padding: clamp(2.25rem, 4.8vw, 3rem) clamp(1.75rem, 3.8vw, 2.5rem);
-    gap: clamp(1.5rem, 3.4vw, 2rem);
-  }
-
-  .cube-logo {
-    width: clamp(4.375rem, 9vw, 5.3125rem); // 70px → 85px
-    height: clamp(4.375rem, 9vw, 5.3125rem); // 70px → 85px
-  }
-
-  .glass-title,
-  .hero-card__title,
-  .gradient-text {
-    font-size: clamp(2.125rem, 3.6vw + 0.6rem, 3rem); // 34px → 48px
-  }
-
-  .glass-subtitle,
-  .hero-card__subtitle,
-  .subtitle {
-    font-size: clamp(1.0625rem, 1.2vw + 0.4rem, 1.25rem); // 17px → 20px
-  }
-
-  .glass-description,
-  .hero-card__description,
-  .description {
-    font-size: clamp(1.0625rem, 1vw + 0.5rem, 1.1875rem); // 17px → 19px
-  }
-
-  .glass-buttons-container,
-  .buttons-element {
-    flex-direction: row;
-    gap: clamp(1.25rem, 2.8vw, 1.75rem);
-
-    .glass-button,
-    .min-button,
-    .min-button-fill {
-      width: auto;
-      min-width: clamp(7.5rem, 18vw, 10rem); // 120px → 160px
-      max-width: 11.25rem; // 180px
-      padding: clamp(0.875rem, 2vw, 1.125rem) clamp(1.375rem, 3.2vw, 1.875rem);
-    }
-  }
-}
-
-// Tablets (768px+) - REFINED PROPORTIONS
-@media (min-width: 768px) {
-  .hero-content-wrapper {
-    min-height: calc(100vh - map-get($hero-spacing, tablet-toolbar));
-    margin-top: map-get($hero-spacing, tablet-toolbar);
-    padding: clamp(2.75rem, 3.8vw, 3.5rem) clamp(1.75rem, 2.4vw, 2.25rem);
-  }
-
-  .futuristic-glass-hero {
-    max-width: clamp(32rem, 82vw, 40rem); // 512px → 640px
-    padding: clamp(2.75rem, 3.6vw, 3.5rem) clamp(2.25rem, 3vw, 3rem);
-    gap: clamp(1.875rem, 2.6vw, 2.5rem);
-  }
-
-  .cube-logo-container {
-    margin-bottom: clamp(1.75rem, 2.4vw, 2.25rem);
-  }
-
-  .cube-logo {
-    width: clamp(5rem, 8vw, 5.9375rem); // 80px → 95px
-    height: clamp(5rem, 8vw, 5.9375rem); // 80px → 95px
-  }
-
-  .glass-title,
-  .hero-card__title,
-  .gradient-text {
-    font-size: map-get($hero-typography, tablet-title);
-  }
-
-  .glass-subtitle,
-  .hero-card__subtitle,
-  .subtitle {
-    font-size: map-get($hero-typography, tablet-subtitle);
-  }
-
-  .glass-description,
-  .hero-card__description,
-  .description {
-    font-size: map-get($hero-typography, tablet-description);
-  }
-
-  .glass-buttons-container,
-  .buttons-element {
-    flex-direction: row;
-    gap: clamp(1.5rem, 2.2vw, 2rem);
-
-    .glass-button,
-    .min-button,
-    .min-button-fill {
-      width: auto;
-      min-width: clamp(8.75rem, 16vw, 11.25rem); // 140px → 180px
-      padding: clamp(1rem, 1.4vw, 1.25rem) clamp(1.75rem, 2.6vw, 2.25rem);
-    }
-  }
-}
-
-// Large tablets/Desktop (1024px+) - OPTIMIZED FOR CONTAINER
-@media (min-width: 1024px) {
-  .hero-content-wrapper {
-    padding: clamp(3.25rem, 3.2vw, 4rem) clamp(2rem, 2vw, 2.5rem);
-  }
-
-  .futuristic-glass-hero {
-    max-width: clamp(38rem, 75vw, 42rem); // 608px → 672px (golden ratio)
-    padding: clamp(3.25rem, 3.2vw, 4rem) clamp(2.75rem, 2.8vw, 3.5rem);
-    gap: clamp(2rem, 2.2vw, 2.75rem);
-  }
-
-  .cube-logo {
-    width: clamp(5.625rem, 6vw, 6.25rem); // 90px → 100px
-    height: clamp(5.625rem, 6vw, 6.25rem); // 90px → 100px
-  }
-
-  .glass-buttons-container,
-  .buttons-element {
-    gap: clamp(1.75rem, 1.8vw, 2.25rem);
-
-    .glass-button,
-    .min-button,
-    .min-button-fill {
-      min-width: clamp(10rem, 14vw, 12rem); // 160px → 192px
-      padding: clamp(1.125rem, 1.2vw, 1.375rem) clamp(2rem, 2.2vw, 2.5rem);
-    }
-  }
-}
-
-// =============================================================================
-// ACCESSIBILITY & PERFORMANCE
-// =============================================================================
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .glass-decoration {
-    display: none;
-  }
-
-  .cube-logo {
-    animation: none;
-
-    &:hover {
-      transform: none;
-    }
-  }
-}
-
-// High contrast mode support
-@media (prefers-contrast: high) {
-  .futuristic-glass-hero {
-    .light & {
-      background: rgba(255, 255, 255, 0.95);
-      border-color: #000000;
-    }
-
-    .dark & {
-      background: rgba(0, 0, 0, 0.95);
-      border-color: #ffffff;
-    }
-  }
-
-  .gradient-text,
-  .glass-title,
-  .hero-card__title {
-    background: none !important;
-
-    .light & {
-      color: #000000 !important;
-      -webkit-text-fill-color: #000000 !important;
-    }
-
-    .dark & {
-      color: #ffffff !important;
-      -webkit-text-fill-color: #ffffff !important;
-    }
-  }
-}
-
-// Performance optimizations for mobile devices
-@media (max-width: 767px) {
-  .futuristic-glass-hero {
-    will-change: transform;
-    transform: translateZ(0);
-    backdrop-filter: blur(map-get($glass-effects, mobile-blur));
-    -webkit-backdrop-filter: blur(map-get($glass-effects, mobile-blur));
-  }
-
-  .cube-logo {
-    will-change: transform;
-    transform: translateZ(0);
-  }
-
-  .glass-decoration {
-    display: none !important;
-  }
-}
-
-// Touch-specific optimizations - IMPROVED TOUCH TARGETS
-@media (hover: none) and (pointer: coarse) {
-  .glass-button,
-  .min-button,
-  .min-button-fill {
-    min-height: 2.75rem; // 44px minimum
-    min-width: 2.75rem; // 44px minimum
-    padding: clamp(0.875rem, 2.8vw, 1.25rem) clamp(1.5rem, 4vw, 2.25rem);
-  }
-
-  .cube-logo {
-    &:hover {
-      transform: none;
-      filter: none;
-    }
-  }
-}
-
-// Landscape orientation optimizations for phones
-@media (max-height: 500px) and (orientation: landscape) {
-  .hero-content-wrapper {
-    min-height: calc(100vh - 3rem);
-    margin-top: 3rem;
-    padding: clamp(1rem, 2vh, 1.5rem) clamp(1rem, 2.5vw, 1.75rem);
-  }
-
-  .futuristic-glass-hero {
-    padding: clamp(1.25rem, 2.5vh, 1.75rem) clamp(1.25rem, 2.8vw, 2rem);
-    gap: clamp(0.875rem, 2vh, 1.25rem);
-  }
-
-  .cube-logo {
-    width: clamp(2.8125rem, 5vh, 4.375rem); // 45px → 70px
-    height: clamp(2.8125rem, 5vh, 4.375rem); // 45px → 70px
-  }
-
-  .glass-buttons-container,
-  .buttons-element {
-    flex-direction: row;
-    gap: clamp(0.875rem, 2vw, 1.5rem);
-
-    .glass-button,
-    .min-button,
-    .min-button-fill {
-      padding: clamp(0.625rem, 1.2vh, 0.875rem) clamp(1.125rem, 2.5vw, 1.75rem);
-      min-width: clamp(6rem, 16vw, 8.75rem); // 96px → 140px
-    }
   }
 }
