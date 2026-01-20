@@ -6,82 +6,289 @@
   height: 100vh;
   z-index: -1;
 
-  // Light theme - soft ethereal glows with neutral base
+  // OPTION 1: Neutral Tech (Silicon Valley Modern)
+  // Light theme - cool silver, blue-gray, steel
   &.light {
     background:
+      // Cool silver - top left
       radial-gradient(
-        ellipse 800px 600px at 5% 10%,
-        hsla(0, 0%, 98%, 0.9) 0%,
+        ellipse 650px 550px at 10% 15%,
+        hsla(200, 20%, 75%, 0.45) 0%,
         transparent 50%
       ),
+      // Blue-gray - top right
       radial-gradient(
-        ellipse 700px 700px at 95% 5%,
-        hsla(0, 0%, 95%, 0.85) 0%,
-        transparent 55%
-      ),
+          ellipse 700px 700px at 88% 10%,
+          hsla(210, 25%, 70%, 0.42) 0%,
+          transparent 55%
+        ),
+      // Steel blue - bottom right
       radial-gradient(
-        ellipse 900px 500px at 90% 95%,
-        hsla(0, 0%, 92%, 0.8) 0%,
-        transparent 50%
-      ),
+          ellipse 750px 500px at 85% 90%,
+          hsla(215, 22%, 68%, 0.38) 0%,
+          transparent 50%
+        ),
+      // Slate gray - bottom left
       radial-gradient(
-        ellipse 600px 800px at 3% 88%,
-        hsla(0, 0%, 96%, 0.75) 0%,
-        transparent 52%
-      ),
-      hsla(0, 0%, 96%, 1);
-    filter: blur(120px);
+          ellipse 600px 750px at 8% 85%,
+          hsla(205, 18%, 72%, 0.4) 0%,
+          transparent 52%
+        ),
+      // Center platinum glow
+      radial-gradient(
+          ellipse 850px 550px at 50% 50%,
+          hsla(200, 15%, 78%, 0.35) 0%,
+          transparent 60%
+        ),
+      // Neutral base
+      hsla(0, 0%, 95%, 1);
+    filter: blur(75px);
 
     &::before {
       opacity: 0.05;
     }
   }
 
-  // Dark theme - aurora glows with deep black space
+  // Dark theme - deep tech neutrals
   &.dark {
     background:
+      // Dark steel - top left
       radial-gradient(
-        ellipse 900px 700px at 2% 8%,
-        hsla(0, 0%, 25%, 0.6) 0%,
+        ellipse 700px 600px at 8% 12%,
+        hsla(210, 25%, 32%, 0.5) 0%,
         transparent 55%
       ),
+      // Charcoal blue - top right
       radial-gradient(
-        ellipse 800px 800px at 98% 3%,
-        hsla(0, 0%, 22%, 0.65) 0%,
-        transparent 60%
-      ),
+          ellipse 750px 750px at 92% 8%,
+          hsla(215, 30%, 28%, 0.48) 0%,
+          transparent 60%
+        ),
+      // Gunmetal - bottom right
       radial-gradient(
-        ellipse 1000px 600px at 92% 97%,
-        hsla(0, 0%, 28%, 0.55) 0%,
-        transparent 58%
-      ),
+          ellipse 850px 550px at 88% 90%,
+          hsla(205, 22%, 30%, 0.45) 0%,
+          transparent 58%
+        ),
+      // Midnight blue - bottom left
       radial-gradient(
-        ellipse 700px 900px at 1% 92%,
-        hsla(0, 0%, 20%, 0.7) 0%,
-        transparent 56%
-      ),
+          ellipse 650px 800px at 5% 88%,
+          hsla(220, 28%, 26%, 0.48) 0%,
+          transparent 56%
+        ),
+      // Center iron glow
       radial-gradient(
-        ellipse 500px 500px at 50% 50%,
-        hsla(0, 0%, 18%, 0.4) 0%,
-        transparent 70%
-      ),
-      hsla(0, 0%, 8%, 1);
-    filter: blur(140px);
+          ellipse 600px 600px at 50% 50%,
+          hsla(200, 20%, 25%, 0.38) 0%,
+          transparent 70%
+        ),
+      // Deep black base
+      hsla(0, 0%, 6%, 1);
+    filter: blur(90px);
 
     &::before {
       opacity: 0.065;
     }
   }
+
+  // OPTION 2: Uncomment for Teal & Coral (Modern Vibrant)
+  // &.light {
+  //   background:
+  //     // Coral glow - top left
+  //     radial-gradient(
+  //       ellipse 650px 550px at 12% 18%,
+  //       hsla(10, 85%, 70%, 0.4) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Teal glow - top right
+  //     radial-gradient(
+  //       ellipse 700px 700px at 85% 12%,
+  //       hsla(175, 70%, 60%, 0.35) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Soft peach - bottom right
+  //     radial-gradient(
+  //       ellipse 750px 500px at 82% 88%,
+  //       hsla(25, 90%, 75%, 0.3) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Aqua - bottom left
+  //     radial-gradient(
+  //       ellipse 600px 750px at 10% 82%,
+  //       hsla(180, 75%, 65%, 0.32) 0%,
+  //       transparent 52%
+  //     ),
+  //     // Neutral base
+  //     hsla(0, 0%, 95%, 1);
+  //   filter: blur(75px);
+  // }
+
+  // &.dark {
+  //   background:
+  //     // Bright coral - top left
+  //     radial-gradient(
+  //       ellipse 700px 600px at 10% 15%,
+  //       hsla(10, 100%, 60%, 0.32) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Electric teal - top right
+  //     radial-gradient(
+  //       ellipse 750px 750px at 88% 10%,
+  //       hsla(175, 85%, 50%, 0.3) 0%,
+  //       transparent 60%
+  //     ),
+  //     // Orange accent - bottom right
+  //     radial-gradient(
+  //       ellipse 850px 550px at 85% 88%,
+  //       hsla(20, 100%, 58%, 0.28) 0%,
+  //       transparent 58%
+  //     ),
+  //     // Cyan - bottom left
+  //     radial-gradient(
+  //       ellipse 650px 800px at 8% 85%,
+  //       hsla(185, 90%, 55%, 0.3) 0%,
+  //       transparent 56%
+  //     ),
+  //     // Deep black base
+  //     hsla(0, 0%, 6%, 1);
+  //   filter: blur(90px);
+  // }
+
+  // OPTION 3: Uncomment for Blue & Orange (Tech Corporate)
+  // &.light {
+  //   background:
+  //     // Orange glow - top left
+  //     radial-gradient(
+  //       ellipse 650px 550px at 15% 20%,
+  //       hsla(30, 95%, 65%, 0.38) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Cool blue - top right
+  //     radial-gradient(
+  //       ellipse 700px 700px at 82% 15%,
+  //       hsla(210, 80%, 70%, 0.35) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Warm orange - bottom right
+  //     radial-gradient(
+  //       ellipse 750px 500px at 80% 85%,
+  //       hsla(25, 100%, 70%, 0.32) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Sky blue - bottom left
+  //     radial-gradient(
+  //       ellipse 600px 750px at 12% 80%,
+  //       hsla(200, 75%, 75%, 0.33) 0%,
+  //       transparent 52%
+  //     ),
+  //     // Neutral base
+  //     hsla(0, 0%, 95%, 1);
+  //   filter: blur(75px);
+  // }
+
+  // &.dark {
+  //   background:
+  //     // Vibrant orange - top left
+  //     radial-gradient(
+  //       ellipse 700px 600px at 12% 18%,
+  //       hsla(30, 100%, 58%, 0.35) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Electric blue - top right
+  //     radial-gradient(
+  //       ellipse 750px 750px at 85% 12%,
+  //       hsla(210, 100%, 60%, 0.32) 0%,
+  //       transparent 60%
+  //     ),
+  //     // Amber accent - bottom right
+  //     radial-gradient(
+  //       ellipse 850px 550px at 82% 85%,
+  //       hsla(35, 100%, 55%, 0.3) 0%,
+  //       transparent 58%
+  //     ),
+  //     // Cyan blue - bottom left
+  //     radial-gradient(
+  //       ellipse 650px 800px at 10% 82%,
+  //       hsla(195, 95%, 55%, 0.32) 0%,
+  //       transparent 56%
+  //     ),
+  //     // Deep black base
+  //     hsla(0, 0%, 6%, 1);
+  //   filter: blur(90px);
+  // }
+
+  // OPTION 4: Uncomment for Lime & Magenta (Matrix Cyberpunk)
+  // &.light {
+  //   background:
+  //     // Soft lime - top left
+  //     radial-gradient(
+  //       ellipse 650px 550px at 15% 22%,
+  //       hsla(75, 70%, 65%, 0.35) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Magenta - top right
+  //     radial-gradient(
+  //       ellipse 700px 700px at 80% 18%,
+  //       hsla(320, 85%, 70%, 0.33) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Yellow-green - bottom right
+  //     radial-gradient(
+  //       ellipse 750px 500px at 78% 82%,
+  //       hsla(85, 75%, 70%, 0.3) 0%,
+  //       transparent 50%
+  //     ),
+  //     // Pink - bottom left
+  //     radial-gradient(
+  //       ellipse 600px 750px at 15% 78%,
+  //       hsla(330, 80%, 75%, 0.32) 0%,
+  //       transparent 52%
+  //     ),
+  //     // Neutral base
+  //     hsla(0, 0%, 95%, 1);
+  //   filter: blur(75px);
+  // }
+
+  // &.dark {
+  //   background:
+  //     // Electric lime - top left
+  //     radial-gradient(
+  //       ellipse 700px 600px at 12% 20%,
+  //       hsla(75, 100%, 50%, 0.32) 0%,
+  //       transparent 55%
+  //     ),
+  //     // Hot magenta - top right
+  //     radial-gradient(
+  //       ellipse 750px 750px at 82% 15%,
+  //       hsla(320, 100%, 60%, 0.35) 0%,
+  //       transparent 60%
+  //     ),
+  //     // Green accent - bottom right
+  //     radial-gradient(
+  //       ellipse 850px 550px at 80% 82%,
+  //       hsla(85, 100%, 45%, 0.28) 0%,
+  //       transparent 58%
+  //     ),
+  //     // Pink purple - bottom left
+  //     radial-gradient(
+  //       ellipse 650px 800px at 10% 80%,
+  //       hsla(310, 95%, 58%, 0.3) 0%,
+  //       transparent 56%
+  //     ),
+  //     // Deep black base
+  //     hsla(0, 0%, 6%, 1);
+  //   filter: blur(90px);
+  // }
 }
 
 // Mobile-first approach (iPhone 14 Pro: 393x852)
 @media (min-width: 393px) {
   .mesher-background {
     &.light {
-      filter: blur(100px);
+      filter: blur(70px);
     }
     &.dark {
-      filter: blur(120px);
+      filter: blur(90px);
     }
   }
 }
@@ -90,10 +297,10 @@
 @media (min-width: 768px) {
   .mesher-background {
     &.light {
-      filter: blur(110px);
+      filter: blur(75px);
     }
     &.dark {
-      filter: blur(130px);
+      filter: blur(95px);
     }
   }
 }
